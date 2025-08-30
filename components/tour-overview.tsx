@@ -1,0 +1,46 @@
+import { Plane, MapPin } from "lucide-react"
+
+export function TourOverview() {
+  return (
+    <div className="container max-w-6xl mx-auto px-6 py-10 mt-8 mb-8">
+      <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Left Section - Text */}
+          <div>
+            <h2 className="text-2xl font-bold text-purple-600 mb-5">
+              TOUR OVERVIEW
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-5 text-base">
+              Journey through the heart of Central Asia and discover Uzbekistan, a very interesting history and the
+              connection with the famous Silk Road. The travel cultural connections with the past are evident everywhere
+              you look. You will meet and an historical theatrical performance.
+            </p>
+
+            <div className="flex items-center gap-4 mb-3">
+              <MapPin className="w-5 h-5 text-purple-600" />
+              <span className="font-semibold text-base">Classic Touring</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Plane className="w-5 h-5 text-purple-600" />
+              <span className="font-semibold text-base">Flight Choices</span>
+            </div>
+          </div>
+
+          {/* Right Section - Map */}
+          <div className="relative">
+            <img
+              src="/images/uzbekistan-tour-map.png"
+              alt="Tour route map"
+              className="w-full h-80 object-cover rounded-lg shadow-md"
+            />
+            <div className="absolute bottom-3 right-3">
+              <button className="text-purple-600 hover:text-purple-800 font-semibold text-base">
+                Enlarge map →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
