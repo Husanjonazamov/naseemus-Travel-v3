@@ -80,12 +80,15 @@ export function TrustpilotReviews() {
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-green-500 text-green-500" />
+                     <Star
+                      key={i}
+                      className="h-4 w-4 text-[#007654]" // text-color SVG ichida fill rangini oladi
+                    />
                     ))}
                   </div>
                   {review.verified && (
                     <div className="flex items-center gap-1 text-sm text-gray-600">
-                      <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                      <div className="w-4 h-4 bg-[#007654] rounded-full flex items-center justify-center">
                         <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
                           <path
                             fillRule="evenodd"
@@ -124,8 +127,8 @@ export function TrustpilotReviews() {
             </span>
           </div>
           <div className="flex items-center justify-center mt-2">
-            <Star className="h-5 w-5 fill-green-500 text-green-500 mr-2" />
-            <span className="font-semibold text-green-600">Trustpilot</span>
+            <Star className="h-5 w-5 fill-green-500 text-[#007654] mr-2" />
+            <span className="font-semibold text-[#007654]">Trustpilot</span>
           </div>
         </div>
       </div>

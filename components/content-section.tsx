@@ -69,7 +69,7 @@ export function ContentSection() {
     <section className="py-16 px-4 bg-gray-50 mt-20 mb-20">
       <div className="max-w-6xl mx-auto">
         {/* Main heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-purple-700 mb-10">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-[#007654] mb-10">
           THE TRUSTED EXPERTS FOR SOLO HOLIDAYS
         </h2>
 
@@ -88,12 +88,12 @@ export function ContentSection() {
                 <Image src={card.image} alt={card.title} fill className="object-cover" />
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold text-blue-600 mb-3">{card.title}</h3>
+                <h3 className="text-2xl font-bold text-[#007654] mb-3">{card.title}</h3>
                 <p className="text-gray-700 mb-4 h-[110px] overflow-hidden leading-relaxed">
                   {formatDescription(card.description)}
                 </p>
                 <div className="flex justify-end mt-auto">
-                  <Button className="bg-purple-700 hover:bg-purple-800 text-white px-8 py-3 text-lg font-bold">
+                  <Button className="bg-[#007654] hover:bg-[#006148] text-white px-8 py-3 text-lg font-bold">
                     {card.button}
                   </Button>
                 </div>
@@ -113,7 +113,6 @@ export function ContentSection() {
             loop
             className="pb-12"
           >
-
             {cards.map((card, index) => (
               <SwiperSlide key={index}>
                 <div className="bg-white shadow-lg overflow-hidden 
@@ -125,12 +124,12 @@ export function ContentSection() {
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-2xl font-bold text-blue-600 mb-3">{card.title}</h3>
+                    <h3 className="text-2xl font-bold text-[#007654] mb-3">{card.title}</h3>
                     <p className="text-gray-700 mb-4 h-[110px] overflow-hidden leading-relaxed">
                       {formatDescription(card.description)}
                     </p>
                     <div className="flex justify-end mt-auto">
-                      <Button className="bg-purple-700 hover:bg-purple-800 text-white px-12 py-6 text-lg font-bold">
+                      <Button className="bg-[#007654] hover:bg-[#006148] text-white px-12 py-6 text-lg font-bold">
                         {card.button}
                       </Button>
                     </div>
@@ -141,11 +140,10 @@ export function ContentSection() {
           </Swiper>
         </div>
 
-
         {/* Back to top button */}
         <div className="flex justify-end">
           <Button
-            className="bg-blue-500 hover:bg-blue-600 text-white shadow-lg rounded-full p-3"
+            className="bg-[#007654] hover:bg-[#006148] text-white shadow-lg rounded-full p-3"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <ArrowUp className="h-5 w-5" />

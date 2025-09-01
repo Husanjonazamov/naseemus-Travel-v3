@@ -34,7 +34,7 @@ export function Itinerary() {
       <div className="container max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-          <h2 className="text-3xl font-bold text-purple-700">ITINERARY</h2>
+          <h2 className="text-3xl font-bold text-[#007654]">ITINERARY</h2>
           <div className="flex gap-2">
             <Button variant="outline" size="sm">
               <Printer className="w-4 h-4 mr-2" />
@@ -42,7 +42,7 @@ export function Itinerary() {
             <Button variant="outline" size="sm">
               <Download className="w-4 h-4 mr-2" />
             </Button>
-            <Button className="bg-purple-700 hover:bg-purple-800 text-white">
+            <Button className="bg-[#007654] hover:bg-[#006148] text-white">
               PRINT ITINERARY
             </Button>
           </div>
@@ -56,8 +56,8 @@ export function Itinerary() {
                 key={day.day}
                 className={`py-3 px-2 cursor-pointer border-b transition-colors ${
                   selectedDay === day.day
-                    ? "text-purple-700 font-semibold"
-                    : "text-gray-700 hover:text-purple-600"
+                    ? "text-[#007654] font-semibold"
+                    : "text-gray-700 hover:text-[#007654]"
                 }`}
                 onClick={() => setSelectedDay(day.day)}
               >
@@ -94,7 +94,7 @@ export function Itinerary() {
             />
 
             <div className="mt-3 flex flex-col flex-grow">
-              <h3 className="text-xl font-bold text-purple-700 mb-2">
+              <h3 className="text-xl font-bold text-[#007654] mb-2">
                 DAY {currentDay.day}: {currentDay.title.toUpperCase()}
               </h3>
               <p className="text-gray-700 leading-relaxed flex-grow">
@@ -102,7 +102,7 @@ export function Itinerary() {
               </p>
               <div className="flex justify-end mt-4">
                 <Button
-                  className="bg-purple-700 hover:bg-purple-800 text-white"
+                  className="bg-[#007654] hover:bg-[#006148] text-white"
                   onClick={handleNextDay}
                   disabled={selectedDay >= days.length}
                 >

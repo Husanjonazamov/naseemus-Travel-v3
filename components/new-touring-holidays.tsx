@@ -62,7 +62,7 @@ export function NewTouringHolidays() {
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-purple-600 mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#007654] mb-12">
           NEW SOLO TOURING HOLIDAYS
         </h2>
 
@@ -75,14 +75,14 @@ export function NewTouringHolidays() {
 
                 {/* Content */}
                 <div className="flex flex-col flex-grow p-6">
-                  <h3 className="text-xl font-bold text-blue-600 mb-2">{destination.title}</h3>
+                  <h3 className="text-xl font-bold text-[#007654] mb-2">{destination.title}</h3>
                   <p className="text-gray-700 text-sm mb-4 leading-relaxed">{destination.description}</p>
 
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {destination.features.map((feature, i) => (
                       <li key={i} className="flex items-start text-sm text-gray-700">
-                        <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="w-2 h-2 bg-[#007654] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         {feature}
                       </li>
                     ))}
@@ -90,8 +90,8 @@ export function NewTouringHolidays() {
 
                   {/* Price va Button bir chiziqda */}
                   <div className="flex items-center justify-between mt-auto">
-                    <p className="text-purple-700 font-bold text-3xl">{destination.price}</p>
-                    <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
+                    <p className="text-[#007654] font-bold text-3xl">{destination.price}</p>
+                    <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
                       Explore →
                     </Button>
                   </div>
@@ -106,14 +106,14 @@ export function NewTouringHolidays() {
                 <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${destination.image}')` }}></div>
 
                 <div className="flex flex-col flex-grow p-6">
-                  <h3 className="text-xl font-bold text-blue-600 mb-2">{destination.title}</h3>
+                  <h3 className="text-xl font-bold text-[#007654] mb-2">{destination.title}</h3>
                   <p className="text-gray-700 text-sm mb-4 leading-relaxed">{destination.description}</p>
 
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {destination.features.map((feature, i) => (
                       <li key={i} className="flex items-start text-sm text-gray-700">
-                        <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="w-2 h-2 bg-[#007654] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         {feature}
                       </li>
                     ))}
@@ -121,8 +121,8 @@ export function NewTouringHolidays() {
 
                   {/* Price va Button bir chiziqda */}
                   <div className="flex items-center justify-between mt-auto">
-                    <p className="text-purple-700 font-bold text-2xl">{destination.price}</p>
-                    <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
+                    <p className="text-[#007654] font-bold text-2xl">{destination.price}</p>
+                    <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
                       Explore →
                     </Button>
                   </div>

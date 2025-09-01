@@ -18,10 +18,10 @@ export function Footer() {
             <div className="mt-8">
               <h4 className="text-lg font-semibold text-gray-900 mb-4">FOLLOW US</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-600 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-600 hover:text-[#007654] transition-colors">
                   <Facebook className="h-6 w-6" />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-600 hover:text-[#007654] transition-colors">
                   <Instagram className="h-6 w-6" />
                 </a>
               </div>
@@ -33,42 +33,42 @@ export function Footer() {
             <h3 className="text-lg font-semibold text-gray-900 mb-6">INFORMATION</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Booking Conditions
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Essential Information
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Package Travel Information
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Foreign Travel Advice
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Brexit Travel Advice
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Modern Slavery Statement
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Animal Welfare Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Website Disclaimer
                 </a>
               </li>
@@ -78,17 +78,17 @@ export function Footer() {
               <h4 className="text-lg font-semibold text-gray-900 mb-4">CORPORATE</h4>
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                  <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                     Travelsphere
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                  <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                     Careers
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                  <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                     Trade Agent Hub
                   </a>
                 </li>
@@ -101,22 +101,22 @@ export function Footer() {
             <h3 className="text-lg font-semibold text-gray-900 mb-6">CUSTOMER SUPPORT</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Community
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-700 hover:text-purple-600 transition-colors">
+                <a href="#" className="text-gray-700 hover:text-[#007654] transition-colors">
                   Frequently Asked Questions
                 </a>
               </li>
@@ -128,7 +128,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold text-gray-900 mb-6">NEWSLETTER SIGN UP</h3>
             <div className="flex gap-2">
               <Input type="email" placeholder="Email address" className="flex-1" />
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6">Sign Up</Button>
+              <Button className="bg-[#007654] hover:bg-[#006644] text-white px-6">Sign Up</Button>
             </div>
           </div>
         </div>
@@ -137,22 +137,22 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-gray-200">
           <div className="flex justify-center items-center space-x-8">
             <div className="flex items-center space-x-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-[#007654] from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xs">WINNER</span>
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-[#007654] from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xs">WINNER</span>
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-[#007654] from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xs">WINNER</span>
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-[#007654] from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xs">WINNER</span>
               </div>
             </div>

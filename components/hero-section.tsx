@@ -32,7 +32,7 @@ export function HeroSection() {
               </div>
 
               <div className="relative inline-block">
-                <Button className="bg-orange-400 hover:bg-orange-500 text-white px-6 py-2 rounded-full text-lg font-semibold shadow-lg transition-all duration-200 hover:shadow-xl">
+                <Button className="bg-[#007654] hover:bg-[#007654] text-white px-6 py-2 rounded-full text-lg font-semibold shadow-lg transition-all duration-200 hover:shadow-xl">
                   SAVE NOW
                 </Button>
               </div>
@@ -51,7 +51,7 @@ export function HeroSection() {
                   className="w-full h-10 sm:h-12 text-base sm:text-lg border-gray-300 focus:border-purple-500 focus:ring-purple-500"
                 />
               </div>
-              <Button className="bg-purple-700 hover:bg-purple-800 text-white px-6 sm:px-8 h-10 sm:h-12 rounded-md transition-colors">
+              <Button className="bg-[#007654] hover:bg-[#007654] text-white px-6 sm:px-8 h-10 sm:h-12 rounded-md transition-colors">
                 <Search className="h-5 w-5" />
               </Button>
             </div>

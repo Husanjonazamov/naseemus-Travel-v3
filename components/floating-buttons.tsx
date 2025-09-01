@@ -13,7 +13,7 @@ export function FloatingButtons() {
       {/* Chat Button */}
       <Button
         size="lg"
-        className="bg-purple-600 hover:bg-purple-700 text-white rounded-full w-14 h-14 p-0 shadow-lg"
+        className="bg-[#036044] hover:bg-[#007654] text-white rounded-full w-14 h-14 p-0 shadow-lg"
         aria-label="Chat support"
       >
         <MessageCircle className="w-6 h-6" />
@@ -23,7 +23,7 @@ export function FloatingButtons() {
       <Button
         onClick={scrollToTop}
         size="lg"
-        className="bg-blue-500 hover:bg-blue-600 text-white rounded-full w-14 h-14 p-0 shadow-lg"
+        className="bg-[#007654] hover:bg-[#007654] text-white rounded-full w-14 h-14 p-0 shadow-lg"
         aria-label="Scroll to top"
       >
         <ArrowUp className="w-6 h-6" />

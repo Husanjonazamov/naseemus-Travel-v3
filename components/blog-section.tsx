@@ -30,7 +30,6 @@ export function BlogSection() {
     },
   ]
 
-  // Keen-slider sozlamalari (faqat mobil uchun)
   const [sliderRef] = useKeenSlider({
     loop: true,
     slides: { perView: 1.1, spacing: 10 },
@@ -51,7 +50,7 @@ export function BlogSection() {
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-purple-600 mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#007654] mb-12">
           Read Our blogs
         </h2>
 
@@ -64,13 +63,13 @@ export function BlogSection() {
 
                 {/* Content */}
                 <div className="flex flex-col flex-grow p-6">
-                  <h3 className="text-xl font-bold text-blue-600 mb-4">{destination.title}</h3>
+                  <h3 className="text-xl font-bold text-[#007654] mb-4">{destination.title}</h3>
                   <p className="text-gray-700 text-sm mb-6 leading-relaxed">{destination.description}</p>
 
                   {/* Price va Button bir chiziqda */}
                   <div className="flex items-center justify-between mt-auto">
-                    <p className="text-purple-700 font-bold text-3xl">{destination.price}</p>
-                    <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
+                    <p className="text-[#007654] font-bold text-3xl">{destination.price}</p>
+                    <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
                       Explore →
                     </Button>
                   </div>
@@ -85,13 +84,12 @@ export function BlogSection() {
                 <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${destination.image}')` }}></div>
 
                 <div className="flex flex-col flex-grow p-6">
-                  <h3 className="text-xl font-bold text-blue-600 mb-4">{destination.title}</h3>
+                  <h3 className="text-xl font-bold text-[#007654] mb-4">{destination.title}</h3>
                   <p className="text-gray-700 text-sm mb-6 leading-relaxed">{destination.description}</p>
 
                   {/* Price va Button bir chiziqda */}
                   <div className="flex items-center justify-between mt-auto">
-                    <p className="text-purple-700 font-bold text-2xl">{destination.price}</p>
-                    <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
+                    <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
                       Explore →
                     </Button>
                   </div>

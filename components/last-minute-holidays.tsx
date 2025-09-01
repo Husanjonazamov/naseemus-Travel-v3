@@ -79,9 +79,9 @@ export default function LastMinuteHolidays() {
   }, [instanceRef])
 
   return (
-    <section className="bg-purple-300 py-16 px-4 relative">
+    <section className="bg-[#E6F4EF] py-16 px-4 relative">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-12 tracking-wide">
+        <h2 className="text-3xl md:text-5xl font-bold text-[#007654] text-center mb-12 tracking-wide">
           LAST MINUTE HOLIDAYS
         </h2>
 
@@ -118,14 +118,14 @@ export default function LastMinuteHolidays() {
                       key={index}
                       className="flex items-start gap-2 text-sm text-gray-700"
                     >
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-[#007654] rounded-full mt-2 flex-shrink-0"></div>
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-auto flex justify-end">
-                  <Button className="bg-purple-600 font-bold text-lg hover:bg-purple-700 text-white font-bold px-8 py-6 rounded-md shadow-md transition-all">
+                  <Button className="bg-[#007654] hover:bg-[#006148] font-bold text-lg text-white px-8 py-6 rounded-md shadow-md transition-all">
                     Explore →
                   </Button>
                 </div>

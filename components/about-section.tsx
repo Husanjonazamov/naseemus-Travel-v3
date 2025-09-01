@@ -4,7 +4,7 @@ export function AboutSection() {
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-purple-700 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#007654] text-center mb-12">
           HOLIDAYS THAT LET YOU BE JUST YOU
         </h2>
 
@@ -25,25 +25,16 @@ export function AboutSection() {
             </p>
           </div>
 
-          {/* Video Thumbnail */}
-          <div className="relative">
-            <div
-              className="relative rounded-lg overflow-hidden shadow-lg bg-cover bg-center h-80"
-              style={{
-                backgroundImage:
-                  "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-p0ONHzeczwtfwIecuRo4udvdkl8HI4.png')",
-              }}
-            >
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="bg-black/70 hover:bg-black/80 rounded-full p-4 transition-colors group">
-                  <Play
-                    className="w-8 h-8 text-white ml-1 group-hover:scale-110 transition-transform"
-                    fill="currentColor"
-                  />
-                </button>
-              </div>
-            </div>
+          {/* Embedded YouTube Video */}
+          <div className="relative rounded-lg overflow-hidden shadow-lg h-80">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/P2eKSeWyfvE"
+              title="Travel Inspiration Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       </div>

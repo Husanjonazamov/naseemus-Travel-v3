@@ -7,7 +7,7 @@ export function TourOverview() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Left Section - Text */}
           <div>
-            <h2 className="text-2xl font-bold text-purple-600 mb-5">
+            <h2 className="text-2xl font-bold text-[#007654] mb-5">
               TOUR OVERVIEW
             </h2>
             <p className="text-gray-700 leading-relaxed mb-5 text-base">
@@ -17,11 +17,11 @@ export function TourOverview() {
             </p>
 
             <div className="flex items-center gap-4 mb-3">
-              <MapPin className="w-5 h-5 text-purple-600" />
+              <MapPin className="w-5 h-5 text-[#007654]" />
               <span className="font-semibold text-base">Classic Touring</span>
             </div>
             <div className="flex items-center gap-4">
-              <Plane className="w-5 h-5 text-purple-600" />
+              <Plane className="w-5 h-5  text-[#007654]" />
               <span className="font-semibold text-base">Flight Choices</span>
             </div>
           </div>
@@ -34,7 +34,7 @@ export function TourOverview() {
               className="w-full h-80 object-cover rounded-lg shadow-md"
             />
             <div className="absolute bottom-3 right-3">
-              <button className="text-purple-600 hover:text-purple-800 font-semibold text-base">
+              <button className="text-[#007654] hover:text-[#007654] font-semibold text-base">
                 Enlarge map →
               </button>
             </div>

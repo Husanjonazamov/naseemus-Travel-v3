@@ -24,7 +24,7 @@ export function TrustBadges() {
           {/* Experience */}
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
-              <span className="text-lg font-bold text-purple-700">25</span>
+              <span className="text-lg font-bold text-[#007654]">25</span>
             </div>
             <span className="text-sm font-medium text-gray-900">OVER 25 YEARS EXPERTISE</span>
           </div>
