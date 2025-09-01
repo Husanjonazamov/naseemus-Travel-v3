@@ -4,7 +4,7 @@ export function CustomerTestimonial() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md mb-12">
+        <Button className="bg-purple-600 text-xl font-bold hover:bg-purple-700 text-white px-8 py-6 rounded-md mb-12">
           Explore More
         </Button>
       </div>

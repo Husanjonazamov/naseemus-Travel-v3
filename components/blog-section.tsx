@@ -1,54 +1,105 @@
-import { Button } from "@/components/ui/button"
+"use client"
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "ENJOY THE FLAVOURS OF CROATIA",
-    description:
-      "Croatia offers a vast range of cuisine, with dishes varying from region to region. Wherever your travels take you, local and seasonal specialities are sure to form a memorable part of your holiday, so here are some must-tries.",
-    image: "/croatian-coast.png",
-    buttonText: "Read more",
-  },
-  {
-    id: 2,
-    title: "TOP TIPS FOR TRAVELLING SOLO",
-    description:
-      "Take a look at our top ten tips to make sure your solo adventure is one to remember for the right reasons.",
-    image: "/boat-trip-fun.png",
-    buttonText: "Read More",
-  },
-  {
-    id: 3,
-    title: "TRAVELS WITH JANET ELLIS",
-    description:
-      "Author and broadcaster, Janet Ellis joined us for Experience South Africa. Here's her thoughts on her first holiday with Just You.",
-    image: "/colorful-street-art-mural-people.png",
-    buttonText: "Read more",
-  },
-]
+import { useEffect, useState } from "react"
+import { useKeenSlider } from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
+import { Button } from "./ui/button"
 
 export function BlogSection() {
-  return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-purple-600 mb-12">READ OUR BLOGS</h2>
+  const destinations = [
+    {
+      title: "BALKAN EXPLORER",
+      image:"/images/croatian-coast.png",
+      price: "$1,200",
+      description:
+        "An in-depth exploration of four countries in an undiscovered corner of Europe. Visit cosmopolitan cities and travel through stunning natural landscapes. You will spend time in some of the most famous cities in Eastern Europe, all of them having lots of historical sites, vibrant bars and restaurants for you to explore.",
+    },
+    {
+      title: "SWITZERLAND'S SCENIC RAILWAYS AND ALPINE WINTER WONDERS",
+      image:"/images/croatian-coast.png",
+      price: "$2,500",
+      description:
+        "Embark on an unforgettable Swiss winter adventure, combining elegant rail journeys with breathtaking Alpine scenery.",
+    },
+    {
+      title: "TURKISH TREASURES",
+      image:"/images/croatian-coast.png",
+      price: "$1,800",
+      description:
+        "Turkey dazzles your senses, from Istanbul's bustling Grand Bazaar with scents of spices to the incredible cave dwellings of Cappadocia and the shimmering tiles of the Blue Mosque – not to mention the delicious cuisine.",
+    },
+  ]
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="aspect-video">
-                <img src={post.image || "/placeholder.svg"} alt={post.title} className="w-full h-full object-cover" />
+  // Keen-slider sozlamalari (faqat mobil uchun)
+  const [sliderRef] = useKeenSlider({
+    loop: true,
+    slides: { perView: 1.1, spacing: 10 },
+    breakpoints: {
+      "(min-width: 768px)": { slides: { perView: 3, spacing: 16 }, drag: false },
+    },
+  })
+
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  return (
+    <section className="py-16 px-4 bg-gray-50">
+      <div className="max-w-7xl mx-auto">
+        {/* Title */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-purple-600 mb-12">
+          Read Our blogs
+        </h2>
+
+        {isMobile ? (
+          <div ref={sliderRef} className="keen-slider">
+            {destinations.map((destination, index) => (
+              <div key={index} className="keen-slider__slide flex flex-col bg-white shadow-lg overflow-hidden">
+                {/* Image */}
+                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${destination.image}')` }}></div>
+
+                {/* Content */}
+                <div className="flex flex-col flex-grow p-6">
+                  <h3 className="text-xl font-bold text-blue-600 mb-4">{destination.title}</h3>
+                  <p className="text-gray-700 text-sm mb-6 leading-relaxed">{destination.description}</p>
+
+                  {/* Price va Button bir chiziqda */}
+                  <div className="flex items-center justify-between mt-auto">
+                    <p className="text-purple-700 font-bold text-3xl">{destination.price}</p>
+                    <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
+                      Explore →
+                    </Button>
+                  </div>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-blue-500 mb-4">{post.title}</h3>
-                <p className="text-gray-700 text-sm leading-relaxed mb-6">{post.description}</p>
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-md">
-                  {post.buttonText}
-                </Button>
+            ))}
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {destinations.map((destination, index) => (
+              <div key={index} className="flex flex-col bg-white shadow-lg overflow-hidden">
+                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${destination.image}')` }}></div>
+
+                <div className="flex flex-col flex-grow p-6">
+                  <h3 className="text-xl font-bold text-blue-600 mb-4">{destination.title}</h3>
+                  <p className="text-gray-700 text-sm mb-6 leading-relaxed">{destination.description}</p>
+
+                  {/* Price va Button bir chiziqda */}
+                  <div className="flex items-center justify-between mt-auto">
+                    <p className="text-purple-700 font-bold text-2xl">{destination.price}</p>
+                    <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
+                      Explore →
+                    </Button>
+                  </div>
+                </div>
               </div>
-            </article>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
