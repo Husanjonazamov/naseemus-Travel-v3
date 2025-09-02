@@ -1,0 +1,219 @@
+{
+  "header": {
+    "phone": "+998-94-001-47-41",
+    "address": "123 Main Street, Tashkent",
+    "brochureRequest": "Brochure Request",
+    "search": "Search",
+    "company_name": "Naseem's Travel",
+    "nav": {
+      "destinations": "Destinations",
+      "offers": "Offers",
+      "community": "Community"
+    },
+    "guarantee": "Room of Your Own Guaranteed",
+    "trustpilot": "Rated Excellent on Trustpilot",
+    "experience": "Over 25 Years Expertise"
+  },
+  "hero": {
+    "title": "Exclusive Offers Just for You",
+    "subtitle": "Discover Your Perfect Summer Escape",
+    "description": "Book your dream vacation today and save up to 40% on flights, hotels, and packages. Limited-time offer until August 31, 2025.",
+    "cta": "Save Now"
+  },
+  "tour_uzbekistan": {
+    "title": "Uzbekistan & The Silk Road",
+    "price": "£2399 per person",
+    "duration": "11 Days",
+    "departure_dates": "Sept 2025 - Oct 2026",
+    "cta_book": "Book Now",
+    "overview": "Journey through the heart of Central Asia and discover Uzbekistan, a very interesting history and the connection with the famous Silk Road. The travel cultural connections with the past are evident everywhere you look. You will meet and an historical theatrical performance.",
+    "type": "Classic Touring",
+    "flight_choices": "Flight Choices",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "UK to Tashkent",
+        "description": "Flight to Tashkent and overnight stay."
+      },
+      {
+        "day": 2,
+        "title": "Tashkent",
+        "description": "Explore Tashkent."
+      },
+      {
+        "day": 3,
+        "title": "Tashkent - Khiva",
+        "description": "Travel to Khiva."
+      },
+      {
+        "day": 4,
+        "title": "Khiva - Bukhara",
+        "description": "Journey to Bukhara."
+      },
+      {
+        "day": 5,
+        "title": "Bukhara",
+        "description": "Discover Bukhara."
+      },
+      {
+        "day": 6,
+        "title": "Bukhara",
+        "description": "Continue exploring Bukhara."
+      },
+      {
+        "day": 7,
+        "title": "Bukhara - Samarkand",
+        "description": "Travel to Samarkand."
+      },
+      {
+        "day": 8,
+        "title": "Samarkand",
+        "description": "Explore Samarkand."
+      },
+      {
+        "day": 9,
+        "title": "Samarkand",
+        "description": "Continue exploring Samarkand."
+      },
+      {
+        "day": 10,
+        "title": "Samarkand - Tashkent",
+        "description": "Return to Tashkent."
+      }
+    ]
+  },
+  "solo_travel": {
+    "title": "The Trusted Experts for Solo Holidays",
+    "description": "Since 2000, we’ve been bringing people together for unforgettable solo holidays. From exploring exotic destinations to discovering hidden gems closer to home, our tours are designed to create lasting memories and meaningful connections.",
+    "tips": {
+      "title": "Solo Travel Tips",
+      "description": "Take a look at our top ten tips to make sure your solo adventure is one to remember. From planning ahead to staying connected, these tips are designed to help you feel safe and confident while exploring the world on your own. Travel smart and enjoy the journey.",
+      "cta": "Learn More"
+    },
+    "last_minute": {
+      "title": "Last-Minute Trips",
+      "description": "Looking for a spontaneous getaway? Explore our exciting last-minute trips to Europe and worldwide. Whether you're chasing sunshine, culture, or adventure, our curated packages ensure you make the most out of your time, even on short notice. Book today and start packing for an unforgettable experience.",
+      "cta": "Book Now"
+    },
+    "india": {
+      "title": "Inspirational India",
+      "description": "Experience the magic of India with our special anniversary tour. From the Taj Mahal to vibrant markets, immerse yourself in the rich history, culture, and colors of this fascinating country. Limited spaces remain—don’t miss your chance to join this unforgettable journey designed for solo travelers.",
+      "cta": "Book Now"
+    },
+    "beach_escapes": {
+      "title": "Beach Escapes",
+      "description": "Relax on sandy shores with our exclusive beach escapes tailored for solo travelers. Enjoy breathtaking views, comfortable stays, and curated itineraries that balance relaxation with cultural experiences. Whether it's the Maldives, Bali, or the Mediterranean, let the waves be your ultimate retreat.",
+      "cta": "Discover"
+    },
+    "city_adventures": {
+      "title": "City Adventures",
+      "description": "Explore vibrant cities worldwide with expert-guided tours designed for solo travelers. From Paris to Tokyo, uncover hidden gems, enjoy delicious cuisine, and make new friends along the way. Perfect for travelers looking for a mix of culture, exploration, and social connection in iconic destinations.",
+      "cta": "Explore"
+    },
+    "wildlife_safaris": {
+      "title": "Wildlife Safaris",
+      "description": "Get closer to nature with our guided wildlife safaris tailored for solo adventurers. Witness incredible landscapes, spot exotic animals, and learn from expert guides. These trips are crafted to create unforgettable moments and allow you to share the wonder of the wild with like-minded travelers.",
+      "cta": "Join Now"
+    }
+  },
+  "services": {
+    "flights": "Return flights",
+    "hotels": "Hand-picked hotels",
+    "breakfasts": "Breakfast together every day",
+    "holiday_directors": "Experienced tour guide accompanying you",
+    "holiday_assurance": "Here to support you every step of the way"
+  },
+  "testimonials": [
+    {
+      "text": "We were very well looked after by lodge staff & guides so Just You rep on this one",
+      "author": "Customer",
+      "date": "1 day ago"
+    },
+    {
+      "text": "A fantastic holiday with beautiful country Croatia and extremely friendly people and...",
+      "author": "Nigel Wood",
+      "date": "5 days ago"
+    },
+    {
+      "text": "Excellent tour. Ship amazing & crew so friendly. Every port was worth visiting. Great...",
+      "author": "Sandra",
+      "date": "August 11"
+    },
+    {
+      "text": "The entire experience, from booking to picking my luggage at the end of the trip, was...",
+      "author": "Maggie",
+      "date": "August 8"
+    },
+    {
+      "text": "It was my first tour with Just you and I most certainly recommend them. From start to finish I felt I was well looked after and the itinerary was excellent.",
+      "author": "Anne",
+      "date": null
+    }
+  ],
+  "other_tours": [
+    {
+      "title": "Balkan Explorer",
+      "description": "An in-depth exploration of four countries in an undiscovered corner of Europe. Visit cosmopolitan cities and travel through stunning natural landscapes. You will spend time in some of the most famous cities in Eastern Europe, all of them having lots of historical sites, vibrant bars and restaurants for you to explore.",
+      "details": {
+        "flights": "Return flights from London",
+        "accommodation": "12 nights in 4-star hotels",
+        "meals": "20 meals: 12 breakfasts, 2 lunches and 6 dinners, with a welcome drink",
+        "director": "Just You Holiday Director",
+        "price": "$1,200"
+      },
+      "cta": "Explore"
+    },
+    {
+      "title": "Switzerland's Scenic Railways and Alpine Winter Wonders",
+      "description": "Embark on an unforgettable Swiss winter adventure, combining elegant rail journeys with breathtaking Alpine scenery.",
+      "details": {
+        "flights": "Return flights from the UK",
+        "accommodation": "6 nights in a 4-star hotel",
+        "meals": "9 included meals: 6 breakfasts, 1 lunch and 2 dinners",
+        "price": "$2,500"
+      },
+      "cta": "Explore"
+    },
+    {
+      "title": "Turkish Treasures: From Istanbul's Palaces to Cappadocia's Wonders",
+      "description": "Turkey dazzles your senses, from Istanbul's bustling Grand Bazaar with scents of spices to the incredible cave dwellings of Cappadocia and the shimmering tiles of the Blue Mosque – not to mention the delicious cuisine. This tour takes you on a tour of Istanbul and Cappadocia.",
+      "details": {
+        "flights": "Return flights",
+        "accommodation": "6 nights in a 4-star hotel and 12 meals",
+        "price": "$1,800"
+      },
+      "cta": "Explore"
+    }
+  ],
+  "footer": {
+    "contact": {
+      "phone": "03301 737293",
+      "email": "enquiries@justyou.co.uk"
+    },
+    "newsletter": {
+      "title": "Get Travel Inspiration & Offers to Your Inbox",
+      "cta": "Sign Up"
+    },
+    "links": {
+      "booking_conditions": "Booking Conditions",
+      "essential_information": "Essential Information",
+      "package_travel": "Package Travel Information",
+      "foreign_travel_advice": "Foreign Travel Advice",
+      "brexit_travel_advice": "Brexit Travel Advice",
+      "modern_slavery_statement": "Modern Slavery Statement",
+      "animal_welfare_policy": "Animal Welfare Policy",
+      "website_disclaimer": "Website Disclaimer"
+    },
+    "corporate": {
+      "travelsphere": "Travelsphere",
+      "careers": "Careers",
+      "trade_agent_hub": "Trade Agent Hub"
+    },
+    "customer_support": {
+      "about_us": "About Us",
+      "contact_us": "Contact Us",
+      "community": "Community",
+      "faq": "Frequently Asked Questions"
+    }
+  }
+}

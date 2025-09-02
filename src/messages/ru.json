@@ -1,0 +1,219 @@
+{
+  "header": {
+    "phone": "+998-94-001-47-41",
+    "address": "Ташкент, Главная улица 123",
+      "brochureRequest": "Запрос брошюры",
+  "search": "Поиск",
+    "company_name": "Naseem's Travel",
+    "nav": {
+      "destinations": "[Russian translation for Destinations]",
+      "offers": "[Russian translation for Offers]",
+      "community": "[Russian translation for Community]"
+    },
+    "guarantee": "[Russian translation for Room of Your Own Guaranteed]",
+    "trustpilot": "[Russian translation for Rated Excellent on Trustpilot]",
+    "experience": "[Russian translation for Over 25 Years Expertise]"
+  },
+  "hero": {
+    "title": "[Russian translation for Exclusive Offers Just for You]",
+    "subtitle": "[Russian translation for Discover Your Perfect Summer Escape]",
+    "description": "[Russian translation for Book your dream vacation today and save up to 40% on flights, hotels, and packages. Limited-time offer until August 31, 2025.]",
+    "cta": "[Russian translation for Save Now]"
+  },
+  "tour_uzbekistan": {
+    "title": "Узбекистан и Шелковый путь",
+    "price": "£2399 на человека",
+    "duration": "11 дней",
+    "departure_dates": "Сентябрь 2025 - Октябрь 2026",
+    "cta_book": "[Russian translation for Book Now]",
+    "overview": "[Russian translation for Journey through the heart of Central Asia...]",
+    "type": "[Russian translation for Classic Touring]",
+    "flight_choices": "[Russian translation for Flight Choices]",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Из Великобритании в Ташкент",
+        "description": "[Russian translation for Flight to Tashkent and overnight stay.]"
+      },
+      {
+        "day": 2,
+        "title": "Ташкент",
+        "description": "[Russian translation for Explore Tashkent.]"
+      },
+      {
+        "day": 3,
+        "title": "Ташкент - Хива",
+        "description": "[Russian translation for Travel to Khiva.]"
+      },
+      {
+        "day": 4,
+        "title": "Хива - Бухара",
+        "description": "[Russian translation for Journey to Bukhara.]"
+      },
+      {
+        "day": 5,
+        "title": "Бухара",
+        "description": "[Russian translation for Discover Bukhara.]"
+      },
+      {
+        "day": 6,
+        "title": "Бухара",
+        "description": "[Russian translation for Continue exploring Bukhara.]"
+      },
+      {
+        "day": 7,
+        "title": "Бухара - Самарканд",
+        "description": "[Russian translation for Travel to Samarkand.]"
+      },
+      {
+        "day": 8,
+        "title": "Самарканд",
+        "description": "[Russian translation for Explore Samarkand.]"
+      },
+      {
+        "day": 9,
+        "title": "Самарканд",
+        "description": "[Russian translation for Continue exploring Samarkand.]"
+      },
+      {
+        "day": 10,
+        "title": "Самарканд - Ташкент",
+        "description": "[Russian translation for Return to Tashkent.]"
+      }
+    ]
+  },
+  "solo_travel": {
+    "title": "[Russian translation for The Trusted Experts for Solo Holidays]",
+    "description": "[Russian translation for Since 2000, we’ve been bringing people together...]",
+    "tips": {
+      "title": "[Russian translation for Solo Travel Tips]",
+      "description": "[Russian translation for Take a look at our top ten tips...]",
+      "cta": "[Russian translation for Learn More]"
+    },
+    "last_minute": {
+      "title": "[Russian translation for Last-Minute Trips]",
+      "description": "[Russian translation for Looking for a spontaneous getaway?...]",
+      "cta": "[Russian translation for Book Now]"
+    },
+    "india": {
+      "title": "[Russian translation for Inspirational India]",
+      "description": "[Russian translation for Experience the magic of India...]",
+      "cta": "[Russian translation for Book Now]"
+    },
+    "beach_escapes": {
+      "title": "[Russian translation for Beach Escapes]",
+      "description": "[Russian translation for Relax on sandy shores...]",
+      "cta": "[Russian translation for Discover]"
+    },
+    "city_adventures": {
+      "title": "[Russian translation for City Adventures]",
+      "description": "[Russian translation for Explore vibrant cities worldwide...]",
+      "cta": "[Russian translation for Explore]"
+    },
+    "wildlife_safaris": {
+      "title": "[Russian translation for Wildlife Safaris]",
+      "description": "[Russian translation for Get closer to nature...]",
+      "cta": "[Russian translation for Join Now]"
+    }
+  },
+  "services": {
+    "flights": "[Russian translation for Return flights]",
+    "hotels": "[Russian translation for Hand-picked hotels]",
+    "breakfasts": "[Russian translation for Breakfast together every day]",
+    "holiday_directors": "[Russian translation for Experienced tour guide accompanying you]",
+    "holiday_assurance": "[Russian translation for Here to support you every step of the way]"
+  },
+  "testimonials": [
+    {
+      "text": "[Russian translation for We were very well looked after...]",
+      "author": "[Russian translation for Customer]",
+      "date": "[Russian translation for 1 day ago]"
+    },
+    {
+      "text": "[Russian translation for A fantastic holiday with beautiful country Croatia...]",
+      "author": "Nigel Wood",
+      "date": "[Russian translation for 5 days ago]"
+    },
+    {
+      "text": "[Russian translation for Excellent tour. Ship amazing & crew so friendly...]",
+      "author": "Sandra",
+      "date": "[Russian translation for August 11]"
+    },
+    {
+      "text": "[Russian translation for The entire experience, from booking to picking...]",
+      "author": "Maggie",
+      "date": "[Russian translation for August 8]"
+    },
+    {
+      "text": "[Russian translation for It was my first tour with Just you...]",
+      "author": "Anne",
+      "date": null
+    }
+  ],
+  "other_tours": [
+    {
+      "title": "[Russian translation for Balkan Explorer]",
+      "description": "[Russian translation for An in-depth exploration of four countries...]",
+      "details": {
+        "flights": "[Russian translation for Return flights from London]",
+        "accommodation": "[Russian translation for 12 nights in 4-star hotels]",
+        "meals": "[Russian translation for 20 meals: 12 breakfasts, 2 lunches and 6 dinners, with a welcome drink]",
+        "director": "[Russian translation for Just You Holiday Director]",
+        "price": "$1,200"
+      },
+      "cta": "[Russian translation for Explore]"
+    },
+    {
+      "title": "[Russian translation for Switzerland's Scenic Railways and Alpine Winter Wonders]",
+      "description": "[Russian translation for Embark on an unforgettable Swiss winter adventure...]",
+      "details": {
+        "flights": "[Russian translation for Return flights from the UK]",
+        "accommodation": "[Russian translation for 6 nights in a 4-star hotel]",
+        "meals": "[Russian translation for 9 included meals: 6 breakfasts, 1 lunch and 2 dinners]",
+        "price": "$2,500"
+      },
+      "cta": "[Russian translation for Explore]"
+    },
+    {
+      "title": "[Russian translation for Turkish Treasures: From Istanbul's Palaces to Cappadocia's Wonders]",
+      "description": "[Russian translation for Turkey dazzles your senses...]",
+      "details": {
+        "flights": "[Russian translation for Return flights]",
+        "accommodation": "[Russian translation for 6 nights in a 4-star hotel and 12 meals]",
+        "price": "$1,800"
+      },
+      "cta": "[Russian translation for Explore]"
+    }
+  ],
+  "footer": {
+    "contact": {
+      "phone": "03301 737293",
+      "email": "enquiries@justyou.co.uk"
+    },
+    "newsletter": {
+      "title": "[Russian translation for Get Travel Inspiration & Offers to Your Inbox]",
+      "cta": "[Russian translation for Sign Up]"
+    },
+    "links": {
+      "booking_conditions": "[Russian translation for Booking Conditions]",
+      "essential_information": "[Russian translation for Essential Information]",
+      "package_travel": "[Russian translation for Package Travel Information]",
+      "foreign_travel_advice": "[Russian translation for Foreign Travel Advice]",
+      "brexit_travel_advice": "[Russian translation for Brexit Travel Advice]",
+      "modern_slavery_statement": "[Russian translation for Modern Slavery Statement]",
+      "animal_welfare_policy": "[Russian translation for Animal Welfare Policy]",
+      "website_disclaimer": "[Russian translation for Website Disclaimer]"
+    },
+    "corporate": {
+      "travelsphere": "[Russian translation for Travelsphere]",
+      "careers": "[Russian translation for Careers]",
+      "trade_agent_hub": "[Russian translation for Trade Agent Hub]"
+    },
+    "customer_support": {
+      "about_us": "[Russian translation for About Us]",
+      "contact_us": "[Russian translation for Contact Us]",
+      "community": "[Russian translation for Community]",
+      "faq": "[Russian translation for Frequently Asked Questions]"
+    }
+  }
+}

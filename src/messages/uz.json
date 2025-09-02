@@ -1,0 +1,219 @@
+{
+  "header": {
+    "phone": "+998-94-001-47-41",
+    "address": "Toshkent, Asosiy ko'cha 123",
+    "company_name": "Naseem's Travel",
+      "brochureRequest": "Broshyura so'rovi",
+  "search": "Qidirish",
+    "nav": {
+      "destinations": "[Uzbek translation for Destinations]",
+      "offers": "[Uzbek translation for Offers]",
+      "community": "[Uzbek translation for Community]"
+    },
+    "guarantee": "[Uzbek translation for Room of Your Own Guaranteed]",
+    "trustpilot": "[Uzbek translation for Rated Excellent on Trustpilot]",
+    "experience": "[Uzbek translation for Over 25 Years Expertise]"
+  },
+  "hero": {
+    "title": "[Uzbek translation for Exclusive Offers Just for You]",
+    "subtitle": "[Uzbek translation for Discover Your Perfect Summer Escape]",
+    "description": "[Uzbek translation for Book your dream vacation today and save up to 40% on flights, hotels, and packages. Limited-time offer until August 31, 2025.]",
+    "cta": "[Uzbek translation for Save Now]"
+  },
+  "tour_uzbekistan": {
+    "title": "O'zbekiston va Ipak Yo'li",
+    "price": "£2399 kishi boshiga",
+    "duration": "11 Kun",
+    "departure_dates": "Sentyabr 2025 - Oktabr 2026",
+    "cta_book": "[Uzbek translation for Book Now]",
+    "overview": "[Uzbek translation for Journey through the heart of Central Asia...]",
+    "type": "[Uzbek translation for Classic Touring]",
+    "flight_choices": "[Uzbek translation for Flight Choices]",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Buyuk Britaniyadan Toshkentga",
+        "description": "[Uzbek translation for Flight to Tashkent and overnight stay.]"
+      },
+      {
+        "day": 2,
+        "title": "Toshkent",
+        "description": "[Uzbek translation for Explore Tashkent.]"
+      },
+      {
+        "day": 3,
+        "title": "Toshkent - Xiva",
+        "description": "[Uzbek translation for Travel to Khiva.]"
+      },
+      {
+        "day": 4,
+        "title": "Xiva - Buxoro",
+        "description": "[Uzbek translation for Journey to Bukhara.]"
+      },
+      {
+        "day": 5,
+        "title": "Buxoro",
+        "description": "[Uzbek translation for Discover Bukhara.]"
+      },
+      {
+        "day": 6,
+        "title": "Buxoro",
+        "description": "[Uzbek translation for Continue exploring Bukhara.]"
+      },
+      {
+        "day": 7,
+        "title": "Buxoro - Samarqand",
+        "description": "[Uzbek translation for Travel to Samarkand.]"
+      },
+      {
+        "day": 8,
+        "title": "Samarqand",
+        "description": "[Uzbek translation for Explore Samarkand.]"
+      },
+      {
+        "day": 9,
+        "title": "Samarqand",
+        "description": "[Uzbek translation for Continue exploring Samarkand.]"
+      },
+      {
+        "day": 10,
+        "title": "Samarqand - Toshkent",
+        "description": "[Uzbek translation for Return to Tashkent.]"
+      }
+    ]
+  },
+  "solo_travel": {
+    "title": "[Uzbek translation for The Trusted Experts for Solo Holidays]",
+    "description": "[Uzbek translation for Since 2000, we’ve been bringing people together...]",
+    "tips": {
+      "title": "[Uzbek translation for Solo Travel Tips]",
+      "description": "[Uzbek translation for Take a look at our top ten tips...]",
+      "cta": "[Uzbek translation for Learn More]"
+    },
+    "last_minute": {
+      "title": "[Uzbek translation for Last-Minute Trips]",
+      "description": "[Uzbek translation for Looking for a spontaneous getaway?...]",
+      "cta": "[Uzbek translation for Book Now]"
+    },
+    "india": {
+      "title": "[Uzbek translation for Inspirational India]",
+      "description": "[Uzbek translation for Experience the magic of India...]",
+      "cta": "[Uzbek translation for Book Now]"
+    },
+    "beach_escapes": {
+      "title": "[Uzbek translation for Beach Escapes]",
+      "description": "[Uzbek translation for Relax on sandy shores...]",
+      "cta": "[Uzbek translation for Discover]"
+    },
+    "city_adventures": {
+      "title": "[Uzbek translation for City Adventures]",
+      "description": "[Uzbek translation for Explore vibrant cities worldwide...]",
+      "cta": "[Uzbek translation for Explore]"
+    },
+    "wildlife_safaris": {
+      "title": "[Uzbek translation for Wildlife Safaris]",
+      "description": "[Uzbek translation for Get closer to nature...]",
+      "cta": "[Uzbek translation for Join Now]"
+    }
+  },
+  "services": {
+    "flights": "[Uzbek translation for Return flights]",
+    "hotels": "[Uzbek translation for Hand-picked hotels]",
+    "breakfasts": "[Uzbek translation for Breakfast together every day]",
+    "holiday_directors": "[Uzbek translation for Experienced tour guide accompanying you]",
+    "holiday_assurance": "[Uzbek translation for Here to support you every step of the way]"
+  },
+  "testimonials": [
+    {
+      "text": "[Uzbek translation for We were very well looked after...]",
+      "author": "[Uzbek translation for Customer]",
+      "date": "[Uzbek translation for 1 day ago]"
+    },
+    {
+      "text": "[Uzbek translation for A fantastic holiday with beautiful country Croatia...]",
+      "author": "Nigel Wood",
+      "date": "[Uzbek translation for 5 days ago]"
+    },
+    {
+      "text": "[Uzbek translation for Excellent tour. Ship amazing & crew so friendly...]",
+      "author": "Sandra",
+      "date": "[Uzbek translation for August 11]"
+    },
+    {
+      "text": "[Uzbek translation for The entire experience, from booking to picking...]",
+      "author": "Maggie",
+      "date": "[Uzbek translation for August 8]"
+    },
+    {
+      "text": "[Uzbek translation for It was my first tour with Just you...]",
+      "author": "Anne",
+      "date": null
+    }
+  ],
+  "other_tours": [
+    {
+      "title": "[Uzbek translation for Balkan Explorer]",
+      "description": "[Uzbek translation for An in-depth exploration of four countries...]",
+      "details": {
+        "flights": "[Uzbek translation for Return flights from London]",
+        "accommodation": "[Uzbek translation for 12 nights in 4-star hotels]",
+        "meals": "[Uzbek translation for 20 meals: 12 breakfasts, 2 lunches and 6 dinners, with a welcome drink]",
+        "director": "[Uzbek translation for Just You Holiday Director]",
+        "price": "$1,200"
+      },
+      "cta": "[Uzbek translation for Explore]"
+    },
+    {
+      "title": "[Uzbek translation for Switzerland's Scenic Railways and Alpine Winter Wonders]",
+      "description": "[Uzbek translation for Embark on an unforgettable Swiss winter adventure...]",
+      "details": {
+        "flights": "[Uzbek translation for Return flights from the UK]",
+        "accommodation": "[Uzbek translation for 6 nights in a 4-star hotel]",
+        "meals": "[Uzbek translation for 9 included meals: 6 breakfasts, 1 lunch and 2 dinners]",
+        "price": "$2,500"
+      },
+      "cta": "[Uzbek translation for Explore]"
+    },
+    {
+      "title": "[Uzbek translation for Turkish Treasures: From Istanbul's Palaces to Cappadocia's Wonders]",
+      "description": "[Uzbek translation for Turkey dazzles your senses...]",
+      "details": {
+        "flights": "[Uzbek translation for Return flights]",
+        "accommodation": "[Uzbek translation for 6 nights in a 4-star hotel and 12 meals]",
+        "price": "$1,800"
+      },
+      "cta": "[Uzbek translation for Explore]"
+    }
+  ],
+  "footer": {
+    "contact": {
+      "phone": "03301 737293",
+      "email": "enquiries@justyou.co.uk"
+    },
+    "newsletter": {
+      "title": "[Uzbek translation for Get Travel Inspiration & Offers to Your Inbox]",
+      "cta": "[Uzbek translation for Sign Up]"
+    },
+    "links": {
+      "booking_conditions": "[Uzbek translation for Booking Conditions]",
+      "essential_information": "[Uzbek translation for Essential Information]",
+      "package_travel": "[Uzbek translation for Package Travel Information]",
+      "foreign_travel_advice": "[Uzbek translation for Foreign Travel Advice]",
+      "brexit_travel_advice": "[Uzbek translation for Brexit Travel Advice]",
+      "modern_slavery_statement": "[Uzbek translation for Modern Slavery Statement]",
+      "animal_welfare_policy": "[Uzbek translation for Animal Welfare Policy]",
+      "website_disclaimer": "[Uzbek translation for Website Disclaimer]"
+    },
+    "corporate": {
+      "travelsphere": "[Uzbek translation for Travelsphere]",
+      "careers": "[Uzbek translation for Careers]",
+      "trade_agent_hub": "[Uzbek translation for Trade Agent Hub]"
+    },
+    "customer_support": {
+      "about_us": "[Uzbek translation for About Us]",
+      "contact_us": "[Uzbek translation for Contact Us]",
+      "community": "[Uzbek translation for Community]",
+      "faq": "[Uzbek translation for Frequently Asked Questions]"
+    }
+  }
+}
