@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 import { Button } from "./ui/button"
+import { useTranslations } from "next-intl"
 
 const reviews = [
   {

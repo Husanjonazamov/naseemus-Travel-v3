@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Button } from "./ui/button"
+import { useTranslations } from "next-intl"
 
 export function PopularDestinations() {
   const destinations = [
@@ -57,14 +58,16 @@ export function PopularDestinations() {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
+  const t = useTranslations("Popular")
+  const e = useTranslations("last")
 
   return (
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#007654] mb-12">
-          MOST POPULAR SOLO TRAVEL DESTINATIONS
-        </h2>
+            {t("popularDestinations")}
+          </h2>
 
         {isMobile ? (
           <div ref={sliderRef} className="keen-slider">
@@ -92,7 +95,7 @@ export function PopularDestinations() {
                   <div className="flex items-center justify-between mt-auto">
                     <p className="text-[#007654] font-bold text-3xl">{destination.price}</p>
                     <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
-                      Explore →
+                      {e("explore")}
                     </Button>
                   </div>
                 </div>
@@ -123,7 +126,8 @@ export function PopularDestinations() {
                   <div className="flex items-center justify-between mt-auto">
                     <p className="text-[#007654] font-bold text-2xl">{destination.price}</p>
                     <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
-                      Explore →
+                      {e("explore")}
+                      
                     </Button>
                   </div>
                 </div>

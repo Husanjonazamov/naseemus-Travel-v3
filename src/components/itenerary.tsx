@@ -1,40 +1,36 @@
-"use client"
+"use client";
 
-import { Button } from "./ui/button"
-import { Printer, Download } from "lucide-react"
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { Button } from "./ui/button";
+import { Printer, Download } from "lucide-react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function Itinerary() {
-  const [selectedDay, setSelectedDay] = useState(1)
+  const t = useTranslations("tour_uzbekistan.itinerary");
+  const [selectedDay, setSelectedDay] = useState(1);
 
-  const days = [
-    { day: 1, title: "UK To Tashkent", description: "Flight to Tashkent and overnight stay.", image: "/images/african-elephant-safari.png" },
-    { day: 2, title: "Tashkent", description: "Explore Tashkent city tour.", image: "/images/boat-trip-fun.png" },
-    { day: 3, title: "Tashkent - Khiva", description: "Morning flight and explore Khiva’s old town.", image: "/images/cappadocia-balloons.png" },
-    { day: 4, title: "Khiva - Bukhara", description: "Drive through the desert to Bukhara.", image: "/images/classical-european-columns.png" },
-    { day: 5, title: "Bukhara", description: "Full day exploring Bukhara’s historical sites.", image: "/images/colorful-street-art-mural-people.png" },
-    { day: 6, title: "Bukhara", description: "Free day to explore Bukhara at your pace.", image: "/images/croatian-coast.png" },
-    { day: 7, title: "Bukhara - Samarkand", description: "Transfer to Samarkand via train.", image: "/images/danube-castle-autumn.png" },
-    { day: 8, title: "Samarkand", description: "Discover Registan Square and ancient sites.", image: "/images/japanese-hillside-town-fuji.png" },
-    { day: 9, title: "Samarkand", description: "Free exploration day in Samarkand.", image: "/images/swiss-mountain-train-snowy-landscape.png" },
-    { day: 10, title: "Samarkand - Tashkent", description: "Return to Tashkent and evening farewell.", image: "/images/traditional-dancers-lake-mountains.png" },
-  ]
+  const days = Array.from({ length: 10 }, (_, index) => ({
+    day: index + 1,
+    title: t(`days.${index + 1}.title`),
+    description: t(`days.${index + 1}.description`),
+    image: t(`days.${index + 1}.image`),
+  }));
 
-  const currentDay = days.find((day) => day.day === selectedDay) || days[0]
+  const currentDay = days.find((day) => day.day === selectedDay) || days[0];
 
   const handleNextDay = () => {
     if (selectedDay < days.length) {
-      setSelectedDay(selectedDay + 1)
+      setSelectedDay(selectedDay + 1);
     }
-  }
+  };
 
   return (
     <div className="py-8 mt-4">
       <div className="container max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-          <h2 className="text-3xl font-bold text-[#007654]">ITINERARY</h2>
+          <h2 className="text-3xl font-bold text-[#007654]">{t("title")}</h2>
           <div className="flex gap-2">
             <Button variant="outline" size="sm">
               <Printer className="w-4 h-4 mr-2" />
@@ -43,7 +39,7 @@ export function Itinerary() {
               <Download className="w-4 h-4 mr-2" />
             </Button>
             <Button className="bg-[#007654] hover:bg-[#006148] text-white">
-              PRINT ITINERARY
+              {t("print")}
             </Button>
           </div>
         </div>
@@ -61,7 +57,7 @@ export function Itinerary() {
                 }`}
                 onClick={() => setSelectedDay(day.day)}
               >
-                Day {day.day} - {day.title}
+                {t("day_label", { day: day.day })} - {day.title}
               </div>
             ))}
           </div>
@@ -75,7 +71,7 @@ export function Itinerary() {
             >
               {days.map((day) => (
                 <option key={day.day} value={day.day}>
-                  Day {day.day} - {day.title}
+                  {t("day_label", { day: day.day })} - {day.title}
                 </option>
               ))}
             </select>
@@ -86,7 +82,7 @@ export function Itinerary() {
             <motion.img
               key={currentDay.image}
               src={currentDay.image || "/placeholder.svg"}
-              alt={`Day ${currentDay.day} - ${currentDay.title}`}
+              alt={`${t("day_label", { day: currentDay.day })} - ${currentDay.title}`}
               className="w-full h-64 object-cover rounded-lg shadow-md"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -95,7 +91,7 @@ export function Itinerary() {
 
             <div className="mt-3 flex flex-col flex-grow">
               <h3 className="text-xl font-bold text-[#007654] mb-2">
-                DAY {currentDay.day}: {currentDay.title.toUpperCase()}
+                {t("day_heading", { day: currentDay.day, title: currentDay.title.toUpperCase() })}
               </h3>
               <p className="text-gray-700 leading-relaxed flex-grow">
                 {currentDay.description}
@@ -106,7 +102,9 @@ export function Itinerary() {
                   onClick={handleNextDay}
                   disabled={selectedDay >= days.length}
                 >
-                  {selectedDay >= days.length ? "End of Journey" : "Next Day"}
+                  {selectedDay >= days.length
+                    ? t("end_of_journey")
+                    : t("next_day")}
                 </Button>
               </div>
             </div>
@@ -114,5 +112,5 @@ export function Itinerary() {
         </div>
       </div>
     </div>
-  )
+  );
 }

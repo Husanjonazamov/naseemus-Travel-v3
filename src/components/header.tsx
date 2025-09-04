@@ -4,7 +4,8 @@ import Image from "next/image";
 import { Search, Phone, FileText, ChevronDown, Menu, Globe } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter, usePathname } from "next/navigation";
 
 
 export function Header() {
@@ -13,12 +14,19 @@ export function Header() {
   const [currentLang, setCurrentLang] = useState("UZ");
   const t = useTranslations("header");
 
+
   const languages = ["UZ", "RU", "EN"];
 
   const toggleLangDropdown = () => setIsLangOpen(!isLangOpen);
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
   const selectLanguage = (lang: string) => {
-    setCurrentLang(lang);
     setIsLangOpen(false);
+  const segments = pathname.split("/");
+    segments[1] = lang; // birinchi segment locale
+    router.push(segments.join("/"));
   };
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -47,12 +55,12 @@ export function Header() {
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <span className="font-medium whitespace-nowrap text-sm">
-                  +998-94-001-47-41
+                  {t("phone")}
                 </span>
               </div>
               <div className="hidden sm:block">
                 <span className="font-medium whitespace-nowrap text-sm">
-                  123 Main Street, Tashkent
+                  {t("address")}
                 </span>
               </div>
             </div>
@@ -67,13 +75,13 @@ export function Header() {
           <div className="flex items-center space-x-3 whitespace-nowrap">
             <Image
               src="/images/green.png"
-              alt="Naseem's Travel Logo"
+              alt={t("company_name")}
               width={50}
               height={50}
               className="rounded-full"
             />
             <span className="text-xl sm:text-2xl font-bold text-green-700 leading-none">
-              Naseem's Travel
+              {t("company_name")}
             </span>
           </div>
 
@@ -81,33 +89,24 @@ export function Header() {
           <div className="flex items-center space-x-8">
             <nav className="hidden lg:flex items-center space-x-8">
               <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-                DESTINATIONS
+                {t("destinations")}
               </a>
               <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-                OFFERS
+                {t("offers")}
               </a>
               <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-                COMMUNITY
+                {t("community")}
               </a>
-               <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-              DESTINATIONS
-            </a>
-            <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-              OFFERS
-            </a>
-            <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-              COMMUNITY
-            </a>
             </nav>
 
             {/* Language switcher */}
-            <div className="relative">
+             <div className="relative">
               <button
                 onClick={toggleLangDropdown}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-300 bg-white shadow-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-all duration-300"
               >
                 <Globe className="h-5 w-5 text-green-600" />
-                <span className="font-semibold">{currentLang}</span>
+                <span className="font-semibold">{locale.toUpperCase()}</span>
                 <ChevronDown
                   className={`h-4 w-4 transition-transform ${
                     isLangOpen ? "rotate-180" : "rotate-0"
@@ -124,12 +123,12 @@ export function Header() {
                     key={lang}
                     onClick={() => selectLanguage(lang)}
                     className={`w-full text-left px-4 py-2 text-sm rounded-lg transition-colors ${
-                      currentLang === lang
+                      locale === lang
                         ? "bg-green-600 text-white font-bold"
                         : "text-gray-700 hover:bg-green-100 hover:text-green-700"
                     }`}
                   >
-                    {lang}
+                    {lang.toUpperCase()}
                   </button>
                 ))}
               </div>
@@ -157,13 +156,13 @@ export function Header() {
         >
           <nav className="flex flex-col space-y-4 py-4">
             <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-              DESTINATIONS
+              {t("destinations")}
             </a>
             <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-              OFFERS
+              {t("offers")}
             </a>
             <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-              COMMUNITY
+              {t("community")}
             </a>
           </nav>
         </div>

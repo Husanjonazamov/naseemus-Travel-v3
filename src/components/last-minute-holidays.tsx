@@ -5,6 +5,7 @@ import { useKeenSlider } from "keen-slider/react"
 import { useEffect } from "react"
 import Image from "next/image"
 import { Button } from "./ui/button"
+import { useTranslations } from "next-intl"
 
 const holidays = [
   {
@@ -54,6 +55,7 @@ const holidays = [
 ]
 
 export default function LastMinuteHolidays() {
+  const t = useTranslations("last")
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
     slides: {
@@ -82,7 +84,7 @@ export default function LastMinuteHolidays() {
     <section className="bg-[#E6F4EF] py-16 px-4 relative">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold text-[#007654] text-center mb-12 tracking-wide">
-          LAST MINUTE HOLIDAYS
+          {t("last_minute_holidays")}
         </h2>
 
         <div ref={sliderRef} className="keen-slider">
@@ -126,7 +128,7 @@ export default function LastMinuteHolidays() {
 
                 <div className="mt-auto flex justify-end">
                   <Button className="bg-[#007654] hover:bg-[#006148] font-bold text-lg text-white px-8 py-6 rounded-md shadow-md transition-all">
-                    Explore →
+                    {t("explore")}
                   </Button>
                 </div>
               </div>

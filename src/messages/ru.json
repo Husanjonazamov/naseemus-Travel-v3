@@ -5,20 +5,30 @@
       "brochureRequest": "Запрос брошюры",
   "search": "Поиск",
     "company_name": "Naseem's Travel",
-    "nav": {
-      "destinations": "[Russian translation for Destinations]",
-      "offers": "[Russian translation for Offers]",
-      "community": "[Russian translation for Community]"
-    },
-    "guarantee": "[Russian translation for Room of Your Own Guaranteed]",
-    "trustpilot": "[Russian translation for Rated Excellent on Trustpilot]",
-    "experience": "[Russian translation for Over 25 Years Expertise]"
+       "destinations": "ТУРИСТИЧЕСКИЕ НАПРАВЛЕНИЯ",
+    "offers": "СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ",
+    "community": "СООБЩЕСТВО ТУРИСТОВ",
+    "guarantee": "ГАРАНТИРОВАННАЯ КОМНАТА",
+    "trustpilot": "ОТЛИЧНЫЕ ОТЗЫВЫ",
+    "experience": "25+ ЛЕТ ОПЫТА",
+    "ROOM_OF_YOUR_OWN_GUARANTEED": "ГАРАНТИЯ СОБСТВЕННОЙ КОМНАТЫ",
+      "RATED_EXCELLENT_ON_TRUSTPILOT": "ВЫСОКИЙ РЕЙТИНГ НА TRUSTPILOT",
+      "OVER_25_YEARS_EXPERTISE": "БОЛЕЕ 25 ЛЕТ ОПЫТА",
+
+      "languageSwitcher": {
+
+      "uz": "UZ",
+      "ru": "RU",
+      "en": "EN"
+    }
   },
   "hero": {
     "title": "[Russian translation for Exclusive Offers Just for You]",
     "subtitle": "[Russian translation for Discover Your Perfect Summer Escape]",
     "description": "[Russian translation for Book your dream vacation today and save up to 40% on flights, hotels, and packages. Limited-time offer until August 31, 2025.]",
-    "cta": "[Russian translation for Save Now]"
+    "cta": "[Russian translation for Save Now]",
+      "placeholder": "КУДА ВЫ ХОТИТЕ ПОЕХАТЬ?"
+
   },
   "tour_uzbekistan": {
     "title": "Узбекистан и Шелковый путь",
@@ -29,58 +39,36 @@
     "overview": "[Russian translation for Journey through the heart of Central Asia...]",
     "type": "[Russian translation for Classic Touring]",
     "flight_choices": "[Russian translation for Flight Choices]",
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Из Великобритании в Ташкент",
-        "description": "[Russian translation for Flight to Tashkent and overnight stay.]"
-      },
-      {
-        "day": 2,
-        "title": "Ташкент",
-        "description": "[Russian translation for Explore Tashkent.]"
-      },
-      {
-        "day": 3,
-        "title": "Ташкент - Хива",
-        "description": "[Russian translation for Travel to Khiva.]"
-      },
-      {
-        "day": 4,
-        "title": "Хива - Бухара",
-        "description": "[Russian translation for Journey to Bukhara.]"
-      },
-      {
-        "day": 5,
-        "title": "Бухара",
-        "description": "[Russian translation for Discover Bukhara.]"
-      },
-      {
-        "day": 6,
-        "title": "Бухара",
-        "description": "[Russian translation for Continue exploring Bukhara.]"
-      },
-      {
-        "day": 7,
-        "title": "Бухара - Самарканд",
-        "description": "[Russian translation for Travel to Samarkand.]"
-      },
-      {
-        "day": 8,
-        "title": "Самарканд",
-        "description": "[Russian translation for Explore Samarkand.]"
-      },
-      {
-        "day": 9,
-        "title": "Самарканд",
-        "description": "[Russian translation for Continue exploring Samarkand.]"
-      },
-      {
-        "day": 10,
-        "title": "Самарканд - Ташкент",
-        "description": "[Russian translation for Return to Tashkent.]"
-      }
-    ]
+    "tabs": {
+    "discover": "ИССЛЕДОВАТЬ",
+    "itinerary": "МАРШРУТ",
+    "accommodation": "ПРОЖИВАНИЕ",
+    "reviews": "ОТЗЫВЫ",
+    "optional_excursions": "ДОПОЛНИТЕЛЬНЫЕ ЭКСКУРСИИ",
+    "dates": "ДАТЫ",
+        "enlarge_map": "Увеличить карту"
+
+  },
+    "itinerary": {
+    "title": "МАРШРУТ",
+    "print": "Распечатать маршрут",
+    "next_day": "Следующий день",
+    "end_of_journey": "Конец путешествия",
+    "day_label": "День {day}",
+    "day_heading": "ДЕНЬ {day}: {title}",
+    "days": {
+      "1": { "title": "Великобритания - Ташкент", "description": "Перелет в Ташкент и ночевка.", "image": "/images/african-elephant-safari.png" },
+      "2": { "title": "Ташкент", "description": "Обзорная экскурсия по Ташкенту.", "image": "/images/boat-trip-fun.png" },
+      "3": { "title": "Ташкент - Хива", "description": "Утренний перелет и прогулка по старому городу Хивы.", "image": "/images/cappadocia-balloons.png" },
+      "4": { "title": "Хива - Бухара", "description": "Поездка через пустыню в Бухару.", "image": "/images/classical-european-columns.png" },
+      "5": { "title": "Бухара", "description": "Целый день осмотра достопримечательностей Бухары.", "image": "/images/colorful-street-art-mural-people.png" },
+      "6": { "title": "Бухара", "description": "Свободный день для прогулок по Бухаре.", "image": "/images/croatian-coast.png" },
+      "7": { "title": "Бухара - Самарканд", "description": "Переезд в Самарканд на поезде.", "image": "/images/danube-castle-autumn.png" },
+      "8": { "title": "Самарканд", "description": "Откройте для себя площадь Регистан и древние памятники.", "image": "/images/japanese-hillside-town-fuji.png" },
+      "9": { "title": "Самарканд", "description": "Свободный день в Самарканде.", "image": "/images/swiss-mountain-train-snowy-landscape.png" },
+      "10": { "title": "Самарканд - Ташкент", "description": "Возвращение в Ташкент и прощальный вечер.", "image": "/images/traditional-dancers-lake-mountains.png" }
+    }
+  }
   },
   "solo_travel": {
     "title": "[Russian translation for The Trusted Experts for Solo Holidays]",
@@ -185,35 +173,98 @@
       "cta": "[Russian translation for Explore]"
     }
   ],
+
   "footer": {
+    "customer_support": {
+      "contact_us": "Свяжитесь с нами",
+      "follow_us": "Подписывайтесь",
+      "information": "Информация",
+      "corporate_title": "Корпоратив",
+      "about_us": "О нас",
+      "community": "Сообщество",
+      "faq": "Часто задаваемые вопросы"
+    },
     "contact": {
       "phone": "03301 737293",
+      "phone_pl": "Телефон",
       "email": "enquiries@justyou.co.uk"
     },
-    "newsletter": {
-      "title": "[Russian translation for Get Travel Inspiration & Offers to Your Inbox]",
-      "cta": "[Russian translation for Sign Up]"
-    },
     "links": {
-      "booking_conditions": "[Russian translation for Booking Conditions]",
-      "essential_information": "[Russian translation for Essential Information]",
-      "package_travel": "[Russian translation for Package Travel Information]",
-      "foreign_travel_advice": "[Russian translation for Foreign Travel Advice]",
-      "brexit_travel_advice": "[Russian translation for Brexit Travel Advice]",
-      "modern_slavery_statement": "[Russian translation for Modern Slavery Statement]",
-      "animal_welfare_policy": "[Russian translation for Animal Welfare Policy]",
-      "website_disclaimer": "[Russian translation for Website Disclaimer]"
+      "booking_conditions": "Условия бронирования",
+      "essential_information": "Важная информация",
+      "package_travel": "Информация о пакетных турах",
+      "foreign_travel_advice": "Советы по международным путешествиям",
+      "brexit_travel_advice": "Советы по путешествиям после Brexit",
+      "modern_slavery_statement": "Заявление о современном рабстве",
+      "animal_welfare_policy": "Политика благополучия животных",
+      "website_disclaimer": "Отказ от ответственности сайта"
     },
     "corporate": {
-      "travelsphere": "[Russian translation for Travelsphere]",
-      "careers": "[Russian translation for Careers]",
-      "trade_agent_hub": "[Russian translation for Trade Agent Hub]"
+      "travelsphere": "TravelSphere",
+      "careers": "Карьера",
+      "trade_agent_hub": "Платформа агентов"
     },
-    "customer_support": {
-      "about_us": "[Russian translation for About Us]",
-      "contact_us": "[Russian translation for Contact Us]",
-      "community": "[Russian translation for Community]",
-      "faq": "[Russian translation for Frequently Asked Questions]"
+    "customer_support_title": "Служба поддержки",
+    "newsletter": {
+      "title": "Получайте вдохновение и предложения на почту",
+      "cta": "Подписаться"
     }
+  },
+
+
+
+
+    "last": {
+        "last_minute_holidays": "Горящие туры",
+          "explore": "Смотреть больше →",
+            "testimonial": "Это было мое первое путешествие с Just you, и я определенно рекомендую их. От начала до конца я чувствовал заботу, и программа была отличной.",
+  "author": "Анна"
+
+  },
+  "service": {
+      "we_take_care_of": "Мы заботимся о вас",
+  "flights": "Авиабилеты",
+  "return_flights": "Обратные рейсы",
+  "hotels": "Отели",
+  "hand_picked_hotels": "Тщательно подобранные отели",
+  "breakfasts": "Завтраки",
+  "breakfast_together": "Завтракаем вместе каждый день",
+  "holiday_directors": "Руководители туров",
+  "experienced_tour_guide": "Опытный гид сопровождает вас",
+  "holiday_assurance": "Гарантия отдыха",
+  "support_every_step": "Поддержка на каждом этапе"
+  },
+  "newsletter": {
+    "title": "Получайте вдохновение для путешествий и предложения на почту",
+    "button": "Подпишитесь на нашу рассылку"
+  },
+   "about": {
+    "title": "Отпуск, который позволяет быть собой",
+    "paragraph1": "В отпуске с Just You вы свободны наслаждаться поездкой. Мы — эксперты по путешествиям для одиночек, и обо всём остальном позаботимся мы.",
+    "paragraph2": "Не нужно беспокоиться о том, где вам быть утром или какой билет покупать. Просто наслаждайтесь выбранным направлением, отдыхайте и находите друзей с общими интересами.",
+    "paragraph3": "С 25-летним опытом организации туров для одиночных путешественников и сопровождением профессионального гида вы сможете делать всё, что захотите."
+  },
+    "blog": {
+    "title": "Читайте наши блоги",
+    "explore_button": "Смотреть больше →",
+    "balkan_explorer": {
+      "title": "БАЛКАНСКИЙ ИССЛЕДОВАТЕЛЬ",
+      "description": "Подробное путешествие по четырём странам в малоизвестном уголке Европы. Посетите космополитичные города и насладитесь потрясающими пейзажами."
+    },
+    "switzerland_railways": {
+      "title": "ЖИВОПИСНЫЕ ЖЕЛЕЗНЫЕ ДОРОГИ ШВЕЙЦАРИИ И ЗИМНИЕ ЧУДЕСА АЛЬП",
+      "description": "Отправьтесь в незабываемое зимнее путешествие по Швейцарии, сочетая элегантные железнодорожные маршруты с потрясающими альпийскими видами."
+    },
+    "turkish_treasures": {
+      "title": "ТУРЕЦКИЕ СОКРОВИЩА",
+      "description": "Турция поразит ваши чувства: от шумного Гранд-базара Стамбула до пещерных домов Каппадокии и мерцающих плиток Голубой мечети — и, конечно, вкуснейшей кухни."
+    }
+  },
+  "newHoliday": {
+      "newHoliday": "НОВЫЕ ТУРЫ ДЛЯ ОДИНОЧНЫХ ПУТЕШЕСТВИЙ"
+  },
+  "Popular": {
+  "popularDestinations": "САМЫЕ ПОПУЛЯРНЫЕ НАПРАВЛЕНИЯ ДЛЯ ОДИНОЧНЫХ ПУТЕШЕСТВИЙ"
   }
+
 }

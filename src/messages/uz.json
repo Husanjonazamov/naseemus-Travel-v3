@@ -3,217 +3,266 @@
     "phone": "+998-94-001-47-41",
     "address": "Toshkent, Asosiy ko'cha 123",
     "company_name": "Naseem's Travel",
-      "brochureRequest": "Broshyura so'rovi",
-  "search": "Qidirish",
-    "nav": {
-      "destinations": "[Uzbek translation for Destinations]",
-      "offers": "[Uzbek translation for Offers]",
-      "community": "[Uzbek translation for Community]"
-    },
-    "guarantee": "[Uzbek translation for Room of Your Own Guaranteed]",
-    "trustpilot": "[Uzbek translation for Rated Excellent on Trustpilot]",
-    "experience": "[Uzbek translation for Over 25 Years Expertise]"
+    "brochureRequest": "Broshyura so'rovi",
+    "search": "Qidirish",
+    "destinations": "SAYOHAT MANZILLARI",
+    "offers": "MAXSUS TAKLIFLAR",
+    "community": "SAYYOHLAR JAMOASI",
+    "guarantee": "XONANGIZ KAFOLATLANGAN",
+    "trustpilot": "AJOYIB SHARHLAR",
+    "experience": "25+ YILLIK TAJRIBA",
+    "ROOM_OF_YOUR_OWN_GUARANTEED": "SHAXSIY XONAGA KAFOLAT",
+    "RATED_EXCELLENT_ON_TRUSTPILOT": "TRUSTPILOTDA A’LO BAHOLANGAN",
+    "OVER_25_YEARS_EXPERTISE": "25 YILLIK TAJRIBA",
+
+    "languageSwitcher": {
+      "uz": "UZ",
+      "ru": "RU",
+      "en": "EN"
+    }
   },
   "hero": {
-    "title": "[Uzbek translation for Exclusive Offers Just for You]",
-    "subtitle": "[Uzbek translation for Discover Your Perfect Summer Escape]",
-    "description": "[Uzbek translation for Book your dream vacation today and save up to 40% on flights, hotels, and packages. Limited-time offer until August 31, 2025.]",
-    "cta": "[Uzbek translation for Save Now]"
+    "title": "FAQAT SIZ UCHUN MAXSUS TAKLIFLAR",
+    "subtitle": "MUKAMMAL YOZGI DAM OLISHNI KASHF ETING",
+    "description": "Orzuingizdagi ta'tilni bugun bron qiling va aviachiptalar, mehmonxonalar hamda to'plamlar uchun 40% gacha tejang. Taklif 2025-yil 31-avgustgacha amal qiladi.",
+    "cta": "HOZIR TEJANG",
+      "placeholder": "Qayerga bormoqchisiz ?"
+
   },
   "tour_uzbekistan": {
-    "title": "O'zbekiston va Ipak Yo'li",
-    "price": "£2399 kishi boshiga",
-    "duration": "11 Kun",
-    "departure_dates": "Sentyabr 2025 - Oktabr 2026",
-    "cta_book": "[Uzbek translation for Book Now]",
-    "overview": "[Uzbek translation for Journey through the heart of Central Asia...]",
-    "type": "[Uzbek translation for Classic Touring]",
-    "flight_choices": "[Uzbek translation for Flight Choices]",
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Buyuk Britaniyadan Toshkentga",
-        "description": "[Uzbek translation for Flight to Tashkent and overnight stay.]"
-      },
-      {
-        "day": 2,
-        "title": "Toshkent",
-        "description": "[Uzbek translation for Explore Tashkent.]"
-      },
-      {
-        "day": 3,
-        "title": "Toshkent - Xiva",
-        "description": "[Uzbek translation for Travel to Khiva.]"
-      },
-      {
-        "day": 4,
-        "title": "Xiva - Buxoro",
-        "description": "[Uzbek translation for Journey to Bukhara.]"
-      },
-      {
-        "day": 5,
-        "title": "Buxoro",
-        "description": "[Uzbek translation for Discover Bukhara.]"
-      },
-      {
-        "day": 6,
-        "title": "Buxoro",
-        "description": "[Uzbek translation for Continue exploring Bukhara.]"
-      },
-      {
-        "day": 7,
-        "title": "Buxoro - Samarqand",
-        "description": "[Uzbek translation for Travel to Samarkand.]"
-      },
-      {
-        "day": 8,
-        "title": "Samarqand",
-        "description": "[Uzbek translation for Explore Samarkand.]"
-      },
-      {
-        "day": 9,
-        "title": "Samarqand",
-        "description": "[Uzbek translation for Continue exploring Samarkand.]"
-      },
-      {
-        "day": 10,
-        "title": "Samarqand - Toshkent",
-        "description": "[Uzbek translation for Return to Tashkent.]"
-      }
-    ]
+     "tabs": {
+    "discover": "KASHF ETISH",
+    "itinerary": "MARSHRUT",
+    "accommodation": "JOYLANISH",
+    "reviews": "SHARHLAR",
+    "optional_excursions": "IHTIYORIY SAYOHLAR",
+    "dates": "SANALAR"
+  },
+    "title": "O'ZBEKISTON VA IPAK YO'LI",
+    "price": "£2399 KISHI BOSHIGA",
+    "duration": "11 KUN",
+    "departure_dates": "SENTYABR 2025 - OKTYABR 2026",
+    "cta_book": "HOZIR BRON QILING",
+    "overview": "Markaziy Osiyoning yuragida unutilmas sayohat. Toshkent, Xiva, Buxoro va Samarqandning go'zalligini kashf eting.",
+    "type": "KLASSIK SAYOHAT",
+        "enlarge_map": "Xaritani kattalashtirish",
+    "flight_choices": "AVIAPARVOZ TANLOVLARI",
+     "itinerary": {
+    "title": "MARSHRUT",
+    "print": "Marshrutni chop etish",
+    "next_day": "Keyingi kun",
+    "end_of_journey": "Safar tugadi",
+    "day_label": "Kun {day}",
+    "day_heading": "KUN {day}: {title}",
+    "days": {
+      "1": { "title": "Buyuk Britaniya - Toshkent", "description": "Toshkentga parvoz va tunash.", "image": "/images/african-elephant-safari.png" },
+      "2": { "title": "Toshkent", "description": "Toshkent shahar bo‘ylab ekskursiya.", "image": "/images/boat-trip-fun.png" },
+      "3": { "title": "Toshkent - Xiva", "description": "Ertalabki parvoz va Xivaning qadimiy shahrini ko‘rish.", "image": "/images/cappadocia-balloons.png" },
+      "4": { "title": "Xiva - Buxoro", "description": "Cho‘l bo‘ylab Buxoroga yo‘l.", "image": "/images/classical-european-columns.png" },
+      "5": { "title": "Buxoro", "description": "Buxoro tarixiy joylarini to‘liq o‘rganish.", "image": "/images/colorful-street-art-mural-people.png" },
+      "6": { "title": "Buxoro", "description": "Buxoroni o‘z xohishingiz bo‘yicha o‘rganish uchun bo‘sh kun.", "image": "/images/croatian-coast.png" },
+      "7": { "title": "Buxoro - Samarqand", "description": "Poyezd orqali Samarqandga yo‘l.", "image": "/images/danube-castle-autumn.png" },
+      "8": { "title": "Samarqand", "description": "Registon maydoni va qadimiy joylarni kashf etish.", "image": "/images/japanese-hillside-town-fuji.png" },
+      "9": { "title": "Samarqand", "description": "Samarqandni erkin o‘rganish kuni.", "image": "/images/swiss-mountain-train-snowy-landscape.png" },
+      "10": { "title": "Samarqand - Toshkent", "description": "Toshkentga qaytish va xayrlashuv kechasi.", "image": "/images/traditional-dancers-lake-mountains.png" }
+    }
+  }
   },
   "solo_travel": {
-    "title": "[Uzbek translation for The Trusted Experts for Solo Holidays]",
-    "description": "[Uzbek translation for Since 2000, we’ve been bringing people together...]",
+    "title": "YAKKA SAYOHATLAR UCHUN ISHONCHLI MUTAXASSISLAR",
+    "description": "2000-yildan beri biz yakka sayohatchilarni birlashtirib, unutilmas tajribalar yaratmoqdamiz.",
     "tips": {
-      "title": "[Uzbek translation for Solo Travel Tips]",
-      "description": "[Uzbek translation for Take a look at our top ten tips...]",
-      "cta": "[Uzbek translation for Learn More]"
+      "title": "YAKKA SAYOHAT MASLAHATLARI",
+      "description": "Yakka sayohat uchun eng yaxshi o'n maslahatlarimizni ko'rib chiqing.",
+      "cta": "BATAFSIL"
     },
     "last_minute": {
-      "title": "[Uzbek translation for Last-Minute Trips]",
-      "description": "[Uzbek translation for Looking for a spontaneous getaway?...]",
-      "cta": "[Uzbek translation for Book Now]"
+      "title": "OXIRGI DAKIQALI SAYOHLAR",
+      "description": "Kutilmagan dam olishni xohlaysizmi? Bizning oxirgi daqiqali takliflarimizni ko'rib chiqing.",
+      "cta": "BRON QILING"
     },
     "india": {
-      "title": "[Uzbek translation for Inspirational India]",
-      "description": "[Uzbek translation for Experience the magic of India...]",
-      "cta": "[Uzbek translation for Book Now]"
+      "title": "ILHOMLANTIRUVCHI HINDISTON",
+      "description": "Hindistonning sehrli go'zalliklarini his eting.",
+      "cta": "BRON QILING"
     },
     "beach_escapes": {
-      "title": "[Uzbek translation for Beach Escapes]",
-      "description": "[Uzbek translation for Relax on sandy shores...]",
-      "cta": "[Uzbek translation for Discover]"
+      "title": "SOHILDA DAM OLISH",
+      "description": "Quyoshli plyajlarda dam oling va osoyishtalikdan bahramand bo'ling.",
+      "cta": "KASHF ETING"
     },
     "city_adventures": {
-      "title": "[Uzbek translation for City Adventures]",
-      "description": "[Uzbek translation for Explore vibrant cities worldwide...]",
-      "cta": "[Uzbek translation for Explore]"
+      "title": "SHAHAR SARGUZASHTLARI",
+      "description": "Dunyoning jonli shaharlarini o'rganing.",
+      "cta": "O'RGANISH"
     },
     "wildlife_safaris": {
-      "title": "[Uzbek translation for Wildlife Safaris]",
-      "description": "[Uzbek translation for Get closer to nature...]",
-      "cta": "[Uzbek translation for Join Now]"
+      "title": "TABIAT SAFARLARI",
+      "description": "Tabiatga yaqinlashing va yovvoyi hayotni kashf eting.",
+      "cta": "QO'SHILING"
     }
   },
   "services": {
-    "flights": "[Uzbek translation for Return flights]",
-    "hotels": "[Uzbek translation for Hand-picked hotels]",
-    "breakfasts": "[Uzbek translation for Breakfast together every day]",
-    "holiday_directors": "[Uzbek translation for Experienced tour guide accompanying you]",
-    "holiday_assurance": "[Uzbek translation for Here to support you every step of the way]"
+    "flights": "QAYTISH AVIAPARVOZLARI",
+    "hotels": "SINCHIKLAB TANLANGAN MEHMONXONALAR",
+    "breakfasts": "HAR KUNI BIRGALIKDA NONUSHTA",
+    "holiday_directors": "TAJRIBALI SAYOHAT QO'LLANMASI HAMROHLIGIDA",
+    "holiday_assurance": "HAR QADAMDA SIZGA YORDAM BERAMIZ"
   },
   "testimonials": [
     {
-      "text": "[Uzbek translation for We were very well looked after...]",
-      "author": "[Uzbek translation for Customer]",
-      "date": "[Uzbek translation for 1 day ago]"
+      "text": "Bizga juda yaxshi xizmat ko'rsatildi, hamma narsa mukammal edi.",
+      "author": "Mijoz",
+      "date": "1 kun oldin"
     },
     {
-      "text": "[Uzbek translation for A fantastic holiday with beautiful country Croatia...]",
+      "text": "Ajoyib ta'til, go'zal mamlakat - Xorvatiya.",
       "author": "Nigel Wood",
-      "date": "[Uzbek translation for 5 days ago]"
+      "date": "5 kun oldin"
     },
     {
-      "text": "[Uzbek translation for Excellent tour. Ship amazing & crew so friendly...]",
+      "text": "Zo'r sayohat. Kema ajoyib va ekipaj juda do'stona.",
       "author": "Sandra",
-      "date": "[Uzbek translation for August 11]"
+      "date": "11-avgust"
     },
     {
-      "text": "[Uzbek translation for The entire experience, from booking to picking...]",
+      "text": "Butun jarayon - bron qilishdan tortib, qaytishgacha mukammal o'tdi.",
       "author": "Maggie",
-      "date": "[Uzbek translation for August 8]"
+      "date": "8-avgust"
     },
     {
-      "text": "[Uzbek translation for It was my first tour with Just you...]",
+      "text": "Bu mening birinchi yakka sayohatim edi va u juda ajoyib o'tdi.",
       "author": "Anne",
       "date": null
     }
   ],
   "other_tours": [
     {
-      "title": "[Uzbek translation for Balkan Explorer]",
-      "description": "[Uzbek translation for An in-depth exploration of four countries...]",
+      "title": "BALKANLAR SAYOHATI",
+      "description": "To'rt mamlakat bo'ylab keng qamrovli sarguzasht.",
       "details": {
-        "flights": "[Uzbek translation for Return flights from London]",
-        "accommodation": "[Uzbek translation for 12 nights in 4-star hotels]",
-        "meals": "[Uzbek translation for 20 meals: 12 breakfasts, 2 lunches and 6 dinners, with a welcome drink]",
-        "director": "[Uzbek translation for Just You Holiday Director]",
+        "flights": "Londondan qaytish aviaparvozi",
+        "accommodation": "12 KECHA 4 YULDUZLI MEHMONXONALARDA",
+        "meals": "20 TA OVQAT: 12 NONUSHTA, 2 TUSHLIK VA 6 KECHKI OVQAT, XUSH KELIBSIZ ICHIMLIGI BILAN",
+        "director": "JUST YOU SAYOHAT QO'LLANMASI",
         "price": "$1,200"
       },
-      "cta": "[Uzbek translation for Explore]"
+      "cta": "KASHF ETING"
     },
     {
-      "title": "[Uzbek translation for Switzerland's Scenic Railways and Alpine Winter Wonders]",
-      "description": "[Uzbek translation for Embark on an unforgettable Swiss winter adventure...]",
+      "title": "SHVETSIYA QISHKI MO'JIZALARI VA POEZD SAFARLARI",
+      "description": "Shveysariyada unutilmas qishki sarguzashtni boshlang.",
       "details": {
-        "flights": "[Uzbek translation for Return flights from the UK]",
-        "accommodation": "[Uzbek translation for 6 nights in a 4-star hotel]",
-        "meals": "[Uzbek translation for 9 included meals: 6 breakfasts, 1 lunch and 2 dinners]",
+        "flights": "BUYUK BRITANIYADAN QAYTISH AVIAPARVOZLARI",
+        "accommodation": "6 KECHA 4 YULDUZLI MEHMONXONADA",
+        "meals": "9 TA OVQAT: 6 NONUSHTA, 1 TUSHLIK VA 2 KECHKI OVQAT",
         "price": "$2,500"
       },
-      "cta": "[Uzbek translation for Explore]"
+      "cta": "KASHF ETING"
     },
     {
-      "title": "[Uzbek translation for Turkish Treasures: From Istanbul's Palaces to Cappadocia's Wonders]",
-      "description": "[Uzbek translation for Turkey dazzles your senses...]",
+      "title": "TURKIYA XAZINALARI: ISTANBUL SAROYLARIDAN KAPPADOKIYA MO'JIZALARIGACHA",
+      "description": "Turkiya o'zining go'zalligi va betakrorligi bilan sizni hayratga soladi.",
       "details": {
-        "flights": "[Uzbek translation for Return flights]",
-        "accommodation": "[Uzbek translation for 6 nights in a 4-star hotel and 12 meals]",
+        "flights": "QAYTISH AVIAPARVOZLARI",
+        "accommodation": "6 KECHA 4 YULDUZLI MEHMONXONADA VA 12 MAHSUS OVQAT",
         "price": "$1,800"
       },
-      "cta": "[Uzbek translation for Explore]"
+      "cta": "KASHF ETING"
     }
   ],
+
   "footer": {
+    "customer_support": {
+      "contact_us": "Biz bilan bog'laning",
+      "follow_us": "Bizni kuzating",
+      "information": "Ma'lumot",
+      "corporate_title": "Korporativ",
+       "about_us": "Biz haqimizda",
+      "community": "Hamjamiyat",
+      "faq": "Ko'p so'raladigan savollar"
+    },
     "contact": {
       "phone": "03301 737293",
+      "phone_pl": "Telefon raqam",
       "email": "enquiries@justyou.co.uk"
     },
-    "newsletter": {
-      "title": "[Uzbek translation for Get Travel Inspiration & Offers to Your Inbox]",
-      "cta": "[Uzbek translation for Sign Up]"
-    },
     "links": {
-      "booking_conditions": "[Uzbek translation for Booking Conditions]",
-      "essential_information": "[Uzbek translation for Essential Information]",
-      "package_travel": "[Uzbek translation for Package Travel Information]",
-      "foreign_travel_advice": "[Uzbek translation for Foreign Travel Advice]",
-      "brexit_travel_advice": "[Uzbek translation for Brexit Travel Advice]",
-      "modern_slavery_statement": "[Uzbek translation for Modern Slavery Statement]",
-      "animal_welfare_policy": "[Uzbek translation for Animal Welfare Policy]",
-      "website_disclaimer": "[Uzbek translation for Website Disclaimer]"
+      "booking_conditions": "Bron qilish shartlari",
+      "essential_information": "Muhim ma'lumotlar",
+      "package_travel": "Turpaketlar haqida ma'lumot",
+      "foreign_travel_advice": "Xalqaro sayohat maslahatlari",
+      "brexit_travel_advice": "Brexit bo'yicha sayohat maslahatlari",
+      "modern_slavery_statement": "Zamonaviy qullik haqida bayonot",
+      "animal_welfare_policy": "Hayvonlar farovonligi siyosati",
+      "website_disclaimer": "Sayt mas'uliyati"
     },
     "corporate": {
-      "travelsphere": "[Uzbek translation for Travelsphere]",
-      "careers": "[Uzbek translation for Careers]",
-      "trade_agent_hub": "[Uzbek translation for Trade Agent Hub]"
+      "travelsphere": "TravelSphere",
+      "careers": "Ish o'rinlari",
+      "trade_agent_hub": "Agentlar platformasi"
     },
-    "customer_support": {
-      "about_us": "[Uzbek translation for About Us]",
-      "contact_us": "[Uzbek translation for Contact Us]",
-      "community": "[Uzbek translation for Community]",
-      "faq": "[Uzbek translation for Frequently Asked Questions]"
+    "customer_support_title": "Mijozlarni qo'llab-quvvatlash",
+    "newsletter": {
+      "title": "Ilhomlantiruvchi sayohatlar va takliflarni pochtangizga oling",
+      "cta": "Obuna bo‘lish"
     }
+  },
+
+  "last": {
+      "last_minute_holidays": "Oxirgi daqiqadagi ta'tillar",
+        "explore": "Ko‘proq ko‘rish →",
+          "testimonial": "Bu Just you bilan birinchi safarim edi va men ularni albatta tavsiya qilaman. Boshlanishidan oxirigacha o‘zimni yaxshi qaralgan his qildim va dastur ajoyib edi.",
+  "author": "Anne"
+  
+
+  },
+  "service": {
+      "we_take_care_of": "Biz g‘amxo‘rlik qilamiz",
+  "flights": "Parvozlar",
+  "return_flights": "Qaytish reyslari",
+  "hotels": "Mehmonxonalar",
+  "hand_picked_hotels": "Tanlab olingan mehmonxonalar",
+  "breakfasts": "Nonushtalar",
+  "breakfast_together": "Har kuni birga nonushta",
+  "holiday_directors": "Sayohat rahbarlari",
+  "experienced_tour_guide": "Tajribali sayohat yo‘lboshchisi siz bilan",
+  "holiday_assurance": "Sayohat kafolati",
+  "support_every_step": "Har bir bosqichda sizni qo‘llab-quvvatlaymiz"
+  },
+    "newsletter": {
+    "title": "Safar ilhomlari va takliflarni pochtangizga oling",
+    "button": "Bizning yangiliklar byulletenimizga obuna bo‘ling"
+  },
+   "about": {
+    "title": "Faqat Siz Uchun Mos Tatillar",
+    "paragraph1": "Just You ta'tilida siz tajribadan to‘liq bahramand bo‘lishingiz mumkin. Biz yakka sayohat bo‘yicha mutaxassislar bo‘lib, qolgan hamma narsani biz hal qilamiz.",
+    "paragraph2": "Ertalab qayerga borishingiz yoki qaysi poezd chiptasini olishingiz haqida o‘ylamang. Faqat tanlagan manzilingizdan zavqlaning, dam oling va hamfikr do‘stlar orttiring.",
+    "paragraph3": "Yakka sayohatlar uchun mo‘ljallangan 25 yillik tajriba va sayohat bo‘yicha yo‘lboshchimiz yordamida siz o‘zingizni mutlaqo erkin his qilasiz."
+  },
+   "blog": {
+    "title": "Bloglarimizni o‘qing",
+    "explore_button": "Ko‘proq ko‘rish →",
+    "balkan_explorer": {
+      "title": "BALKAN SAYOHATI",
+      "description": "Yevropaning kam o‘rganilgan burchagidagi to‘rt mamlakat bo‘ylab keng qamrovli sayohat. Zamonaviy shaharlardan tortib tabiiy go‘zalliklargacha bo‘lgan maskanlarni kashf eting."
+    },
+    "switzerland_railways": {
+      "title": "SHVEYTSARIYA POEZDLARI VA QORLI ALP GO‘ZALLIKLARI",
+      "description": "Shveytsariyada unutilmas qishki sayohatga chiqing — nafis temir yo‘l sayohatlari va ajoyib Alp manzaralari bilan."
+    },
+    "turkish_treasures": {
+      "title": "TURK XAZINALARI",
+      "description": "Turkiya sizning barcha sezgilaringizni hayratga soladi: Istanbul bozoridagi ziravorlarning hidi, Kapadokiyadagi g‘or uylar, Moviy masjidning sirli naqshlari va albatta, mazali taomlar."
+    }
+  },
+  "newHoliday": {
+    "newHoliday": "YANGI YAKKA SAYOHATLAR TA'TILI"
+  },
+  "Popular": {
+  "popularDestinations": "ENG MASHHUR YAKKA SAYOHAT MANZILLARI"
   }
+
+
+
 }

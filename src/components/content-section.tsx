@@ -8,6 +8,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
+import { useTranslations } from "next-intl"
 
 // Helper function to limit text to ~50 words
 const formatDescription = (text: string, wordLimit = 50) => {
@@ -65,19 +66,18 @@ const cards = [
 ]
 
 export function ContentSection() {
+  const t = useTranslations("solo_travel");
   return (
     <section className="py-16 px-4 bg-gray-50 mt-20 mb-20">
       <div className="max-w-6xl mx-auto">
         {/* Main heading */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-center text-[#007654] mb-10">
-          THE TRUSTED EXPERTS FOR SOLO HOLIDAYS
+          {t("title")}
         </h2>
 
         {/* Description paragraph */}
         <p className="text-gray-700 text-center max-w-4xl mx-auto mb-16 text-lg leading-relaxed">
-          Since 2000, we’ve been bringing people together for unforgettable solo holidays.
-          From exploring exotic destinations to discovering hidden gems closer to home,
-          our tours are designed to create lasting memories and meaningful connections.
+          {t("description")}
         </p>
 
         {/* Desktop Grid */}
@@ -93,7 +93,7 @@ export function ContentSection() {
                   {formatDescription(card.description)}
                 </p>
                 <div className="flex justify-end mt-auto">
-                  <Button className="bg-[#007654] hover:bg-[#006148] text-white px-8 py-3 text-lg font-bold">
+                  <Button className="bg-[#007654] hover:bg-[#006148] text-white px-8 py-6 text-lg font-bold">
                     {card.button}
                   </Button>
                 </div>
