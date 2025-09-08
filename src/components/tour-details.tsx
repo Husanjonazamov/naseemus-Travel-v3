@@ -37,7 +37,7 @@ export function TourDetails() {
             <div className="text-sm text-gray-600">
               {t("departure_dates_label")}
             </div>
-          </div>
+          </div>  
 
           {/* Bron qilish tugmasi */}
           <Button

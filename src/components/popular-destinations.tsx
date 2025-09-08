@@ -5,10 +5,12 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Button } from "./ui/button"
 import { useTranslations } from "next-intl"
+import Link from "next/link"
 
 export function PopularDestinations() {
   const destinations = [
     {
+      id: "balkan-explorer",
       title: "BALKAN EXPLORER",
       image:"/images/croatian-coast.png",
       price: "$1,200",
@@ -22,6 +24,7 @@ export function PopularDestinations() {
       ],
     },
     {
+      id: "switzerland-railways",
       title: "SWITZERLAND'S SCENIC RAILWAYS AND ALPINE WINTER WONDERS",
       image:"/images/croatian-coast.png",
       price: "$2,500",
@@ -34,6 +37,7 @@ export function PopularDestinations() {
       ],
     },
     {
+      id: "turkish-treasures",
       title: "TURKISH TREASURES: FROM ISTANBUL'S PALACES TO CAPPADOCIA'S WONDERS",
       image:"/images/croatian-coast.png",
       price: "$1,800",
@@ -58,6 +62,7 @@ export function PopularDestinations() {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
+  
   const t = useTranslations("Popular")
   const e = useTranslations("last")
 
@@ -66,8 +71,8 @@ export function PopularDestinations() {
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#007654] mb-12">
-            {t("popularDestinations")}
-          </h2>
+          {t("popularDestinations")}
+        </h2>
 
         {isMobile ? (
           <div ref={sliderRef} className="keen-slider">
@@ -91,12 +96,14 @@ export function PopularDestinations() {
                     ))}
                   </ul>
 
-                  {/* Price va Button bir chiziqda */}
+                  {/* Price va Button */}
                   <div className="flex items-center justify-between mt-auto">
                     <p className="text-[#007654] font-bold text-3xl">{destination.price}</p>
-                    <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
-                      {e("explore")}
-                    </Button>
+                    <Link href={`/tour/${destination.id}`}>
+                      <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
+                        {e("explore")}
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -122,13 +129,14 @@ export function PopularDestinations() {
                     ))}
                   </ul>
 
-                  {/* Price va Button bir chiziqda */}
+                  {/* Price va Button */}
                   <div className="flex items-center justify-between mt-auto">
                     <p className="text-[#007654] font-bold text-2xl">{destination.price}</p>
-                    <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
-                      {e("explore")}
-                      
-                    </Button>
+                    <Link href={`/tour/${destination.id}`}>
+                      <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
+                        {e("explore")}
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
