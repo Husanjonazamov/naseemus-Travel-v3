@@ -1,5 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Header } from "@/src/components/header";
+import { TrustBadges } from "@/src/components/trust-badges";
+import { PopularDestinations } from "@/src/components/popular-destinations";
+import { NewTouringHolidays } from "@/src/components/new-touring-holidays";
+import { Footer } from "@/src/components/footer";
+import { Itinerary } from "@/src/components/itenerary";
+import { TourOverview } from "@/src/components/tour-overview";
+import { TourDetails } from "@/src/components/tour-details";
+import TourPage from "../TourDetail";
 
 interface TourDetailProps {
   params: {
@@ -8,7 +16,7 @@ interface TourDetailProps {
 }
 
 export default function TourDetail({ params }: TourDetailProps) {
-  // Demo ma'lumotlar
+  // Demo ma'lumotlar (keyinchalik API'dan olib kelishingiz mumkin)
   const tour = {
     id: params.id,
     title: "Paris Tour",
@@ -18,70 +26,67 @@ export default function TourDetail({ params }: TourDetailProps) {
       "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200",
   };
 
-  const otherTours = [
-    {
-      id: 2,
-      title: "Dubai Luxury Tour",
-      image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600",
-    },
-    {
-      id: 3,
-      title: "Istanbul Culture Tour",
-      image:
-        "https://images.unsplash.com/photo-1544986581-efac024faf62?w=600",
-    },
-  ];
-
   return (
-    <div className="w-full">
-      {/* Banner */}
-      <div className="relative w-full h-[400px]">
+    <div className="w-full overflow-x-hidden"> {/* Yon scrollni to‘liq yo‘qotadi */}
+      {/* Header */}
+      <Header />
+      <TrustBadges />
+
+      {/* Hero Section */}
+      <section className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] overflow-hidden">
         <Image
           src={tour.image}
           alt={tour.title}
           fill
-          className="object-cover"
+          className="object-cover absolute inset-0"
+          quality={90}
+          priority
+          sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <h1 className="text-white text-4xl font-bold">{tour.title}</h1>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        {/* Title */}
+        <div className="relative z-20 flex items-center justify-center h-full px-4">
+          <h1 className="text-3xl sm:text-5xl font-bold text-white drop-shadow-lg text-center break-words">
+            {tour.title}
+          </h1>
         </div>
-      </div>
+
+        {/* Custom Banner Info */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 bg-black/40 text-white py-4 px-2 sm:px-4">
+          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 max-w-7xl mx-auto text-center">
+            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide">
+              EXCLUSIVELY FOR SOLO TRAVELLERS
+            </span>
+            <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-500">
+              25
+            </span>
+            <span className="text-sm sm:text-base md:text-lg">
+              Over 25 Years Expertise
+            </span>
+            <span className="text-sm sm:text-base md:text-lg">
+              Your Money is 100% Protected
+            </span>
+            <span className="text-sm sm:text-base md:text-lg">
+              Holiday Assurance Guarantee
+            </span>
+            <span className="text-sm sm:text-base md:text-lg">
+              No Single Supplement
+            </span>
+          </div>
+        </div>
+      </section>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto p-6">
-        <h2 className="text-2xl font-semibold mb-4">{tour.title}</h2>
-        <p className="text-gray-600 mb-6">{tour.description}</p>
-        <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-          Buyurtma qilish
-        </button>
-      </div>
+      <TourDetails />
+      <TourOverview />
+      <TourPage />
 
-      {/* Other tours */}
-      <div className="max-w-6xl mx-auto p-6">
-        <h3 className="text-xl font-bold mb-4">Boshqa turlar</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {otherTours.map((item) => (
-            <Link
-              key={item.id}
-              href={`/tours/${item.id}`}
-              className="rounded-xl shadow hover:shadow-lg transition overflow-hidden"
-            >
-              <div className="relative w-full h-48">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <h4 className="font-semibold">{item.title}</h4>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
+      <Itinerary />
+      <PopularDestinations />
+      <NewTouringHolidays />
+      <Footer />
     </div>
   );
 }
