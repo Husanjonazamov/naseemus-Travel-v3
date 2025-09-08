@@ -19,37 +19,44 @@ export default function TourDetail({ params }: TourDetailProps) {
   const tour = {
     id: params.id,
     title: "Enjoy the Flavours of Croatia",
-    description: `# Enjoy the Flavours of Croatia
-
-For a small country, Croatia offers a vast range of cuisine, with dishes varying from region to region. Wherever your travels take you, local and seasonal specialties are sure to form a memorable part of your holiday, so here are some must-tries.
-
-## From the Land & Sea
-
-Meat dishes usually consist of a grilled or pan-fried chop or escalope of pork or veal. Lamb is prepared as a spit-roast and it's quite common to see a whole animal being roasted over an open fire outside a restaurant to lure in customers. A typical way to prepare meat in Istria and the Adriatic islands is to slow bake it under a *peka* – a metal lid that's covered with hot embers.
-
-## Meat Specialties
-
-Stewed meat is less common, although goulash is sometimes served as a sauce with pasta, and the Dalmatian dish of *pasticada* – beef cooked in wine and prunes – is popular. Occupying a great position along the Adriatic coastline, expect a huge choice of seafood dishes with through grilled, baked or pan-fried. Maybe try *gregada*, a peasant stew made with whitebait, potatoes and onions, or *riblja plata* – a sharing platter of fish and shellfish.
-
-Croatian cuisine is a delightful mosaic shaped by its diverse regions, each offering a unique culinary identity. From the hearty mainland to the sun-kissed coast, Croatia’s food scene is a blend of ancient traditions and vibrant influences, perfect for food-loving travelers. Meat lovers will adore the grilled specialties like *ražnjiči* (skewers) and *janjetina* (roasted lamb, notably from Pag and Dalmatia), often slow-cooked *pod pekom* for that juicy, tender perfection. Veal shines in dishes like *Zagrebački odrezak* – veal steaks stuffed with ham and cheese, breaded and fried – while roasted suckling pig (*odojak*) is a mainland favorite, paired with *mlinci*, a flat pasta soaked in roast juices.
-
-## Seafood Delights
-
-Seafood steals the show on the coast, with grilled squid (*lignje na žaru*), fresh octopus salad, and the iconic *crni rižot* (cuttlefish risotto, inked black for dramatic flair). Don't miss fish stews like *brudet* (a flavorful mix of multiple fish types) or salted cod (*bakalar*) prepared white or red for festive feasts. Scampi, mussels, and clams sautéed in *buzara* – a garlicky, olive oil, parsley, and white wine broth – are coastal staples that capture the essence of the Adriatic.
-
-## From the Vineyards
-
-You may not have seen much of it here in the UK, but Croatian wine has a long history. It was the Greek settlers who first introduced vineyards to the country in the 5th century BC, and the delicious complex wines produced today probably rarely.
-
-## Wine Heritage
-
-Croatia’s wine heritage dates back centuries, divided into three main regions: Continental, Coastal (including islands), and Slavonia, boasting over 300 wine-producing areas. Istria, Konavle, and Pelješac are globally renowned, with events like Vinistra celebrating the craft. Famous varieties include the elegant whites like Malvazija Istarska from Istria and Pošip from Korčula, alongside robust reds such as Plavac Mali from Dalmatia – often compared to Zinfandel, its distant cousin. In Slavonia, try Graševina (Welschriesling) or the historic Ilok Traminac, once ordered for Queen Elizabeth II’s coronation.
-
-Locals love mixing wines with water: *gemišt* (white wine and mineral water) in Hrvatsko Zagorje and Međimurje, or *bevanda* (wine and still water) in Dalmatia for a refreshing sip. Whether truffle-hunting in Istria's vineyards or toasting with a glass in Slavonia's cellars, pairing these wines with local dishes elevates every meal.
-
-## Conclusion
-
-Whether you’re savoring a lamb roast in Dalmatia, diving into a seafood *buzara* on the islands, or sipping a crisp Istrian white, Croatian cuisine offers a feast for the senses, rooted in tradition and ripe for exploration. Plan your trip to taste it all!`,
+    sections: [
+      {
+        heading: "From the Land & Sea",
+        content: `Meat dishes usually consist of a grilled or pan-fried chop or escalope of pork or veal.
+        Lamb is prepared as a spit-roast and it's quite common to see a whole animal being roasted over an open fire
+        outside a restaurant to lure in customers. A typical way to prepare meat in Istria and the Adriatic islands
+        is to slow bake it under a *peka* – a metal lid that's covered with hot embers.`,
+      },
+      {
+        heading: "Meat Specialties",
+        content: `Stewed meat is less common, although goulash is sometimes served as a sauce with pasta,
+        and the Dalmatian dish of *pasticada* – beef cooked in wine and prunes – is popular.
+        Expect a huge choice of seafood dishes too, maybe try *gregada*, a peasant stew made with whitebait,
+        potatoes and onions, or *riblja plata* – a sharing platter of fish and shellfish.`,
+      },
+      {
+        heading: "Seafood Delights",
+        content: `Seafood steals the show on the coast, with grilled squid (*lignje na žaru*),
+        fresh octopus salad, and the iconic *crni rižot* (cuttlefish risotto).
+        Don’t miss fish stews like *brudet* or salted cod (*bakalar*),
+        and scampi, mussels, and clams sautéed in *buzara* – a garlicky, olive oil, parsley, and white wine broth.`,
+      },
+      {
+        heading: "From the Vineyards",
+        content: `Croatian wine has a long history dating back to Greek settlers in the 5th century BC.
+        Today, the country produces delicious and complex wines across three main regions: Continental, Coastal, and Slavonia.`,
+      },
+      {
+        heading: "Wine Heritage",
+        content: `Famous varieties include whites like Malvazija Istarska and Pošip, alongside reds like Plavac Mali.
+        Locals enjoy *gemišt* (white wine and mineral water) or *bevanda* (wine with still water).`,
+      },
+      {
+        heading: "Conclusion",
+        content: `Whether you’re savoring a lamb roast in Dalmatia, diving into a seafood *buzara* on the islands,
+        or sipping a crisp Istrian white, Croatian cuisine offers a feast for the senses, rooted in tradition and ripe for exploration.`,
+      },
+    ],
     image:
       "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200",
   };
@@ -106,20 +113,19 @@ Whether you’re savoring a lamb roast in Dalmatia, diving into a seafood *buzar
         </div>
       </section>
 
-      {/* Tour Description Section - Markdown formatida ko'rsatish uchun */}
+      {/* Tour Description Section */}
       <section className="max-w-4xl mx-auto py-8 px-4">
-        <div 
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: tour.description.replace(/<grok:.*?\/>/g, '') }} // Citationlarni olib tashlash
-        />
+        {tour.sections.map((section, index) => (
+          <div key={index} className="mb-10">
+            <h2 className="text-2xl text-green-700 font-bold mb-3">{section.heading}</h2>
+            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+              {section.content}
+            </p>
+          </div>
+        ))}
       </section>
 
-      {/* Qolgan komponentlar, masalan TourOverview, TourDetails va h.k. */}
-      {/* <TourOverview tour={tour} /> */}
-      {/* <TourDetails tour={tour} /> */}
-      {/* <Itinerary /> */}
-      {/* <Footer /> */}
-
+      {/* Footer */}
       <Footer />
     </div>
   );
