@@ -8,13 +8,13 @@
     "destinations": "SAYOHAT MANZILLARI",
     "offers": "MAXSUS TAKLIFLAR",
     "community": "SAYYOHLAR JAMOASI",
+    "sanatoriesLink": "Sanatoriyalar",
     "guarantee": "XONANGIZ KAFOLATLANGAN",
     "trustpilot": "AJOYIB SHARHLAR",
     "experience": "25+ YILLIK TAJRIBA",
     "ROOM_OF_YOUR_OWN_GUARANTEED": "SHAXSIY XONAGA KAFOLAT",
     "RATED_EXCELLENT_ON_TRUSTPILOT": "TRUSTPILOTDA A’LO BAHOLANGAN",
     "OVER_25_YEARS_EXPERTISE": "25 YILLIK TAJRIBA",
-
     "languageSwitcher": {
       "uz": "UZ",
       "ru": "RU",
@@ -26,18 +26,17 @@
     "subtitle": "MUKAMMAL YOZGI DAM OLISHNI KASHF ETING",
     "description": "Orzuingizdagi ta'tilni bugun bron qiling va aviachiptalar, mehmonxonalar hamda to'plamlar uchun 40% gacha tejang. Taklif 2025-yil 31-avgustgacha amal qiladi.",
     "cta": "HOZIR TEJANG",
-      "placeholder": "Qayerga bormoqchisiz ?"
-
+    "placeholder": "Qayerga bormoqchisiz ?"
   },
   "tour_uzbekistan": {
-     "tabs": {
-    "discover": "KASHF ETISH",
-    "itinerary": "MARSHRUT",
-    "accommodation": "JOYLANISH",
-    "reviews": "SHARHLAR",
-    "optional_excursions": "IHTIYORIY SAYOHLAR",
-    "dates": "SANALAR"
-  },
+    "tabs": {
+      "discover": "KASHF ETISH",
+      "itinerary": "MARSHRUT",
+      "accommodation": "JOYLANISH",
+      "reviews": "SHARHLAR",
+      "optional_excursions": "IHTIYORIY SAYOHLAR",
+      "dates": "SANALAR"
+    },
     "title": "O'ZBEKISTON VA IPAK YO'LI",
     "price": "£2399 KISHI BOSHIGA",
     "duration": "11 KUN",
@@ -45,28 +44,68 @@
     "cta_book": "HOZIR BRON QILING",
     "overview": "Markaziy Osiyoning yuragida unutilmas sayohat. Toshkent, Xiva, Buxoro va Samarqandning go'zalligini kashf eting.",
     "type": "KLASSIK SAYOHAT",
-        "enlarge_map": "Xaritani kattalashtirish",
+    "enlarge_map": "Xaritani kattalashtirish",
     "flight_choices": "AVIAPARVOZ TANLOVLARI",
-     "itinerary": {
-    "title": "MARSHRUT",
-    "print": "Marshrutni chop etish",
-    "next_day": "Keyingi kun",
-    "end_of_journey": "Safar tugadi",
-    "day_label": "Kun {day}",
-    "day_heading": "KUN {day}: {title}",
-    "days": {
-      "1": { "title": "Buyuk Britaniya - Toshkent", "description": "Toshkentga parvoz va tunash.", "image": "/images/african-elephant-safari.png" },
-      "2": { "title": "Toshkent", "description": "Toshkent shahar bo‘ylab ekskursiya.", "image": "/images/boat-trip-fun.png" },
-      "3": { "title": "Toshkent - Xiva", "description": "Ertalabki parvoz va Xivaning qadimiy shahrini ko‘rish.", "image": "/images/cappadocia-balloons.png" },
-      "4": { "title": "Xiva - Buxoro", "description": "Cho‘l bo‘ylab Buxoroga yo‘l.", "image": "/images/classical-european-columns.png" },
-      "5": { "title": "Buxoro", "description": "Buxoro tarixiy joylarini to‘liq o‘rganish.", "image": "/images/colorful-street-art-mural-people.png" },
-      "6": { "title": "Buxoro", "description": "Buxoroni o‘z xohishingiz bo‘yicha o‘rganish uchun bo‘sh kun.", "image": "/images/croatian-coast.png" },
-      "7": { "title": "Buxoro - Samarqand", "description": "Poyezd orqali Samarqandga yo‘l.", "image": "/images/danube-castle-autumn.png" },
-      "8": { "title": "Samarqand", "description": "Registon maydoni va qadimiy joylarni kashf etish.", "image": "/images/japanese-hillside-town-fuji.png" },
-      "9": { "title": "Samarqand", "description": "Samarqandni erkin o‘rganish kuni.", "image": "/images/swiss-mountain-train-snowy-landscape.png" },
-      "10": { "title": "Samarqand - Toshkent", "description": "Toshkentga qaytish va xayrlashuv kechasi.", "image": "/images/traditional-dancers-lake-mountains.png" }
+    "itinerary": {
+      "title": "MARSHRUT",
+      "print": "Marshrutni chop etish",
+      "next_day": "Keyingi kun",
+      "end_of_journey": "Safar tugadi",
+      "day_label": "Kun {day}",
+      "day_heading": "KUN {day}: {title}",
+      "days": {
+        "1": {
+          "title": "Buyuk Britaniya - Toshkent",
+          "description": "Toshkentga parvoz va tunash.",
+          "image": "/images/african-elephant-safari.png"
+        },
+        "2": {
+          "title": "Toshkent",
+          "description": "Toshkent shahar bo‘ylab ekskursiya.",
+          "image": "/images/boat-trip-fun.png"
+        },
+        "3": {
+          "title": "Toshkent - Xiva",
+          "description": "Ertalabki parvoz va Xivaning qadimiy shahrini ko‘rish.",
+          "image": "/images/cappadocia-balloons.png"
+        },
+        "4": {
+          "title": "Xiva - Buxoro",
+          "description": "Cho‘l bo‘ylab Buxoroga yo‘l.",
+          "image": "/images/classical-european-columns.png"
+        },
+        "5": {
+          "title": "Buxoro",
+          "description": "Buxoro tarixiy joylarini to‘liq o‘rganish.",
+          "image": "/images/colorful-street-art-mural-people.png"
+        },
+        "6": {
+          "title": "Buxoro",
+          "description": "Buxoroni o‘z xohishingiz bo‘yicha o‘rganish uchun bo‘sh kun.",
+          "image": "/images/croatian-coast.png"
+        },
+        "7": {
+          "title": "Buxoro - Samarqand",
+          "description": "Poyezd orqali Samarqandga yo‘l.",
+          "image": "/images/danube-castle-autumn.png"
+        },
+        "8": {
+          "title": "Samarqand",
+          "description": "Registon maydoni va qadimiy joylarni kashf etish.",
+          "image": "/images/japanese-hillside-town-fuji.png"
+        },
+        "9": {
+          "title": "Samarqand",
+          "description": "Samarqandni erkin o‘rganish kuni.",
+          "image": "/images/swiss-mountain-train-snowy-landscape.png"
+        },
+        "10": {
+          "title": "Samarqand - Toshkent",
+          "description": "Toshkentga qaytish va xayrlashuv kechasi.",
+          "image": "/images/traditional-dancers-lake-mountains.png"
+        }
+      }
     }
-  }
   },
   "solo_travel": {
     "title": "YAKKA SAYOHATLAR UCHUN ISHONCHLI MUTAXASSISLAR",
@@ -171,14 +210,13 @@
       "cta": "KASHF ETING"
     }
   ],
-
   "footer": {
     "customer_support": {
       "contact_us": "Biz bilan bog'laning",
       "follow_us": "Bizni kuzating",
       "information": "Ma'lumot",
       "corporate_title": "Korporativ",
-       "about_us": "Biz haqimizda",
+      "about_us": "Biz haqimizda",
       "community": "Hamjamiyat",
       "faq": "Ko'p so'raladigan savollar"
     },
@@ -208,39 +246,36 @@
       "cta": "Obuna bo‘lish"
     }
   },
-
   "last": {
-      "last_minute_holidays": "Oxirgi daqiqadagi ta'tillar",
-        "explore": "Ko‘proq ko‘rish →",
-          "testimonial": "Bu Just you bilan birinchi safarim edi va men ularni albatta tavsiya qilaman. Boshlanishidan oxirigacha o‘zimni yaxshi qaralgan his qildim va dastur ajoyib edi.",
-  "author": "Anne"
-  
-
+    "last_minute_holidays": "Oxirgi daqiqadagi ta'tillar",
+    "explore": "Ko‘proq ko‘rish →",
+    "testimonial": "Bu Just you bilan birinchi safarim edi va men ularni albatta tavsiya qilaman. Boshlanishidan oxirigacha o‘zimni yaxshi qaralgan his qildim va dastur ajoyib edi.",
+    "author": "Anne"
   },
   "service": {
-      "we_take_care_of": "Biz g‘amxo‘rlik qilamiz",
-  "flights": "Parvozlar",
-  "return_flights": "Qaytish reyslari",
-  "hotels": "Mehmonxonalar",
-  "hand_picked_hotels": "Tanlab olingan mehmonxonalar",
-  "breakfasts": "Nonushtalar",
-  "breakfast_together": "Har kuni birga nonushta",
-  "holiday_directors": "Sayohat rahbarlari",
-  "experienced_tour_guide": "Tajribali sayohat yo‘lboshchisi siz bilan",
-  "holiday_assurance": "Sayohat kafolati",
-  "support_every_step": "Har bir bosqichda sizni qo‘llab-quvvatlaymiz"
+    "we_take_care_of": "Biz g‘amxo‘rlik qilamiz",
+    "flights": "Parvozlar",
+    "return_flights": "Qaytish reyslari",
+    "hotels": "Mehmonxonalar",
+    "hand_picked_hotels": "Tanlab olingan mehmonxonalar",
+    "breakfasts": "Nonushtalar",
+    "breakfast_together": "Har kuni birga nonushta",
+    "holiday_directors": "Sayohat rahbarlari",
+    "experienced_tour_guide": "Tajribali sayohat yo‘lboshchisi siz bilan",
+    "holiday_assurance": "Sayohat kafolati",
+    "support_every_step": "Har bir bosqichda sizni qo‘llab-quvvatlaymiz"
   },
-    "newsletter": {
+  "newsletter": {
     "title": "Safar ilhomlari va takliflarni pochtangizga oling",
     "button": "Bizning yangiliklar byulletenimizga obuna bo‘ling"
   },
-   "about": {
+  "about": {
     "title": "Faqat Siz Uchun Mos Tatillar",
     "paragraph1": "Just You ta'tilida siz tajribadan to‘liq bahramand bo‘lishingiz mumkin. Biz yakka sayohat bo‘yicha mutaxassislar bo‘lib, qolgan hamma narsani biz hal qilamiz.",
     "paragraph2": "Ertalab qayerga borishingiz yoki qaysi poezd chiptasini olishingiz haqida o‘ylamang. Faqat tanlagan manzilingizdan zavqlaning, dam oling va hamfikr do‘stlar orttiring.",
     "paragraph3": "Yakka sayohatlar uchun mo‘ljallangan 25 yillik tajriba va sayohat bo‘yicha yo‘lboshchimiz yordamida siz o‘zingizni mutlaqo erkin his qilasiz."
   },
-   "blog": {
+  "blog": {
     "title": "Bloglarimizni o‘qing",
     "explore_button": "Ko‘proq ko‘rish →",
     "balkan_explorer": {
@@ -260,9 +295,6 @@
     "newHoliday": "YANGI YAKKA SAYOHATLAR TA'TILI"
   },
   "Popular": {
-  "popularDestinations": "ENG MASHHUR YAKKA SAYOHAT MANZILLARI"
+    "popularDestinations": "ENG MASHHUR YAKKA SAYOHAT MANZILLARI"
   }
-
-
-
 }

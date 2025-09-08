@@ -5,6 +5,7 @@
     "brochureRequest": "BROCHURE REQUEST",
     "search": "SEARCH",
     "company_name": "NASEEM'S TRAVEL",
+    "sanatoriesLink": "Sanatoriums",
     "destinations": "TRAVEL DESTINATIONS",
     "offers": "SPECIAL OFFERS",
     "community": "TRAVELERS COMMUNITY",
@@ -259,7 +260,7 @@
     }
   },
   "newHoliday": {
-     "newHoliday": "NEW SOLO TOURING HOLIDAYS"      
+     "newHoliday": "NEW SOLO TOURING HOLIDAYS"
   },
   "Popular": {
     "popularDestinations": "MOST POPULAR SOLO TRAVEL DESTINATIONS"

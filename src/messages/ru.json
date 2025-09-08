@@ -2,21 +2,20 @@
   "header": {
     "phone": "+998-94-001-47-41",
     "address": "Ташкент, Главная улица 123",
-      "brochureRequest": "Запрос брошюры",
-  "search": "Поиск",
+    "brochureRequest": "Запрос брошюры",
+    "search": "Поиск",
     "company_name": "Naseem's Travel",
-       "destinations": "ТУРИСТИЧЕСКИЕ НАПРАВЛЕНИЯ",
+    "destinations": "ТУРИСТИЧЕСКИЕ НАПРАВЛЕНИЯ",
     "offers": "СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ",
     "community": "СООБЩЕСТВО ТУРИСТОВ",
     "guarantee": "ГАРАНТИРОВАННАЯ КОМНАТА",
+    "sanatoriesLink": "Санатории",
     "trustpilot": "ОТЛИЧНЫЕ ОТЗЫВЫ",
     "experience": "25+ ЛЕТ ОПЫТА",
     "ROOM_OF_YOUR_OWN_GUARANTEED": "ГАРАНТИЯ СОБСТВЕННОЙ КОМНАТЫ",
-      "RATED_EXCELLENT_ON_TRUSTPILOT": "ВЫСОКИЙ РЕЙТИНГ НА TRUSTPILOT",
-      "OVER_25_YEARS_EXPERTISE": "БОЛЕЕ 25 ЛЕТ ОПЫТА",
-
-      "languageSwitcher": {
-
+    "RATED_EXCELLENT_ON_TRUSTPILOT": "ВЫСОКИЙ РЕЙТИНГ НА TRUSTPILOT",
+    "OVER_25_YEARS_EXPERTISE": "БОЛЕЕ 25 ЛЕТ ОПЫТА",
+    "languageSwitcher": {
       "uz": "UZ",
       "ru": "RU",
       "en": "EN"
@@ -27,8 +26,7 @@
     "subtitle": "[Russian translation for Discover Your Perfect Summer Escape]",
     "description": "[Russian translation for Book your dream vacation today and save up to 40% on flights, hotels, and packages. Limited-time offer until August 31, 2025.]",
     "cta": "[Russian translation for Save Now]",
-      "placeholder": "КУДА ВЫ ХОТИТЕ ПОЕХАТЬ?"
-
+    "placeholder": "КУДА ВЫ ХОТИТЕ ПОЕХАТЬ?"
   },
   "tour_uzbekistan": {
     "title": "Узбекистан и Шелковый путь",
@@ -40,35 +38,74 @@
     "type": "[Russian translation for Classic Touring]",
     "flight_choices": "[Russian translation for Flight Choices]",
     "tabs": {
-    "discover": "ИССЛЕДОВАТЬ",
-    "itinerary": "МАРШРУТ",
-    "accommodation": "ПРОЖИВАНИЕ",
-    "reviews": "ОТЗЫВЫ",
-    "optional_excursions": "ДОПОЛНИТЕЛЬНЫЕ ЭКСКУРСИИ",
-    "dates": "ДАТЫ",
-        "enlarge_map": "Увеличить карту"
-
-  },
+      "discover": "ИССЛЕДОВАТЬ",
+      "itinerary": "МАРШРУТ",
+      "accommodation": "ПРОЖИВАНИЕ",
+      "reviews": "ОТЗЫВЫ",
+      "optional_excursions": "ДОПОЛНИТЕЛЬНЫЕ ЭКСКУРСИИ",
+      "dates": "ДАТЫ",
+      "enlarge_map": "Увеличить карту"
+    },
     "itinerary": {
-    "title": "МАРШРУТ",
-    "print": "Распечатать маршрут",
-    "next_day": "Следующий день",
-    "end_of_journey": "Конец путешествия",
-    "day_label": "День {day}",
-    "day_heading": "ДЕНЬ {day}: {title}",
-    "days": {
-      "1": { "title": "Великобритания - Ташкент", "description": "Перелет в Ташкент и ночевка.", "image": "/images/african-elephant-safari.png" },
-      "2": { "title": "Ташкент", "description": "Обзорная экскурсия по Ташкенту.", "image": "/images/boat-trip-fun.png" },
-      "3": { "title": "Ташкент - Хива", "description": "Утренний перелет и прогулка по старому городу Хивы.", "image": "/images/cappadocia-balloons.png" },
-      "4": { "title": "Хива - Бухара", "description": "Поездка через пустыню в Бухару.", "image": "/images/classical-european-columns.png" },
-      "5": { "title": "Бухара", "description": "Целый день осмотра достопримечательностей Бухары.", "image": "/images/colorful-street-art-mural-people.png" },
-      "6": { "title": "Бухара", "description": "Свободный день для прогулок по Бухаре.", "image": "/images/croatian-coast.png" },
-      "7": { "title": "Бухара - Самарканд", "description": "Переезд в Самарканд на поезде.", "image": "/images/danube-castle-autumn.png" },
-      "8": { "title": "Самарканд", "description": "Откройте для себя площадь Регистан и древние памятники.", "image": "/images/japanese-hillside-town-fuji.png" },
-      "9": { "title": "Самарканд", "description": "Свободный день в Самарканде.", "image": "/images/swiss-mountain-train-snowy-landscape.png" },
-      "10": { "title": "Самарканд - Ташкент", "description": "Возвращение в Ташкент и прощальный вечер.", "image": "/images/traditional-dancers-lake-mountains.png" }
+      "title": "МАРШРУТ",
+      "print": "Распечатать маршрут",
+      "next_day": "Следующий день",
+      "end_of_journey": "Конец путешествия",
+      "day_label": "День {day}",
+      "day_heading": "ДЕНЬ {day}: {title}",
+      "days": {
+        "1": {
+          "title": "Великобритания - Ташкент",
+          "description": "Перелет в Ташкент и ночевка.",
+          "image": "/images/african-elephant-safari.png"
+        },
+        "2": {
+          "title": "Ташкент",
+          "description": "Обзорная экскурсия по Ташкенту.",
+          "image": "/images/boat-trip-fun.png"
+        },
+        "3": {
+          "title": "Ташкент - Хива",
+          "description": "Утренний перелет и прогулка по старому городу Хивы.",
+          "image": "/images/cappadocia-balloons.png"
+        },
+        "4": {
+          "title": "Хива - Бухара",
+          "description": "Поездка через пустыню в Бухару.",
+          "image": "/images/classical-european-columns.png"
+        },
+        "5": {
+          "title": "Бухара",
+          "description": "Целый день осмотра достопримечательностей Бухары.",
+          "image": "/images/colorful-street-art-mural-people.png"
+        },
+        "6": {
+          "title": "Бухара",
+          "description": "Свободный день для прогулок по Бухаре.",
+          "image": "/images/croatian-coast.png"
+        },
+        "7": {
+          "title": "Бухара - Самарканд",
+          "description": "Переезд в Самарканд на поезде.",
+          "image": "/images/danube-castle-autumn.png"
+        },
+        "8": {
+          "title": "Самарканд",
+          "description": "Откройте для себя площадь Регистан и древние памятники.",
+          "image": "/images/japanese-hillside-town-fuji.png"
+        },
+        "9": {
+          "title": "Самарканд",
+          "description": "Свободный день в Самарканде.",
+          "image": "/images/swiss-mountain-train-snowy-landscape.png"
+        },
+        "10": {
+          "title": "Самарканд - Ташкент",
+          "description": "Возвращение в Ташкент и прощальный вечер.",
+          "image": "/images/traditional-dancers-lake-mountains.png"
+        }
+      }
     }
-  }
   },
   "solo_travel": {
     "title": "[Russian translation for The Trusted Experts for Solo Holidays]",
@@ -173,7 +210,6 @@
       "cta": "[Russian translation for Explore]"
     }
   ],
-
   "footer": {
     "customer_support": {
       "contact_us": "Свяжитесь с нами",
@@ -210,41 +246,36 @@
       "cta": "Подписаться"
     }
   },
-
-
-
-
-    "last": {
-        "last_minute_holidays": "Горящие туры",
-          "explore": "Смотреть больше →",
-            "testimonial": "Это было мое первое путешествие с Just you, и я определенно рекомендую их. От начала до конца я чувствовал заботу, и программа была отличной.",
-  "author": "Анна"
-
+  "last": {
+    "last_minute_holidays": "Горящие туры",
+    "explore": "Смотреть больше →",
+    "testimonial": "Это было мое первое путешествие с Just you, и я определенно рекомендую их. От начала до конца я чувствовал заботу, и программа была отличной.",
+    "author": "Анна"
   },
   "service": {
-      "we_take_care_of": "Мы заботимся о вас",
-  "flights": "Авиабилеты",
-  "return_flights": "Обратные рейсы",
-  "hotels": "Отели",
-  "hand_picked_hotels": "Тщательно подобранные отели",
-  "breakfasts": "Завтраки",
-  "breakfast_together": "Завтракаем вместе каждый день",
-  "holiday_directors": "Руководители туров",
-  "experienced_tour_guide": "Опытный гид сопровождает вас",
-  "holiday_assurance": "Гарантия отдыха",
-  "support_every_step": "Поддержка на каждом этапе"
+    "we_take_care_of": "Мы заботимся о вас",
+    "flights": "Авиабилеты",
+    "return_flights": "Обратные рейсы",
+    "hotels": "Отели",
+    "hand_picked_hotels": "Тщательно подобранные отели",
+    "breakfasts": "Завтраки",
+    "breakfast_together": "Завтракаем вместе каждый день",
+    "holiday_directors": "Руководители туров",
+    "experienced_tour_guide": "Опытный гид сопровождает вас",
+    "holiday_assurance": "Гарантия отдыха",
+    "support_every_step": "Поддержка на каждом этапе"
   },
   "newsletter": {
     "title": "Получайте вдохновение для путешествий и предложения на почту",
     "button": "Подпишитесь на нашу рассылку"
   },
-   "about": {
+  "about": {
     "title": "Отпуск, который позволяет быть собой",
     "paragraph1": "В отпуске с Just You вы свободны наслаждаться поездкой. Мы — эксперты по путешествиям для одиночек, и обо всём остальном позаботимся мы.",
     "paragraph2": "Не нужно беспокоиться о том, где вам быть утром или какой билет покупать. Просто наслаждайтесь выбранным направлением, отдыхайте и находите друзей с общими интересами.",
     "paragraph3": "С 25-летним опытом организации туров для одиночных путешественников и сопровождением профессионального гида вы сможете делать всё, что захотите."
   },
-    "blog": {
+  "blog": {
     "title": "Читайте наши блоги",
     "explore_button": "Смотреть больше →",
     "balkan_explorer": {
@@ -261,10 +292,9 @@
     }
   },
   "newHoliday": {
-      "newHoliday": "НОВЫЕ ТУРЫ ДЛЯ ОДИНОЧНЫХ ПУТЕШЕСТВИЙ"
+    "newHoliday": "НОВЫЕ ТУРЫ ДЛЯ ОДИНОЧНЫХ ПУТЕШЕСТВИЙ"
   },
   "Popular": {
-  "popularDestinations": "САМЫЕ ПОПУЛЯРНЫЕ НАПРАВЛЕНИЯ ДЛЯ ОДИНОЧНЫХ ПУТЕШЕСТВИЙ"
+    "popularDestinations": "САМЫЕ ПОПУЛЯРНЫЕ НАПРАВЛЕНИЯ ДЛЯ ОДИНОЧНЫХ ПУТЕШЕСТВИЙ"
   }
-
 }

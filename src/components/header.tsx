@@ -1,33 +1,32 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Search, Phone, FileText, ChevronDown, Menu, Globe } from "lucide-react";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 
-
 export function Header() {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState("UZ");
   const t = useTranslations("header");
 
-
   const languages = ["UZ", "RU", "EN"];
-
-  const toggleLangDropdown = () => setIsLangOpen(!isLangOpen);
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
 
+  const toggleLangDropdown = () => setIsLangOpen(!isLangOpen);
+
   const selectLanguage = (lang: string) => {
     setIsLangOpen(false);
-  const segments = pathname.split("/");
+    const segments = pathname.split("/");
     segments[1] = lang; // birinchi segment locale
     router.push(segments.join("/"));
   };
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
@@ -40,9 +39,7 @@ export function Header() {
             <div className="flex items-center gap-4">
               <button className="flex items-center gap-2 text-gray-700 hover:text-green-700 transition-colors">
                 <FileText className="h-4 w-4" />
-                <span className="whitespace-nowrap text-sm">
-                  {t("brochureRequest")}
-                </span>
+                <span className="whitespace-nowrap text-sm">{t("brochureRequest")}</span>
               </button>
               <button className="flex items-center gap-2 text-gray-700 hover:text-green-700 transition-colors">
                 <Search className="h-4 w-4" />
@@ -54,14 +51,10 @@ export function Header() {
             <div className="flex items-center gap-4 text-gray-700">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span className="font-medium whitespace-nowrap text-sm">
-                  {t("phone")}
-                </span>
+                <span className="font-medium whitespace-nowrap text-sm">{t("phone")}</span>
               </div>
               <div className="hidden sm:block">
-                <span className="font-medium whitespace-nowrap text-sm">
-                  {t("address")}
-                </span>
+                <span className="font-medium whitespace-nowrap text-sm">{t("address")}</span>
               </div>
             </div>
           </div>
@@ -80,53 +73,46 @@ export function Header() {
               height={50}
               className="rounded-full"
             />
-            <span className="text-xl sm:text-2xl font-bold text-green-700 leading-none">
-              {t("company_name")}
-            </span>
+            <span className="text-xl sm:text-2xl font-bold text-green-700 leading-none">{t("company_name")}</span>
           </div>
 
           {/* Navigation & language */}
           <div className="flex items-center space-x-8">
             <nav className="hidden lg:flex items-center space-x-8">
-              <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
+              <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
                 {t("destinations")}
-              </a>
-              <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
+              </Link>
+              <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
                 {t("offers")}
-              </a>
-              <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
+              </Link>
+              <Link href="/sanatory" className="text-gray-900 uppercase hover:text-green-700 font-medium transition-colors">
+                {t("sanatoriesLink")}
+              </Link>
+              <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
                 {t("community")}
-              </a>
+              </Link>
             </nav>
 
             {/* Language switcher */}
-             <div className="relative">
+            <div className="relative">
               <button
                 onClick={toggleLangDropdown}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-300 bg-white shadow-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-all duration-300"
               >
                 <Globe className="h-5 w-5 text-green-600" />
                 <span className="font-semibold">{locale.toUpperCase()}</span>
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform ${
-                    isLangOpen ? "rotate-180" : "rotate-0"
-                  }`}
-                />
+                <ChevronDown className={`h-4 w-4 transition-transform ${isLangOpen ? "rotate-180" : "rotate-0"}`} />
               </button>
               <div
-                className={`absolute right-0 top-full mt-2 w-28 bg-white border border-gray-200 rounded-xl shadow-lg z-10 transition-all duration-200 ${
-                  isLangOpen ? "opacity-100 visible" : "opacity-0 invisible"
-                }`}
+                className={`absolute right-0 top-full mt-2 w-28 bg-white border border-gray-200 rounded-xl shadow-lg z-10 transition-all duration-200 ${isLangOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                  }`}
               >
                 {languages.map((lang) => (
                   <button
                     key={lang}
                     onClick={() => selectLanguage(lang)}
-                    className={`w-full text-left px-4 py-2 text-sm rounded-lg transition-colors ${
-                      locale === lang
-                        ? "bg-green-600 text-white font-bold"
-                        : "text-gray-700 hover:bg-green-100 hover:text-green-700"
-                    }`}
+                    className={`w-full text-left px-4 py-2 text-sm rounded-lg transition-colors ${locale === lang ? "bg-green-600 text-white font-bold" : "text-gray-700 hover:bg-green-100 hover:text-green-700"
+                      }`}
                   >
                     {lang.toUpperCase()}
                   </button>
@@ -149,21 +135,20 @@ export function Header() {
         </div>
 
         {/* Mobile menu */}
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMenuOpen ? "max-h-96" : "max-h-0"
-          }`}
-        >
+        <div className={`lg:hidden overflow-hidden transition-all duration-300 ${isMenuOpen ? "max-h-96" : "max-h-0"}`}>
           <nav className="flex flex-col space-y-4 py-4">
-            <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
+            <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
               {t("destinations")}
-            </a>
-            <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
+            </Link>
+            <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
               {t("offers")}
-            </a>
-            <a href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
+            </Link>
+            <Link href="/sanatory" className="text-gray-900 uppercase hover:text-green-700 font-medium transition-colors">
+              {t("sanatoriesLink")}
+            </Link>
+            <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
               {t("community")}
-            </a>
+            </Link>
           </nav>
         </div>
       </div>
