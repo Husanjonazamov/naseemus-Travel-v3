@@ -87,7 +87,7 @@ export function Header() {
               <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
                 {t("tours")}
               </Link>
-              <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
+              <Link href="/blog" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
                 {t("blog")}
               </Link>
               <Link href="/sanatory" className="text-gray-900 uppercase hover:text-green-700 font-medium transition-colors">
@@ -153,7 +153,7 @@ export function Header() {
             <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
               {t("tours")}
             </Link>
-            <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
+            <Link href="/blog" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
               {t("blog")}
             </Link>
             <Link
