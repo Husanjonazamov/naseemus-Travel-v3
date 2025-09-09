@@ -31,13 +31,13 @@ export function HeroSection() {
        <div className="absolute bottom-0 left-0 right-0 z-20 bg-black/40 text-white py-8 px-4 w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center items-center w-full max-w-7xl mx-auto">
           <span className="text-lg font-bold tracking-wide">
-            EXCLUSIVELY FOR SOLO TRAVELLERS
+            {t("EXCLUSIVELY_FOR_SOLO_TRAVELLERS")}
           </span>
           <span className="text-4xl font-extrabold text-green-500">25</span>
-          <span className="text-lg">Over 25 Years Expertise</span>
-          <span className="text-lg">Your Money is 100% Protected</span>
-          <span className="text-lg">Holiday Assurance Guarantee</span>
-          <span className="text-lg">No Single Supplement</span>
+          <span className="text-lg">{t("OVER_25_YEARS_EXPERTISE")}</span>
+          <span className="text-lg">{t("YOUR_MONEY_PROTECTED")}</span>
+          <span className="text-lg">{t("HOLIDAY_ASSURANCE_GUARANTEE")}</span>
+          <span className="text-lg">{t("NO_SINGLE_SUPPLEMENT")}</span>
         </div>
       </div>
       </div>

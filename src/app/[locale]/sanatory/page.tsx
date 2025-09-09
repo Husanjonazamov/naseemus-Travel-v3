@@ -7,6 +7,7 @@ import { Header } from "@/src/components/header";
 import { Footer } from "@/src/components/footer";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
+import { useTranslations } from "next-intl";
 
 interface VideoItem {
   id: number;
@@ -28,6 +29,7 @@ interface SanatoryPageProps {
 
 export default function SanatoryPage({ params }: SanatoryPageProps) {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
+  const t = useTranslations("hero");
 
   const videos: VideoItem[] = [
     { id: 1, title: "Amazing Nature", videoSrc: "/contents/1.mp4" },
@@ -35,7 +37,7 @@ export default function SanatoryPage({ params }: SanatoryPageProps) {
     { id: 3, title: "Mountain Adventure", videoSrc: "/contents/3.mp4" },
     { id: 4, title: "Forest Walk", videoSrc: "/contents/4.mp4" },
     { id: 5, title: "River Stream", videoSrc: "/contents/5.mp4" },
-    { id: 6, title: "Sunset View", videoSrc: "/contents/6.MOV" },
+    { id: 6, title: "Sunset View", videoSrc: "/contents/6.mp4" },
   ];
 
   const images: ImageItem[] = [
@@ -69,6 +71,40 @@ export default function SanatoryPage({ params }: SanatoryPageProps) {
     <div className="w-full overflow-x-hidden">
       <Header />
 
+      {/* Hero Section */}
+      <section className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="/contents/1.jpg"
+          alt="Hero background"
+          fill
+          className="object-cover absolute inset-0"
+          quality={90}
+          priority
+          sizes="100vw"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        {/* Content Section */}
+        <div className="relative z-20 w-full h-full flex flex-col justify-end">
+          <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white py-8 px-4 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center items-center w-full max-w-7xl mx-auto">
+              <span className="text-lg font-bold tracking-wide">
+                EXCLUSIVELY FOR SOLO TRAVELLERS
+              </span>
+              <span className="text-4xl font-extrabold text-green-400">25</span>
+              <span className="text-lg">Over 25 Years Expertise</span>
+              <span className="text-lg">Your Money is 100% Protected</span>
+              <span className="text-lg">Holiday Assurance Guarantee</span>
+              <span className="text-lg">No Single Supplement</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
       <main className="max-w-6xl mx-auto py-12 px-4 space-y-16">
         {/* Video Section */}
         <section>

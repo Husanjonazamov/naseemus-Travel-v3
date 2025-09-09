@@ -3,56 +3,61 @@
     "phone": "+998-94-001-47-41",
     "address": "Toshkent, Asosiy ko'cha 123",
     "company_name": "Naseem's Travel",
-    "brochureRequest": "Broshyura so'rovi",
+    "brochureRequest": "Broshyura so‘rovi",
     "search": "Qidirish",
-    "destinations": "SAYOHAT MANZILLARI",
-    "offers": "MAXSUS TAKLIFLAR",
-    "community": "SAYYOHLAR JAMOASI",
-    "sanatoriesLink": "Sanatoriyalar",
-    "guarantee": "XONANGIZ KAFOLATLANGAN",
-    "trustpilot": "AJOYIB SHARHLAR",
-    "experience": "25+ YILLIK TAJRIBA",
-    "ROOM_OF_YOUR_OWN_GUARANTEED": "SHAXSIY XONAGA KAFOLAT",
-    "RATED_EXCELLENT_ON_TRUSTPILOT": "TRUSTPILOTDA A’LO BAHOLANGAN",
-    "OVER_25_YEARS_EXPERTISE": "25 YILLIK TAJRIBA",
+    "tours": "TURLAR",
+    "blog": "BLOG",
+    "sanatories": "SANATORIYALAR",
+    "community": "JAMOA",
     "languageSwitcher": {
       "uz": "UZ",
       "ru": "RU",
       "en": "EN"
     }
   },
+   "trustBadges": {
+    "ROOM_OF_YOUR_OWN_GUARANTEED": "Shaxsiy xonangiz kafolatlanadi",
+    "RATED_EXCELLENT_ON_TRUSTPILOT": "Trustpilot’da a’lo baholangan",
+    "OVER_25_YEARS_EXPERTISE": "25 yildan ortiq tajriba"
+  },
+  
   "hero": {
-    "title": "FAQAT SIZ UCHUN MAXSUS TAKLIFLAR",
-    "subtitle": "MUKAMMAL YOZGI DAM OLISHNI KASHF ETING",
-    "description": "Orzuingizdagi ta'tilni bugun bron qiling va aviachiptalar, mehmonxonalar hamda to'plamlar uchun 40% gacha tejang. Taklif 2025-yil 31-avgustgacha amal qiladi.",
-    "cta": "HOZIR TEJANG",
-    "placeholder": "Qayerga bormoqchisiz ?"
+    "title": "Maxsus sayohat takliflari",
+    "subtitle": "Mukammal dam olishni kashf eting",
+    "description": "Orzuingizdagi ta'tilni bugun bron qiling va parvozlar, mehmonxonalar hamda paketlar uchun 40% gacha tejang. Taklif 2025-yil 31-avgustgacha amal qiladi.",
+    "cta": "Hozir bron qiling",
+    "placeholder": "Qayerga bormoqchisiz?",
+     "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Faqat yolg‘iz sayohatchilar uchun",
+    "OVER_25_YEARS_EXPERTISE": "25 yildan ortiq tajriba",
+    "YOUR_MONEY_PROTECTED": "Pul mablag‘ingiz 100% himoyalangan",
+    "HOLIDAY_ASSURANCE_GUARANTEE": "Dam olish kafolati",
+    "NO_SINGLE_SUPPLEMENT": "Qo‘shimcha to‘lov yo‘q"
   },
   "tour_uzbekistan": {
     "tabs": {
-      "discover": "KASHF ETISH",
-      "itinerary": "MARSHRUT",
-      "accommodation": "JOYLANISH",
-      "reviews": "SHARHLAR",
-      "optional_excursions": "IHTIYORIY SAYOHLAR",
-      "dates": "SANALAR"
+      "discover": "Kashf etish",
+      "itinerary": "Marshrut",
+      "accommodation": "Joylashuv",
+      "reviews": "Sharhlar",
+      "optional_excursions": "Qo‘shimcha sayohatlar",
+      "dates": "Sanalar"
     },
-    "title": "O'ZBEKISTON VA IPAK YO'LI",
-    "price": "£2399 KISHI BOSHIGA",
-    "duration": "11 KUN",
-    "departure_dates": "SENTYABR 2025 - OKTYABR 2026",
-    "cta_book": "HOZIR BRON QILING",
-    "overview": "Markaziy Osiyoning yuragida unutilmas sayohat. Toshkent, Xiva, Buxoro va Samarqandning go'zalligini kashf eting.",
-    "type": "KLASSIK SAYOHAT",
+    "title": "O‘zbekiston va Ipak yo‘li",
+    "price": "£2399 kishi boshiga",
+    "duration": "11 kun",
+    "departure_dates": "Sentabr 2025 - Oktyabr 2026",
+    "cta_book": "Bron qilish",
+    "overview": "Markaziy Osiyoning yuragida unutilmas safar. Toshkent, Xiva, Buxoro va Samarqandning go‘zalligini kashf eting.",
+    "type": "Klassik tur",
     "enlarge_map": "Xaritani kattalashtirish",
-    "flight_choices": "AVIAPARVOZ TANLOVLARI",
+    "flight_choices": "Parvoz variantlari",
     "itinerary": {
-      "title": "MARSHRUT",
-      "print": "Marshrutni chop etish",
+      "title": "Marshrut",
+      "print": "Chop etish",
       "next_day": "Keyingi kun",
       "end_of_journey": "Safar tugadi",
       "day_label": "Kun {day}",
-      "day_heading": "KUN {day}: {title}",
+      "day_heading": "Kun {day}: {title}",
       "days": {
         "1": {
           "title": "Buyuk Britaniya - Toshkent",
@@ -76,27 +81,27 @@
         },
         "5": {
           "title": "Buxoro",
-          "description": "Buxoro tarixiy joylarini to‘liq o‘rganish.",
+          "description": "Buxoroning tarixiy joylarini ko‘rib chiqish.",
           "image": "/images/colorful-street-art-mural-people.png"
         },
         "6": {
           "title": "Buxoro",
-          "description": "Buxoroni o‘z xohishingiz bo‘yicha o‘rganish uchun bo‘sh kun.",
+          "description": "Erkin kun – mustaqil sayr qilish imkoniyati.",
           "image": "/images/croatian-coast.png"
         },
         "7": {
           "title": "Buxoro - Samarqand",
-          "description": "Poyezd orqali Samarqandga yo‘l.",
+          "description": "Poyezdda Samarqandga safar.",
           "image": "/images/danube-castle-autumn.png"
         },
         "8": {
           "title": "Samarqand",
-          "description": "Registon maydoni va qadimiy joylarni kashf etish.",
+          "description": "Registon maydoni va qadimiy joylarni ziyorat qilish.",
           "image": "/images/japanese-hillside-town-fuji.png"
         },
         "9": {
           "title": "Samarqand",
-          "description": "Samarqandni erkin o‘rganish kuni.",
+          "description": "Shaharni mustaqil o‘rganish kuni.",
           "image": "/images/swiss-mountain-train-snowy-landscape.png"
         },
         "10": {
@@ -108,193 +113,193 @@
     }
   },
   "solo_travel": {
-    "title": "YAKKA SAYOHATLAR UCHUN ISHONCHLI MUTAXASSISLAR",
-    "description": "2000-yildan beri biz yakka sayohatchilarni birlashtirib, unutilmas tajribalar yaratmoqdamiz.",
+    "title": "Yakka sayohatlar bo‘yicha mutaxassislar",
+    "description": "2000-yildan beri yakka sayohatchilar uchun qulay safarlar tashkil qilamiz.",
     "tips": {
-      "title": "YAKKA SAYOHAT MASLAHATLARI",
-      "description": "Yakka sayohat uchun eng yaxshi o'n maslahatlarimizni ko'rib chiqing.",
-      "cta": "BATAFSIL"
+      "title": "Maslahatlar",
+      "description": "Yakka sayohatlar uchun eng yaxshi maslahatlarimizni o‘qing.",
+      "cta": "Ko‘rish"
     },
     "last_minute": {
-      "title": "OXIRGI DAKIQALI SAYOHLAR",
-      "description": "Kutilmagan dam olishni xohlaysizmi? Bizning oxirgi daqiqali takliflarimizni ko'rib chiqing.",
-      "cta": "BRON QILING"
+      "title": "Oxirgi daqiqali safarlar",
+      "description": "Kutilmagan dam olish uchun maxsus takliflar.",
+      "cta": "Bron qiling"
     },
     "india": {
-      "title": "ILHOMLANTIRUVCHI HINDISTON",
-      "description": "Hindistonning sehrli go'zalliklarini his eting.",
-      "cta": "BRON QILING"
+      "title": "Ilhomlantiruvchi Hindiston",
+      "description": "Hindistonning sehrli go‘zalligini his eting.",
+      "cta": "Bron qiling"
     },
     "beach_escapes": {
-      "title": "SOHILDA DAM OLISH",
-      "description": "Quyoshli plyajlarda dam oling va osoyishtalikdan bahramand bo'ling.",
-      "cta": "KASHF ETING"
+      "title": "Sohilga sayohatlar",
+      "description": "Quyoshli plyajlarda dam oling va osoyishtalikdan bahramand bo‘ling.",
+      "cta": "Kashf eting"
     },
     "city_adventures": {
-      "title": "SHAHAR SARGUZASHTLARI",
-      "description": "Dunyoning jonli shaharlarini o'rganing.",
-      "cta": "O'RGANISH"
+      "title": "Shahar sarguzashtlari",
+      "description": "Dunyoning mashhur shaharlarini o‘rganing.",
+      "cta": "Ko‘rish"
     },
     "wildlife_safaris": {
-      "title": "TABIAT SAFARLARI",
-      "description": "Tabiatga yaqinlashing va yovvoyi hayotni kashf eting.",
-      "cta": "QO'SHILING"
+      "title": "Tabiat sayohatlari",
+      "description": "Yovvoyi hayot va tabiatni yaqindan tanishing.",
+      "cta": "Qo‘shiling"
     }
   },
   "services": {
-    "flights": "QAYTISH AVIAPARVOZLARI",
-    "hotels": "SINCHIKLAB TANLANGAN MEHMONXONALAR",
-    "breakfasts": "HAR KUNI BIRGALIKDA NONUSHTA",
-    "holiday_directors": "TAJRIBALI SAYOHAT QO'LLANMASI HAMROHLIGIDA",
-    "holiday_assurance": "HAR QADAMDA SIZGA YORDAM BERAMIZ"
+    "flights": "Qaytish parvozi",
+    "hotels": "Tanlab olingan mehmonxonalar",
+    "breakfasts": "Har kuni nonushta",
+    "holiday_directors": "Tajribali yo‘lboshchi hamrohligida",
+    "holiday_assurance": "Har bosqichda yordam"
   },
   "testimonials": [
     {
-      "text": "Bizga juda yaxshi xizmat ko'rsatildi, hamma narsa mukammal edi.",
+      "text": "Xizmat juda yaxshi, hammasi mukammal.",
       "author": "Mijoz",
       "date": "1 kun oldin"
     },
     {
-      "text": "Ajoyib ta'til, go'zal mamlakat - Xorvatiya.",
+      "text": "Ajoyib ta'til va go‘zal mamlakat – Xorvatiya.",
       "author": "Nigel Wood",
       "date": "5 kun oldin"
     },
     {
-      "text": "Zo'r sayohat. Kema ajoyib va ekipaj juda do'stona.",
+      "text": "Zo‘r sayohat. Kema va ekipaj juda do‘stona.",
       "author": "Sandra",
       "date": "11-avgust"
     },
     {
-      "text": "Butun jarayon - bron qilishdan tortib, qaytishgacha mukammal o'tdi.",
+      "text": "Bron qilishdan qaytishgacha hammasi juda yaxshi tashkil qilingan.",
       "author": "Maggie",
       "date": "8-avgust"
     },
     {
-      "text": "Bu mening birinchi yakka sayohatim edi va u juda ajoyib o'tdi.",
+      "text": "Mening birinchi yakka sayohatim juda ajoyib o‘tdi.",
       "author": "Anne",
       "date": null
     }
   ],
   "other_tours": [
     {
-      "title": "BALKANLAR SAYOHATI",
-      "description": "To'rt mamlakat bo'ylab keng qamrovli sarguzasht.",
+      "title": "Balkanlar sayohati",
+      "description": "To‘rt mamlakat bo‘ylab keng qamrovli sarguzasht.",
       "details": {
-        "flights": "Londondan qaytish aviaparvozi",
-        "accommodation": "12 KECHA 4 YULDUZLI MEHMONXONALARDA",
-        "meals": "20 TA OVQAT: 12 NONUSHTA, 2 TUSHLIK VA 6 KECHKI OVQAT, XUSH KELIBSIZ ICHIMLIGI BILAN",
-        "director": "JUST YOU SAYOHAT QO'LLANMASI",
+        "flights": "Londondan qaytish parvozi",
+        "accommodation": "12 kecha 4 yulduzli mehmonxonalarda",
+        "meals": "20 ta ovqat (12 nonushta, 2 tushlik, 6 kechki ovqat)",
+        "director": "Sayohat yo‘lboshchisi",
         "price": "$1,200"
       },
-      "cta": "KASHF ETING"
+      "cta": "Kashf eting"
     },
     {
-      "title": "SHVETSIYA QISHKI MO'JIZALARI VA POEZD SAFARLARI",
-      "description": "Shveysariyada unutilmas qishki sarguzashtni boshlang.",
+      "title": "Shveysariya qishki mo‘jizalari",
+      "description": "Shveysariyada unutilmas qishki sarguzasht.",
       "details": {
-        "flights": "BUYUK BRITANIYADAN QAYTISH AVIAPARVOZLARI",
-        "accommodation": "6 KECHA 4 YULDUZLI MEHMONXONADA",
-        "meals": "9 TA OVQAT: 6 NONUSHTA, 1 TUSHLIK VA 2 KECHKI OVQAT",
+        "flights": "Buyuk Britaniyadan qaytish parvozi",
+        "accommodation": "6 kecha 4 yulduzli mehmonxonada",
+        "meals": "9 ta ovqat (6 nonushta, 1 tushlik, 2 kechki ovqat)",
         "price": "$2,500"
       },
-      "cta": "KASHF ETING"
+      "cta": "Kashf eting"
     },
     {
-      "title": "TURKIYA XAZINALARI: ISTANBUL SAROYLARIDAN KAPPADOKIYA MO'JIZALARIGACHA",
-      "description": "Turkiya o'zining go'zalligi va betakrorligi bilan sizni hayratga soladi.",
+      "title": "Turkiya xazinalari",
+      "description": "Turkiyaning go‘zalliklari va tarixiy joylari bilan tanishing.",
       "details": {
-        "flights": "QAYTISH AVIAPARVOZLARI",
-        "accommodation": "6 KECHA 4 YULDUZLI MEHMONXONADA VA 12 MAHSUS OVQAT",
+        "flights": "Qaytish parvozi",
+        "accommodation": "6 kecha 4 yulduzli mehmonxonada, 12 ta ovqat",
         "price": "$1,800"
       },
-      "cta": "KASHF ETING"
+      "cta": "Kashf eting"
     }
   ],
   "footer": {
     "customer_support": {
-      "contact_us": "Biz bilan bog'laning",
-      "follow_us": "Bizni kuzating",
+      "contact_us": "Aloqa",
+      "follow_us": "Ijtimoiy tarmoqlar",
       "information": "Ma'lumot",
       "corporate_title": "Korporativ",
       "about_us": "Biz haqimizda",
       "community": "Hamjamiyat",
-      "faq": "Ko'p so'raladigan savollar"
+      "faq": "Savollar"
     },
     "contact": {
       "phone": "03301 737293",
-      "phone_pl": "Telefon raqam",
+      "phone_pl": "Telefon",
       "email": "enquiries@justyou.co.uk"
     },
     "links": {
-      "booking_conditions": "Bron qilish shartlari",
+      "booking_conditions": "Bron shartlari",
       "essential_information": "Muhim ma'lumotlar",
-      "package_travel": "Turpaketlar haqida ma'lumot",
-      "foreign_travel_advice": "Xalqaro sayohat maslahatlari",
-      "brexit_travel_advice": "Brexit bo'yicha sayohat maslahatlari",
-      "modern_slavery_statement": "Zamonaviy qullik haqida bayonot",
+      "package_travel": "Turpaket haqida",
+      "foreign_travel_advice": "Xalqaro maslahatlar",
+      "brexit_travel_advice": "Brexit maslahatlari",
+      "modern_slavery_statement": "Qullik haqida bayonot",
       "animal_welfare_policy": "Hayvonlar farovonligi siyosati",
       "website_disclaimer": "Sayt mas'uliyati"
     },
     "corporate": {
       "travelsphere": "TravelSphere",
-      "careers": "Ish o'rinlari",
-      "trade_agent_hub": "Agentlar platformasi"
+      "careers": "Ish o‘rinlari",
+      "trade_agent_hub": "Agent platformasi"
     },
-    "customer_support_title": "Mijozlarni qo'llab-quvvatlash",
+    "customer_support_title": "Qo‘llab-quvvatlash",
     "newsletter": {
-      "title": "Ilhomlantiruvchi sayohatlar va takliflarni pochtangizga oling",
+      "title": "Yangiliklar va takliflarni pochta orqali oling",
       "cta": "Obuna bo‘lish"
     }
   },
   "last": {
-    "last_minute_holidays": "Oxirgi daqiqadagi ta'tillar",
+    "last_minute_holidays": "Oxirgi daqiqadagi sayohatlar",
     "explore": "Ko‘proq ko‘rish →",
-    "testimonial": "Bu Just you bilan birinchi safarim edi va men ularni albatta tavsiya qilaman. Boshlanishidan oxirigacha o‘zimni yaxshi qaralgan his qildim va dastur ajoyib edi.",
+    "testimonial": "Bu mening birinchi safarim edi va albatta tavsiya qilaman.",
     "author": "Anne"
   },
   "service": {
     "we_take_care_of": "Biz g‘amxo‘rlik qilamiz",
     "flights": "Parvozlar",
-    "return_flights": "Qaytish reyslari",
+    "return_flights": "Qaytish parvozi",
     "hotels": "Mehmonxonalar",
     "hand_picked_hotels": "Tanlab olingan mehmonxonalar",
     "breakfasts": "Nonushtalar",
-    "breakfast_together": "Har kuni birga nonushta",
-    "holiday_directors": "Sayohat rahbarlari",
-    "experienced_tour_guide": "Tajribali sayohat yo‘lboshchisi siz bilan",
+    "breakfast_together": "Birgalikda nonushta",
+    "holiday_directors": "Yo‘lboshchilar",
+    "experienced_tour_guide": "Tajribali yo‘lboshchi",
     "holiday_assurance": "Sayohat kafolati",
-    "support_every_step": "Har bir bosqichda sizni qo‘llab-quvvatlaymiz"
+    "support_every_step": "Har bosqichda yordam"
   },
   "newsletter": {
-    "title": "Safar ilhomlari va takliflarni pochtangizga oling",
-    "button": "Bizning yangiliklar byulletenimizga obuna bo‘ling"
+    "title": "Yangiliklar va takliflarni oling",
+    "button": "Obuna bo‘ling"
   },
   "about": {
-    "title": "Faqat Siz Uchun Mos Tatillar",
-    "paragraph1": "Just You ta'tilida siz tajribadan to‘liq bahramand bo‘lishingiz mumkin. Biz yakka sayohat bo‘yicha mutaxassislar bo‘lib, qolgan hamma narsani biz hal qilamiz.",
-    "paragraph2": "Ertalab qayerga borishingiz yoki qaysi poezd chiptasini olishingiz haqida o‘ylamang. Faqat tanlagan manzilingizdan zavqlaning, dam oling va hamfikr do‘stlar orttiring.",
-    "paragraph3": "Yakka sayohatlar uchun mo‘ljallangan 25 yillik tajriba va sayohat bo‘yicha yo‘lboshchimiz yordamida siz o‘zingizni mutlaqo erkin his qilasiz."
+    "title": "Faqat Siz Uchun Tatillar",
+    "paragraph1": "Biz yakka sayohatlar bo‘yicha mutaxassislar bo‘lib, siz faqat dam olishdan zavqlanasiz.",
+    "paragraph2": "Qaysi manzilni tanlashingizdan qat'i nazar, hammasini biz tashkil qilamiz.",
+    "paragraph3": "25 yillik tajribamiz va yo‘lboshchilarimiz yordamida o‘zingizni erkin his qilasiz."
   },
   "blog": {
-    "title": "Bloglarimizni o‘qing",
+    "title": "Bloglar",
     "explore_button": "Ko‘proq ko‘rish →",
     "balkan_explorer": {
-      "title": "BALKAN SAYOHATI",
-      "description": "Yevropaning kam o‘rganilgan burchagidagi to‘rt mamlakat bo‘ylab keng qamrovli sayohat. Zamonaviy shaharlardan tortib tabiiy go‘zalliklargacha bo‘lgan maskanlarni kashf eting."
+      "title": "Balkan sayohati",
+      "description": "Yevropaning kam o‘rganilgan joylarini kashf eting."
     },
     "switzerland_railways": {
-      "title": "SHVEYTSARIYA POEZDLARI VA QORLI ALP GO‘ZALLIKLARI",
-      "description": "Shveytsariyada unutilmas qishki sayohatga chiqing — nafis temir yo‘l sayohatlari va ajoyib Alp manzaralari bilan."
+      "title": "Shveysariya poyezdlari",
+      "description": "Qishki Alp manzaralari va temir yo‘l safarlari."
     },
     "turkish_treasures": {
-      "title": "TURK XAZINALARI",
-      "description": "Turkiya sizning barcha sezgilaringizni hayratga soladi: Istanbul bozoridagi ziravorlarning hidi, Kapadokiyadagi g‘or uylar, Moviy masjidning sirli naqshlari va albatta, mazali taomlar."
+      "title": "Turkiya xazinalari",
+      "description": "Istanbul, Kapadokiya va boshqa go‘zalliklar."
     }
   },
   "newHoliday": {
-    "newHoliday": "YANGI YAKKA SAYOHATLAR TA'TILI"
+    "newHoliday": "Yangi yakka sayohatlar"
   },
   "Popular": {
-    "popularDestinations": "ENG MASHHUR YAKKA SAYOHAT MANZILLARI"
+    "popularDestinations": "Mashhur sayohat manzillari"
   }
 }

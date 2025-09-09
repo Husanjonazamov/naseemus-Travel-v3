@@ -2,7 +2,7 @@ import { Bed, Star } from "lucide-react"
 import { useTranslations } from "next-intl"
 
 export function TrustBadges() {
-  const t = useTranslations("header")
+  const t = useTranslations("trustBadges")
   return (
     <div className="bg-gray-50 border-y border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

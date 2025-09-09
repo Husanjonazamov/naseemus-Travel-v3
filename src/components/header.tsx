@@ -66,27 +66,32 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3 whitespace-nowrap">
-            <Image
-              src="/images/green.png"
-              alt={t("company_name")}
-              width={50}
-              height={50}
-              className="rounded-full"
-            />
-            <span className="text-xl sm:text-2xl font-bold text-green-700 leading-none">{t("company_name")}</span>
+            <Link href="/" className="flex items-center space-x-3">
+              <Image
+                src="/images/green.png"
+                alt={t("company_name")}
+                width={50}
+                height={50}
+                className="rounded-full"
+                priority
+              />
+              <span className="text-xl sm:text-2xl font-bold text-green-700 leading-none">
+                {t("company_name")}
+              </span>
+            </Link>
           </div>
 
           {/* Navigation & language */}
           <div className="flex items-center space-x-8">
             <nav className="hidden lg:flex items-center space-x-8">
               <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-                {t("destinations")}
+                {t("tours")}
               </Link>
               <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-                {t("offers")}
+                {t("blog")}
               </Link>
               <Link href="/sanatory" className="text-gray-900 uppercase hover:text-green-700 font-medium transition-colors">
-                {t("sanatoriesLink")}
+                {t("sanatories")}
               </Link>
               <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
                 {t("community")}
@@ -97,22 +102,26 @@ export function Header() {
             <div className="relative">
               <button
                 onClick={toggleLangDropdown}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-300 bg-white shadow-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-all duration-300"
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 bg-white shadow-sm text-gray-700 hover:bg-green-50 hover:text-green-700 transition-all duration-300"
               >
                 <Globe className="h-5 w-5 text-green-600" />
-                <span className="font-semibold">{locale.toUpperCase()}</span>
+                <span className="font-semibold text-base">{locale.toUpperCase()}</span>
                 <ChevronDown className={`h-4 w-4 transition-transform ${isLangOpen ? "rotate-180" : "rotate-0"}`} />
               </button>
               <div
-                className={`absolute right-0 top-full mt-2 w-28 bg-white border border-gray-200 rounded-xl shadow-lg z-10 transition-all duration-200 ${isLangOpen ? "opacity-100 visible" : "opacity-0 invisible"
-                  }`}
+                className={`absolute right-0 top-full mt-2 w-32 bg-white border border-gray-200 rounded-xl shadow-lg z-10 transition-all duration-200 ${
+                  isLangOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                }`}
               >
                 {languages.map((lang) => (
                   <button
                     key={lang}
                     onClick={() => selectLanguage(lang)}
-                    className={`w-full text-left px-4 py-2 text-sm rounded-lg transition-colors ${locale === lang ? "bg-green-600 text-white font-bold" : "text-gray-700 hover:bg-green-100 hover:text-green-700"
-                      }`}
+                    className={`w-full text-left px-4 py-2.5 text-base font-medium rounded-lg transition-colors ${
+                      locale === lang
+                        ? "bg-green-600 text-white font-bold"
+                        : "text-gray-700 hover:bg-green-100 hover:text-green-700"
+                    }`}
                   >
                     {lang.toUpperCase()}
                   </button>
@@ -135,16 +144,23 @@ export function Header() {
         </div>
 
         {/* Mobile menu */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-300 ${isMenuOpen ? "max-h-96" : "max-h-0"}`}>
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${
+            isMenuOpen ? "max-h-96" : "max-h-0"
+          }`}
+        >
           <nav className="flex flex-col space-y-4 py-4">
             <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-              {t("destinations")}
+              {t("tours")}
             </Link>
             <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
-              {t("offers")}
+              {t("blog")}
             </Link>
-            <Link href="/sanatory" className="text-gray-900 uppercase hover:text-green-700 font-medium transition-colors">
-              {t("sanatoriesLink")}
+            <Link
+              href="/sanatory"
+              className="text-gray-900 uppercase hover:text-green-700 font-medium transition-colors"
+            >
+              {t("sanatories")}
             </Link>
             <Link href="#" className="text-gray-900 hover:text-green-700 font-medium transition-colors">
               {t("community")}
