@@ -8,6 +8,7 @@ import { Itinerary } from "@/src/components/itenerary";
 import { TourOverview } from "@/src/components/tour-overview";
 import { TourDetails } from "@/src/components/tour-details";
 
+
 interface TourDetailProps {
   params: {
     id: string;
@@ -113,17 +114,19 @@ export default function TourDetail({ params }: TourDetailProps) {
         </div>
       </section>
 
-      {/* Tour Description Section */}
-      <section className="max-w-4xl mx-auto py-8 px-4">
+      <section className="max-w-7xl mx-auto py-8 px-6 lg:px-12">
         {tour.sections.map((section, index) => (
-          <div key={index} className="mb-10">
-            <h2 className="text-2xl text-green-700 font-bold mb-3">{section.heading}</h2>
-            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+          <div key={index} className="mb-12">
+            <h2 className="text-3xl text-green-700 font-bold mb-4 text-left">
+              {section.heading}
+            </h2>
+            <p className="text-gray-700 leading-relaxed text-left whitespace-pre-line text-lg">
               {section.content}
             </p>
           </div>
         ))}
       </section>
+      <NewTouringHolidays />
 
       {/* Footer */}
       <Footer />

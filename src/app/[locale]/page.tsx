@@ -25,9 +25,6 @@ export default function HomePage() {
       <Header />
       <TrustBadges />
       <HeroSection />
-      <TourDetails />
-      <TourOverview />
-      <Itinerary />
       <ContentSection />
       <LastMinuteHolidays />
       <ServicesSection />

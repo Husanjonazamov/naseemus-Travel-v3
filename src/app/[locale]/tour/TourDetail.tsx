@@ -47,7 +47,6 @@ export default function TourPage() {
     },
   ]
 
-  // 🔹 Random sanalar generatori
   const randomDates = [
     "Mon 5 May 2025",
     "Fri 20 Jun 2025",
@@ -58,7 +57,6 @@ export default function TourPage() {
     "Wed 23 Apr 2026",
   ]
 
-  // 🔹 Price ustuni bosilganda
   const randomizePrice = () => {
     setDepartures((prev) =>
       prev.map((d) => {
@@ -68,7 +66,6 @@ export default function TourPage() {
     )
   }
 
-  // 🔹 Date ustuni bosilganda
   const randomizeDate = () => {
     setDepartures((prev) =>
       prev.map((d) => {
@@ -79,19 +76,19 @@ export default function TourPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen px-4 sm:px-6 lg:px-8">
 
       {/* Dates Section */}
       <section className="py-8 mt-4">
-        <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-green-700 mb-8 text-center">DATES</h2>
-          <p className="text-center text-black mb-8">All our departures are guaranteed</p>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-green-700 mb-4 text-center">DATES</h2>
+          <p className="text-center text-black mb-6">All our departures are guaranteed</p>
 
+          {/* Responsive Table */}
           <div className="overflow-x-auto">
             <table className="w-full text-black border-collapse">
-              <thead>
+              <thead className="hidden md:table-header-group">
                 <tr className="border-b border-green-200">
-                  {/* Date header clickable */}
                   <th
                     className="text-left p-4 font-semibold flex items-center gap-2 cursor-pointer select-none"
                     onClick={randomizeDate}
@@ -99,27 +96,24 @@ export default function TourPage() {
                     Date <ChevronDown className="w-4 h-4 text-green-700" />
                   </th>
                   <th className="text-left p-4 font-semibold">Airport</th>
-
-                  {/* Price header clickable */}
                   <th
                     className="text-left p-4 font-semibold cursor-pointer select-none"
                     onClick={randomizePrice}
                   >
                     Price <ChevronDown className="w-4 h-4 text-green-700" />
                   </th>
-
                   <th className="text-left p-4 font-semibold">Availability</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="md:table-row-group">
                 {departures.map((departure, index) => (
                   <tr
                     key={index}
-                    className="border-b border-green-100 hover:bg-green-50 transition-colors"
+                    className="border-b border-green-100 hover:bg-green-50 transition-colors block md:table-row mb-4 md:mb-0 p-4 md:p-0"
                   >
-                    <td className="p-4">{departure.date}</td>
-                    <td className="p-4">{departure.airport}</td>
-                    <td className="p-4">
+                    <td className="p-2 md:p-4 font-semibold" data-label="Date">{departure.date}</td>
+                    <td className="p-2 md:p-4" data-label="Airport">{departure.airport}</td>
+                    <td className="p-2 md:p-4">
                       <div className="flex items-center gap-2">
                         {departure.originalPrice && (
                           <span className="line-through text-sm">{departure.originalPrice}</span>
@@ -127,7 +121,7 @@ export default function TourPage() {
                         <span className="font-semibold">{departure.price}</span>
                       </div>
                     </td>
-                    <td className="p-4">{departure.availability}</td>
+                    <td className="p-2 md:p-4" data-label="Availability">{departure.availability}</td>
                   </tr>
                 ))}
               </tbody>
@@ -138,34 +132,36 @@ export default function TourPage() {
 
       {/* Optional Excursions Section */}
       <section className="py-8 mt-4">
-        <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-green-700 mb-6">OPTIONAL EXCURSIONS</h2>
-          <p className="text-black leading-relaxed mb-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">OPTIONAL EXCURSIONS</h2>
+          <p className="text-black leading-relaxed mb-8 text-center">
             Experience even more of your destination by adding one or more optional excursions to your holiday before
             you set off.
           </p>
 
           <div className="space-y-8">
             {excursionsData.map((excursion, index) => (
-              <div key={index} className="grid lg:grid-cols-2 gap-0">
+              <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Image */}
-                <div className="relative h-48 sm:h-56 md:h-64 lg:h-auto">
+                <div className="relative h-48 sm:h-56 md:h-64 lg:h-auto w-full">
                   <img
                     src={excursion.image}
                     alt={excursion.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
                 {/* Content */}
-                <div className="p-6 sm:p-8">
-                  <h3 className="text-2xl font-bold text-green-700 mb-4">{excursion.title}</h3>
-                  <p className="text-black leading-relaxed mb-6">{excursion.description}</p>
-                  <div className="flex items-center justify-between">
+                <div className="p-4 sm:p-6 lg:p-8 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-green-700 mb-4">{excursion.title}</h3>
+                    <p className="text-black leading-relaxed mb-6">{excursion.description}</p>
+                  </div>
+                  <div className="flex items-center justify-between mt-auto">
                     <div>
                       <p className="text-sm mb-1 text-black">From</p>
-                      <p className="text-3xl font-bold text-black">{excursion.price}</p>
+                      <p className="text-2xl sm:text-3xl font-bold text-black">{excursion.price}</p>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 mt-4 lg:mt-0">
                       <button className="text-black hover:text-green-700 flex items-center gap-1">
                         Read more <ChevronDown className="w-4 h-4" />
                       </button>

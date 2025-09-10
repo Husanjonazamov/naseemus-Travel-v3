@@ -5,9 +5,18 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Button } from "./ui/button"
 import { useTranslations } from "next-intl"
+import { useRouter } from "next/navigation"
+
+// Helper: title ni URL-friendly qilish
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
 
 export function BlogSection() {
   const t = useTranslations("blog")
+  const router = useRouter()
 
   const destinations = [
     {
@@ -50,7 +59,7 @@ export function BlogSection() {
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#007654] mb-12">
+        <h2 className="text-2xl md:text-4xl font-bold text-center text-[#007654] mb-12">
           {t("title")}
         </h2>
 
@@ -75,10 +84,10 @@ export function BlogSection() {
 
                   {/* Price va Button bir chiziqda */}
                   <div className="flex items-center justify-between mt-auto">
-                    <p className="text-[#007654] font-bold text-3xl">
-                      {destination.price}
-                    </p>
-                    <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
+                    <Button
+                      className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg"
+                      onClick={() => router.push(`/blog/${slugify(destination.title)}`)}
+                    >
                       {t("explore_button")}
                     </Button>
                   </div>
@@ -105,7 +114,10 @@ export function BlogSection() {
 
                   {/* Price va Button bir chiziqda */}
                   <div className="flex items-center justify-between mt-auto">
-                    <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
+                    <Button
+                      className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg"
+                      onClick={() => router.push(`/blog/${slugify(destination.title)}`)}
+                    >
                       {t("explore_button")}
                     </Button>
                   </div>

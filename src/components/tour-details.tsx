@@ -3,147 +3,155 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { useTranslations } from "next-intl";
+import { Calendar, Users, DollarSign } from "lucide-react";
 
 export function TourDetails() {
-  const t = useTranslations("tour_uzbekistan");
+  const t = useTranslations("silk");
   const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("discover");
+
+  const tabs = [
+    "discover",
+    "itinerary",
+    "accommodation",
+    "reviews",
+    "optional_excursions",
+    "dates",
+  ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-8">
-        {/* Sarlavha */}
-        <h1 className="text-3xl font-bold text-[#007654] mb-4">
+    <div className="container mx-auto px-4 py-6 md:py-10">
+      {/* Title */}
+      <div className="text-center mb-6 md:mb-10">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-[#007654] mb-4">
           {t("title")}
         </h1>
 
-        {/* Narx, Kun va Sana */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 mb-6">
+        {/* Price, Duration, Dates, CTA */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-6">
+          {/* Price */}
           <div className="text-center">
-            <div className="text-2xl font-bold text-[#007654]">
+            <div className="flex items-center justify-center gap-2 text-xl md:text-2xl font-bold text-[#007654]">
+              <DollarSign size={20} />
               {t("price")}
             </div>
-            <div className="text-sm text-gray-600">{t("price_label")}</div>
+            <p className="text-sm text-gray-600">{t("price_label")}</p>
           </div>
+
+          {/* Duration */}
           <div className="text-center">
-            <div className="text-2xl font-bold text-[#007654]">
+            <div className="flex items-center justify-center gap-2 text-xl md:text-2xl font-bold text-[#007654]">
+              <Users size={20} />
               {t("duration")}
             </div>
-            <div className="text-sm text-gray-600">{t("duration_label")}</div>
+            <p className="text-sm text-gray-600">{t("duration_label")}</p>
           </div>
+
+          {/* Dates */}
           <div className="text-center">
-            <div className="text-lg font-semibold text-[#007654]">
+            <div className="flex items-center justify-center gap-2 text-lg font-semibold text-[#007654]">
+              <Calendar size={18} />
               {t("departure_dates")}
             </div>
-            <div className="text-sm text-gray-600">
-              {t("departure_dates_label")}
-            </div>
-          </div>  
+            <p className="text-sm text-gray-600">{t("departure_dates_label")}</p>
+          </div>
 
-          {/* Bron qilish tugmasi */}
-          <Button
-            onClick={() => setIsOpen(true)}
-            className="
-              bg-gradient-to-r from-[#007654] to-[#009e6f] 
-              hover:from-[#006148] hover:to-[#00885d] 
-              text-white px-8 py-6
-              transition-transform transform hover:scale-105
-              mt-4 md:mt-0
-            "
-          >
-            {t("cta_book")}
-          </Button>
+          {/* CTA */}
+          <div className="flex items-center justify-center">
+            <Button
+              onClick={() => setIsOpen(true)}
+              className="bg-gradient-to-r from-[#007654] to-[#009e6f] 
+                hover:from-[#006148] hover:to-[#00885d] 
+                text-white px-6 py-3 rounded-lg shadow-md 
+                transition-transform transform hover:scale-105 w-full sm:w-auto text-lg"
+            >
+              {t("cta_book")}
+            </Button>
+          </div>
         </div>
-
-        {/* Navigatsiya bo‘limi */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8 border-b text-sm md:text-base">
-          <button className="pb-2 border-b-2 border-[#007654] text-[#007654] font-semibold">
-            {t("tabs.discover")}
-          </button>
-          <button className="pb-2 text-gray-600 hover:text-[#007654]">
-            {t("tabs.itinerary")}
-          </button>
-          <button className="pb-2 text-gray-600 hover:text-[#007654]">
-            {t("tabs.accommodation")}
-          </button>
-          <button className="pb-2 text-gray-600 hover:text-[#007654]">
-            {t("tabs.reviews")}
-          </button>
-          <button className="pb-2 text-gray-600 hover:text-[#007654]">
-            {t("tabs.optional_excursions")}
-          </button>
-          <button className="pb-2 text-gray-600 hover:text-[#007654]">
-            {t("tabs.dates")}
-          </button>
-        </div>
+       
       </div>
 
       {/* Modal */}
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          {/* Orqa fon */}
+        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
+          {/* Background */}
           <div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
-          ></div>
+          />
 
-          {/* Modal form */}
-          <div className="relative bg-white rounded-t-2xl md:rounded-2xl shadow-xl p-4 md:p-6 w-full max-w-md md:max-w-lg z-10 
-            h-[90vh] md:h-auto overflow-y-auto animate-slideUp">
-            <h2 className="text-xl md:text-2xl font-bold text-[#007654] mb-4">
-              {t("cta_book")}
+          {/* Modal content */}
+          <div
+            className="relative bg-white rounded-t-2xl md:rounded-2xl shadow-xl p-5 sm:p-6 w-full max-w-md md:max-w-lg z-10 
+            h-[90vh] sm:h-auto overflow-y-auto animate-slideUp"
+          >
+            <h2 className="text-xl md:text-2xl font-bold text-[#007654] mb-4 text-center">
+              {t("booking_form.title")}
             </h2>
+
             <form className="space-y-4">
+              {/* Name */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Ism
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("booking_form.name")}
                 </label>
                 <input
                   type="text"
-                  className="w-full mt-1 p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
-                  placeholder="Ismingizni kiriting"
+                  className="w-full p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
+                  placeholder={t("booking_form.name_placeholder")}
                 />
               </div>
+
+              {/* Phone */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Telefon raqam
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("booking_form.phone")}
                 </label>
                 <input
                   type="tel"
-                  className="w-full mt-1 p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
+                  className="w-full p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
                   placeholder="+998 90 123 45 67"
                 />
               </div>
+
+              {/* Passengers */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Nechi kishi
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("booking_form.passengers")}
                 </label>
                 <input
                   type="number"
-                  className="w-full mt-1 p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
+                  className="w-full p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
                   min="1"
                   placeholder="2"
                 />
               </div>
+
+              {/* Date */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Sana
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("booking_form.date")}
                 </label>
                 <input
                   type="date"
-                  className="w-full mt-1 p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
+                  className="w-full p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
                 />
               </div>
+
+              {/* Notes */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Qo‘shimcha izoh
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {t("booking_form.notes")}
                 </label>
                 <textarea
-                  className="w-full mt-1 p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
+                  className="w-full p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
                   rows={3}
-                  placeholder="Masalan, alohida talablaringiz bo‘lsa yozing..."
+                  placeholder={t("booking_form.notes_placeholder")}
                 ></textarea>
               </div>
 
+              {/* Actions */}
               <div className="flex flex-col md:flex-row justify-end gap-3 pt-4">
                 <Button
                   type="button"
@@ -151,13 +159,13 @@ export function TourDetails() {
                   onClick={() => setIsOpen(false)}
                   className="w-full md:w-auto"
                 >
-                  Bekor qilish
+                  {t("booking_form.cancel")}
                 </Button>
                 <Button
                   type="submit"
                   className="w-full md:w-auto bg-[#007654] hover:bg-[#006148] text-white px-6"
                 >
-                  Yuborish
+                  {t("booking_form.submit")}
                 </Button>
               </div>
             </form>

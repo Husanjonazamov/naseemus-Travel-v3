@@ -20,6 +20,37 @@
     "RATED_EXCELLENT_ON_TRUSTPILOT": "Rated excellent on Trustpilot",
     "OVER_25_YEARS_EXPERTISE": "Over 25 years of expertise"
   },
+  "silk": {
+    "title": "Uzbekistan Tour",
+    "price": "$750",
+    "price_label": "Starting price",
+    "duration": "7 days",
+    "duration_label": "Duration",
+    "departure_dates": "Beginning of each month",
+    "departure_dates_label": "Date",
+    "cta_book": "Book Now",
+    "tabs": {
+      "discover": "Discover",
+      "itinerary": "Itinerary",
+      "accommodation": "Accommodation",
+      "reviews": "Reviews",
+      "optional_excursions": "Optional Excursions",
+      "dates": "Dates"
+    },
+    "booking_form": {
+      "title": "Book Your Tour",
+      "name": "Name",
+      "name_placeholder": "Enter your name",
+      "phone": "Phone number",
+      "passengers": "Number of people",
+      "date": "Date",
+      "notes": "Additional notes",
+      "notes_placeholder": "For example, any special requests...",
+      "cancel": "Cancel",
+      "submit": "Submit"
+    }
+  },
+
   "hero": {
     "title": "EXCLUSIVE OFFERS JUST FOR YOU",
     "subtitle": "DISCOVER YOUR PERFECT SUMMER ESCAPE",
@@ -154,41 +185,47 @@
       "cta": "EXPLORE"
     }
   ],
-  "footer": {
-    "customer_support": {
-      "title": "CUSTOMER SUPPORT",
-      "contact_us": "CONTACT US",
-      "follow_us": "FOLLOW US",
-      "information": "INFORMATION",
-      "corporate": "CORPORATE",
-      "about_us": "ABOUT US",
-      "community": "COMMUNITY",
-      "faq": "FAQ"
-    },
-    "contact": {
-      "phone": "03301 737293",
-      "email": "enquiries@justyou.co.uk"
-    },
-    "links": {
-      "booking_conditions": "BOOKING CONDITIONS",
-      "essential_information": "ESSENTIAL INFORMATION",
-      "package_travel": "PACKAGE TRAVEL INFORMATION",
-      "foreign_travel_advice": "INTERNATIONAL TRAVEL ADVICE",
-      "brexit_travel_advice": "BREXIT TRAVEL ADVICE",
-      "modern_slavery_statement": "MODERN SLAVERY STATEMENT",
-      "animal_welfare_policy": "ANIMAL WELFARE POLICY",
-      "website_disclaimer": "WEBSITE DISCLAIMER"
-    },
-    "corporate": {
-      "travelsphere": "TRAVELSPHERE",
-      "careers": "CAREERS",
-      "trade_agent_hub": "AGENTS PLATFORM"
-    },
-    "newsletter": {
-      "title": "GET INSPIRED AND RECEIVE OFFERS",
-      "cta": "SUBSCRIBE"
-    }
+"footer": {
+  "customer_support": {
+    "contact_us": "Contact Us",
+    "follow_us": "Follow Us",
+    "information": "Information",
+    "corporate_title": "Corporate",
+    "about_us": "About Us",
+    "community": "Community",
+    "faq": "FAQ"
   },
+  "contact": {
+    "phone": "03301 737293",
+    "phone_pl": "Phone",
+    "email": "enquiries@justyou.co.uk"
+  },
+  "links": {
+    "booking_conditions": "Booking Conditions",
+    "essential_information": "Essential Information",
+    "package_travel": "Package Travel",
+    "foreign_travel_advice": "Foreign Travel Advice",
+    "brexit_travel_advice": "Brexit Travel Advice",
+    "modern_slavery_statement": "Modern Slavery Statement",
+    "animal_welfare_policy": "Animal Welfare Policy",
+    "website_disclaimer": "Website Disclaimer"
+  },
+  "corporate": {
+    "travelsphere": "TravelSphere",
+    "careers": "Careers",
+    "trade_agent_hub": "Trade Agent Hub"
+  },
+  "customer_support_title": "Customer Support",
+  "newsletter": {
+    "title": "Receive news and offers by email",
+    "cta": "Subscribe"
+  }
+},
+
+   "newsletter": {
+      "title": "GET INSPIRED AND RECEIVE OFFERS",
+      "button": "SUBSCRIBE"
+    },
   "last": {
     "last_minute_holidays": "LAST MINUTE HOLIDAYS",
     "explore": "SEE MORE →",
@@ -222,5 +259,19 @@
   },
   "Popular": {
     "popularDestinations": "MOST POPULAR SOLO TRAVEL DESTINATIONS"
+  },
+  "service": {
+    "we_take_care_of": "We take care of",
+    "flights": "Flights",
+    "return_flights": "Return flight",
+    "hotels": "Hotels",
+    "hand_picked_hotels": "Hand-picked hotels",
+    "breakfasts": "Breakfasts",
+    "breakfast_together": "Breakfast together",
+    "holiday_directors": "Tour directors",
+    "experienced_tour_guide": "Experienced tour guide",
+    "holiday_assurance": "Holiday assurance",
+    "support_every_step": "Support every step"
   }
+
 }

@@ -146,13 +146,7 @@
       "cta": "Qo‘shiling"
     }
   },
-  "services": {
-    "flights": "Qaytish parvozi",
-    "hotels": "Tanlab olingan mehmonxonalar",
-    "breakfasts": "Har kuni nonushta",
-    "holiday_directors": "Tajribali yo‘lboshchi hamrohligida",
-    "holiday_assurance": "Har bosqichda yordam"
-  },
+
   "testimonials": [
     {
       "text": "Xizmat juda yaxshi, hammasi mukammal.",
@@ -257,19 +251,7 @@
     "testimonial": "Bu mening birinchi safarim edi va albatta tavsiya qilaman.",
     "author": "Anne"
   },
-  "service": {
-    "we_take_care_of": "Biz g‘amxo‘rlik qilamiz",
-    "flights": "Parvozlar",
-    "return_flights": "Qaytish parvozi",
-    "hotels": "Mehmonxonalar",
-    "hand_picked_hotels": "Tanlab olingan mehmonxonalar",
-    "breakfasts": "Nonushtalar",
-    "breakfast_together": "Birgalikda nonushta",
-    "holiday_directors": "Yo‘lboshchilar",
-    "experienced_tour_guide": "Tajribali yo‘lboshchi",
-    "holiday_assurance": "Sayohat kafolati",
-    "support_every_step": "Har bosqichda yordam"
-  },
+
   "newsletter": {
     "title": "Yangiliklar va takliflarni oling",
     "button": "Obuna bo‘ling"
@@ -301,5 +283,49 @@
   },
   "Popular": {
     "popularDestinations": "Mashhur sayohat manzillari"
+  },
+  "silk": {
+    "title": "O‘zbekiston sayohati",
+    "price": "$750",
+    "price_label": "Boshlang‘ich narx",
+    "duration": "7 kun",
+    "duration_label": "Davomiyligi",
+    "departure_dates": "Har oyning boshida",
+    "departure_dates_label": "Sana",
+    "cta_book": "Bron qilish",
+    "tabs": {
+      "discover": "Kashf eting",
+      "itinerary": "Marshrut",
+      "accommodation": "Mehmonxonalar",
+      "reviews": "Sharhlar",
+      "optional_excursions": "Qo‘shimcha ekskursiyalar",
+      "dates": "Sanalar"
+    },
+    "booking_form": {
+      "title": "Sayohatni bron qilish",
+      "name": "Ism",
+      "name_placeholder": "Ismingizni kiriting",
+      "phone": "Telefon raqam",
+      "passengers": "Nechi kishi",
+      "date": "Sana",
+      "notes": "Qo‘shimcha izoh",
+      "notes_placeholder": "Masalan, alohida talablaringiz bo‘lsa yozing...",
+      "cancel": "Bekor qilish",
+      "submit": "Yuborish"
+    }
+},
+  "service": {
+    "we_take_care_of": "Biz g‘amxo‘rlik qilamiz",
+    "flights": "Parvozlar",
+    "return_flights": "Qaytish parvozi",
+    "hotels": "Mehmonxonalar",
+    "hand_picked_hotels": "Tanlab olingan mehmonxonalar",
+    "breakfasts": "Nonushtalar",
+    "breakfast_together": "Birgalikda nonushta",
+    "holiday_directors": "Yo‘lboshchilar",
+    "experienced_tour_guide": "Tajribali yo‘lboshchi",
+    "holiday_assurance": "Sayohat kafolati",
+    "support_every_step": "Har bosqichda yordam"
   }
+
 }

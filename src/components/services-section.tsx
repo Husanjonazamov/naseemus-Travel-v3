@@ -7,38 +7,40 @@ export function ServicesSection() {
   const services = [
     {
       icon: Plane,
-      title: t("flights"),
-      description: t("return_flights"),
+      title: t("flights"), // Parvozlar
+      description: t("return_flights"), // Qaytish parvozi
     },
     {
       icon: Bed,
-      title: t("hotels"),
-      description: t("hand_picked_hotels"),
+      title: t("hotels"), // Mehmonxonalar
+      description: t("hand_picked_hotels"), // Tanlab olingan mehmonxonalar
     },
     {
       icon: Coffee,
-      title: t("breakfasts"),
-      description: t("breakfast_together"),
+      title: t("breakfasts"), // Nonushtalar
+      description: t("breakfast_together"), // Birgalikda nonushta
     },
     {
       icon: Headphones,
-      title: t("holiday_directors"),
-      description: t("experienced_tour_guide"),
+      title: t("holiday_directors"), // Yo‘lboshchilar
+      description: t("experienced_tour_guide"), // Tajribali yo‘lboshchi
     },
     {
       icon: Globe,
-      title: t("holiday_assurance"),
-      description: t("support_every_step"),
+      title: t("holiday_assurance"), // Sayohat kafolati
+      description: t("support_every_step"), // Har bosqichda yordam
     },
   ];
 
   return (
     <section className="bg-[#CCE9DF] py-16 px-4">
       <div className="max-w-7xl mx-auto">
+        {/* Sarlavha */}
         <h2 className="text-3xl md:text-4xl font-bold text-[#007654] text-center mb-12">
-          {t("we_take_care_of")}
+          {t("we_take_care_of")} {/* Biz g‘amxo‘rlik qilamiz */}
         </h2>
 
+        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-6">
           {services.map((service, index) => {
             const IconComponent = service.icon;

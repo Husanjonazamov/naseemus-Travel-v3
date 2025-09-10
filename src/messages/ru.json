@@ -1,4 +1,36 @@
 {
+
+  "silk": {
+    "title": "Путешествие по Узбекистану",
+    "price": "750$",
+    "price_label": "Начальная цена",
+    "duration": "7 дней",
+    "duration_label": "Продолжительность",
+    "departure_dates": "В начале каждого месяца",
+    "departure_dates_label": "Дата",
+    "cta_book": "Забронировать",
+    "tabs": {
+      "discover": "Откройте для себя",
+      "itinerary": "Маршрут",
+      "accommodation": "Проживание",
+      "reviews": "Отзывы",
+      "optional_excursions": "Доп. экскурсии",
+      "dates": "Даты"
+    },
+    "booking_form": {
+      "title": "Бронирование тура",
+      "name": "Имя",
+      "name_placeholder": "Введите ваше имя",
+      "phone": "Телефон",
+      "passengers": "Количество человек",
+      "date": "Дата",
+      "notes": "Дополнительные пожелания",
+      "notes_placeholder": "Например, особые требования...",
+      "cancel": "Отмена",
+      "submit": "Отправить"
+    }
+  },
+
   "header": {
     "phone": "+998-94-001-47-41",
     "address": "Ташкент, Основная улица 123",
@@ -256,19 +288,7 @@
     "testimonial": "Это было мое первое путешествие, и я определенно рекомендую.",
     "author": "Анна"
   },
-  "service": {
-    "we_take_care_of": "Мы заботимся",
-    "flights": "Перелеты",
-    "return_flights": "Обратный перелет",
-    "hotels": "Отели",
-    "hand_picked_hotels": "Выбранные отели",
-    "breakfasts": "Завтраки",
-    "breakfast_together": "Завтрак вместе",
-    "holiday_directors": "Гиды",
-    "experienced_tour_guide": "Опытный гид",
-    "holiday_assurance": "Гарантия путешествия",
-    "support_every_step": "Поддержка на каждом шагу"
-  },
+  
   "newsletter": {
     "title": "Получайте новости и предложения",
     "button": "Подписаться"
@@ -300,5 +320,18 @@
   },
   "Popular": {
     "popularDestinations": "Популярные направления путешествий"
+  },
+  "service": {
+    "we_take_care_of": "Мы заботимся",
+    "flights": "Перелеты",
+    "return_flights": "Обратный перелет",
+    "hotels": "Отели",
+    "hand_picked_hotels": "Выбранные отели",
+    "breakfasts": "Завтраки",
+    "breakfast_together": "Завтрак вместе",
+    "holiday_directors": "Гиды",
+    "experienced_tour_guide": "Опытный гид",
+    "holiday_assurance": "Гарантия путешествия",
+    "support_every_step": "Поддержка на каждом шагу"
   }
 }

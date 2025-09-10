@@ -47,6 +47,7 @@ export function NewTouringHolidays() {
     },
   ]
 
+  // Keen Slider setup
   const [sliderRef] = useKeenSlider({
     loop: true,
     slides: { perView: 1.1, spacing: 10 },
@@ -55,6 +56,7 @@ export function NewTouringHolidays() {
     },
   })
 
+  // Detect mobile
   const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768)
@@ -63,8 +65,8 @@ export function NewTouringHolidays() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  const t = useTranslations("newHoliday")
-  const e = useTranslations("last")
+  const t = useTranslations("newHoliday") // Title
+  const e = useTranslations("last")       // Explore button text
 
   return (
     <section className="py-16 px-4 bg-gray-50">
@@ -75,11 +77,12 @@ export function NewTouringHolidays() {
         </h2>
 
         {isMobile ? (
+          // 📱 Mobile slider
           <div ref={sliderRef} className="keen-slider">
             {destinations.map((destination, index) => (
               <div
                 key={index}
-                className="keen-slider__slide flex flex-col bg-white shadow-lg overflow-hidden"
+                className="keen-slider__slide flex flex-col bg-white shadow-lg overflow-hidden rounded-lg"
               >
                 {/* Image */}
                 <div
@@ -99,23 +102,20 @@ export function NewTouringHolidays() {
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {destination.features.map((feature, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start text-sm text-gray-700"
-                      >
+                      <li key={i} className="flex items-start text-sm text-gray-700">
                         <span className="w-2 h-2 bg-[#007654] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         {feature}
                       </li>
                     ))}
                   </ul>
 
-                  {/* Price va Button bir chiziqda */}
-                  <div className="flex items-center justify-between mt-auto">
+                  {/* Price va Button */}
+                  <div className="flex flex-col space-y-4 mt-auto">
                     <p className="text-[#007654] font-bold text-3xl">
                       {destination.price}
                     </p>
                     <Link href={`/tour/${destination.id}`}>
-                      <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-xl">
+                      <Button className="w-full bg-[#007654] hover:bg-[#006644] text-white font-bold py-4 rounded-md shadow-md text-lg">
                         {e("explore")}
                       </Button>
                     </Link>
@@ -125,17 +125,20 @@ export function NewTouringHolidays() {
             ))}
           </div>
         ) : (
+          // 💻 Desktop grid
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {destinations.map((destination, index) => (
               <div
                 key={index}
-                className="flex flex-col bg-white shadow-lg overflow-hidden"
+                className="flex flex-col bg-white shadow-lg overflow-hidden rounded-lg"
               >
+                {/* Image */}
                 <div
                   className="h-48 bg-cover bg-center"
                   style={{ backgroundImage: `url('${destination.image}')` }}
                 ></div>
 
+                {/* Content */}
                 <div className="flex flex-col flex-grow p-6">
                   <h3 className="text-xl font-bold text-[#007654] mb-2">
                     {destination.title}
@@ -147,19 +150,16 @@ export function NewTouringHolidays() {
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {destination.features.map((feature, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start text-sm text-gray-700"
-                      >
+                      <li key={i} className="flex items-start text-sm text-gray-700">
                         <span className="w-2 h-2 bg-[#007654] rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         {feature}
                       </li>
                     ))}
                   </ul>
 
-                  {/* Price va Button bir chiziqda */}
+                  {/* Price va Button yonma-yon */}
                   <div className="flex items-center justify-between mt-auto">
-                    <p className="text-[#007654] font-bold text-2xl">
+                    <p className="text-[#007654] font-bold text-4xl">
                       {destination.price}
                     </p>
                     <Link href={`/tour/${destination.id}`}>
