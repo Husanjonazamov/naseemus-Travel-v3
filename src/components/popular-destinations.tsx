@@ -6,46 +6,40 @@ import "keen-slider/keen-slider.min.css"
 import { Button } from "./ui/button"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
+import axios from "axios"
+import config from "../config"
 
 export function PopularDestinations() {
-  const destinations = [
-    {
-      id: "balkan-explorer",
-      title: "BALKAN EXPLORER",
-      image: "/images/croatian-coast.png",
-      price: "$1,200",
-      description:
-        "An in-depth exploration of four countries in an undiscovered corner of Europe. Visit cosmopolitan cities and travel through stunning natural landscapes. You will spend time in some of the most famous cities in Eastern Europe, all of them having lots of historical sites, vibrant bars and restaurants for you to explore.",
-      features: [
-        "Return flights from London",
-        "12 nights in 4-star hotels",
-        "20 meals: 12 breakfasts, 2 lunches and 6 dinners, with a welcome drink",
-        "Just You Holiday Director",
-      ],
-    },
-    {
-      id: "switzerland-railways",
-      title: "SWITZERLAND'S SCENIC RAILWAYS AND ALPINE WINTER WONDERS",
-      image: "/images/croatian-coast.png",
-      price: "$2,500",
-      description:
-        "Embark on an unforgettable Swiss winter adventure, combining elegant rail journeys with breathtaking Alpine scenery.",
-      features: [
-        "Return flights from the UK",
-        "6 nights in a 4-star hotel",
-        "9 included meals: 6 breakfasts, 1 lunch and 2 dinners",
-      ],
-    },
-    {
-      id: "turkish-treasures",
-      title: "TURKISH TREASURES: FROM ISTANBUL'S PALACES TO CAPPADOCIA'S WONDERS",
-      image: "/images/croatian-coast.png",
-      price: "$1,800",
-      description:
-        "Turkey dazzles your senses, from Istanbul's bustling Grand Bazaar with scents of spices to the incredible cave dwellings of Cappadocia and the shimmering tiles of the Blue Mosque – not to mention the delicious cuisine. This tour takes you on a tour of Istanbul and Cappadocia.",
-      features: ["Return flights", "6 nights in a 4-star hotel and 12 meals"],
-    },
-  ]
+  const [destinations, setDestinations] = useState<any[]>([])
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Mobile detection
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  // Fetch data from API
+  useEffect(() => {
+    const fetchDestinations = async () => {
+      try {
+        const res = await axios.get(`${config.BASE_URL}/api/tour/`)
+        if (res.data.status && res.data.data.results) {
+          // Faqat is_popular = true bo‘lganlar
+          const popularTours = res.data.data.results.filter(
+            (tour: any) => tour.is_popular
+          )
+          setDestinations(popularTours.slice(0, 6))
+
+        }
+      } catch (error) {
+        console.error("API dan ma'lumot olishda xatolik:", error)
+      }
+    }
+    fetchDestinations()
+  }, [])
 
   // Keen Slider
   const [sliderRef] = useKeenSlider({
@@ -55,15 +49,6 @@ export function PopularDestinations() {
       "(min-width: 768px)": { slides: { perView: 3, spacing: 16 }, drag: false },
     },
   })
-
-  // Detect mobile
-  const [isMobile, setIsMobile] = useState(false)
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
 
   const t = useTranslations("Popular") // Section title
   const e = useTranslations("last")    // Explore button
@@ -77,12 +62,12 @@ export function PopularDestinations() {
         </h2>
 
         {isMobile ? (
-          // 📱 Mobile Slider
+          // Mobile Slider
           <div ref={sliderRef} className="keen-slider">
             {destinations.map((destination, index) => (
               <div
                 key={index}
-                className="keen-slider__slide flex flex-col bg-white shadow-lg overflow-hidden rounded-lg"
+                className="keen-slider__slide flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
               >
                 {/* Image */}
                 <div
@@ -99,28 +84,14 @@ export function PopularDestinations() {
                     {destination.description}
                   </p>
 
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6">
-                    {destination.features.map((feature, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start text-sm text-gray-700"
-                      >
-                        <span className="w-2 h-2 bg-[#007654] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Price va Button */}
                   <div className="flex flex-col-reverse items-start gap-4 mt-auto">
-                    <Link href={`/tour/${destination.id}`} className="w-full">
-                      <Button className="w-full bg-[#007654] hover:bg-[#006644] text-white font-bold py-6 rounded-md shadow-md text-xl">
+                    <Link href={`/tour/${encodeURIComponent(destination.title)}`} className="w-full">
+                      <Button className="w-full bg-[#007654] text-white font-bold py-6  shadow-md text-xl">
                         {e("explore")}
                       </Button>
                     </Link>
                     <p className="text-[#007654] font-bold text-3xl">
-                      {destination.price}
+                      ${destination.price}
                     </p>
                   </div>
                 </div>
@@ -128,12 +99,12 @@ export function PopularDestinations() {
             ))}
           </div>
         ) : (
-          // 💻 Desktop Grid
+          // Desktop Grid
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {destinations.map((destination, index) => (
               <div
                 key={index}
-                className="flex flex-col bg-white shadow-lg overflow-hidden rounded-lg"
+                className="flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
               >
                 {/* Image */}
                 <div
@@ -150,26 +121,13 @@ export function PopularDestinations() {
                     {destination.description}
                   </p>
 
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6">
-                    {destination.features.map((feature, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start text-sm text-gray-700"
-                      >
-                        <span className="w-2 h-2 bg-[#007654] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Price va Button yonma-yon */}
+                  {/* Price va Button */}
                   <div className="flex items-center justify-between mt-auto">
                     <p className="text-[#007654] font-bold text-4xl">
-                      {destination.price}
+                      ${destination.price}
                     </p>
-                    <Link href={`/tour/${destination.id}`}>
-                      <Button className="bg-[#007654] hover:bg-[#006644] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg">
+                    <Link href={`/tour/${encodeURIComponent(destination.title)}`}>
+                      <Button className="bg-[#007654] text-white font-bold px-8 py-6  shadow-md text-lg">
                         {e("explore")}
                       </Button>
                     </Link>

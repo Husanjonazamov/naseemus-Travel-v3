@@ -11,11 +11,10 @@ import { FloatingButtons } from "@/src/components/floating-buttons"
 import { TrustpilotReviews } from "@/src/components/trustpilot-reviews"
 import { CustomerTestimonial } from "@/src/components/customer-testimonial"
 import { BlogSection } from "@/src/components/blog-section"
-import { NewTouringHolidays } from "@/src/components/new-touring-holidays"
+import { NewTouring } from "@/src/components/new-touring-holidays"
 import { PopularDestinations } from "@/src/components/popular-destinations"
 import { Footer } from "@/src/components/footer"
 import { TourOverview } from "@/src/components/tour-overview"
-import { TourDetails } from "@/src/components/tour-details"
 import { Itinerary } from "@/src/components/itenerary"
 
 
@@ -34,7 +33,7 @@ export default function HomePage() {
       <TrustpilotReviews />
       <CustomerTestimonial />
       <BlogSection />
-      <NewTouringHolidays />
+      <NewTouring />
       <PopularDestinations />
       <Footer />
       <FloatingButtons />

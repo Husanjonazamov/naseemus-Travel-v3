@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Button } from "./ui/button"
 import { ArrowUp } from "lucide-react"
 import Image from "next/image"
@@ -10,9 +11,20 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import { useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
+import config from "../config"
 
-// Helper function to limit text to ~50 words
-const formatDescription = (text: string, wordLimit = 50) => {
+type CardData = {
+  id: number
+  title: string
+  description?: string | null
+  image: string
+  type: "tour" | "blog"
+  price?: string
+}
+
+// Helper: text limit
+const formatDescription = (text: string | null | undefined, wordLimit = 50) => {
+  if (!text) return ""
   const words = text.trim().split(/\s+/)
   if (words.length >= wordLimit) {
     return words.slice(0, wordLimit).join(" ") + "..."
@@ -21,64 +33,60 @@ const formatDescription = (text: string, wordLimit = 50) => {
   }
 }
 
-// Cards ma'lumotlari, har biri uchun alohida link qo'shildi
-const cards = [
-  {
-    title: "SOLO TRAVEL TIPS",
-    description:
-      "Take a look at our top ten tips to make sure your solo adventure is one to remember. From planning ahead to staying connected, these tips are designed to help you feel safe and confident while exploring the world on your own. Travel smart and enjoy the journey.",
-    image: "/images/solo-travel-tips.png",
-    button: "Learn More",
-    link: "/blog/solo-travel-tips",
-  },
-  {
-    title: "LAST-MINUTE TRIPS",
-    description:
-      "Looking for a spontaneous getaway? Explore our exciting last-minute trips to Europe and worldwide. Whether you're chasing sunshine, culture, or adventure, our curated packages ensure you make the most out of your time, even on short notice. Book today and start packing for an unforgettable experience.",
-    image: "/images/last-minute-trips.png",
-    button: "Book Now",
-    link: "/blog/last-minute-trips",
-  },
-  {
-    title: "INSPIRATIONAL INDIA",
-    description:
-      "Experience the magic of India with our special anniversary tour. From the Taj Mahal to vibrant markets, immerse yourself in the rich history, culture, and colors of this fascinating country. Limited spaces remain—don’t miss your chance to join this unforgettable journey designed for solo travelers.",
-    image: "/images/inspirational-india.png",
-    button: "Book Now",
-    link: "/blog/inspirational-india",
-  },
-  {
-    title: "BEACH ESCAPES",
-    description:
-      "Relax on sandy shores with our exclusive beach escapes tailored for solo travelers. Enjoy breathtaking views, comfortable stays, and curated itineraries that balance relaxation with cultural experiences. Whether it's the Maldives, Bali, or the Mediterranean, let the waves be your ultimate retreat.",
-    image: "/images/danube-castle-autumn.png",
-    button: "Discover",
-    link: "/blog/beach-escapes",
-  },
-  {
-    title: "CITY ADVENTURES",
-    description:
-      "Explore vibrant cities worldwide with expert-guided tours designed for solo travelers. From Paris to Tokyo, uncover hidden gems, enjoy delicious cuisine, and make new friends along the way. Perfect for travelers looking for a mix of culture, exploration, and social connection in iconic destinations.",
-    image: "/images/danube-castle-autumn.png",
-    button: "Explore",
-    link: "/blog/city-adventures",
-  },
-  {
-    title: "WILDLIFE SAFARIS",
-    description:
-      "Get closer to nature with our guided wildlife safaris tailored for solo adventurers. Witness incredible landscapes, spot exotic animals, and learn from expert guides. These trips are crafted to create unforgettable moments and allow you to share the wonder of the wild with like-minded travelers.",
-    image: "/images/danube-castle-autumn.png",
-    button: "Join Now",
-    link: "/blog/wildlife-safaris",
-  },
-]
+// Shuffle array
+const shuffleArray = <T,>(array: T[]) => {
+  return array.sort(() => Math.random() - 0.5)
+}
 
 export function ContentSection() {
   const t = useTranslations("solo_travel")
   const router = useRouter()
+  const [cards, setCards] = useState<CardData[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [tourRes, blogRes] = await Promise.all([
+          fetch(`${config.BASE_URL}/api/tour/`),
+          fetch(`${config.BASE_URL}/api/blog/`),
+        ])
+
+        const tourJson = await tourRes.json()
+        const blogJson = await blogRes.json()
+
+        const tourCards: CardData[] = tourJson.data.results.map((item: any) => ({
+          id: item.id,
+          title: item.title,
+          description: item.description,
+          image: item.image,
+          type: "tour",
+          price: item.price,
+        }))
+
+        const blogCards: CardData[] = blogJson.data.results.map((item: any) => ({
+          id: item.id,
+          title: item.title,
+          description: item.description,
+          image: item.image,
+          type: "blog",
+        }))
+
+        const mixed = shuffleArray([...tourCards, ...blogCards]).slice(0, 6)
+
+        setCards(mixed)
+        setLoading(false)
+      } catch (error) {
+        console.error("Error fetching cards:", error)
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   return (
-    <section className="py-16 px-4 bg-gray-50 mt-20 mb-20">
+    <section className="py-16 px-4 bg-gray-50  mb-20">
       <div className="max-w-6xl mx-auto">
         {/* Main heading */}
         <h2 className="text-2xl md:text-3xl font-extrabold text-center text-[#007654] mb-10">
@@ -90,30 +98,43 @@ export function ContentSection() {
           {t("description")}
         </p>
 
-        {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16">
-          {cards.map((card, index) => (
-            <div key={index} className="bg-white shadow-lg overflow-hidden h-[580px] flex flex-col rounded-lg">
-              <div className="relative h-64 w-full">
-                <Image src={card.image} alt={card.title} fill className="object-cover" />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold text-[#007654] mb-3">{card.title}</h3>
-                <p className="text-gray-700 mb-4 h-[110px] overflow-hidden leading-relaxed">
-                  {formatDescription(card.description)}
-                </p>
-                <div className="flex justify-end mt-auto">
-                  <Button
-                    className="bg-[#007654] hover:bg-[#006148] text-white px-8 py-6 text-lg font-bold"
-                    onClick={() => router.push(card.link)}
-                  >
-                    {card.button}
-                  </Button>
-                </div>
+       {/* Desktop Grid */}
+      <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16 justify-center">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className={`bg-[#f0faf7] shadow-lg overflow-hidden h-[580px] flex flex-col transition-opacity duration-300 ${
+              loading ? "opacity-30" : "opacity-100"
+            }`}
+            style={{ minWidth: "380px", maxWidth: "420px" }} // ➤ har bir karta sal kengroq
+          >
+            <div className="relative h-64 w-full">
+              <Image src={card.image} alt={card.title} fill className="object-cover" />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-2xl font-bold text-[#007654] mb-3">{card.title}</h3>
+              <p className="text-gray-700 mb-4 h-[110px] overflow-hidden leading-relaxed">
+                {formatDescription(card.description)}
+              </p>
+              <div className="flex justify-end mt-auto">
+                <Button
+                  className="bg-[#007654] hover:bg-[#006148] text-white px-8 py-6 text-lg font-bold"
+                  onClick={() =>
+                    router.push(
+                      card.type === "tour"
+                        ? `/tour/${encodeURIComponent(card.title)}`
+                        : `/blog/${encodeURIComponent(card.title)}`
+                    )
+                  }
+                >
+                  {card.type === "tour" ? "View Tour" : "Read Blog"}
+                </Button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
+
 
         {/* Mobile Carousel */}
         <div className="md:hidden mb-20">
@@ -128,7 +149,12 @@ export function ContentSection() {
           >
             {cards.map((card, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white shadow-lg overflow-hidden h-[620px] w-[90%] mx-auto flex flex-col rounded-lg">
+                <div
+                  className={`bg-white shadow-lg overflow-hidden h-[620px] flex flex-col transition-opacity duration-300 ${
+                    loading ? "opacity-30" : "opacity-100"
+                  }`}
+                  style={{ width: "95%", maxWidth: "400px", margin: "0 auto" }} // ➤ width kattalashtirildi
+                >
                   <div className="relative h-72 w-full">
                     <Image src={card.image} alt={card.title} fill className="object-cover" />
                   </div>
@@ -140,9 +166,15 @@ export function ContentSection() {
                     <div className="flex justify-end mt-auto">
                       <Button
                         className="bg-[#007654] hover:bg-[#006148] text-white px-12 py-6 text-lg font-bold"
-                        onClick={() => router.push(card.link)}
+                        onClick={() =>
+                          router.push(
+                            card.type === "tour"
+                              ? `/tour/${encodeURIComponent(card.title)}`
+                              : `/blog/${encodeURIComponent(card.title)}`
+                          )
+                        }
                       >
-                        {card.button}
+                        {card.type === "tour" ? "View Tour" : "Read Blog"}
                       </Button>
                     </div>
                   </div>
@@ -155,7 +187,7 @@ export function ContentSection() {
         {/* Back to top button */}
         <div className="flex justify-end">
           <Button
-            className="bg-[#007654] hover:bg-[#006148] text-white shadow-lg rounded-full p-3"
+            className="bg-[#007654] hover:bg-[#006148] text-white shadow-lg p-3"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <ArrowUp className="h-5 w-5" />

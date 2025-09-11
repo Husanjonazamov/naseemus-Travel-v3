@@ -84,7 +84,7 @@ export default function LastMinuteHolidays() {
   }, [instanceRef])
 
   return (
-    <section className="bg-[#E6F4EF] py-16 px-4 relative">
+    <section className="bg-[#f0faf7] py-16 px-4 relative">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-bold text-[#007654] text-center mb-12 tracking-wide">
           {t("last_minute_holidays")}
@@ -94,7 +94,7 @@ export default function LastMinuteHolidays() {
           {holidays.map((holiday) => (
             <div
               key={holiday.id}
-              className="keen-slider__slide flex flex-col bg-white overflow-hidden shadow-lg rounded-lg"
+              className="keen-slider__slide flex flex-col bg-[#f0faf7] overflow-hidden shadow-lg rounded-lg"
             >
               {/* Rasm */}
               <div className="relative h-64 md:h-80">
