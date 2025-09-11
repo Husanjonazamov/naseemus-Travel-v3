@@ -1,21 +1,46 @@
+"use client"; // Next.js 13+ client component uchun
+
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import config from "../config";
 
 export function HeroSection() {
   const t = useTranslations("hero");
+  const [bannerImage, setBannerImage] = useState(null);
+
+  useEffect(() => {
+    // API dan banner rasmni olish
+    const fetchBanner = async () => {
+      try {
+        const res = await fetch(`${config.BASE_URL}/api/banner/`);
+        const data = await res.json();
+
+        if (data.status && data.data.results.length > 0) {
+          setBannerImage(data.data.results[0].image); // birinchi rasmni olish
+        }
+      } catch (error) {
+        console.error("Banner rasmni olishda xato:", error);
+      }
+    };
+
+    fetchBanner();
+  }, []);
 
   return (
     <section className="relative w-full h-[280px] sm:h-[350px] md:h-[450px] overflow-hidden">
       {/* Background Image */}
-      <Image
-        src="/images/hero3.jpg"
-        alt="Hero background"
-        fill
-        className="object-cover absolute inset-0"
-        quality={90}
-        priority
-        sizes="100vw"
-      />
+      {bannerImage && (
+        <Image
+          src={bannerImage}
+          alt="Hero background"
+          fill
+          className="object-cover absolute inset-0"
+          quality={90}
+          priority
+          sizes="100vw"
+        />
+      )}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>

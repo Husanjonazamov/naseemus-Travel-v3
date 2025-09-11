@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Button } from "./ui/button"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { useRouter } from "next/navigation"
 import axios from "axios"
 import config from "../config"
@@ -38,6 +38,7 @@ interface ApiResponse {
 export function BlogSection() {
   const t = useTranslations("blog")
   const router = useRouter()
+  const locale = useLocale() // ➤ locale ni olamiz
 
   const [destinations, setDestinations] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
@@ -58,24 +59,27 @@ export function BlogSection() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-      // API dan ma'lumot olish
-    useEffect(() => {
-      const fetchBlogPosts = async () => {
-        try {
-          const response = await axios.get<ApiResponse>(`${config.BASE_URL}/api/blog/`)
-          // faqat 6 ta postni oling
-          setDestinations(response.data.data.results.slice(0, 6))
-        } catch (error) {
-          console.error("Blog API error:", error)
-        } finally {
-          setLoading(false)
-        }
+  // API dan ma'lumot olish
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        const lang = locale || "en" // default 'en' agar locale yo'q bo'lsa
+        const response = await axios.get<ApiResponse>(`${config.BASE_URL}/api/blog/`, {
+          headers: {
+            "Accept-Language": lang, // ➤ tilni headerga yuboramiz
+          },
+        })
+        // faqat 6 ta postni oling
+        setDestinations(response.data.data.results.slice(0, 6))
+      } catch (error) {
+        console.error("Blog API error:", error)
+      } finally {
+        setLoading(false)
       }
-      fetchBlogPosts()
-    }, [])
+    }
 
-
-
+    fetchBlogPosts()
+  }, [locale]) // ➤ locale o‘zgarganda qayta fetch qilinadi
 
   return (
     <section className="py-16 px-4 bg-gray-50">

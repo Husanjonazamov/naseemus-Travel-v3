@@ -4,13 +4,17 @@ import { useEffect, useState } from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Button } from "./ui/button"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import Link from "next/link"
 import axios from "axios"
 import config from "../config"
 
 export function NewTouring() {
-  const [destinations, setDestinations] = useState([])
+  const t = useTranslations("newHoliday") // Title
+  const e = useTranslations("last")       // Explore button text
+  const locale = useLocale()              // ➤ hozirgi tilni olamiz
+
+  const [destinations, setDestinations] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
   // Keen Slider setup
@@ -35,7 +39,12 @@ export function NewTouring() {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const res = await axios.get(`${config.BASE_URL}/api/tour/`)
+        const lang = locale || "en" // default 'en' agar locale yo'q bo'lsa
+        const res = await axios.get(`${config.BASE_URL}/api/tour/`, {
+          headers: {
+            "Accept-Language": lang, // ➤ tilni headerga yuboramiz
+          },
+        })
         // Faqat 6 ta tourni olamiz
         setDestinations(res.data.data.results.slice(0, 6))
       } catch (error) {
@@ -45,10 +54,7 @@ export function NewTouring() {
       }
     }
     fetchTours()
-  }, [])
-
-  const t = useTranslations("newHoliday") // Title
-  const e = useTranslations("last")       // Explore button text
+  }, [locale]) // ➤ locale o‘zgarganda qayta fetch qilinadi
 
   // Default loading card
   const loadingCards = Array.from({ length: 6 }).map((_, index) => (
@@ -66,6 +72,16 @@ export function NewTouring() {
       </div>
     </div>
   ))
+
+  // Narx formatlash funksiyasi
+  const formatPrice = (price: number) =>
+    new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0, // ➤ 00 ko‘rinmasin
+      maximumFractionDigits: 0,
+    }).format(price)
+
 
   return (
     <section className="py-16 px-4 bg-gray-50">
@@ -86,21 +102,23 @@ export function NewTouring() {
             {destinations.map((destination) => (
               <div
                 key={destination.id}
-                className="keen-slider__slide flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden "
+                className="keen-slider__slide flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
               >
                 <div
                   className="h-48 bg-cover bg-center"
                   style={{ backgroundImage: `url('${destination.image}')` }}
                 ></div>
 
-                <div className="flex flex-col flex-grow p-6">
-                  <h3 className="text-xl font-bold text-[#007654] mb-2">{destination.title}</h3>
-                  <p className="text-gray-700 text-sm mb-4 leading-relaxed">{destination.description}</p>
+                <div className="flex flex-col flex-grow p-4">
+                  <h3 className="text-lg font-bold text-[#007654] mb-2">{destination.title}</h3>
+                  <p className="text-gray-700 text-sm mb-2 leading-relaxed">{destination.description}</p>
 
-                  <p className="text-[#007654] font-bold text-3xl mb-4">{destination.price}$</p>
+                  <p className="text-[#007654] font-semibold text-xl mb-3">
+                    {formatPrice(destination.price)}
+                  </p>
 
                   <Link href={`/tour/${encodeURIComponent(destination.title)}`}>
-                    <Button className="w-full bg-[#007654] text-white font-bold py-4  shadow-md text-lg">
+                    <Button className="w-full bg-[#007654] text-white font-semibold py-3 shadow-md text-base">
                       {e("explore")}
                     </Button>
                   </Link>
@@ -114,7 +132,7 @@ export function NewTouring() {
             {destinations.map((destination) => (
               <div
                 key={destination.id}
-                className="flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
+                className="flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden "
               >
                 <div
                   className="h-48 bg-cover bg-center"
@@ -126,9 +144,9 @@ export function NewTouring() {
                   <p className="text-gray-700 text-sm mb-4 leading-relaxed">{destination.description}</p>
 
                   <div className="flex items-center justify-between mt-auto">
-                    <p className="text-[#007654] font-bold text-4xl">{destination.price}$</p>
+                    <p className="text-[#007654] font-bold text-2xl">{formatPrice(destination.price)}</p>
                     <Link href={`/tour/${encodeURIComponent(destination.title)}`}>
-                      <Button className="bg-[#007654] text-white font-bold px-8 py-6  shadow-md text-lg">
+                      <Button className="bg-[#007654] text-white font-semibold px-6 py-3 shadow-md text-base">
                         {e("explore")}
                       </Button>
                     </Link>

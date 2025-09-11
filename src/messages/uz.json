@@ -224,6 +224,10 @@
       "phone_pl": "Telefon",
       "email": "enquiries@justyou.co.uk"
     },
+    "sections": {
+      "tours": "Turlar",
+      "no_tours": "Hozircha turlar mavjud emas"
+    },
     "links": {
       "booking_conditions": "Bron shartlari",
       "essential_information": "Muhim ma'lumotlar",

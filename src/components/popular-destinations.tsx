@@ -4,12 +4,16 @@ import { useEffect, useState } from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Button } from "./ui/button"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import Link from "next/link"
 import axios from "axios"
 import config from "../config"
 
 export function PopularDestinations() {
+  const t = useTranslations("Popular") // Section title
+  const e = useTranslations("last")    // Explore button
+  const locale = useLocale() || "en"   // ➤ hozirgi til
+
   const [destinations, setDestinations] = useState<any[]>([])
   const [isMobile, setIsMobile] = useState(false)
 
@@ -25,21 +29,21 @@ export function PopularDestinations() {
   useEffect(() => {
     const fetchDestinations = async () => {
       try {
-        const res = await axios.get(`${config.BASE_URL}/api/tour/`)
+        const res = await axios.get(`${config.BASE_URL}/api/tour/`, {
+          headers: { "Accept-Language": locale }
+        })
         if (res.data.status && res.data.data.results) {
-          // Faqat is_popular = true bo‘lganlar
           const popularTours = res.data.data.results.filter(
             (tour: any) => tour.is_popular
           )
           setDestinations(popularTours.slice(0, 6))
-
         }
       } catch (error) {
         console.error("API dan ma'lumot olishda xatolik:", error)
       }
     }
     fetchDestinations()
-  }, [])
+  }, [locale])
 
   // Keen Slider
   const [sliderRef] = useKeenSlider({
@@ -50,8 +54,14 @@ export function PopularDestinations() {
     },
   })
 
-  const t = useTranslations("Popular") // Section title
-  const e = useTranslations("last")    // Explore button
+  // Price formatting: 3,232$ tarzida
+  const formatPrice = (price: number) =>
+    new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price)
 
   return (
     <section className="py-16 px-4 bg-gray-50">
@@ -86,12 +96,12 @@ export function PopularDestinations() {
 
                   <div className="flex flex-col-reverse items-start gap-4 mt-auto">
                     <Link href={`/tour/${encodeURIComponent(destination.title)}`} className="w-full">
-                      <Button className="w-full bg-[#007654] text-white font-bold py-6  shadow-md text-xl">
+                      <Button className="w-full bg-[#007654] text-white font-bold py-4 md:py-6 text-base md:text-lg shadow-md">
                         {e("explore")}
                       </Button>
                     </Link>
-                    <p className="text-[#007654] font-bold text-3xl">
-                      ${destination.price}
+                    <p className="text-[#007654] font-bold text-2xl md:text-3xl">
+                      {formatPrice(destination.price)}
                     </p>
                   </div>
                 </div>
@@ -123,11 +133,11 @@ export function PopularDestinations() {
 
                   {/* Price va Button */}
                   <div className="flex items-center justify-between mt-auto">
-                    <p className="text-[#007654] font-bold text-4xl">
-                      ${destination.price}
+                    <p className="text-[#007654] font-bold text-3xl md:text-4xl">
+                      {formatPrice(destination.price)}
                     </p>
                     <Link href={`/tour/${encodeURIComponent(destination.title)}`}>
-                      <Button className="bg-[#007654] text-white font-bold px-8 py-6  shadow-md text-lg">
+                      <Button className="bg-[#007654] text-white font-bold px-6 md:px-8 py-4 md:py-6 text-base md:text-lg shadow-md">
                         {e("explore")}
                       </Button>
                     </Link>

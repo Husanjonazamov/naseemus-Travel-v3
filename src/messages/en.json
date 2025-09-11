@@ -195,6 +195,10 @@
     "community": "Community",
     "faq": "FAQ"
   },
+  "sections": {
+      "tours": "Tours",
+      "no_tours": "No tours available"
+    },
   "contact": {
     "phone": "03301 737293",
     "phone_pl": "Phone",

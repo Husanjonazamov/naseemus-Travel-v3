@@ -12,6 +12,8 @@ import "swiper/css/pagination"
 import { useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
 import config from "../config"
+import { useLocale } from "next-intl";
+
 
 type CardData = {
   id: number
@@ -43,13 +45,27 @@ export function ContentSection() {
   const router = useRouter()
   const [cards, setCards] = useState<CardData[]>([])
   const [loading, setLoading] = useState(true)
+  const locale = useLocale(); 
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Hozirgi tilni olish
+        const lang = locale
+        console.log(lang)
+
         const [tourRes, blogRes] = await Promise.all([
-          fetch(`${config.BASE_URL}/api/tour/`),
-          fetch(`${config.BASE_URL}/api/blog/`),
+          fetch(`${config.BASE_URL}/api/tour/`, {
+            headers: {
+              "Accept-Language": lang, // ➤ Tilni yuborish
+            },
+          }),
+          fetch(`${config.BASE_URL}/api/blog/`, {
+            headers: {
+              "Accept-Language": lang, // ➤ Tilni yuborish
+            },
+          }),
         ])
 
         const tourJson = await tourRes.json()
@@ -106,7 +122,7 @@ export function ContentSection() {
             className={`bg-[#f0faf7] shadow-lg overflow-hidden h-[580px] flex flex-col transition-opacity duration-300 ${
               loading ? "opacity-30" : "opacity-100"
             }`}
-            style={{ minWidth: "380px", maxWidth: "420px" }} // ➤ har bir karta sal kengroq
+            style={{ minWidth: "380px", maxWidth: "420px" }}
           >
             <div className="relative h-64 w-full">
               <Image src={card.image} alt={card.title} fill className="object-cover" />
@@ -135,7 +151,6 @@ export function ContentSection() {
         ))}
       </div>
 
-
         {/* Mobile Carousel */}
         <div className="md:hidden mb-20">
           <Swiper
@@ -153,7 +168,7 @@ export function ContentSection() {
                   className={`bg-white shadow-lg overflow-hidden h-[620px] flex flex-col transition-opacity duration-300 ${
                     loading ? "opacity-30" : "opacity-100"
                   }`}
-                  style={{ width: "95%", maxWidth: "400px", margin: "0 auto" }} // ➤ width kattalashtirildi
+                  style={{ width: "95%", maxWidth: "400px", margin: "0 auto" }}
                 >
                   <div className="relative h-72 w-full">
                     <Image src={card.image} alt={card.title} fill className="object-cover" />
