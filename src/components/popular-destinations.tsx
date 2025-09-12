@@ -73,11 +73,11 @@ export function PopularDestinations() {
 
         {isMobile ? (
           // Mobile Slider
-          <div ref={sliderRef} className="keen-slider">
+          <div ref={sliderRef} className="keen-slider overflow-visible">
             {destinations.map((destination, index) => (
               <div
                 key={index}
-                className="keen-slider__slide flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
+                className="keen-slider__slide flex-shrink-0 flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden "
               >
                 {/* Image */}
                 <div
@@ -95,8 +95,11 @@ export function PopularDestinations() {
                   </p>
 
                   <div className="flex flex-col-reverse items-start gap-4 mt-auto">
-                    <Link href={`/tour/${encodeURIComponent(destination.title)}`} className="w-full">
-                      <Button className="w-full bg-[#007654] text-white font-bold py-4 md:py-6 text-base md:text-lg shadow-md">
+                    <Link
+                      href={`/tour/${encodeURIComponent(destination.slug)}`}
+                      className="w-full"
+                    >
+                      <Button className="w-full bg-[#007654] text-white font-bold py-6 md:py-6 text-base md:text-lg shadow-md">
                         {e("explore")}
                       </Button>
                     </Link>
@@ -109,7 +112,7 @@ export function PopularDestinations() {
             ))}
           </div>
         ) : (
-          // Desktop Grid
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {destinations.map((destination, index) => (
               <div

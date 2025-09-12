@@ -21,6 +21,8 @@
     "OVER_25_YEARS_EXPERTISE": "Over 25 years of expertise"
   },
   "silk": {
+      "day": "day",
+
     "title": "Uzbekistan Tour",
     "price": "$750",
     "price_label": "Starting price",

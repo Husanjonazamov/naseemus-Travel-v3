@@ -2,71 +2,44 @@
 
 import "keen-slider/keen-slider.min.css"
 import { useKeenSlider } from "keen-slider/react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import { useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
+import axios from "axios"
+import config from "../config"
 
-// Helper: Title ni URL friendly qilish
-const slugify = (text: string) =>
-  text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "")
+interface Holiday {
+  id: number
+  title: string
+  slug: string
+  description: string
+  price: string
+  image: string
+  date: number
+}
 
-const holidays = [
-  {
-    id: 1,
-    title: "CRUISING THE RHONE & PICTURESQUE PROVENCE",
-    description:
-      "Explore the colourful countryside of the South of France as you travel from Lyon on the Saone before taking the Rhone towards the Mediterranean Sea.",
-    features: [
-      "Just You Holiday Director",
-      "Return flights from London",
-      "20 included meals: 7 breakfasts, 6 lunches, 7 dinners",
-    ],
-    image: "/images/boat-trip-fun.png",
-  },
-  {
-    id: 2,
-    title: "CRUISING THE DANUBE",
-    description:
-      "Bustling cities and beautiful countryside along the Danube, with unforgettable sights and experiences on every stop.",
-    features: [
-      "Just You Holiday Director",
-      "Return flights",
-      "20 included meals: 7 breakfasts, 6 lunches, 7 dinners",
-    ],
-    image: "/images/boat-trip-fun.png",
-  },
-  {
-    id: 3,
-    title: "SECRET SLOVENIA",
-    description:
-      "Discover Slovenia's hidden gems, with stunning lakes, mountain scenery, and enchanting castles all around.",
-    features: [
-      "Return flights",
-      "7 nights in a 4-star hotel",
-      "15 included meals: 7 breakfasts, lunch, 7 dinners",
-    ],
-    image: "/images/boat-trip-fun.png",
-  },
-  {
-    id: 4,
-    title: "ITALIAN LAKES",
-    description:
-      "Experience the charm of the Italian lakes with scenic boat trips, breathtaking landscapes, and delicious cuisine.",
-    features: ["Return flights", "4-star hotel stay", "Daily breakfasts and dinners"],
-    image: "/images/boat-trip-fun.png",
-  },
-]
+// Description-ni 20 so'z bilan kesish
+const truncateDescription = (text: string, wordLimit = 20) => {
+  const words = text.split(" ")
+  if (words.length <= wordLimit) return text
+  return words.slice(0, wordLimit).join(" ") + "..."
+}
+
+// Narxni formatlash
+const formatPrice = (price: string) => {
+  const num = parseFloat(price)
+  return num % 1 === 0 ? num.toFixed(0) : num.toFixed(2)
+}
 
 export default function LastMinuteHolidays() {
   const t = useTranslations("last")
+  const taa = useTranslations("silk")
   const router = useRouter()
+  const [holidays, setHolidays] = useState<Holiday[]>([])
 
-  const [sliderRef, instanceRef] = useKeenSlider({
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 3, spacing: 16 },
     breakpoints: {
@@ -75,16 +48,30 @@ export default function LastMinuteHolidays() {
     },
   })
 
-  // Avtomatik aylanish
   useEffect(() => {
-    const timer = setInterval(() => {
-      instanceRef.current?.next()
-    }, 3000)
+    const fetchHolidays = async (url?: string) => {
+      try {
+        const res = await axios.get(url || `${config.BASE_URL}/api/tour/`)
+        if (res.data.status && res.data.data.results) {
+          setHolidays((prev) => [...prev, ...res.data.data.results])
+          if (res.data.data.links.next) {
+            fetchHolidays(res.data.data.links.next)
+          }
+        }
+      } catch (error) {
+        console.error("Holidays API error:", error)
+      }
+    }
+    fetchHolidays()
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(() => instanceRef.current?.next(), 4000)
     return () => clearInterval(timer)
   }, [instanceRef])
 
   return (
-    <section className="bg-[#f0faf7] py-16 px-4 relative">
+    <section className="bg-[#E6F4EF] py-16 px-4 relative">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-bold text-[#007654] text-center mb-12 tracking-wide">
           {t("last_minute_holidays")}
@@ -94,11 +81,15 @@ export default function LastMinuteHolidays() {
           {holidays.map((holiday) => (
             <div
               key={holiday.id}
-              className="keen-slider__slide flex flex-col bg-[#f0faf7] overflow-hidden shadow-lg rounded-lg"
+              className="keen-slider__slide flex-shrink-0 min-w-0 flex flex-col bg-white overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              {/* Rasm */}
-              <div className="relative h-64 md:h-80">
-                <Image src={holiday.image} alt={holiday.title} fill className="object-cover" />
+              <div className="relative h-44 md:h-60 group">
+                <Image
+                  src={holiday.image}
+                  alt={holiday.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                   <h3 className="text-white text-lg md:text-2xl font-bold text-center px-4 leading-tight">
                     {holiday.title}
@@ -106,23 +97,30 @@ export default function LastMinuteHolidays() {
                 </div>
               </div>
 
-              {/* Kontent */}
               <div className="p-6 flex flex-col flex-1">
-                <p className="text-gray-700 text-sm leading-relaxed mb-4">{holiday.description}</p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                  {truncateDescription(holiday.description, 30)}
+                </p>
 
-                <ul className="space-y-2 mb-6">
-                  {holiday.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                      <div className="w-2 h-2 bg-[#007654] rounded-full mt-2 flex-shrink-0"></div>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-2">
+                    {/* <span className="text-gray-500 text-sm">Price</span> */}
+                    <span className="text-green-700 font-bold text-2xl">
+                      ${formatPrice(holiday.price)}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-gray-500 text-sm">{taa("duration")}:</span>
+                    <span className="text-green-700 font-semibold text-lg">
+                      {holiday.date} {taa("day")} 
+                    </span>
+                  </div>
+                </div>
 
-                <div className="mt-auto flex justify-end">
+                <div className="mt-auto flex justify-center">
                   <Button
-                    className="bg-[#007654] hover:bg-[#006148] font-bold text-lg text-white px-8 py-6 rounded-md shadow-md transition-all"
-                    onClick={() => router.push(`/tour/${slugify(holiday.title)}`)} // <-- Yo'naltirish
+                    className="bg-[#007654] hover:bg-[#00543C] font-bold text-lg text-white px-8 py-6  transition-all"
+                    onClick={() => router.push(`/tour/${holiday.slug}`)}
                   >
                     {t("explore")}
                   </Button>

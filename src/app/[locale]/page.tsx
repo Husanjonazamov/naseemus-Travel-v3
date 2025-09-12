@@ -6,7 +6,7 @@ import LastMinuteHolidays from "@/src/components/last-minute-holidays"
 import { ServicesSection } from "@/src/components/services-section"
 import { NewsletterSection } from "@/src/components/newsletter-section"
 import { AboutSection } from "@/src/components/about-section"
-import DestinationsShowcase from "@/src/components/destinations-showcase"
+import NewHolidays from "@/src/components/destinations-showcase"
 import { FloatingButtons } from "@/src/components/floating-buttons"
 import { TrustpilotReviews } from "@/src/components/trustpilot-reviews"
 import { CustomerTestimonial } from "@/src/components/customer-testimonial"
@@ -29,7 +29,7 @@ export default function HomePage() {
       <ServicesSection />
       <NewsletterSection />
       <AboutSection />
-      <DestinationsShowcase />
+      <NewHolidays />
       {/* <TrustpilotReviews /> */}
       <CustomerTestimonial />
       <BlogSection />

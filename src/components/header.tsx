@@ -215,12 +215,7 @@ export function Header() {
               >
                 {t("sanatories")}
               </Link>
-              <Link
-                href="#"
-                className="text-gray-900 hover:text-green-700 font-medium"
-              >
-                {t("community")}
-              </Link>
+             
             </nav>
 
             {/* Desktop lang switcher */}
@@ -269,17 +264,15 @@ export function Header() {
             </div>
           </div>
         </div>
+      {isSearchOpen && (
+        <SearchDropdown
+          onClose={() => setIsSearchOpen(false)}
+          query={query}
+          setQuery={setQuery}
+          results={results}
+        />
+      )}
 
-        {/* SearchDropdown ochilishi (mobil va desktop uchun bir xil) */}
-        {isSearchOpen && (
-          <SearchDropdown
-            query={query}
-            setQuery={setQuery}
-            results={results}
-          />
-        )}
-
-        {/* Mobile menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
             isMenuOpen ? "max-h-96" : "max-h-0"
@@ -314,12 +307,7 @@ export function Header() {
             >
               {t("sanatories")}
             </Link>
-            <Link
-              href="#"
-              className="text-gray-900 hover:text-green-700 font-medium"
-            >
-              {t("community")}
-            </Link>
+          
 
             {/* Mobile lang switcher */}
             <div className="flex flex-col">
