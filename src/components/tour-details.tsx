@@ -58,7 +58,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 text-xl md:text-2xl font-bold text-[#007654]">
               <Users size={20} />
-              {tour.date} Days
+              {tour.date} {t("day")}
             </div>
             <p className="text-sm text-gray-600">{t("duration_label")}</p>
           </div>
@@ -78,8 +78,8 @@ export function TourDetails({ tour }: TourDetailsProps) {
               onClick={() => setIsOpen(true)}
               className="bg-gradient-to-r from-[#007654] to-[#009e6f] 
                 hover:from-[#006148] hover:to-[#00885d] 
-                text-white px-6 py-3 rounded-lg shadow-md 
-                transition-transform transform hover:scale-105 w-full sm:w-auto text-lg"
+                text-white px-6 py-6 rounded-lg shadow-md 
+                transition-transform transform hover:scale-105 w-full sm:w-auto text-xl"
             >
               {t("cta_book")}
             </Button>

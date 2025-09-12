@@ -1,8 +1,10 @@
-import Header from "@/components/header"
-import TrustBadges from "@/components/trust-badges"
-import FloatingButtons from "@/components/floating-buttons"
-import Footer from "@/components/footer"
-import { Button } from "@/components/ui/button"
+import { TrustBadges } from "@/src/components/trust-badges"
+
+import { FloatingButtons } from "@/src/components/floating-buttons"
+
+import { Footer } from "react-day-picker"
+import { Button } from "@/src/components/ui/button"
+import { Header } from "@/src/components/header"
 
 export default function BookNowPage() {
   return (
