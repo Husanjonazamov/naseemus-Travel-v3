@@ -38,7 +38,7 @@ interface ApiResponse {
 export function BlogSection() {
   const t = useTranslations("blog")
   const router = useRouter()
-  const locale = useLocale() // ➤ locale ni olamiz
+  const locale = useLocale()
 
   const [destinations, setDestinations] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
@@ -59,17 +59,13 @@ export function BlogSection() {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  // API dan ma'lumot olish
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
-        const lang = locale || "en" // default 'en' agar locale yo'q bo'lsa
+        const lang = locale || "en"
         const response = await axios.get<ApiResponse>(`${config.BASE_URL}/api/blog/`, {
-          headers: {
-            "Accept-Language": lang, // ➤ tilni headerga yuboramiz
-          },
+          headers: { "Accept-Language": lang },
         })
-        // faqat 6 ta postni oling
         setDestinations(response.data.data.results.slice(0, 6))
       } catch (error) {
         console.error("Blog API error:", error)
@@ -77,9 +73,20 @@ export function BlogSection() {
         setLoading(false)
       }
     }
-
     fetchBlogPosts()
-  }, [locale]) // ➤ locale o‘zgarganda qayta fetch qilinadi
+  }, [locale])
+
+  if (loading) return <p>Loading...</p>
+
+  const goToDetail = (destination: BlogPost) => {
+    router.push(`/blog/${slugify(destination.title)}`)
+  }
+
+  // Helper: descriptionni 20 ta so'zga qisqartirish
+  const shortDescription = (text: string, wordCount: number) => {
+    const words = text.split(" ").slice(0, wordCount)
+    return words.join(" ") + (words.length < text.split(" ").length ? "..." : "")
+  }
 
   return (
     <section className="py-16 px-4 bg-gray-50">
@@ -91,7 +98,11 @@ export function BlogSection() {
         {isMobile ? (
           <div ref={sliderRef} className="keen-slider">
             {destinations.map((destination) => (
-              <div key={destination.id} className="keen-slider__slide flex flex-col bg-white shadow-lg overflow-hidden">
+              <div
+                key={destination.id}
+                className="keen-slider__slide flex flex-col bg-white shadow-lg overflow-hidden cursor-pointer"
+                onClick={() => goToDetail(destination)}
+              >
                 <div
                   className="h-48 bg-cover bg-center"
                   style={{ backgroundImage: `url('${destination.image}')` }}
@@ -102,13 +113,16 @@ export function BlogSection() {
                     {destination.title}
                   </h3>
                   <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                    {destination.description}
+                    {shortDescription(destination.description, 20)}
                   </p>
 
                   <div className="flex items-center justify-between mt-auto">
                     <Button
                       className="bg-[#007654] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg"
-                      onClick={() => router.push(`/blog/${slugify(destination.title)}`)}
+                      onClick={(e) => {
+                        e.stopPropagation() // button bosilganda card click eventini oldini olish
+                        goToDetail(destination)
+                      }}
                     >
                       {t("explore_button")}
                     </Button>
@@ -120,7 +134,11 @@ export function BlogSection() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {destinations.map((destination) => (
-              <div key={destination.id} className="flex flex-col bg-white shadow-lg overflow-hidden">
+              <div
+                key={destination.id}
+                className="flex flex-col bg-white shadow-lg overflow-hidden cursor-pointer"
+                onClick={() => goToDetail(destination)}
+              >
                 <div
                   className="h-48 bg-cover bg-center"
                   style={{ backgroundImage: `url('${destination.image}')` }}
@@ -131,13 +149,16 @@ export function BlogSection() {
                     {destination.title}
                   </h3>
                   <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                    {destination.description}
+                    {shortDescription(destination.description, 20)}
                   </p>
 
                   <div className="flex items-center justify-between mt-auto">
                     <Button
                       className="bg-[#007654] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg"
-                      onClick={() => router.push(`/blog/${slugify(destination.title)}`)}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        goToDetail(destination)
+                      }}
                     >
                       {t("explore_button")}
                     </Button>

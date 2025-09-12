@@ -136,7 +136,7 @@ export function PopularDestinations() {
                     <p className="text-[#007654] font-bold text-3xl md:text-4xl">
                       {formatPrice(destination.price)}
                     </p>
-                    <Link href={`/tour/${encodeURIComponent(destination.title)}`}>
+                    <Link href={`/tour/${encodeURIComponent(destination.slug)}`}>
                       <Button className="bg-[#007654] text-white font-bold px-6 md:px-8 py-4 md:py-6 text-base md:text-lg shadow-md">
                         {e("explore")}
                       </Button>

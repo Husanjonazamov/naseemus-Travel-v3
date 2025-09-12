@@ -30,7 +30,7 @@ export default function HomePage() {
       <NewsletterSection />
       <AboutSection />
       <DestinationsShowcase />
-      <TrustpilotReviews />
+      {/* <TrustpilotReviews /> */}
       <CustomerTestimonial />
       <BlogSection />
       <NewTouring />

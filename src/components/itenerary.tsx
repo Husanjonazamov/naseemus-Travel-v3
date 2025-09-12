@@ -2,26 +2,46 @@
 
 import { Button } from "./ui/button";
 import { Printer, Download } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import axios from "axios";
+import Link from "next/link";
+import config from "@/src/config"; // BASE_URL shu yerda
+
+interface Tour {
+  id: number;
+  title: string;
+  slug: string;
+  description: string;
+  image: string;
+  date: number;
+}
 
 export function Itinerary() {
   const t = useTranslations("tour_uzbekistan.itinerary");
-  const [selectedDay, setSelectedDay] = useState(1);
+  const [tours, setTours] = useState<Tour[]>([]);
+  const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
 
-  const days = Array.from({ length: 10 }, (_, index) => ({
-    day: index + 1,
-    title: t(`days.${index + 1}.title`),
-    description: t(`days.${index + 1}.description`),
-    image: t(`days.${index + 1}.image`),
-  }));
+  useEffect(() => {
+    async function fetchTours() {
+      try {
+        const res = await axios.get(`${config.BASE_URL}/api/tour/`);
+        const data: Tour[] = res.data.data.results;
+        setTours(data);
+        if (data.length) setSelectedTour(data[0]);
+      } catch (error) {
+        console.error("API error:", error);
+      }
+    }
+    fetchTours();
+  }, []);
 
-  const currentDay = days.find((day) => day.day === selectedDay) || days[0];
-
-  const handleNextDay = () => {
-    if (selectedDay < days.length) {
-      setSelectedDay(selectedDay + 1);
+  const handleNextTour = () => {
+    if (!selectedTour) return;
+    const currentIndex = tours.findIndex((t) => t.id === selectedTour.id);
+    if (currentIndex < tours.length - 1) {
+      setSelectedTour(tours[currentIndex + 1]);
     }
   };
 
@@ -47,18 +67,19 @@ export function Itinerary() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left Panel - Scrollable List */}
           <div className="h-[28rem] overflow-y-auto border-r pr-2 lg:block hidden">
-            {days.map((day) => (
-              <div
-                key={day.day}
-                className={`py-3 px-2 cursor-pointer border-b transition-colors ${
-                  selectedDay === day.day
-                    ? "text-[#007654] font-semibold"
-                    : "text-gray-700 hover:text-[#007654]"
-                }`}
-                onClick={() => setSelectedDay(day.day)}
-              >
-                {t("day_label", { day: day.day })} - {day.title}
-              </div>
+            {tours.map((tour) => (
+              <Link key={tour.id} href={`/tour/${tour.slug}`}>
+                <div
+                  className={`py-3 px-2 cursor-pointer border-b transition-colors ${
+                    selectedTour?.id === tour.id
+                      ? "text-[#007654] font-semibold"
+                      : "text-gray-700 hover:text-[#007654]"
+                  }`}
+                  onClick={() => setSelectedTour(tour)}
+                >
+                  {tour.title}
+                </div>
+              </Link>
             ))}
           </div>
 
@@ -66,12 +87,15 @@ export function Itinerary() {
           <div className="lg:hidden mb-4">
             <select
               className="w-full border rounded-lg p-2 text-gray-700"
-              value={selectedDay}
-              onChange={(e) => setSelectedDay(Number(e.target.value))}
+              value={selectedTour?.id || 0}
+              onChange={(e) => {
+                const tour = tours.find((t) => t.id === Number(e.target.value));
+                if (tour) setSelectedTour(tour);
+              }}
             >
-              {days.map((day) => (
-                <option key={day.day} value={day.day}>
-                  {t("day_label", { day: day.day })} - {day.title}
+              {tours.map((tour) => (
+                <option key={tour.id} value={tour.id}>
+                  {tour.title}
                 </option>
               ))}
             </select>
@@ -80,9 +104,9 @@ export function Itinerary() {
           {/* Right Panel - Image and Content */}
           <div className="flex flex-col h-[28rem]">
             <motion.img
-              key={currentDay.image}
-              src={currentDay.image || "/placeholder.svg"}
-              alt={`${t("day_label", { day: currentDay.day })} - ${currentDay.title}`}
+              key={selectedTour?.image}
+              src={selectedTour?.image || "/placeholder.svg"}
+              alt={selectedTour?.title}
               className="w-full h-64 object-cover rounded-lg shadow-md"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -91,18 +115,27 @@ export function Itinerary() {
 
             <div className="mt-3 flex flex-col flex-grow">
               <h3 className="text-xl font-bold text-[#007654] mb-2">
-                {t("day_heading", { day: currentDay.day, title: currentDay.title.toUpperCase() })}
+                <Link href={`/tour/${selectedTour?.slug}`}>
+                  {selectedTour?.title}
+                </Link>
               </h3>
+
               <p className="text-gray-700 leading-relaxed flex-grow">
-                {currentDay.description}
+                {selectedTour?.description}
               </p>
               <div className="flex justify-end mt-4">
                 <Button
                   className="bg-[#007654] hover:bg-[#006148] text-white"
-                  onClick={handleNextDay}
-                  disabled={selectedDay >= days.length}
+                  onClick={handleNextTour}
+                  disabled={
+                    !selectedTour ||
+                    tours.findIndex((t) => t.id === selectedTour.id) ===
+                      tours.length - 1
+                  }
                 >
-                  {selectedDay >= days.length
+                  {selectedTour &&
+                  tours.findIndex((t) => t.id === selectedTour.id) ===
+                    tours.length - 1
                     ? t("end_of_journey")
                     : t("next_day")}
                 </Button>

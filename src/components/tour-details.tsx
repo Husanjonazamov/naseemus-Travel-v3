@@ -1,11 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { useTranslations } from "next-intl";
 import { Calendar, Users, DollarSign } from "lucide-react";
 
-export function TourDetails() {
+interface TourDetailsProps {
+  tour: {
+    id: number;
+    title: string;
+    slug: string;
+    description: string;
+    price: string;
+    image: string;
+    date: number;
+    category?: { id: number; title: string } | null;
+    is_popular: boolean;
+    is_new: boolean;
+    images: string[];
+  };
+}
+
+export function TourDetails({ tour }: TourDetailsProps) {
   const t = useTranslations("silk");
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("discover");
@@ -24,7 +40,7 @@ export function TourDetails() {
       {/* Title */}
       <div className="text-center mb-6 md:mb-10">
         <h1 className="text-2xl md:text-4xl font-extrabold text-[#007654] mb-4">
-          {t("title")}
+          {tour.title}
         </h1>
 
         {/* Price, Duration, Dates, CTA */}
@@ -33,7 +49,7 @@ export function TourDetails() {
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 text-xl md:text-2xl font-bold text-[#007654]">
               <DollarSign size={20} />
-              {t("price")}
+              ${tour.price}
             </div>
             <p className="text-sm text-gray-600">{t("price_label")}</p>
           </div>
@@ -42,7 +58,7 @@ export function TourDetails() {
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 text-xl md:text-2xl font-bold text-[#007654]">
               <Users size={20} />
-              {t("duration")}
+              {tour.date} Days
             </div>
             <p className="text-sm text-gray-600">{t("duration_label")}</p>
           </div>
@@ -69,7 +85,6 @@ export function TourDetails() {
             </Button>
           </div>
         </div>
-       
       </div>
 
       {/* Modal */}
@@ -123,7 +138,7 @@ export function TourDetails() {
                 <input
                   type="number"
                   className="w-full p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
-                  min="1"
+                  min={1}
                   placeholder="2"
                 />
               </div>
@@ -148,7 +163,7 @@ export function TourDetails() {
                   className="w-full p-2 border rounded-lg focus:ring-[#007654] focus:border-[#007654]"
                   rows={3}
                   placeholder={t("booking_form.notes_placeholder")}
-                ></textarea>
+                />
               </div>
 
               {/* Actions */}

@@ -14,10 +14,10 @@ import { useRouter } from "next/navigation"
 import config from "../config"
 import { useLocale } from "next-intl";
 
-
 type CardData = {
   id: number
   title: string
+  slug: string
   description?: string | null
   image: string
   type: "tour" | "blog"
@@ -47,24 +47,17 @@ export function ContentSection() {
   const [loading, setLoading] = useState(true)
   const locale = useLocale(); 
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Hozirgi tilni olish
         const lang = locale
-        console.log(lang)
 
         const [tourRes, blogRes] = await Promise.all([
           fetch(`${config.BASE_URL}/api/tour/`, {
-            headers: {
-              "Accept-Language": lang, // ➤ Tilni yuborish
-            },
+            headers: { "Accept-Language": lang },
           }),
           fetch(`${config.BASE_URL}/api/blog/`, {
-            headers: {
-              "Accept-Language": lang, // ➤ Tilni yuborish
-            },
+            headers: { "Accept-Language": lang },
           }),
         ])
 
@@ -74,6 +67,7 @@ export function ContentSection() {
         const tourCards: CardData[] = tourJson.data.results.map((item: any) => ({
           id: item.id,
           title: item.title,
+          slug: item.slug, // slug qo'shildi
           description: item.description,
           image: item.image,
           type: "tour",
@@ -83,6 +77,7 @@ export function ContentSection() {
         const blogCards: CardData[] = blogJson.data.results.map((item: any) => ({
           id: item.id,
           title: item.title,
+          slug: item.slug, // slug qo'shildi
           description: item.description,
           image: item.image,
           type: "blog",
@@ -99,57 +94,55 @@ export function ContentSection() {
     }
 
     fetchData()
-  }, [])
+  }, [locale])
 
   return (
-    <section className="py-16 px-4 bg-gray-50  mb-20">
+    <section className="py-16 px-4 bg-gray-50 mb-20">
       <div className="max-w-6xl mx-auto">
-        {/* Main heading */}
         <h2 className="text-2xl md:text-3xl font-extrabold text-center text-[#007654] mb-10">
           {t("title")}
         </h2>
 
-        {/* Description paragraph */}
         <p className="text-gray-700 text-center max-w-4xl mx-auto mb-16 text-sm leading-relaxed">
           {t("description")}
         </p>
 
-       {/* Desktop Grid */}
-      <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16 justify-center">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className={`bg-[#f0faf7] shadow-lg overflow-hidden h-[580px] flex flex-col transition-opacity duration-300 ${
-              loading ? "opacity-30" : "opacity-100"
-            }`}
-            style={{ minWidth: "380px", maxWidth: "420px" }}
-          >
-            <div className="relative h-64 w-full">
-              <Image src={card.image} alt={card.title} fill className="object-cover" />
-            </div>
-            <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-2xl font-bold text-[#007654] mb-3">{card.title}</h3>
-              <p className="text-gray-700 mb-4 h-[110px] overflow-hidden leading-relaxed">
-                {formatDescription(card.description)}
-              </p>
-              <div className="flex justify-end mt-auto">
-                <Button
-                  className="bg-[#007654] hover:bg-[#006148] text-white px-8 py-6 text-lg font-bold"
-                  onClick={() =>
-                    router.push(
-                      card.type === "tour"
-                        ? `/tour/${encodeURIComponent(card.title)}`
-                        : `/blog/${encodeURIComponent(card.title)}`
-                    )
-                  }
-                >
-                  {card.type === "tour" ? "View Tour" : "Read Blog"}
-                </Button>
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16 justify-center">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className={`bg-[#f0faf7] shadow-lg overflow-hidden h-[580px] flex flex-col transition-opacity duration-300 ${
+                loading ? "opacity-30" : "opacity-100"
+              }`}
+              style={{ minWidth: "380px", maxWidth: "420px" }}
+            >
+              <div className="relative h-64 w-full">
+                <Image src={card.image} alt={card.title} fill className="object-cover" />
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-2xl font-bold text-[#007654] mb-3">{card.title}</h3>
+                <p className="text-gray-700 mb-4 h-[110px] overflow-hidden leading-relaxed">
+                  {formatDescription(card.description)}
+                </p>
+                <div className="flex justify-end mt-auto">
+                  <Button
+                    className="bg-[#007654] hover:bg-[#006148] text-white px-8 py-6 text-lg font-bold"
+                    onClick={() =>
+                      router.push(
+                        card.type === "tour"
+                          ? `/tour/${encodeURIComponent(card.slug)}`
+                          : `/blog/${encodeURIComponent(card.slug)}`
+                      )
+                    }
+                  >
+                    {card.type === "tour" ? "View Tour" : "Read Blog"}
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
         {/* Mobile Carousel */}
         <div className="md:hidden mb-20">
@@ -184,8 +177,8 @@ export function ContentSection() {
                         onClick={() =>
                           router.push(
                             card.type === "tour"
-                              ? `/tour/${encodeURIComponent(card.title)}`
-                              : `/blog/${encodeURIComponent(card.title)}`
+                              ? `/tour/${encodeURIComponent(card.slug)}`
+                              : `/blog/${encodeURIComponent(card.slug)}`
                           )
                         }
                       >

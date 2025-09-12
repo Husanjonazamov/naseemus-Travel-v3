@@ -145,7 +145,7 @@ export function NewTouring() {
 
                   <div className="flex items-center justify-between mt-auto">
                     <p className="text-[#007654] font-bold text-2xl">{formatPrice(destination.price)}</p>
-                    <Link href={`/tour/${encodeURIComponent(destination.title)}`}>
+                    <Link href={`/tour/${encodeURIComponent(destination.slug)}`}>
                       <Button className="bg-[#007654] text-white font-semibold px-6 py-3 shadow-md text-base">
                         {e("explore")}
                       </Button>

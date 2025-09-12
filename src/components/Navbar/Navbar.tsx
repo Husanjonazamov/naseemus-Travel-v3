@@ -1,71 +1,85 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import config from "@/src/config";
+import Image from "next/image";
+import Link from "next/link"; // Linkni import qilamiz
+
+interface Tour {
+  id: number;
+  title: string;
+  image: string;
+  category: { id: number; title: string } | null;
+}
+
+interface Category {
+  title: string;
+  tours: Tour[];
+}
+
+// Title -> URL friendly slug funksiyasi
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, ""); // faqat harflar, raqamlar va '-' qoldiradi
 
 export const TourDrop = () => {
-  const categories = [
-    {
-      title: "O'zbekiston",
-      tours: ["Toshkent Safari", "Buxoro Tarixi", "Samarqand Marvarid", "Xiva Sarguzasht"]
-    },
-    {
-      title: "Yevropa",
-      tours: ["Paris Sightseeing", "Rome Historical Tour", "London Adventure", "Berlin City Tour"]
-    },
-    {
-      title: "Osiyo",
-      tours: ["Bangkok Temples", "Tokyo Highlights", "Seoul Modern Tour", "Bali Paradise"]
-    }
-  ];
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [tours, setTours] = useState<Tour[]>([]);
 
-  // Mobil accordion uchun state
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  useEffect(() => {
+    const fetchTours = async () => {
+      try {
+        const res = await axios.get(`${config.BASE_URL}/api/tour/`);
+        const tours: Tour[] = res.data.data.results;
+        setTours(tours);
 
-  const toggleCategory = (index: number) => {
-    if (openIndex === index) {
-      setOpenIndex(null); // yopish
-    } else {
-      setOpenIndex(index); // ochish
-    }
-  };
+        // Kategoriyalarni guruhlash
+        const catMap: { [key: string]: Tour[] } = {};
+        tours.forEach((tour) => {
+          if (tour.category?.title) {
+            if (!catMap[tour.category.title]) catMap[tour.category.title] = [];
+            catMap[tour.category.title].push(tour);
+          }
+        });
+
+        const catArray: Category[] = Object.keys(catMap).map((title) => ({
+          title,
+          tours: catMap[title],
+        }));
+
+        setCategories(catArray);
+      } catch (err) {
+        console.error("Tourlarni olishda xatolik:", err);
+      }
+    };
+
+    fetchTours();
+  }, []);
 
   return (
-    <div className="p-4 w-full max-w-md md:max-w-2xl bg-white rounded-xl shadow-lg border border-gray-200 z-50 max-h-[400px] overflow-y-auto">
-      <div className="flex flex-col md:flex-row md:gap-8">
-        {categories.map((cat, index) => (
-          <div key={cat.title} className="flex-1 min-w-0 mb-4 md:mb-0">
-            {/* Sarlavha */}
-            <h3
-              className="text-green-700 font-semibold mb-2 border-b border-gray-200 pb-1 cursor-pointer md:cursor-default sticky top-0 bg-white z-10"
-              onClick={() => toggleCategory(index)}
-            >
-              {cat.title}
-            </h3>
-
-            {/* Desktopda hamma ochiq, mobilda accordion */}
-            <ul
-              className={`flex flex-col gap-1 overflow-hidden transition-max-height duration-300 ease-in-out
-              ${
-                // Desktopda hamma ochiq
-                "md:max-h-full md:flex"
-              } 
-              ${
-                // Mobilda faqat ochilgan category
-                openIndex === index
-                  ? "max-h-[500px]" // ochilgan
-                  : "max-h-0" // yopilgan
-              }`}
-            >
-              {cat.tours.map((tour) => (
-                <li key={tour}>
-                  <a
-                    href="#"
-                    className="block px-2 py-1 rounded hover:bg-green-100 hover:text-green-700 transition-colors"
-                  >
-                    {tour}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <div className="w-full">
+      <div className="flex flex-col gap-6 mt-6 max-h-[80vh] overflow-y-auto bg-white/70 backdrop-blur-md shadow-lg rounded-xl p-4">
+        {tours.map((tour) => (
+          <Link
+            key={tour.id}
+            href={`/tour/${slugify(tour.title)}`} // Title asosida URL
+            className="flex items-center gap-4 border-b border-gray-200 pb-3 hover:bg-gray-100/70 rounded-lg transition"
+          >
+            <div className="relative w-20 h-16 flex-shrink-0">
+              <Image
+                src={tour.image}
+                alt={tour.title}
+                fill
+                className="object-cover rounded-md"
+              />
+            </div>
+            <h4 className="text-base md:text-lg font-medium text-gray-800 hover:text-green-700 transition">
+              {tour.title}
+            </h4>
+          </Link>
         ))}
       </div>
     </div>

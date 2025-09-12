@@ -171,24 +171,37 @@ export function Header() {
           <div className="flex items-center space-x-8">
             <nav className="hidden lg:flex items-center space-x-8 relative">
               {/* Tours dropdown */}
-              <div className="relative">
-                <button
-                  onClick={toggleTourDropdown}
-                  className="flex items-center gap-1 text-gray-900 hover:text-green-700 font-medium"
-                >
-                  {t("tours")}
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform ${
-                      isTourOpen ? "rotate-180" : "rotate-0"
-                    }`}
-                  />
-                </button>
-                {isTourOpen && (
-                  <div className="absolute left-0 top-full mt-2 z-[1000]">
+            <div className="relative">
+              <button
+                onClick={toggleTourDropdown}
+                className="flex items-center gap-1 text-gray-900 hover:text-green-700 font-medium"
+              >
+                {t("tours")}
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${
+                    isTourOpen ? "rotate-180" : "rotate-0"
+                  }`}
+                />
+              </button>
+
+              {isTourOpen && (
+                <div className="fixed inset-0 z-[2000] overflow-y-auto">
+                  <div className="max-w-7xl mx-auto p-6">
+                    {/* Yopish tugmasi */}
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => setIsTourOpen(false)}
+                        className="text-gray-600 hover:text-red-600 font-semibold text-lg"
+                      >
+                        ✕
+                      </button>
+                    </div>
                     <TourDrop />
                   </div>
-                )}
-              </div>
+                </div>
+              )}
+            </div>
+
 
               <Link
                 href="/blog"
