@@ -38,6 +38,7 @@ export default function NewHolidays() {
   const taa = useTranslations("silk")
   const router = useRouter()
   const [holidays, setHolidays] = useState<Holiday[]>([])
+  const [mounted, setMounted] = useState(false)
 
   // Keen Slider konfiguratsiyasi
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -65,13 +66,23 @@ export default function NewHolidays() {
       }
     }
     fetchHolidays()
+    setMounted(true)
   }, [])
+
+  // Slider yangilash
+  useEffect(() => {
+    if (instanceRef.current) {
+      instanceRef.current.update()
+    }
+  }, [holidays])
 
   // Avtomatik aylanish
   useEffect(() => {
     const timer = setInterval(() => instanceRef.current?.next(), 3000)
     return () => clearInterval(timer)
   }, [instanceRef])
+
+  if (!mounted || holidays.length === 0) return null
 
   return (
     <section className="bg-[#E6F4EF] py-16 px-4 relative">
@@ -83,55 +94,62 @@ export default function NewHolidays() {
         <div ref={sliderRef} className="keen-slider overflow-visible">
           {holidays.map((holiday) => (
             <div
-              key={holiday.id}
-              className="keen-slider__slide flex-shrink-0 w-full md:w-[calc(33.333%-16px)] flex flex-col bg-white overflow-hidden shadow-lg rounded-lg"
-            >
-              {/* Image */}
-              <div className="relative h-64 md:h-80 w-full group overflow-hidden">
-                <Image
-                  src={holiday.image}
-                  alt={holiday.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <h3 className="text-white text-lg md:text-2xl font-bold text-center px-4 leading-tight">
-                    {holiday.title}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                  {truncateDescription(holiday.description, 20)}
-                </p>
-
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start gap-2 text-sm text-gray-700">
-                    <div className="w-2 h-2 bg-[#007654] rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-xl font-bold text-green-700">
-                      ${formatPrice(holiday.price)}
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2 text-sm text-gray-700">
-                    <div className="w-2 h-2 bg-[#007654] rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-xl text-green-700 font-bold">
-                      {taa("duration")}: {holiday.date} {taa("day")}
-                    </span>
-                  </li>
-                </ul>
-
-                <div className="mt-auto flex justify-end">
-                  <Button
-                    className="bg-[#007654] hover:bg-[#00543C] font-bold text-lg text-white px-8 py-6 rounded-md shadow-md transition-all"
-                    onClick={() => router.push(`/tour/${holiday.slug}`)}
-                  >
-                    {t("explore")}
-                  </Button>
-                </div>
-              </div>
-            </div>
+                         key={holiday.id}
+                         className="keen-slider__slide flex flex-col bg-white overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
+                       >
+                         <div className="relative h-52 md:h-64 group overflow-hidden rounded-t-2xl">
+                           <Image
+                             src={holiday.image}
+                             alt={holiday.title}
+                             fill
+                             className="object-cover group-hover:scale-110 transition-transform duration-500"
+                           />
+                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                             <h3 className="text-white text-xl md:text-2xl font-bold leading-tight">
+                               {holiday.title}
+                             </h3>
+                           </div>
+                         </div>
+           
+                         <div className="p-5 flex flex-col flex-1">
+                           <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4 line-clamp-3">
+                             {truncateDescription(holiday.description, 30)}
+                           </p>
+           
+                           <div className="flex items-center justify-between mb-6">
+                             <div className="text-green-700 font-bold text-xl md:text-2xl ">
+                               ${formatPrice(holiday.price)}
+                             </div>
+           
+                             <div className="flex items-center gap-1 text-green-700 font-bold text-xl">
+                               {/* <svg
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 className="h-5 w-5 text-green-700"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor"
+                               >
+                                 <path
+                                   strokeLinecap="round"
+                                   strokeLinejoin="round"
+                                   strokeWidth={2}
+                                   d="M12 8v4l3 3"
+                                 />
+                               </svg> */}
+                               <span>
+                                 {holiday.date} {taa("day")}
+                               </span>
+                             </div>
+                           </div>
+           
+                           <Button
+                             className="bg-[#007654] hover:bg-[#00543C] font-semibold text-white py-4 rounded-lg transition-all"
+                             onClick={() => router.push(`/tour/${holiday.slug}`)}
+                           >
+                             {t("explore")}
+                           </Button>
+                         </div>
+                       </div>
           ))}
         </div>
       </div>

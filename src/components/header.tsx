@@ -28,6 +28,7 @@ export function Header() {
   const [results, setResults] = useState<string[]>([]);
 
   const t = useTranslations("header");
+  const w = useTranslations("working_hours");
   const languages = ["UZ", "RU", "EN"];
   const locale = useLocale();
   const router = useRouter();
@@ -92,12 +93,12 @@ export function Header() {
                 {isBrochureOpen && (
                   <div className="absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg p-4 animate-fadeIn">
                     <p className="text-gray-800 font-semibold mb-2">
-                      {t("working_hours")}
+                      {w("working_hours_title")}
                     </p>
                     <ul className="space-y-1 text-sm text-gray-600">
-                      <li>Dushanba - Juma: 09:00 - 18:00</li>
-                      <li>Shanba: 10:00 - 16:00</li>
-                      <li>Yakshanba: Yopiq</li>
+                      <li>{w("monday_to_friday")}</li>
+                      <li>{w("saturday")}</li>
+                      <li>{w("sunday")}</li>
                     </ul>
                   </div>
                 )}

@@ -1,4 +1,11 @@
 {
+  "working_hours": {
+      "working_hours_title": "Working Hours",
+
+      "monday_to_friday": "Monday - Friday: 09:00 - 18:00",
+      "saturday": "Saturday: 10:00 - 16:00",
+      "sunday": "Sunday: Closed"
+    },
   "header": {
     "phone": "+998-94-001-47-41",
     "address": "123 MAIN STREET, TASHKENT",

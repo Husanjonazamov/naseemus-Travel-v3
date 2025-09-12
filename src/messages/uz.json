@@ -1,5 +1,14 @@
 {
+  "working_hours": {
+      "working_hours_title": "Ish vaqti",
+
+      "monday_to_friday": "Dushanba - Juma: 09:00 - 18:00",
+      "saturday": "Shanba: 10:00 - 16:00",
+      "sunday": "Yakshanba: Yopiq"
+    },
   "header": {
+
+    
     "phone": "+998-94-001-47-41",
     "address": "Toshkent, Asosiy ko'cha 123",
     "company_name": "Naseem's Travel",
