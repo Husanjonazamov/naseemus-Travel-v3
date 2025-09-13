@@ -301,6 +301,10 @@
     "popularDestinations": "Mashhur sayohat manzillari"
   },
   "silk": {
+     "loading": "Yuborilmoqda...",
+      "success": "Buyurtma muvaffaqiyatli yuborildi!",
+      "error": "Xatolik yuz berdi. Qayta urinib ko‘ring.",
+       "submit": "Yuborish",
      "day": "kun",
     "title": "O‘zbekiston sayohati",
     "price": "$750",

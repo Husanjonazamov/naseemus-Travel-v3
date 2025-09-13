@@ -29,6 +29,11 @@
   },
   "silk": {
       "day": "day",
+        "loading": "Submitting...",
+              "submit": "Submit",
+
+      "success": "Booking submitted successfully!",
+      "error": "An error occurred. Please try again.",
 
     "title": "Uzbekistan Tour",
     "price": "$750",
