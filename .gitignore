@@ -11,10 +11,3 @@ public
 yarn-error.log
 npm-debug.log
 
-
-git lfs install
-git lfs track "*.mp4"
-git add .gitattributes
-git add path/to/video.mp4
-git commit -m "Add video via LFS"
-git push origin main
