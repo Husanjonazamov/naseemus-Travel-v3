@@ -7,40 +7,55 @@ import config from "../config";
 
 export function HeroSection() {
   const t = useTranslations("hero");
-  const [bannerImage, setBannerImage] = useState(null);
+  const [bannerImages, setBannerImages] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // API dan banner rasmni olish
+    // API dan banner rasmlarni olish
     const fetchBanner = async () => {
       try {
         const res = await fetch(`${config.BASE_URL}/api/banner/`);
         const data = await res.json();
 
         if (data.status && data.data.results.length > 0) {
-          setBannerImage(data.data.results[0].image); // birinchi rasmni olish
+          const images = data.data.results.map(item => item.image);
+          setBannerImages(images);
         }
       } catch (error) {
-        console.error("Banner rasmni olishda xato:", error);
+        console.error("Banner rasmlarni olishda xato:", error);
       }
     };
 
     fetchBanner();
   }, []);
 
+  useEffect(() => {
+    if (bannerImages.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentIndex(prev => (prev + 1) % bannerImages.length);
+      }, 5000); // 5 soniyada bir rasm almashtiriladi
+
+      return () => clearInterval(interval);
+    }
+  }, [bannerImages]);
+
   return (
     <section className="relative w-full h-[280px] sm:h-[350px] md:h-[450px] overflow-hidden">
-      {/* Background Image */}
-      {bannerImage && (
+      {/* Background Image Slayder */}
+      {bannerImages.map((image, index) => (
         <Image
-          src={bannerImage}
-          alt="Hero background"
+          key={index}
+          src={image}
+          alt={`Hero background ${index + 1}`}
           fill
-          className="object-cover absolute inset-0"
+          className={`object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            index === currentIndex ? "opacity-100" : "opacity-0"
+          }`}
           quality={90}
           priority
           sizes="100vw"
         />
-      )}
+      ))}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
@@ -75,6 +90,21 @@ export function HeroSection() {
             </span>
           </div>
         </div>
+
+        {/* Slide Indicators */}
+        {bannerImages.length > 1 && (
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
+            {bannerImages.map((_, idx) => (
+              <span
+                key={idx}
+                className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+                  idx === currentIndex ? "bg-green-500 w-4 h-4" : "bg-white/50"
+                }`}
+                onClick={() => setCurrentIndex(idx)}
+              ></span>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
