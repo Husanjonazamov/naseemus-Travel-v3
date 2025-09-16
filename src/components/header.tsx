@@ -188,9 +188,11 @@ export function Header() {
         )}
       </div>
 
-      {/* Navigation */}
+
       <nav className="bg-green-600 text-white">
         <div className="max-w-7xl mx-auto flex justify-center gap-4 py-2 px-2 text-sm font-semibold">
+          
+          {/* Tours dropdown */}
           <button
             onClick={toggleTourDropdown}
             className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap relative"
@@ -202,17 +204,34 @@ export function Header() {
               </div>
             )}
           </button>
-          <button className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap">
-            {t("sanatories")} 
-          </button>
-          <button className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap">
+
+          {/* Sanatories */}
+          <Link
+            href="/sanatory"
+            className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap"
+          >
+            {t("sanatories")}
+          </Link>
+
+          {/* Blog */}
+          <Link
+            href="/blog"
+            className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap"
+          >
             {t("blog")}
-          </button>
-          <button className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap">
-            {t("contact_us")} 
-          </button>
+          </Link>
+
+          {/* Contact Us */}
+          <Link
+            href="/contact"
+            className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap"
+          >
+            {t("contact_us")}
+          </Link>
+
         </div>
       </nav>
+
     </header>
   );
 }
