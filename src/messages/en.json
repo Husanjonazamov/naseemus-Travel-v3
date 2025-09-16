@@ -7,6 +7,11 @@
       "sunday": "Sunday: Closed"
     },
   "header": {
+  "holiday_types": "Holiday types",
+  "offers": "Offers",
+  "inspire_me": "Inspire me",
+  "our_services": "Our services",
+  "contact_us": "Contact us",
     "phone": "+998-94-001-47-41",
     "address": "123 MAIN STREET, TASHKENT",
     "company_name": "NASEEM'S TRAVEL",

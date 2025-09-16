@@ -47,6 +47,11 @@
   },
 
   "header": {
+  "holiday_types": "Виды отдыха",
+  "offers": "Предложения",
+  "inspire_me": "Вдохнови меня",
+  "our_services": "Наши услуги",
+  "contact_us": "Связаться с нами",
     "phone": "+998-94-001-47-41",
     "address": "Ташкент, Основная улица 123",
     "company_name": "Naseem's Travel",
