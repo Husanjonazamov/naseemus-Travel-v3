@@ -7,12 +7,13 @@ import { Button } from "./ui/button"
 import { useTranslations, useLocale } from "next-intl"
 import Link from "next/link"
 import axios from "axios"
+import { motion } from "framer-motion"
 import config from "../config"
 
 export function NewTouring() {
   const t = useTranslations("newHoliday") // Title
   const e = useTranslations("last")       // Explore button text
-  const locale = useLocale()              // ➤ hozirgi tilni olamiz
+  const locale = useLocale()
 
   const [destinations, setDestinations] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -39,24 +40,21 @@ export function NewTouring() {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const lang = locale || "en" // default 'en' agar locale yo'q bo'lsa
+        const lang = locale || "en"
         const res = await axios.get(`${config.BASE_URL}/api/tour/`, {
-          headers: {
-            "Accept-Language": lang, // ➤ tilni headerga yuboramiz
-          },
+          headers: { "Accept-Language": lang },
         })
-        // Faqat 6 ta tourni olamiz
         setDestinations(res.data.data.results.slice(0, 6))
       } catch (error) {
-        console.error("API dan malumot olishda xatolik:", error)
+        console.error("API error:", error)
       } finally {
         setLoading(false)
       }
     }
     fetchTours()
-  }, [locale]) // ➤ locale o‘zgarganda qayta fetch qilinadi
+  }, [locale])
 
-  // Default loading card
+  // Loading skeleton cards
   const loadingCards = Array.from({ length: 6 }).map((_, index) => (
     <div
       key={index}
@@ -73,15 +71,24 @@ export function NewTouring() {
     </div>
   ))
 
-  // Narx formatlash funksiyasi
+  // Price formatter
   const formatPrice = (price: number) =>
     new Intl.NumberFormat(locale, {
       style: "currency",
       currency: "USD",
-      minimumFractionDigits: 0, // ➤ 00 ko‘rinmasin
+      minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(price)
 
+  // Framer Motion variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1, duration: 0.5 },
+    }),
+  }
 
   return (
     <section className="py-16 px-4 bg-gray-50">
@@ -92,17 +99,20 @@ export function NewTouring() {
         </h2>
 
         {loading ? (
-          // Loading holatidagi kartalar
           <div className={isMobile ? "keen-slider" : "grid md:grid-cols-2 lg:grid-cols-3 gap-8"}>
             {loadingCards}
           </div>
         ) : isMobile ? (
-          // 📱 Mobile slider
+          // Mobile slider
           <div ref={sliderRef} className="keen-slider">
-            {destinations.map((destination) => (
-              <div
+            {destinations.map((destination, index) => (
+              <motion.div
                 key={destination.id}
                 className="keen-slider__slide flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
+                initial="hidden"
+                animate="visible"
+                custom={index}
+                variants={cardVariants}
               >
                 <div
                   className="h-48 bg-cover bg-center"
@@ -117,22 +127,26 @@ export function NewTouring() {
                     {formatPrice(destination.price)}
                   </p>
 
-                  <Link href={`/tour/${encodeURIComponent(destination.title)}`}>
+                  <Link href={`/tour/${encodeURIComponent(destination.slug || destination.title)}`}>
                     <Button className="w-full bg-[#007654] text-white font-semibold py-3 shadow-md text-base">
                       {e("explore")}
                     </Button>
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         ) : (
-          // 💻 Desktop grid
+          // Desktop grid
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.map((destination) => (
-              <div
+            {destinations.map((destination, index) => (
+              <motion.div
                 key={destination.id}
-                className="flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden "
+                className="flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
+                initial="hidden"
+                animate="visible"
+                custom={index}
+                variants={cardVariants}
               >
                 <div
                   className="h-48 bg-cover bg-center"
@@ -145,14 +159,14 @@ export function NewTouring() {
 
                   <div className="flex items-center justify-between mt-auto">
                     <p className="text-[#007654] font-bold text-2xl">{formatPrice(destination.price)}</p>
-                    <Link href={`/tour/${encodeURIComponent(destination.slug)}`}>
+                    <Link href={`/tour/${encodeURIComponent(destination.slug || destination.title)}`}>
                       <Button className="bg-[#007654] text-white font-semibold px-6 py-3 shadow-md text-base">
                         {e("explore")}
                       </Button>
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}

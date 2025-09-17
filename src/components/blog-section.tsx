@@ -7,6 +7,7 @@ import { Button } from "./ui/button"
 import { useTranslations, useLocale } from "next-intl"
 import { useRouter } from "next/navigation"
 import axios from "axios"
+import { motion } from "framer-motion"
 import config from "../config"
 
 // Helper: title ni URL-friendly qilish
@@ -88,6 +89,16 @@ export function BlogSection() {
     return words.join(" ") + (words.length < text.split(" ").length ? "..." : "")
   }
 
+  // Framer Motion variantlari
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1, duration: 0.5 },
+    }),
+  }
+
   return (
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
@@ -97,47 +108,15 @@ export function BlogSection() {
 
         {isMobile ? (
           <div ref={sliderRef} className="keen-slider">
-            {destinations.map((destination) => (
-              <div
+            {destinations.map((destination, index) => (
+              <motion.div
                 key={destination.id}
                 className="keen-slider__slide flex flex-col bg-white shadow-lg overflow-hidden cursor-pointer"
                 onClick={() => goToDetail(destination)}
-              >
-                <div
-                  className="h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${destination.image}')` }}
-                ></div>
-
-                <div className="flex flex-col flex-grow p-6">
-                  <h3 className="text-xl font-bold text-[#007654] mb-4">
-                    {destination.title}
-                  </h3>
-                  <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                    {shortDescription(destination.description, 20)}
-                  </p>
-
-                  <div className="flex items-center justify-between mt-auto">
-                    <Button
-                      className="bg-[#007654] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg"
-                      onClick={(e) => {
-                        e.stopPropagation() // button bosilganda card click eventini oldini olish
-                        goToDetail(destination)
-                      }}
-                    >
-                      {t("explore_button")}
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.map((destination) => (
-              <div
-                key={destination.id}
-                className="flex flex-col bg-white shadow-lg overflow-hidden cursor-pointer"
-                onClick={() => goToDetail(destination)}
+                initial="hidden"
+                animate="visible"
+                custom={index}
+                variants={cardVariants}
               >
                 <div
                   className="h-48 bg-cover bg-center"
@@ -164,7 +143,47 @@ export function BlogSection() {
                     </Button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {destinations.map((destination, index) => (
+              <motion.div
+                key={destination.id}
+                className="flex flex-col bg-white shadow-lg overflow-hidden cursor-pointer"
+                onClick={() => goToDetail(destination)}
+                initial="hidden"
+                animate="visible"
+                custom={index}
+                variants={cardVariants}
+              >
+                <div
+                  className="h-48 bg-cover bg-center"
+                  style={{ backgroundImage: `url('${destination.image}')` }}
+                ></div>
+
+                <div className="flex flex-col flex-grow p-6">
+                  <h3 className="text-xl font-bold text-[#007654] mb-4">
+                    {destination.title}
+                  </h3>
+                  <p className="text-gray-700 text-sm mb-6 leading-relaxed">
+                    {shortDescription(destination.description, 20)}
+                  </p>
+
+                  <div className="flex items-center justify-between mt-auto">
+                    <Button
+                      className="bg-[#007654] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        goToDetail(destination)
+                      }}
+                    >
+                      {t("explore_button")}
+                    </Button>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         )}

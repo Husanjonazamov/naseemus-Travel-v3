@@ -6,7 +6,6 @@ import {
   Phone,
   BookOpen,
   User,
-  LogIn,
   Search,
   ChevronDown,
   Menu,
@@ -25,8 +24,10 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isTourOpen, setIsTourOpen] = useState(false);
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
 
   const languages = ["UZ", "RU", "EN"];
+  const workingDays = ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma"];
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -35,6 +36,7 @@ export function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleSearchDropdown = () => setIsSearchOpen(!isSearchOpen);
   const toggleTourDropdown = () => setIsTourOpen(!isTourOpen);
+  const toggleBrochureDropdown = () => setIsBrochureOpen(!isBrochureOpen);
 
   const selectLanguage = (lang: string) => {
     setIsLangOpen(false);
@@ -68,19 +70,43 @@ export function Header() {
           {/* Desktop actions */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:+998901234567"
+              href="tel:+998974241015"
               className="flex items-center gap-2 bg-green-500 px-3 py-1.5 rounded-md text-white font-semibold hover:bg-green-600 transition text-md"
             >
               <Phone className="h-5 w-5" />
-              +998 90 123 45 67
+              +998 97 424 10 15
             </a>
 
-            <button className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base">
-              <BookOpen className="h-5 w-5" /> {t("brochureRequest")}
-            </button>
+              <div className="relative">
+                <button
+                  onClick={toggleBrochureDropdown}
+                  className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base"
+                >
+                  <BookOpen className="h-5 w-5" /> {t("brochureRequest")}
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {isBrochureOpen && (
+                  <div className="absolute top-full mt-2 w-64 bg-white border border-gray-200 rounded-md shadow-lg z-50 p-3">
+                    <ul className="flex flex-col gap-2">
+                      {workingDays.map((day, idx) => (
+                        <li
+                          key={idx}
+                          className="flex justify-between items-center px-4 py-2 bg-green-100 text-green-800 rounded-md hover:bg-green-200 cursor-pointer font-medium shadow-sm"
+                        >
+                          <span>{day}</span>
+                          <span className="text-sm font-normal text-green-700">09:00 – 20:00</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+
             <button className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base">
               <User className="h-5 w-5" /> My Booking
             </button>
+
             <button
               onClick={toggleLangDropdown}
               className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base relative"
@@ -100,6 +126,7 @@ export function Header() {
                 </div>
               )}
             </button>
+
             <button
               onClick={toggleSearchDropdown}
               className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base relative"
@@ -116,7 +143,7 @@ export function Header() {
           {/* Mobile actions */}
           <div className="flex items-center gap-3 md:hidden">
             <a
-              href="tel:+998901234567"
+              href="tel:+998974241015"
               className="p-2 rounded-md hover:bg-green-600 transition"
             >
               <Phone className="h-6 w-6" />
@@ -151,26 +178,42 @@ export function Header() {
         {/* Mobile dropdown menu */}
         {isMenuOpen && (
           <div className="md:hidden bg-green-800 text-white flex flex-col gap-2 p-4">
-            <button
-              onClick={toggleTourDropdown}
-              className="flex items-center gap-2 px-2 py-2 hover:bg-green-600 rounded-md relative"
-            >
-              <BookOpen className="h-5 w-5" /> Brochures
-              {isTourOpen && (
-                <div className="absolute top-full left-0 mt-1 z-50">
-                  <TourDrop />
+            {/* Brochure dropdown mobile */}
+            <div className="relative">
+              <button
+                onClick={toggleBrochureDropdown}
+                className="flex items-center gap-2 px-2 py-2 hover:bg-green-600 rounded-md w-full"
+              >
+                <BookOpen className="h-5 w-5" /> Brochures
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              {isBrochureOpen && (
+                <div className="absolute top-full left-0 mt-1 bg-white text-black rounded-md shadow-lg z-50 w-full">
+                  <ul>
+                    {workingDays.map((day, idx) => (
+                      <li
+                        key={idx}
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                      >
+                        {day}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
-            </button>
+            </div>
+
             <button className="flex items-center gap-2 px-2 py-2 hover:bg-green-600 rounded-md">
               <User className="h-5 w-5" /> My Booking
             </button>
+
             <button
               onClick={toggleLangDropdown}
               className="flex items-center gap-2 px-2 py-2 hover:bg-green-600 rounded-md relative"
             >
               <Globe className="h-5 w-5" /> Language: {locale.toUpperCase()}
             </button>
+
             {isLangOpen && (
               <div className="bg-white text-black rounded-md shadow-md mt-1">
                 {languages.map((lang) => (
@@ -188,10 +231,9 @@ export function Header() {
         )}
       </div>
 
-
+      {/* Main navigation */}
       <nav className="bg-green-600 text-white">
         <div className="max-w-7xl mx-auto flex justify-center gap-4 py-2 px-2 text-sm font-semibold">
-          
           {/* Tours dropdown */}
           <button
             onClick={toggleTourDropdown}
@@ -228,10 +270,8 @@ export function Header() {
           >
             {t("contact_us")}
           </Link>
-
         </div>
       </nav>
-
     </header>
   );
 }

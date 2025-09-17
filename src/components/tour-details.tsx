@@ -199,11 +199,11 @@ export function TourDetails({ tour }: TourDetailsProps) {
                   maxLength={13} // +998XXXXXXXXX (13 ta belgidan oshmasin)
                   className="w-full px-4 py-2 border rounded-lg shadow-sm 
                     focus:ring-2 focus:ring-[#007654] focus:border-[#007654]"
-                  placeholder="+998 901234567"
+                  placeholder="+998974241015"
                   required
                 />
                 <p className="text-xs text-gray-500 mt-1">
-                  Format: +998901234567
+                  Format: +998974241015
                 </p>
               </div>
 
