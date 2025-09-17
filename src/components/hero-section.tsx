@@ -18,7 +18,10 @@ export function HeroSection() {
         const data = await res.json();
 
         if (data.status && data.data.results.length > 0) {
-          const images = data.data.results.map(item => item.image);
+          const images = data.data.results.map((item) => {
+            console.log("Rasm URL:", item.image); // << map ichida item mavjud
+            return item.image;
+          });
           setBannerImages(images);
         }
       } catch (error) {
@@ -28,6 +31,7 @@ export function HeroSection() {
 
     fetchBanner();
   }, []);
+
 
   useEffect(() => {
     if (bannerImages.length > 1) {
