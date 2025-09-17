@@ -12,9 +12,10 @@ import {
   X,
   Globe,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 import { SearchDropdown } from "./searchDrop";
 import { TourDrop } from "./Navbar/Navbar";
@@ -25,6 +26,7 @@ export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isTourOpen, setIsTourOpen] = useState(false);
   const [isBrochureOpen, setIsBrochureOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const languages = ["UZ", "RU", "EN"];
   const workingDays = ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma"];
@@ -47,11 +49,29 @@ export function Header() {
 
   const t = useTranslations("header");
 
+  // Scroll event
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="w-full">
+    <motion.header
+      className="w-full sticky top-0 z-50 bg-green-700 shadow-md"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       {/* Top bar */}
-      <div className="bg-green-700 text-white">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+      <div
+        className={`text-white transition-all duration-300 ${
+          scrolled ? "py-2 shadow-lg" : "py-4"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4">
           {/* Logo */}
           <Link
             href="/"
@@ -77,43 +97,48 @@ export function Header() {
               +998 97 424 10 15
             </a>
 
-              <div className="relative">
-                <button
-                  onClick={toggleBrochureDropdown}
-                  className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base"
-                >
-                  <BookOpen className="h-5 w-5" /> {t("brochureRequest")}
-                  <ChevronDown className="h-4 w-4" />
-                </button>
-                {isBrochureOpen && (
-                  <div className="absolute top-full mt-2 w-64 bg-white border border-gray-200 rounded-md shadow-lg z-50 p-3">
-                    <ul className="flex flex-col gap-2">
-                      {workingDays.map((day, idx) => (
-                        <li
-                          key={idx}
-                          className="flex justify-between items-center px-4 py-2 bg-green-100 text-green-800 rounded-md hover:bg-green-200 cursor-pointer font-medium shadow-sm"
-                        >
-                          <span>{day}</span>
-                          <span className="text-sm font-normal text-green-700">09:00 – 20:00</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-
+            {/* Brochure */}
+            <div className="relative">
+              <button
+                onClick={toggleBrochureDropdown}
+                className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base"
+              >
+                <BookOpen className="h-5 w-5" /> {t("brochureRequest")}
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              {isBrochureOpen && (
+                <div className="absolute top-full mt-2 w-64 bg-white border border-gray-200 rounded-md shadow-lg z-50 p-3">
+                  <ul className="flex flex-col gap-2">
+                    {workingDays.map((day, idx) => (
+                      <li
+                        key={idx}
+                        className="flex justify-between items-center px-4 py-2 bg-green-100 text-green-800 rounded-md hover:bg-green-200 cursor-pointer font-medium shadow-sm"
+                      >
+                        <span>{day}</span>
+                        <span className="text-sm font-normal text-green-700">
+                          09:00 – 20:00
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
 
             <button className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base">
               <User className="h-5 w-5" /> My Booking
             </button>
 
-            <button
-              onClick={toggleLangDropdown}
-              className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base relative"
-            >
-              <Globe className="h-5 w-5" /> {locale.toUpperCase()}
+            {/* Language */}
+            <div className="relative">
+              <button
+                onClick={toggleLangDropdown}
+                className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base"
+              >
+                <Globe className="h-5 w-5" /> {locale.toUpperCase()}
+              </button>
               {isLangOpen && (
-                <div className="absolute top-full mt-2 right-0 bg-white text-black rounded-md shadow-md">
+                <div className="absolute top-full mt-2 right-0 bg-white text-black rounded-md shadow-md z-50">
                   {languages.map((lang) => (
                     <button
                       key={lang}
@@ -125,19 +150,22 @@ export function Header() {
                   ))}
                 </div>
               )}
-            </button>
+            </div>
 
-            <button
-              onClick={toggleSearchDropdown}
-              className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base relative"
-            >
-              <Search className="h-5 w-5" /> Search
+            {/* Search */}
+            <div className="relative">
+              <button
+                onClick={toggleSearchDropdown}
+                className="flex items-center gap-2 border border-white px-4 py-2 rounded-md hover:bg-green-600 transition text-base"
+              >
+                <Search className="h-5 w-5" /> Search
+              </button>
               {isSearchOpen && (
                 <div className="absolute top-full right-0 mt-2 z-50">
                   <SearchDropdown />
                 </div>
               )}
-            </button>
+            </div>
           </div>
 
           {/* Mobile actions */}
@@ -165,11 +193,7 @@ export function Header() {
               onClick={toggleMenu}
               className="flex items-center gap-1 border border-white px-2 py-1 rounded-md hover:bg-green-600 transition"
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               Menu
             </button>
           </div>
@@ -177,7 +201,7 @@ export function Header() {
 
         {/* Mobile dropdown menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-green-800 text-white flex flex-col gap-2 p-4">
+          <div className="md:hidden bg-green-800 text-white flex flex-col gap-2 p-4 z-40">
             {/* Brochure dropdown mobile */}
             <div className="relative">
               <button
@@ -215,7 +239,7 @@ export function Header() {
             </button>
 
             {isLangOpen && (
-              <div className="bg-white text-black rounded-md shadow-md mt-1">
+              <div className="bg-white text-black rounded-md shadow-md mt-1 z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang}
@@ -232,38 +256,36 @@ export function Header() {
       </div>
 
       {/* Main navigation */}
-      <nav className="bg-green-600 text-white">
-        <div className="max-w-7xl mx-auto flex justify-center gap-4 py-2 px-2 text-sm font-semibold">
+      <nav className="bg-green-600 text-white sticky top-[calc(80px)] z-40">
+        <div className="max-w-7xl mx-auto flex justify-center gap-2 py-2 px-2 text-sm font-semibold">
           {/* Tours dropdown */}
-          <button
-            onClick={toggleTourDropdown}
-            className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap relative"
-          >
-            {t("tours")}
+          <div className="relative">
+            <button
+              onClick={toggleTourDropdown}
+              className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap"
+            >
+              {t("tours")}
+            </button>
             {isTourOpen && (
               <div className="absolute top-full left-0 mt-1 z-50">
                 <TourDrop />
               </div>
             )}
-          </button>
+          </div>
 
-          {/* Sanatories */}
+          {/* Other links */}
           <Link
             href="/sanatory"
             className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap"
           >
             {t("sanatories")}
           </Link>
-
-          {/* Blog */}
           <Link
             href="/blog"
             className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap"
           >
             {t("blog")}
           </Link>
-
-          {/* Contact Us */}
           <Link
             href="/contact"
             className="flex items-center justify-center gap-1 px-3 py-1 rounded-md hover:bg-green-700 transition whitespace-nowrap"
@@ -272,6 +294,6 @@ export function Header() {
           </Link>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }

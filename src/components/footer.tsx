@@ -47,17 +47,17 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-6">{t("customer_support.contact_us")}</h3>
             <div className="space-y-4">
-              <p className="text-gray-700">{t("contact.phone")}</p>
-              <p className="text-gray-700">{t("contact.email")}</p>
+              <p className="text-gray-700">+998 97 424 10 15</p>
+              <p className="text-gray-700">naseemus@gmail.com</p>
             </div>
 
             <div className="mt-8">
               <h4 className="text-lg font-semibold text-gray-900 mb-4">{t("customer_support.follow_us")}</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-600 hover:text-[#007654] transition-colors">
+                <a  href="https://www.facebook.com/nasimjonkodirov/" target="_blank" className="text-gray-600 hover:text-[#007654] transition-colors">
                   <Facebook className="h-6 w-6" />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-[#007654] transition-colors">
+                <a href="https://www.instagram.com/reel/DMhqbiiqAmn/" target="_blank" className="text-gray-600 hover:text-[#007654] transition-colors">
                   <Instagram className="h-6 w-6" />
                 </a>
               </div>
