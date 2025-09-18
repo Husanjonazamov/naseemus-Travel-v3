@@ -16,6 +16,8 @@ import { PopularDestinations } from "@/src/components/popular-destinations"
 import { Footer } from "@/src/components/footer"
 import { TourOverview } from "@/src/components/tour-overview"
 import { Itinerary } from "@/src/components/itenerary"
+import TabsHotel from "@/src/components/TabsHotel"
+import SearchTours from "@/src/components/SearchTours"
 
 
 export default function HomePage() {
@@ -24,6 +26,7 @@ export default function HomePage() {
       <Header />
       <TrustBadges />
       <HeroSection />
+      <SearchTours />
       <ContentSection />
       <LastMinuteHolidays />
       <ServicesSection />

@@ -1,4 +1,32 @@
 {
+
+   "searchPage": {
+
+    "from": "From",
+  "noResults": "Nothing found",
+  "to": "To",
+  "departureDate": "Departure date",
+  "exit": "Exit",
+  "cancel": "Cancel",
+  "apply": "Apply",
+  "tourists": "Tourists",
+  "adults": "Adults",
+  "adultsHint": "older than 13 years",
+  "children": "Children",
+  "childrenHint": "under 13 years",
+
+
+     "offerOfDay": "Deal of the day: only today!",
+  "bestDirections": "Best destinations at the most affordable prices",
+    "seePrices": "See prices",
+    "tours": "Tours",
+    "hotels": "Hotels",
+    "tashkent": "Tashkent",
+    "countryResort": "Country, resort",
+    "when": "When",
+    "twoAdults": "2 Adults",
+    "searchTours": "Search tours"
+    },
   "working_hours": {
       "working_hours_title": "Working Hours",
 

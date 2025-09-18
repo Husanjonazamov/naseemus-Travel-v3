@@ -267,7 +267,7 @@ export function Header() {
               {t("tours")}
             </button>
             {isTourOpen && (
-              <div className="absolute top-full left-0 mt-1 z-50">
+              <div className="absolute top-full left-0 mt-1 z-50 w-2xl">
                 <TourDrop />
               </div>
             )}

@@ -1,4 +1,29 @@
 {
+  "searchPage": {
+     "from": "Qayerdan",
+    "noResults": "Hech narsa topilmadi",
+    "to": "Qayerga",
+    "departureDate": "Jo‘nash sanasi",
+    "exit": "Chiqish",
+    "cancel": "Bekor qilish",
+    "apply": "Qo‘llash",
+    "tourists": "Sayyohlar",
+    "adults": "Kattalar",
+    "adultsHint": "13 yoshdan katta",
+    "children": "Bolalar",
+    "childrenHint": "13 yoshgacha",
+    "offerOfDay": "Kun taklifi: faqat bugun!",
+    "bestDirections": "Eng yaxshi yo'nalishlar eng qulay narxlarda",
+    "seePrices": "Narxlarni ko‘rish",
+    "tours": "Turlar",
+    "hotels": "Hotel",
+    "tashkent": "Toshkent",
+    "countryResort": "Mamlakat, kurort",
+    "when": "Qachon",
+    "twoAdults": "2 kattalar",
+    "searchTours": "Turlarni qidirish"
+  },
+
   "working_hours": {
       "working_hours_title": "Ish vaqti",
 
