@@ -1,4 +1,21 @@
 {
+  "hotel": {
+     "directions": "Directions",
+  "placeholder_city": "Country, city",
+  "start_date": "Departure Date",
+  "when": "When",
+  "departure": "Departure",
+  "tourists": "Tourists",
+  "adults": "Adults",
+  "children": "Children",
+  "adults_info": "older than 13",
+  "children_info": "up to 13",
+  "cancel": "Cancel",
+  "apply": "Apply",
+  "search_tours": "Search Tours",
+  "no_results": "No results found",
+  "start_search": "Start searching"
+  },
 
    "searchPage": {
 

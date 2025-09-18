@@ -1,5 +1,7 @@
+'use client';
+
 import Link from 'next/link';
-import { formatDate } from 'date-fns';
+import { format } from 'date-fns';
 import Button from '@mui/material/Button';
 import { Calendar } from './ui/calendar';
 import { Input } from './ui/input';
@@ -23,14 +25,14 @@ interface Props {
 }
 
 const TabsHotelMobile = ({ active }: Props) => {
-  const t = useTranslations();
+  const t = useTranslations('hotel');
+
   const [openCityMobile, setOpenCityMobile] = useState(false);
   const [ageOpen, setAgeOpen] = useState(false);
   const [dataOpenMobile, setDataOpenMobile] = useState(false);
   const [selectAge, setSelectAge] = useState<number>(0);
   const [search, setSearch] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
-  const [searchWhere, setSearchWhere] = useState('');
   const [fromDate, setFromDate] = useState<Date | undefined>();
   const [toDate, setToDate] = useState<Date | undefined>();
   const [selectData, setSelectData] = useState<string>();
@@ -40,32 +42,34 @@ const TabsHotelMobile = ({ active }: Props) => {
 
   const cities = ['Самарканд', 'Бухара', 'Наваи', 'Бишкек', 'Казан', 'Астана'];
   const filteredCities = cities.filter((c) =>
-    c.toLowerCase().includes(search.toLowerCase()),
+    c.toLowerCase().includes(search.toLowerCase())
   );
 
-  const filteredCitiesWhere = cities.filter((c) =>
-    c.toLowerCase().includes(searchWhere.toLowerCase()),
-  );
+  const formatDateString = (date?: Date) =>
+    date ? format(date, 'dd/MM/yyyy') : '';
 
   return (
     <>
       {active === 'hotel' && (
         <div className="mt-20 bg-white shadow-sm py-4 gap-4 w-full rounded-3xl grid grid-cols-1 items-center px-10 min-lg:hidden font-medium">
+
+          {/* City Selection */}
           <div className="relative flex gap-2 h-full">
             <div
               onClick={() => setOpenCityMobile(!openCityMobile)}
               className="cursor-pointer flex flex-col w-full gap-2"
             >
-              <Label className="font-semibold text-md ">Направления</Label>
+              <Label className="font-semibold text-md">{t('directions')}</Label>
               <div className="relative w-full">
                 <Input
                   className="h-[60px] w-full text-md placeholder:text-md"
-                  placeholder="Страна, город"
+                  placeholder={t('placeholder_city')}
                   value={selectedCity}
                   readOnly
                 />
               </div>
             </div>
+
             <Drawer
               anchor="bottom"
               open={openCityMobile}
@@ -83,10 +87,10 @@ const TabsHotelMobile = ({ active }: Props) => {
             >
               <div className="flex flex-col gap-4 w-full font-medium">
                 <div className="flex items-center justify-between">
-                  <p className="text-lg font-semibold">d</p>
+                  <p className="text-lg font-semibold">{t('directions')}</p>
                   <Button
-                    variant={'outline'}
-                    className="rounded-full h-[40px] w-[40px] cursor-pointer"
+                    variant="outlined"
+                    className="rounded-full h-[40px] w-[40px]"
                     onClick={() => setOpenCityMobile(false)}
                   >
                     <CloseIcon sx={{ color: 'black' }} />
@@ -94,7 +98,7 @@ const TabsHotelMobile = ({ active }: Props) => {
                 </div>
                 <div className="relative">
                   <Input
-                    placeholder="Начните искать"
+                    placeholder={t('start_search')}
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="w-full pl-12 text-black h-[60px]"
@@ -129,25 +133,24 @@ const TabsHotelMobile = ({ active }: Props) => {
                       </div>
                     ))
                   ) : (
-                    <div className="p-2 text-black">Hech narsa topilmadi</div>
+                    <div className="p-2 text-black">{t('no_results')}</div>
                   )}
                 </div>
               </div>
             </Drawer>
           </div>
 
+          {/* Date Selection */}
           <div className="relative flex gap-2 h-full">
             <div
-              onClick={() => {
-                setDataOpenMobile(!dataOpenMobile);
-              }}
+              onClick={() => setDataOpenMobile(!dataOpenMobile)}
               className="cursor-pointer flex flex-col gap-2 w-full"
             >
-              <Label className="font-semibold text-md">Дата отправления</Label>
+              <Label className="font-semibold text-md">{t('departure_date')}</Label>
               <div className="relative">
                 <Input
                   className="h-[60px] text-md placeholder:text-md"
-                  placeholder="Когда"
+                  placeholder={t('when')}
                   value={selectData}
                   readOnly
                 />
@@ -163,13 +166,14 @@ const TabsHotelMobile = ({ active }: Props) => {
                 />
               </div>
             </div>
+
             <Drawer
               anchor="bottom"
               open={dataOpenMobile}
               onClose={() => {
-                setDataOpenMobile(false),
-                  setFromDate(undefined),
-                  setToDate(undefined);
+                setDataOpenMobile(false);
+                setFromDate(undefined);
+                setToDate(undefined);
               }}
               PaperProps={{
                 sx: {
@@ -184,12 +188,10 @@ const TabsHotelMobile = ({ active }: Props) => {
             >
               <div className="flex flex-col gap-4 w-full font-medium">
                 <div className="flex items-center justify-between">
-                  <p className="text-lg font-semibold">
-                    {t('Дата отправления')}
-                  </p>
+                  <p className="text-lg font-semibold">{t('departure_date')}</p>
                   <Button
-                    variant={'outline'}
-                    className="rounded-full h-[40px] w-[40px] cursor-pointer"
+                    variant="outlined"
+                    className="rounded-full h-[40px] w-[40px]"
                     onClick={() => setDataOpenMobile(false)}
                   >
                     <CloseIcon sx={{ color: 'black' }} />
@@ -197,15 +199,10 @@ const TabsHotelMobile = ({ active }: Props) => {
                 </div>
                 <div className="flex flex-row gap-2">
                   <Input
-                    placeholder="Когда"
-                    value={
-                      fromDate ? formatDate.format(fromDate, 'DD/MM/YYYY') : ''
-                    }
+                    placeholder={t('when')}
+                    value={fromDate ? formatDateString(fromDate) : ''}
                     readOnly
-                    className={clsx(
-                      'w-full text-black h-[50px]',
-                      !fromDate && 'border border-red-600',
-                    )}
+                    className={clsx('w-full text-black h-[50px]')}
                     onClick={(e) => e.stopPropagation()}
                     onFocus={(e) => e.stopPropagation()}
                   />
@@ -215,118 +212,63 @@ const TabsHotelMobile = ({ active }: Props) => {
                     className="self-center mx-2"
                   />
                   <Input
-                    placeholder="Выезд"
-                    value={
-                      toDate ? formatDate.format(toDate, 'DD/MM/YYYY') : ''
-                    }
+                    placeholder={t('departure')}
+                    value={toDate ? formatDateString(toDate) : ''}
                     disabled={!fromDate}
                     readOnly
-                    className={clsx(
-                      'w-full text-black h-[50px]',
-                      fromDate && 'border border-red-600',
-                    )}
+                    className={clsx('w-full text-black h-[50px]')}
                     onClick={(e) => e.stopPropagation()}
                     onFocus={(e) => e.stopPropagation()}
                   />
                 </div>
-                <div className="grid grid-cols-1">
-                  {/* <Calendar
-                    mode="single"
-                    className="w-full max-sm:hidden"
-                    selected={fromDate}
-                    onSelect={setFromDate}
-                    disabled={(date: Date) => {
-                      const today = new Date();
-                      today.setHours(0, 0, 0, 0);
-                      return date < today;
-                    }}
-                  />
-                  <Calendar
-                    mode="single"
-                    className="w-full max-sm:hidden"
-                    selected={toDate}
-                    onSelect={setToDate}
-                    disabled={(date: Date) => {
-                      if (!fromDate) return true;
-                      return date <= fromDate;
-                    }}
-                  />
-                  {!fromDate && (
-                    <Calendar
-                      mode="single"
-                      className="w-full min-sm:hidden"
-                      selected={fromDate}
-                      onSelect={setFromDate}
-                      disabled={(date: Date) => {
-                        const today = new Date();
-                        today.setHours(0, 0, 0, 0);
-                        return date < today;
-                      }}
-                    />
-                  )}
-                  {fromDate && (
-                    <Calendar
-                      mode="single"
-                      className="w-full min-sm:hidden"
-                      selected={toDate}
-                      onSelect={setToDate}
-                      disabled={(date: Date) => {
-                        if (!fromDate) return true;
-                        return date <= fromDate;
-                      }}
-                    />
-                  )} */}
-                  <Calendar
-                    className="w-full"
-                    mode="range"
-                    selected={range}
-                    onSelect={(val) => {
-                      setRange(val);
-                      setFromDate(val?.from);
-                      setToDate(val?.to);
-                    }}
-                    showOutsideDays={false}
-                    numberOfMonths={1}
-                  />
-                </div>
+
+                <Calendar
+                  className="w-full"
+                  mode="range"
+                  selected={range}
+                  onSelect={(val) => {
+                    setRange(val);
+                    setFromDate(val?.from);
+                    setToDate(val?.to);
+                  }}
+                  showOutsideDays={false}
+                  numberOfMonths={1}
+                />
+
                 <div className="grid grid-cols-1 mt-5 gap-2">
                   <button
                     className="bg-green-600 rounded-3xl p-3 text-white"
                     onClick={() => {
                       setDataOpenMobile(false);
-                      setFromDate(undefined);
-                      setToDate(undefined);
                       if (fromDate && toDate) {
-                        setSelectData(
-                          `${formatDate.format(fromDate, 'DD/MM/YYYY')} - ${formatDate.format(toDate, 'DD/MM/YYYY')}`,
-                        );
-                      } else {
-                        setSelectData('');
-                      }
+                        setSelectData(`${formatDateString(fromDate)} - ${formatDateString(toDate)}`);
+                      } else setSelectData('');
                     }}
                   >
-                    Применять
+                    {t('apply')}
                   </button>
                 </div>
               </div>
             </Drawer>
           </div>
 
+          {/* Tourists Selection */}
           <div className="relative flex gap-2 h-full">
             <div
               onClick={() => setAgeOpen(!ageOpen)}
               className="cursor-pointer flex flex-col w-full gap-2"
             >
-              <Label className="font-semibold text-md">Туристы</Label>
+              <Label className="font-semibold text-md">{t('tourists')}</Label>
               <div className="relative">
                 <Input
                   value={selectAge === 0 ? '' : selectAge}
                   className="h-[60px] text-md placeholder:text-md"
-                  placeholder="2 Вызрослых"
+                  placeholder={t('adults_default')}
                   readOnly
                 />
               </div>
             </div>
+
             <Drawer
               anchor="bottom"
               open={ageOpen}
@@ -344,97 +286,76 @@ const TabsHotelMobile = ({ active }: Props) => {
             >
               <div className="flex flex-col gap-4 w-full h-full font-medium">
                 <div className="flex items-center justify-between">
-                  <p className="text-lg font-semibold">{t('Туристы')}</p>
+                  <p className="text-lg font-semibold">{t('tourists')}</p>
                   <Button
-                    variant={'outline'}
-                    className="rounded-full h-[40px] w-[40px] cursor-pointer"
+                    variant="outlined"
+                    className="rounded-full h-[40px] w-[40px]"
                     onClick={() => setAgeOpen(false)}
                   >
                     <CloseIcon sx={{ color: 'black' }} />
                   </Button>
                 </div>
+
+                {/* Adults */}
                 <div className="flex justify-between">
                   <Label className="flex flex-col gap-0 items-start">
-                    <p className="font-semibold text-lg">2 Вызрослых</p>
-                    <p className="text-ring text-sm">старше 13 лет</p>
+                    <p className="font-semibold text-lg">{t('adults')}</p>
+                    <p className="text-ring text-sm">{t('adults_info')}</p>
                   </Label>
                   <div className="grid grid-cols-3 border justify-center items-center rounded-lg w-48">
-                    <Button
-                      variant={'ghost'}
-                      className="h-full rounded-tl-lg rounded-bl-lg rounded-br-none rounded-tr-none"
-                      onClick={() =>
-                        setAdults((prev) => (prev > 0 ? prev - 1 : prev))
-                      }
-                    >
+                    <Button variant="ghost" onClick={() => setAdults(prev => Math.max(prev - 1, 0))}>
                       <RemoveIcon className="text-green-600" />
                     </Button>
-                    <Button
-                      variant={'ghost'}
-                      className="rounded-none border-r-2 h-full border-l-2 text-lg"
-                    >
+                    <Button variant="ghost" className="rounded-none border-r-2 h-full border-l-2 text-lg">
                       {adults}
                     </Button>
-                    <Button
-                      variant={'ghost'}
-                      className="h-full rounded-tl-none rounded-bl-none rounded-br-lg rounded-tr-lg"
-                      onClick={() =>
-                        setAdults((prev) => (prev === 2 ? prev : prev + 1))
-                      }
-                    >
+                    <Button variant="ghost" onClick={() => setAdults(prev => prev + 1)}>
                       <AddIcon className="text-green-600" />
                     </Button>
                   </div>
                 </div>
+
+                {/* Children */}
                 <div className="flex justify-between mt-2">
                   <Label className="flex flex-col gap-0 items-start">
-                    <p className="font-semibold text-lg">Дети</p>
-                    <p className="text-ring text-sm">до 13 лет</p>
+                    <p className="font-semibold text-lg">{t('children')}</p>
+                    <p className="text-ring text-sm">{t('children_info')}</p>
                   </Label>
                   <div className="grid grid-cols-3 border justify-center items-center rounded-lg w-48">
-                    <Button
-                      variant={'ghost'}
-                      className="h-full rounded-tl-lg rounded-bl-lg rounded-br-none rounded-tr-none"
-                      onClick={() =>
-                        setChildren((prev) => (prev > 0 ? prev - 1 : prev))
-                      }
-                    >
+                    <Button variant="ghost" onClick={() => setChildren(prev => Math.max(prev - 1, 0))}>
                       <RemoveIcon className="text-green-600" />
                     </Button>
-                    <Button
-                      variant={'ghost'}
-                      className="rounded-none border-r-2 h-full border-l-2 text-lg"
-                    >
+                    <Button variant="ghost" className="rounded-none border-r-2 h-full border-l-2 text-lg">
                       {children}
                     </Button>
-                    <Button
-                      variant={'ghost'}
-                      className="h-full rounded-tl-none rounded-bl-none rounded-br-lg rounded-tr-lg"
-                      onClick={() => setChildren((prev) => prev + 1)}
-                    >
+                    <Button variant="ghost" onClick={() => setChildren(prev => prev + 1)}>
                       <AddIcon className="text-green-600" />
                     </Button>
                   </div>
                 </div>
-              </div>
-              <div className="mt-auto grid grid-cols-1 gap-2">
-                <button
-                  className="bg-green-600 rounded-3xl p-3 text-white cursor-pointer"
-                  onClick={() => {
-                    setSelectAge(adults + children);
-                    setAgeOpen(false);
-                  }}
-                >
-                  Применять
-                </button>
+
+                <div className="mt-auto grid grid-cols-1 gap-2">
+                  <button
+                    className="bg-green-600 rounded-3xl p-3 text-white cursor-pointer"
+                    onClick={() => {
+                      setSelectAge(adults + children);
+                      setAgeOpen(false);
+                    }}
+                  >
+                    {t('apply')}
+                  </button>
+                </div>
               </div>
             </Drawer>
           </div>
+
+          {/* Search Button */}
           <div className="flex flex-col gap-2">
             <Link
               href={'#'}
               className="bg-green-600 text-white h-[60px] flex items-center justify-center rounded-4xl text-center"
             >
-              <p>Искать туры</p>
+              <p>{t('search_tours')}</p>
             </Link>
           </div>
         </div>

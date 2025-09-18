@@ -30,7 +30,7 @@ const SearchTours = () => {
               {t("bestDirections")}
             </p>
             <Link
-              href={'#'}
+              href={'#newTour'}
               className="bg-white mt-4 text-black flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 shadow-sm rounded-3xl w-fit text-sm md:text-base font-medium"
             >
               <span>{t("seePrices")}</span>

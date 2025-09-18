@@ -1,4 +1,21 @@
 {
+  "hotel": {
+    "directions": "Направления",
+  "placeholder_city": "Страна, город",
+  "start_date": "Дата отправления",
+  "when": "Когда",
+  "departure": "Выезд",
+  "tourists": "Туристы",
+  "adults": "Взрослых",
+  "children": "Дети",
+  "adults_info": "старше 13 лет",
+  "children_info": "до 13 лет",
+  "cancel": "Отмена",
+  "apply": "Применять",
+  "search_tours": "Искать туры",
+  "no_results": "Ничего не найдено",
+  "start_search": "Начните искать"
+  },
 
 
    "searchPage": {

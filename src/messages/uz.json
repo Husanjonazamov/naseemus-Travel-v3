@@ -1,4 +1,21 @@
 {
+  "hotel": {
+    "directions": "Yo'nalishlar",
+  "placeholder_city": "Davlat, shahar",
+  "start_date": "Jo'nash sanasi",
+  "when": "Qachon",
+  "departure": "Ketish",
+  "tourists": "Sayohatchilar",
+  "adults": "Kattalar",
+  "children": "Bolalar",
+  "adults_info": "13 yoshdan katta",
+  "children_info": "13 yoshgacha",
+  "cancel": "Bekor qilish",
+  "apply": "Qo'llash",
+  "search_tours": "Sayohatlarni qidirish",
+  "no_results": "Hech narsa topilmadi",
+  "start_search": "Qidirishni boshlang"
+  },
   "searchPage": {
      "from": "Qayerdan",
     "noResults": "Hech narsa topilmadi",

@@ -106,7 +106,7 @@ export function ContentSection() {
   }
 
   return (
-    <section className="py-16 px-4 bg-gray-50 mb-20">
+    <section className="py-16 px-4 bg-gray-50 mb-20" id="tour">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-extrabold text-center text-[#007654] mb-10">
           {t("title")}
