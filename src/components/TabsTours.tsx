@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { formatDate } from 'date-fns';
+import { format as formatDate } from 'date-fns';
 import Button from '@mui/material/Button';
 import { Calendar } from './ui/calendar';
 import { Input } from './ui/input';
@@ -14,9 +14,14 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import RemoveIcon from '@mui/icons-material/Remove';
 import SearchIcon from '@mui/icons-material/Search';
 import { useTranslations } from 'next-intl';
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DateRange } from 'react-day-picker';
+import config from '../config';
+
+interface City {
+  title: string;
+  slug: string;
+}
 
 interface Props {
   active: 'tours' | 'hotel';
@@ -40,24 +45,52 @@ const TabsTours = ({ active }: Props) => {
   const selectAge = adults + children;
   const [range, setRange] = useState<DateRange | undefined>();
 
+  const [cities, setCities] = useState<City[]>([]);
+  const [filteredCities, setFilteredCities] = useState<City[]>([]);
+  const [filteredCitiesWhere, setFilteredCitiesWhere] = useState<City[]>([]);
 
-  const cities = ['Самарканд', 'Бухара', 'Наваи', 'Бишкек', 'Казан', 'Астана'];
-  const filteredCities = cities.filter((c) =>
-    c.toLowerCase().includes(search.toLowerCase()),
-  );
+  useEffect(() => {
+    fetch(`${config.BASE_URL}/api/tour/`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.status && data.data.results) {
+          const cityData = data.data.results.map((tour: any) => ({
+            title: tour.title,
+            slug: tour.slug
+          }));
+          setCities(cityData);
+        }
+      })
+      .catch(err => console.error(err));
+  }, []);
 
-  const filteredCitiesWhere = cities.filter((c) =>
-    c.toLowerCase().includes(searchWhere.toLowerCase()),
-  );
+  // Search bilan filter qilish (From)
+  useEffect(() => {
+    const filtered = cities.filter(c =>
+      c.title.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredCities(filtered);
+  }, [search, cities]);
+
+  // Search bilan filter qilish (To)
+  useEffect(() => {
+    const filtered = cities.filter(c =>
+      c.title.toLowerCase().includes(searchWhere.toLowerCase())
+    );
+    setFilteredCitiesWhere(filtered);
+  }, [searchWhere, cities]);
 
   return (
     <>
       {active === 'tours' && (
         <div className="mt-10 bg-white shadow-sm py-4 gap-4 w-full max-w-[1200px] rounded-2xl grid grid-cols-5 items-center px-10 max-lg:hidden font-medium">
+          
+          {/* FROM CITY */}
           <div className="relative gap-2 h-full ">
             <div
               onClick={() => {
-                setOpenCity(!openCity), setSearch('');
+                setOpenCity(!openCity);
+                setSearch('');
               }}
               className="cursor-pointer flex flex-col gap-2"
             >
@@ -82,12 +115,7 @@ const TabsTours = ({ active }: Props) => {
               </div>
             </div>
 
-            {openCity && (
-              <div
-                className="fixed inset-0 z-40 "
-                onClick={() => setOpenCity(false)}
-              />
-            )}
+            {openCity && <div className="fixed inset-0 z-40" onClick={() => setOpenCity(false)} />}
 
             {openCity && (
               <ArrowDropUpOutlinedIcon
@@ -115,23 +143,21 @@ const TabsTours = ({ active }: Props) => {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="w-full pl-10 text-black"
-                    onClick={(e) => e.stopPropagation()}
-                    onFocus={(e) => e.stopPropagation()}
                   />
                 </div>
 
                 {filteredCities.length > 0 ? (
-                  filteredCities.map((cityName) => (
+                  filteredCities.map((city) => (
                     <div
-                      key={cityName}
+                      key={city.slug}
                       className="p-2 hover:bg-gray-200 rounded-lg text-black items-center cursor-pointer flex justify-between"
                       onClick={() => {
-                        setSelectedCity(cityName);
+                        setSelectedCity(city.title);
                         setOpenCity(false);
                       }}
                     >
-                      {cityName}
-                      {cityName === selectedCity && (
+                      {city.title}
+                      {city.title === selectedCity && (
                         <DoneIcon sx={{ width: '14px', height: '14px' }} />
                       )}
                     </div>
@@ -143,10 +169,12 @@ const TabsTours = ({ active }: Props) => {
             )}
           </div>
 
+          {/* TO CITY */}
           <div className="relative gap-2 h-full ">
             <div
               onClick={() => {
-                setWhere(!where), setSearchWhere('');
+                setWhere(!where);
+                setSearchWhere('');
               }}
               className="cursor-pointer flex flex-col gap-2"
             >
@@ -171,6 +199,8 @@ const TabsTours = ({ active }: Props) => {
               </div>
             </div>
 
+            {where && <div className="fixed inset-0 z-40 " onClick={() => setWhere(false)} />}
+
             {where && (
               <ArrowDropUpOutlinedIcon
                 sx={{
@@ -187,13 +217,6 @@ const TabsTours = ({ active }: Props) => {
 
             {where && (
               <div
-                className="fixed inset-0 z-40 "
-                onClick={() => setWhere(false)}
-              />
-            )}
-
-            {where && (
-              <div
                 className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-white w-60 z-50 p-2"
                 onClick={(e) => e.stopPropagation()}
               >
@@ -204,35 +227,32 @@ const TabsTours = ({ active }: Props) => {
                     value={searchWhere}
                     onChange={(e) => setSearchWhere(e.target.value)}
                     className="w-full pl-10 text-black"
-                    onClick={(e) => e.stopPropagation()}
-                    onFocus={(e) => e.stopPropagation()}
                   />
                 </div>
 
                 {filteredCitiesWhere.length > 0 ? (
-                  filteredCitiesWhere.map((cityName) => (
+                  filteredCitiesWhere.map((city) => (
                     <div
-                      key={cityName}
+                      key={city.slug}
                       className="p-2 hover:bg-gray-200 rounded-lg text-black items-center cursor-pointer flex justify-between"
                       onClick={() => {
-                        setSelectedWhere(cityName);
+                        setSelectedWhere(city.title);
                         setWhere(false);
                       }}
                     >
-                      {cityName}
-                      {cityName === selectedWhere && (
+                      {city.title}
+                      {city.title === selectedWhere && (
                         <DoneIcon sx={{ width: '14px', height: '14px' }} />
                       )}
                     </div>
                   ))
                 ) : (
-                  <div className="p-2 text-black">{t("noResults")}i</div>
+                  <div className="p-2 text-black">{t("noResults")}</div>
                 )}
               </div>
             )}
           </div>
-
-          <div className="relative gap-2 h-full ">
+<div className="relative gap-2 h-full ">
             <div
               onClick={() => {
                 setDataOpen(!dataOpen);

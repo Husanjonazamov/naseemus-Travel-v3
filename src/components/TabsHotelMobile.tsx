@@ -17,8 +17,15 @@ import Drawer from '@mui/material/Drawer';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DateRange } from 'react-day-picker';
+import config from '../config';
+
+
+interface City {
+  title: string;
+  slug: string;
+}
 
 interface Props {
   active: 'tours' | 'hotel';
@@ -39,14 +46,48 @@ const TabsHotelMobile = ({ active }: Props) => {
   const [adults, setAdults] = useState<number>(0);
   const [children, setChildren] = useState<number>(0);
   const [range, setRange] = useState<DateRange | undefined>();
+  const [searchWhere, setSearchWhere] = useState('');
 
-  const cities = ['Самарканд', 'Бухара', 'Наваи', 'Бишкек', 'Казан', 'Астана'];
-  const filteredCities = cities.filter((c) =>
-    c.toLowerCase().includes(search.toLowerCase())
-  );
+
 
   const formatDateString = (date?: Date) =>
-    date ? format(date, 'dd/MM/yyyy') : '';
+  date ? format(date, 'dd/MM/yyyy') : '';
+
+
+  const [cities, setCities] = useState<City[]>([]);
+  const [filteredCities, setFilteredCities] = useState<City[]>([]);
+  const [filteredCitiesWhere, setFilteredCitiesWhere] = useState<City[]>([]);
+
+  useEffect(() => {
+    fetch(`${config.BASE_URL}/api/hotel/`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.status && data.data.results) {
+          const cityData = data.data.results.map((tour: any) => ({
+            title: tour.title,
+            slug: tour.slug
+          }));
+          setCities(cityData);
+        }
+      })
+      .catch(err => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    const filtered = cities.filter(c =>
+      c.title.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredCities(filtered);
+  }, [search, cities]);
+
+  useEffect(() => {
+    const filtered = cities.filter(c =>
+      c.title.toLowerCase().includes(searchWhere.toLowerCase())
+    );
+    setFilteredCitiesWhere(filtered);
+  }, [searchWhere, cities]);
+
+
 
   return (
     <>
@@ -117,17 +158,17 @@ const TabsHotelMobile = ({ active }: Props) => {
                 </div>
                 <div className="flex flex-col gap-2 overflow-y-auto max-h-[60vh]">
                   {filteredCities.length > 0 ? (
-                    filteredCities.map((cityName) => (
+                    filteredCities.map((city) => (
                       <div
-                        key={cityName}
+                        key={city.slug}
                         className="p-2 hover:bg-gray-200 rounded-lg text-black items-center cursor-pointer flex justify-between"
                         onClick={() => {
-                          setSelectedCity(cityName);
+                          setSelectedCity(city.title);
                           setOpenCityMobile(false);
                         }}
                       >
-                        {cityName}
-                        {cityName === selectedCity && (
+                        {city.title}
+                        {city.title === selectedCity && (
                           <DoneIcon sx={{ width: '14px', height: '14px' }} />
                         )}
                       </div>
@@ -146,7 +187,7 @@ const TabsHotelMobile = ({ active }: Props) => {
               onClick={() => setDataOpenMobile(!dataOpenMobile)}
               className="cursor-pointer flex flex-col gap-2 w-full"
             >
-              <Label className="font-semibold text-md">{t('departure_date')}</Label>
+              <Label className="font-semibold text-md">{t('departureDate')}</Label>
               <div className="relative">
                 <Input
                   className="h-[60px] text-md placeholder:text-md"
@@ -188,7 +229,7 @@ const TabsHotelMobile = ({ active }: Props) => {
             >
               <div className="flex flex-col gap-4 w-full font-medium">
                 <div className="flex items-center justify-between">
-                  <p className="text-lg font-semibold">{t('departure_date')}</p>
+                  <p className="text-lg font-semibold">{t('departureDate')}</p>
                   <Button
                     variant="outlined"
                     className="rounded-full h-[40px] w-[40px]"
@@ -263,7 +304,7 @@ const TabsHotelMobile = ({ active }: Props) => {
                 <Input
                   value={selectAge === 0 ? '' : selectAge}
                   className="h-[60px] text-md placeholder:text-md"
-                  placeholder={t('adults_default')}
+                  placeholder={t('adultsHint')}
                   readOnly
                 />
               </div>

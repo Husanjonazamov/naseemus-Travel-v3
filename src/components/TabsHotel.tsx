@@ -15,12 +15,20 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import SearchIcon from '@mui/icons-material/Search';
 import { useTranslations } from 'next-intl';
 
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import { DateRange } from 'react-day-picker';
+import config from '../config';
 
 interface Props {
   active: 'tours' | 'hotel';
 }
+
+interface City {
+  title: string;
+  slug: string;
+}
+
 
 const TabsHotel = ({ active }: Props) => {
   const t = useTranslations("hotel");
@@ -36,14 +44,45 @@ const TabsHotel = ({ active }: Props) => {
   const [children, setChildren] = useState<number>(0);
   const selectAge = adults + children;
   const [range, setRange] = useState<DateRange | undefined>();
-
-  const cities = ['Самарканд', 'Бухара', 'Наваи', 'Бишкек', 'Казан', 'Астана'];
-  const filteredCities = cities.filter((c) =>
-    c.toLowerCase().includes(search.toLowerCase())
-  );
+  const [searchWhere, setSearchWhere] = useState('');
 
   const formatDateString = (date?: Date) =>
     date ? format(date, 'dd/MM/yyyy') : '';
+
+
+  const [cities, setCities] = useState<City[]>([]);
+  const [filteredCities, setFilteredCities] = useState<City[]>([]);
+  const [filteredCitiesWhere, setFilteredCitiesWhere] = useState<City[]>([]);
+
+  useEffect(() => {
+    fetch(`${config.BASE_URL}/api/hotel/`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.status && data.data.results) {
+          const cityData = data.data.results.map((tour: any) => ({
+            title: tour.title,
+            slug: tour.slug
+          }));
+          setCities(cityData);
+        }
+      })
+      .catch(err => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    const filtered = cities.filter(c =>
+      c.title.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredCities(filtered);
+  }, [search, cities]);
+
+  useEffect(() => {
+    const filtered = cities.filter(c =>
+      c.title.toLowerCase().includes(searchWhere.toLowerCase())
+    );
+    setFilteredCitiesWhere(filtered);
+  }, [searchWhere, cities]);
+
 
   return (
     <>
@@ -99,14 +138,14 @@ const TabsHotel = ({ active }: Props) => {
                 </div>
 
                 {filteredCities.length > 0 ? (
-                  filteredCities.map((cityName) => (
+                  filteredCities.map((city) => (
                     <div
-                      key={cityName}
+                      key={city.slug}
                       className="p-2 hover:bg-gray-200 rounded-lg text-black items-center cursor-pointer flex justify-between"
-                      onClick={() => { setSelectedCity(cityName); setOpenCity(false); }}
+                      onClick={() => { setSelectedCity(city.title); setOpenCity(false); }}
                     >
-                      {cityName}
-                      {cityName === selectedCity && <DoneIcon sx={{ width: '14px', height: '14px' }} />}
+                      {city.title}
+                      {city.title === selectedCity && <DoneIcon sx={{ width: '14px', height: '14px' }} />}
                     </div>
                   ))
                 ) : (

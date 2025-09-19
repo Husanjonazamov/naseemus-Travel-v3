@@ -14,10 +14,31 @@
   "apply": "Apply",
   "search_tours": "Search Tours",
   "no_results": "No results found",
-  "start_search": "Start searching"
+
+  "start_search": "Start searching",
+
+    "from": "From",
+  "noResults": "Nothing found",
+  "to": "To",
+  "departureDate": "Departure date",
+  "exit": "Exit",
+  "childrenHint": "under 13 years",
+     "offerOfDay": "Deal of the day: only today!",
+  "bestDirections": "Best destinations at the most affordable prices",
+    "seePrices": "See prices",
+    "tours": "Tours",
+    "hotels": "Hotels",
+    "tashkent": "Tashkent",
+    "countryResort": "Country, resort",
+    "twoAdults": "2 Adults",
+    "searchTours": "Search tours",
+  "adultsHint": "older than 13 years"
+
+  
   },
 
    "searchPage": {
+  "start_search": "Start searching",
 
     "from": "From",
   "noResults": "Nothing found",

@@ -14,11 +14,33 @@
   "apply": "Применять",
   "search_tours": "Искать туры",
   "no_results": "Ничего не найдено",
+  "start_search": "Начните искать",
   "start_search": "Начните искать"
+,
+     "seePrices": "Смотреть цены",
+
+     "from": "Откуда",
+  "noResults": "Ничего не найдено",
+  "to": "Куда",
+  "departureDate": "Дата отправления",
+  "exit": "Выезд",
+  "adultsHint": "старше 13 лет",
+  "childrenHint": "до 13 лет",
+
+  "offerOfDay": "Предложение дня: только сегодня!",
+  "bestDirections": "Лучшие направления по самым выгодным ценам",
+  "tours": "Туры",
+  "hotels": "Отели",
+  "tashkent": "Ташкент",
+  "countryResort": "Страна, курорт",
+  "twoAdults": "2 Взрослых",
+  "searchTours": "Искать туры"
   },
 
 
    "searchPage": {
+  "start_search": "Начните искать"
+,
      "seePrices": "Смотреть цены",
 
      "from": "Откуда",
