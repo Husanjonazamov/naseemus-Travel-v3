@@ -29,8 +29,15 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   const languages = ["UZ", "RU", "EN"];
-  const workingDays = ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma"];
+  const daysByLocale: Record<string, string[]> = {
+    uz: ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma"],
+    ru: ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница"],
+    en: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  };
   const locale = useLocale();
+  const workingDays = daysByLocale[locale] || daysByLocale["en"];
+
+  
   const router = useRouter();
   const pathname = usePathname();
 
@@ -109,17 +116,18 @@ export function Header() {
               {isBrochureOpen && (
                 <div className="absolute top-full mt-2 w-64 bg-[#dcfae7] border border-gray-200 rounded-md shadow-lg z-50 p-3">
                   <ul className="flex flex-col gap-2">
-                    {workingDays.map((day, idx) => (
-                      <li
-                        key={idx}
-                        className="flex justify-between items-center px-4 py-2 bg-green-100 text-green-800 rounded-md hover:bg-green-200 cursor-pointer font-medium shadow-sm"
-                      >
-                        <span>{day}</span>
-                        <span className="text-sm font-normal text-green-700">
-                          09:00 – 20:00
-                        </span>
-                      </li>
-                    ))}
+                   {workingDays.map((day, idx) => (
+                    <li
+                      key={idx}
+                      className="flex justify-between items-center px-4 py-2 bg-green-100 text-green-800 rounded-md hover:bg-green-200 cursor-pointer font-medium shadow-sm"
+                    >
+                      <span>{day}</span>
+                      <span className="text-sm font-normal text-green-700">
+                        09:00 – 20:00
+                      </span>
+                    </li>
+                  ))}
+
                   </ul>
                 </div>
               )}
