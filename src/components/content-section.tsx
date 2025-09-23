@@ -106,7 +106,7 @@ export function ContentSection() {
   }
 
   return (
-    <section className="py-16 px-4 bg-gray-50 mb-20" id="tour">
+    <section className="py-16 px-4 bg-[#dcfae7]" id="tour">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-extrabold text-center text-[#007654] mb-10">
           {t("title")}
@@ -136,7 +136,7 @@ export function ContentSection() {
                   variants={cardVariants}
                   initial="hidden"
                   animate="visible"
-                  className={`bg-[#f0faf7] shadow-lg overflow-hidden h-[580px] flex flex-col transition-opacity duration-300 ${
+                  className={`bg-[#c8f4ce] shadow-lg overflow-hidden mb-4  h-[580px] flex flex-col transition-opacity duration-300 ${
                     loading ? "opacity-30" : "opacity-100"
                   }`}
                   style={{ minWidth: "380px", maxWidth: "420px" }}
@@ -190,7 +190,7 @@ export function ContentSection() {
                   variants={cardVariants}
                   initial="hidden"
                   animate="visible"
-                  className={`bg-white shadow-lg overflow-hidden h-[620px] flex flex-col transition-opacity duration-300 ${
+                  className={`bg-[#dcfae7] shadow-lg overflow-hidden h-[620px] flex flex-col transition-opacity duration-300 ${
                     loading ? "opacity-30" : "opacity-100"
                   }`}
                   style={{ width: "95%", maxWidth: "400px", margin: "0 auto" }}

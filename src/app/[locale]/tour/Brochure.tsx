@@ -1,6 +1,6 @@
 export default function TourBrochure() {
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-50 rounded-lg shadow">
+    <div className="max-w-4xl mx-auto p-6 bg-[#dcfae7] rounded-lg shadow">
       <h2 className="text-3xl font-semibold text-purple-700 mb-4">YOUR HOLIDAY INCLUDES</h2>
       <ul className="list-disc pl-5 space-y-2 mb-6">
         <li>Just You Holiday Director as your host & Specialist Local Guides</li>

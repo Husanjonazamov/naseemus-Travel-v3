@@ -87,7 +87,7 @@ const TabsHotel = ({ active }: Props) => {
   return (
     <>
       {active === 'hotel' && (
-        <div className="mt-10 bg-white shadow-sm py-4 gap-4 w-full max-w-[1200px] rounded-3xl grid grid-cols-4 items-center px-10 max-lg:hidden font-medium">
+        <div className="mt-10 bg-[#dcfae7] shadow-sm py-4 gap-4 w-full max-w-[1200px] rounded-3xl grid grid-cols-4 items-center px-10 max-lg:hidden font-medium">
 
           {/* City Selection */}
           <div className="relative gap-2 h-full ">
@@ -122,7 +122,7 @@ const TabsHotel = ({ active }: Props) => {
 
             {openCity && (
               <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-white w-60 z-50 p-2"
+                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] w-60 z-50 p-2"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="relative mb-2">
@@ -198,7 +198,7 @@ const TabsHotel = ({ active }: Props) => {
 
             {dataOpen && (
               <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-white z-50 p-2"
+                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] z-50 p-2"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex gap-2 items-center">
@@ -291,7 +291,7 @@ const TabsHotel = ({ active }: Props) => {
 
             {ageOpen && (
               <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-white z-50 p-2 px-4 w-96 font-medium"
+                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] z-50 p-2 px-4 w-96 font-medium"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex justify-between">

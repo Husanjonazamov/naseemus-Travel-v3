@@ -63,21 +63,21 @@ export function TrustpilotReviews() {
   ]
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-[#dcfae7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative">
           <Button
             variant="ghost"
             size="icon"
             onClick={prevReview}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md hover:bg-gray-50"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#dcfae7] shadow-md hover:bg-[#dcfae7]"
           >
             <ChevronLeft className="h-5 w-5" />
           </Button>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mx-12">
             {visibleReviews.map((review, index) => (
-              <div key={`${review.id}-${index}`} className="bg-white p-6 rounded-lg shadow-sm border">
+              <div key={`${review.id}-${index}`} className="bg-[#dcfae7] p-6 rounded-lg shadow-sm border">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
@@ -115,7 +115,7 @@ export function TrustpilotReviews() {
             variant="ghost"
             size="icon"
             onClick={nextReview}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md hover:bg-gray-50"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#dcfae7] shadow-md hover:bg-[#dcfae7]"
           >
             <ChevronRight className="h-5 w-5" />
           </Button>

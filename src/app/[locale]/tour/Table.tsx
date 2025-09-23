@@ -72,7 +72,7 @@ export function DepartureTable() {
           <div className="flex items-center justify-between">
             <span className="text-foreground font-semibold">Availability</span>
             <div className="w-8 h-4 bg-muted rounded-full relative">
-              <div className="w-3 h-3 bg-white rounded-full absolute top-0.5 right-0.5 shadow-sm"></div>
+              <div className="w-3 h-3 bg-[#dcfae7] rounded-full absolute top-0.5 right-0.5 shadow-sm"></div>
             </div>
           </div>
         </div>

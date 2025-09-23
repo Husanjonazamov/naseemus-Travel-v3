@@ -83,7 +83,7 @@ const TabsTours = ({ active }: Props) => {
   return (
     <>
       {active === 'tours' && (
-        <div className="mt-10 bg-white shadow-sm py-4 gap-4 w-full max-w-[1200px] rounded-2xl grid grid-cols-5 items-center px-10 max-lg:hidden font-medium">
+        <div className="mt-10 bg-[#dcfae7] shadow-sm py-4 gap-4 w-full max-w-[1200px] rounded-2xl grid grid-cols-5 items-center px-10 max-lg:hidden font-medium">
           
           {/* FROM CITY */}
           <div className="relative gap-2 h-full ">
@@ -133,7 +133,7 @@ const TabsTours = ({ active }: Props) => {
 
             {openCity && (
               <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-white w-60 z-50 p-2"
+                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] w-60 z-50 p-2"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="relative mb-2">
@@ -217,7 +217,7 @@ const TabsTours = ({ active }: Props) => {
 
             {where && (
               <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-white w-60 z-50 p-2"
+                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] w-60 z-50 p-2"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="relative mb-2">
@@ -303,7 +303,7 @@ const TabsTours = ({ active }: Props) => {
 
             {dataOpen && (
               <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-white z-50 p-2"
+                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] z-50 p-2"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex gap-2 items-center">
@@ -438,7 +438,7 @@ const TabsTours = ({ active }: Props) => {
 
             {ageOpen && (
               <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-white z-50 p-2 px-4 w-96 font-medium"
+                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] z-50 p-2 px-4 w-96 font-medium"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex justify-between">

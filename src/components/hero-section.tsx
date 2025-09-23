@@ -102,7 +102,7 @@ export function HeroSection() {
               <span
                 key={idx}
                 className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
-                  idx === currentIndex ? "bg-green-500 w-4 h-4" : "bg-white/50"
+                  idx === currentIndex ? "bg-green-500 w-4 h-4" : "bg-[#dcfae7]/50"
                 }`}
                 onClick={() => setCurrentIndex(idx)}
               ></span>

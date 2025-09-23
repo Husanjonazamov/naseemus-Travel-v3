@@ -5,7 +5,7 @@ export function AboutSection() {
   const t = useTranslations("about");
 
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-16 px-4 bg-[#dcfae7]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl md:tex-3xl font-bold text-[#007654] text-center mb-12">
           {t("title")}

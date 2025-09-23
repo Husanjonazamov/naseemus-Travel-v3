@@ -8,6 +8,8 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import config from "../config"
+import { Send } from "lucide-react"; // lucide-react dan Telegram ikonini import qilamiz
+
 
 
 interface Tour {
@@ -39,7 +41,7 @@ export function Footer() {
   }, [locale])
 
   return (
-    <footer className="bg-white border-t border-gray-200 py-16">
+    <footer className="bg-[#dcfae7] border-t border-gray-200 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           
@@ -47,17 +49,17 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-6">{t("customer_support.contact_us")}</h3>
             <div className="space-y-4">
-              <p className="text-gray-700">+998 97 424 10 15</p>
+              <p className="text-gray-700">+44 79 8526 9296</p>
               <p className="text-gray-700">naseemus@gmail.com</p>
             </div>
 
             <div className="mt-8">
               <h4 className="text-lg font-semibold text-gray-900 mb-4">{t("customer_support.follow_us")}</h4>
               <div className="flex space-x-4">
-                <a  href="https://www.facebook.com/nasimjonkodirov/" target="_blank" className="text-gray-600 hover:text-[#007654] transition-colors">
-                  <Facebook className="h-6 w-6" />
+                <a  href="https://t.me/naseemstravel" target="_blank" className="text-gray-600 hover:text-[#007654] transition-colors">
+                  <Send className="h-6 w-6" />
                 </a>
-                <a href="https://www.instagram.com/reel/DMhqbiiqAmn/" target="_blank" className="text-gray-600 hover:text-[#007654] transition-colors">
+                <a href="https://www.instagram.com/naseemstravel?igsh=NWtnMTZ2azg1bzV3&utm_source=qr" target="_blank" className="text-gray-600 hover:text-[#007654] transition-colors">
                   <Instagram className="h-6 w-6" />
                 </a>
               </div>

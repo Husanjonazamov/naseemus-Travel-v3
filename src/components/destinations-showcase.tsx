@@ -86,7 +86,7 @@ export default function NewHolidays() {
 
   return (
     <section className="bg-[#E6F4EF] py-16 px-4 relative">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-bold text-[#007654] text-center mb-12 tracking-wide">
           {t("last_minute_holidays")}
         </h2>
@@ -95,9 +95,9 @@ export default function NewHolidays() {
           {holidays.map((holiday) => (
             <div
                          key={holiday.id}
-                         className="keen-slider__slide flex flex-col bg-white overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
+                         className="keen-slider__slide flex flex-col bg-[#c8f4ce] mb-4  overflow-hidden  shadow-md hover:shadow-xl transition-all duration-300"
                        >
-                         <div className="relative h-52 md:h-64 group overflow-hidden rounded-t-2xl">
+                         <div className="relative h-52 md:h-64 group overflow-hidden ">
                            <Image
                              src={holiday.image}
                              alt={holiday.title}
@@ -117,7 +117,7 @@ export default function NewHolidays() {
                            </p>
            
                            <div className="flex items-center justify-between mb-6">
-                             <div className="text-green-700 font-bold text-xl md:text-2xl ">
+                             <div className="text-green-700 font-bold text-xl md:text-3xl ">
                                ${formatPrice(holiday.price)}
                              </div>
            

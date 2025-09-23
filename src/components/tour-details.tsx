@@ -160,7 +160,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
           />
 
           <div
-            className="relative bg-white rounded-t-2xl md:rounded-2xl shadow-xl p-5 sm:p-6 w-full max-w-md md:max-w-lg z-10 
+            className="relative bg-[#ffffff] rounded-t-2xl md:rounded-2xl shadow-xl p-5 sm:p-6 w-full max-w-md md:max-w-lg z-10 
             h-[90vh] sm:h-auto overflow-y-auto animate-slideUp"
           >
             <h2 className="text-xl md:text-2xl font-bold text-[#007654] mb-4 text-center">

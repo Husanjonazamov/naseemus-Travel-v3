@@ -8,7 +8,7 @@ import { Header } from "@/src/components/header"
 
 export default function BookNowPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#dcfae7]">
       <Header />
       <TrustBadges />
 
@@ -37,7 +37,7 @@ export default function BookNowPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* August Card */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-[#dcfae7] rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-64">
                 <img
                   src="/traditional-dancers-lake-mountains.png"
@@ -56,7 +56,7 @@ export default function BookNowPage() {
             </div>
 
             {/* September Card */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-[#dcfae7] rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-64">
                 <img
                   src="/placeholder-qm5lf.png"
@@ -75,7 +75,7 @@ export default function BookNowPage() {
             </div>
 
             {/* October Card */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-[#dcfae7] rounded-lg shadow-lg overflow-hidden">
               <div className="relative h-64">
                 <img
                   src="/japanese-hillside-town-fuji.png"

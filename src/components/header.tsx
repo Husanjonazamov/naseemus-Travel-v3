@@ -90,11 +90,11 @@ export function Header() {
           {/* Desktop actions */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:+998974241015"
+              href="tel:+447985269296"
               className="flex items-center gap-2 bg-green-500 px-3 py-1.5 rounded-md text-white font-semibold hover:bg-green-600 transition text-md"
             >
               <Phone className="h-5 w-5" />
-              +998 97 424 10 15
+              +44 79 8526 9296
             </a>
 
             {/* Brochure */}
@@ -107,7 +107,7 @@ export function Header() {
                 <ChevronDown className="h-4 w-4" />
               </button>
               {isBrochureOpen && (
-                <div className="absolute top-full mt-2 w-64 bg-white border border-gray-200 rounded-md shadow-lg z-50 p-3">
+                <div className="absolute top-full mt-2 w-64 bg-[#dcfae7] border border-gray-200 rounded-md shadow-lg z-50 p-3">
                   <ul className="flex flex-col gap-2">
                     {workingDays.map((day, idx) => (
                       <li
@@ -138,7 +138,7 @@ export function Header() {
                 <Globe className="h-5 w-5" /> {locale.toUpperCase()}
               </button>
               {isLangOpen && (
-                <div className="absolute top-full mt-2 right-0 bg-white text-black rounded-md shadow-md z-50">
+                <div className="absolute top-full mt-2 right-0 bg-[#dcfae7] text-black rounded-md shadow-md z-50">
                   {languages.map((lang) => (
                     <button
                       key={lang}
@@ -171,7 +171,7 @@ export function Header() {
           {/* Mobile actions */}
           <div className="flex items-center gap-3 md:hidden">
             <a
-              href="tel:+998974241015"
+              href="tel:+447985269296"
               className="p-2 rounded-md hover:bg-green-600 transition"
             >
               <Phone className="h-6 w-6" />
@@ -212,7 +212,7 @@ export function Header() {
                 <ChevronDown className="h-4 w-4" />
               </button>
               {isBrochureOpen && (
-                <div className="absolute top-full left-0 mt-1 bg-white text-black rounded-md shadow-lg z-50 w-full">
+                <div className="absolute top-full left-0 mt-1 bg-[#dcfae7] text-black rounded-md shadow-lg z-50 w-full">
                   <ul>
                     {workingDays.map((day, idx) => (
                       <li
@@ -239,7 +239,7 @@ export function Header() {
             </button>
 
             {isLangOpen && (
-              <div className="bg-white text-black rounded-md shadow-md mt-1 z-50">
+              <div className="bg-[#dcfae7] text-black rounded-md shadow-md mt-1 z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang}

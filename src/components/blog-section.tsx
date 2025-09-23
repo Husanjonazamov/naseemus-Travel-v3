@@ -100,7 +100,7 @@ export function BlogSection() {
   }
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className="py-16 px-4 bg-[#dcfae7]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-bold text-center text-[#007654] mb-12">
           {t("title")}
@@ -111,7 +111,7 @@ export function BlogSection() {
             {destinations.map((destination, index) => (
               <motion.div
                 key={destination.id}
-                className="keen-slider__slide flex flex-col bg-white shadow-lg overflow-hidden cursor-pointer"
+                className="keen-slider__slide flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden cursor-pointer"
                 onClick={() => goToDetail(destination)}
                 initial="hidden"
                 animate="visible"
@@ -151,7 +151,7 @@ export function BlogSection() {
             {destinations.map((destination, index) => (
               <motion.div
                 key={destination.id}
-                className="flex flex-col bg-white shadow-lg overflow-hidden cursor-pointer"
+                className="flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden cursor-pointer"
                 onClick={() => goToDetail(destination)}
                 initial="hidden"
                 animate="visible"

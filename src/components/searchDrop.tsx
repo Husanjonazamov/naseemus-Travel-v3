@@ -69,7 +69,7 @@ export function SearchDropdown({ onClose }: SearchDropdownProps) {
       />
 
       {/* Modal */}
-      <Card className="relative flex flex-col w-full max-w-lg md:max-w-xl bg-white z-[2100] rounded-2xl shadow-2xl animate-in fade-in zoom-in">
+      <Card className="relative flex flex-col w-full max-w-lg md:max-w-xl bg-[#dcfae7] z-[2100] rounded-2xl shadow-2xl animate-in fade-in zoom-in">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b">
           <h2 className="text-xl font-semibold text-gray-900">Search</h2>

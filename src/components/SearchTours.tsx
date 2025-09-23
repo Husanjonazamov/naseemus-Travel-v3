@@ -31,7 +31,7 @@ const SearchTours = () => {
             </p>
             <Link
               href={'#newTour'}
-              className="bg-white mt-4 text-black flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 shadow-sm rounded-3xl w-fit text-sm md:text-base font-medium"
+              className="bg-[#dcfae7] mt-4 text-black flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 shadow-sm rounded-3xl w-fit text-sm md:text-base font-medium"
             >
               <span>{t("seePrices")}</span>
               <EastIcon fontSize="small" />
@@ -41,7 +41,7 @@ const SearchTours = () => {
 
         {/* Tugmalar (tours/hotel) */}
         <div className="bg-[#edeef1] flex justify-center py-2 h-[40px] w-[240px] md:w-[260px] absolute bottom-0 left-1/2 -translate-x-1/2 rounded-t-full">
-          <div className="w-[200px] md:w-[220px] bg-white grid grid-cols-2 py-1 px-1 h-[40px] md:h-[45px] rounded-3xl shadow-sm">
+          <div className="w-[200px] md:w-[220px] bg-[#dcfae7] grid grid-cols-2 py-1 px-1 h-[40px] md:h-[45px] rounded-3xl shadow-sm">
             <button
               onClick={() => setActive('tours')}
               className={`flex items-center justify-center gap-1 px-3 py-1 md:py-2 rounded-3xl font-semibold transition

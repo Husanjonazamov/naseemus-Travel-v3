@@ -71,7 +71,7 @@ export function PopularDestinations() {
   }
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className="py-16 px-4 bg-[#dcfae7]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-bold text-center text-[#007654] mb-12">
           {t("popularDestinations")}
@@ -82,7 +82,7 @@ export function PopularDestinations() {
             {destinations.map((destination, index) => (
               <motion.div
                 key={index}
-                className="keen-slider__slide flex-shrink-0 flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
+                className="keen-slider__slide flex-shrink-0 flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden"
                 initial="hidden"
                 animate="visible"
                 custom={index}
@@ -123,7 +123,7 @@ export function PopularDestinations() {
             {destinations.map((destination, index) => (
               <motion.div
                 key={index}
-                className="flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
+                className="flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden"
                 initial="hidden"
                 animate="visible"
                 custom={index}

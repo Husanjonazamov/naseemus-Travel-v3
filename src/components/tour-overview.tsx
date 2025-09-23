@@ -17,7 +17,7 @@ export function TourOverview({ tour }: TourOverviewProps) {
 
   return (
     <div className="container max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 mt-6 sm:mt-8 mb-6 sm:mb-8">
-      <div className="bg-white rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
+      <div className="bg-[#dcfae7] rounded-2xl shadow-lg p-5 sm:p-6 lg:p-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-10">
           {/* Chap qism - Matn */}
           <div>

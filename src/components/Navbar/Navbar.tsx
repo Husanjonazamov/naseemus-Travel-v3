@@ -61,7 +61,7 @@ export const TourDrop = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col gap-6 mt-6 max-h-[80vh] overflow-y-auto bg-white/70 backdrop-blur-md shadow-lg rounded-xl p-4">
+      <div className="flex flex-col gap-6 mt-6 max-h-[80vh] overflow-y-auto bg-[#dcfae7]/70 backdrop-blur-md shadow-lg rounded-xl p-4">
         {tours.map((tour) => (
           <Link
             key={tour.id}

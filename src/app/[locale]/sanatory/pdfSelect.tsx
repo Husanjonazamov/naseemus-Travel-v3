@@ -38,7 +38,7 @@ export default function SanatoryPDFSection() {
         📄 Sanatoriya haqida to‘liq ma’lumot
       </h2>
 
-      <div className="bg-white shadow-lg rounded-xl p-6 max-h-[500px] overflow-y-auto border">
+      <div className="bg-[#dcfae7] shadow-lg rounded-xl p-6 max-h-[500px] overflow-y-auto border">
         <pre className="whitespace-pre-wrap text-gray-800 leading-relaxed">
           {pdfText}
         </pre>

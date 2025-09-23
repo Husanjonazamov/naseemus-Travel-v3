@@ -89,7 +89,7 @@ const TabsTourMobile = ({ active }: Props) => {
   return (
     <>
       {active === 'tours' && (
-        <div className="mt-20 bg-white shadow-sm py-4 gap-4 w-full rounded-2xl grid grid-cols-1 items-center px-10 min-lg:hidden font-medium">
+        <div className="mt-20 bg-[#dcfae7] shadow-sm py-4 gap-4 w-full rounded-2xl grid grid-cols-1 items-center px-10 min-lg:hidden font-medium">
           
           {/* Qayerdan */}
           <div className="relative flex gap-2 h-full">

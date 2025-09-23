@@ -91,7 +91,7 @@ export function NewTouring() {
   }
 
   return (
-    <section className="py-16 px-4 bg-gray-50" id="newTour">
+    <section className="py-16 px-4 bg-[#dcfae7]" id="newTour">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#007654] mb-12">
@@ -108,7 +108,7 @@ export function NewTouring() {
             {destinations.map((destination, index) => (
               <motion.div
                 key={destination.id}
-                className="keen-slider__slide flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
+                className="keen-slider__slide flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden"
                 initial="hidden"
                 animate="visible"
                 custom={index}
@@ -142,7 +142,7 @@ export function NewTouring() {
             {destinations.map((destination, index) => (
               <motion.div
                 key={destination.id}
-                className="flex flex-col bg-[#f0faf7] shadow-lg overflow-hidden"
+                className="flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden"
                 initial="hidden"
                 animate="visible"
                 custom={index}
@@ -158,7 +158,7 @@ export function NewTouring() {
                   <p className="text-gray-700 text-sm mb-4 leading-relaxed">{destination.description}</p>
 
                   <div className="flex items-center justify-between mt-auto">
-                    <p className="text-[#007654] font-bold text-2xl">{formatPrice(destination.price)}</p>
+                    <p className="text-[#007654] font-bold text-3xl">{formatPrice(destination.price)}</p>
                     <Link href={`/tour/${encodeURIComponent(destination.slug || destination.title)}`}>
                       <Button className="bg-[#007654] text-white font-semibold px-6 py-3 shadow-md text-base">
                         {e("explore")}

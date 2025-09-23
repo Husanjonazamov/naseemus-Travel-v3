@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl"
 export function TrustBadges() {
   const t = useTranslations("trustBadges")
   return (
-    <div className="bg-gray-50 border-y border-gray-200">
+    <div className="bg-[#dcfae7] border-y border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between py-4 space-y-4 md:space-y-0">
           {/* Room guarantee */}
