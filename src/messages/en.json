@@ -189,6 +189,17 @@
       }
     }
   },
+  "contact": {
+    "contact_us": "Contact Us",
+  "get_in_touch": "Get in Touch",
+  "message_sent": "Your message has been sent successfully!",
+  "full_name": "Full Name",
+  "phone": "Phone Number",
+  "message": "Message",
+  "send_message": "Send Message",
+  "sending": "Sending",
+  "intro_text": "Fill out the form below to get in touch with us."
+  },
   "solo_travel": {
     "title": "THE TRUSTED EXPERTS FOR SOLO HOLIDAYS",
     "description": "SINCE 2000, WE’VE BEEN BRINGING PEOPLE TOGETHER FOR UNFORGETTABLE SOLO HOLIDAYS. FROM EXOTIC DESTINATIONS TO HIDDEN GEMS, OUR TOURS CREATE LASTING MEMORIES AND CONNECTIONS.",

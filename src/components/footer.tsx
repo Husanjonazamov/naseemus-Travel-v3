@@ -107,18 +107,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Award Badges */}
-        <div className="mt-16 pt-8 border-t border-gray-200">
-          <div className="flex justify-center items-center space-x-8">
-            {Array(4).fill(0).map((_, i) => (
-              <div key={i} className="flex items-center space-x-2">
-                <div className="w-16 h-16 bg-[#007654] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-xs">WINNER</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+       
       </div>
     </footer>
   )

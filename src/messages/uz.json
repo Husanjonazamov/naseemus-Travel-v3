@@ -413,6 +413,17 @@
     "experienced_tour_guide": "Tajribali yo‘lboshchi",
     "holiday_assurance": "Sayohat kafolati",
     "support_every_step": "Har bosqichda yordam"
+  },
+  "contact": {
+     "contact_us": "Biz bilan bog‘laning",
+    "get_in_touch": "Aloqaga chiqish",
+    "message_sent": "Xabaringiz muvaffaqiyatli yuborildi!",
+    "full_name": "Ism Familiya",
+    "phone": "Telefon raqam",
+    "message": "Xabar",
+    "send_message": "Xabar yuborish",
+    "sending": "Yuborilmoqda",
+    "intro_text": "Biz bilan bog‘lanish uchun quyidagi formani to‘ldiring."
   }
 
 }
