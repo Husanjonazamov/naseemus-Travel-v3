@@ -10,7 +10,7 @@ const reviews = [
     id: 1,
     rating: 5,
     title: "We were very well looked after ...",
-    content: "We were very well looked after by lodge staff & guides so Just You rep on this one",
+    content: "We were very well looked after by lodge staff & guides so Naseemus travel rep on this one",
     author: "customer",
     date: "1 day ago",
     verified: true,

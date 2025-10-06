@@ -149,6 +149,8 @@
     "NO_SINGLE_SUPPLEMENT": "No single supplement"
   },
   "tour_uzbekistan": {
+        "videos": "Videos",
+
     "title": "UZBEKISTAN & THE SILK ROAD",
     "tabs": {
       "discover": "DISCOVER",
@@ -246,7 +248,7 @@
     { "text": "A FANTASTIC HOLIDAY WITH BEAUTIFUL CROATIA AND FRIENDLY PEOPLE.", "author": "NIGEL WOOD", "date": "5 DAYS AGO" },
     { "text": "EXCELLENT TOUR. SHIP AMAZING & CREW SO FRIENDLY.", "author": "SANDRA", "date": "AUGUST 11" },
     { "text": "THE ENTIRE EXPERIENCE, FROM BOOKING TO END, WAS SMOOTH.", "author": "MAGGIE", "date": "AUGUST 8" },
-    { "text": "MY FIRST TOUR WITH JUST YOU. HIGHLY RECOMMENDED!", "author": "ANNE", "date": null }
+    { "text": "MY FIRST TOUR WITH Naseemus travel. HIGHLY RECOMMENDED!", "author": "ANNE", "date": null }
   ],
   "other_tours": [
     {
@@ -331,14 +333,14 @@
   "last": {
     "last_minute_holidays": "LAST MINUTE HOLIDAYS",
     "explore": "SEE MORE →",
-    "testimonial": "IT WAS MY FIRST TOUR WITH JUST YOU. HIGHLY RECOMMENDED!",
+    "testimonial": "IT WAS MY FIRST TOUR WITH Naseemus travel. HIGHLY RECOMMENDED!",
     "author": "ANNE"
   },
   "about": {
-    "title": "HOLIDAYS THAT LET YOU BE JUST YOU",
-    "paragraph1": "On a Just You holiday, you're free to enjoy the experience. We'll take care of everything else.",
+    "title": "HOLIDAYS THAT LET YOU BE Naseemus travel",
+    "paragraph1": "On a Naseemus travel holiday, you're free to enjoy the experience. We'll take care of everything else.",
     "paragraph2": "No worrying about tickets or schedules. Just enjoy your destination, relax and make friends with like-minded people.",
-    "paragraph3": "With 25 years of experience and a Holiday Director by your side, you’ll be free to do whatever feels... Just You."
+    "paragraph3": "With 25 years of experience and a Holiday Director by your side, you’ll be free to do whatever feels... Naseemus travel."
   },
   "blog": {
     "title": "READ OUR BLOGS",

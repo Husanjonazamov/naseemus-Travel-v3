@@ -20,7 +20,7 @@ export default function BookNowPage() {
 
           <div className="max-w-4xl mx-auto space-y-6 text-gray-700 text-lg leading-relaxed">
             <p>
-              Discover your perfect last minute solo adventure with Just You. Browse our range of last minute holidays
+              Discover your perfect last minute solo adventure with Naseemus travel. Browse our range of last minute holidays
               below and discover our best offers on solo escorted package deals.
             </p>
 

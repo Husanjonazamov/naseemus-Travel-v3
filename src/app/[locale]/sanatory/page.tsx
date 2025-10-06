@@ -1,24 +1,30 @@
 // app/[locale]/sanatory/page.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Header } from "@/src/components/header";
 import { Footer } from "@/src/components/footer";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import { useTranslations } from "next-intl";
+import axios from "axios";
+import config from "@/src/config";
 
 interface VideoItem {
   id: number;
-  title: string;
-  videoSrc: string;
+  video: string;
 }
 
-interface ImageItem {
+interface Sanatory {
   id: number;
-  src: string;
-  alt: string;
+  title: string;
+  slug: string;
+  price: string;
+  description: string;
+  image: string;
+  videos: VideoItem[];
 }
 
 interface SanatoryPageProps {
@@ -28,22 +34,10 @@ interface SanatoryPageProps {
 }
 
 export default function SanatoryPage({ params }: SanatoryPageProps) {
+  const [sanatories, setSanatories] = useState<Sanatory[]>([]);
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
+  const [loading, setLoading] = useState(true);
   const t = useTranslations("hero");
-
-  const videos: VideoItem[] = [
-    { id: 1, title: "Amazing Nature", videoSrc: "/contents/1.mp4" },
-    { id: 2, title: "Ocean Waves", videoSrc: "/contents/2.mp4" },
-    { id: 3, title: "Mountain Adventure", videoSrc: "/contents/3.mp4" },
-    { id: 4, title: "Forest Walk", videoSrc: "/contents/4.mp4" },
-    { id: 5, title: "River Stream", videoSrc: "/contents/5.mp4" },
-    { id: 6, title: "Sunset View", videoSrc: "/contents/6.mp4" },
-  ];
-
-  const images: ImageItem[] = [
-    { id: 1, src: "/contents/1.jpg", alt: "Nature Image" },
-    { id: 2, src: "/contents/2.jpg", alt: "Ocean Image" },
-  ];
 
   // PDF fayllari
   const pdfs = [
@@ -53,6 +47,22 @@ export default function SanatoryPage({ params }: SanatoryPageProps) {
     "/pdfs/4.pdf",
     "/pdfs/5.pdf",
   ];
+
+  // API dan ma'lumot olish
+  useEffect(() => {
+    const fetchSanatories = async () => {
+      try {
+        const res = await axios.get(`${config.BASE_URL}/api/sanatory/`);
+        setSanatories(res.data.data.results || []);
+      } catch (error) {
+        console.error("Error fetching sanatories:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSanatories();
+  }, []);
 
   const handleDownloadPDFs = async () => {
     const zip = new JSZip();
@@ -75,7 +85,7 @@ export default function SanatoryPage({ params }: SanatoryPageProps) {
       <section className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden">
         {/* Background Image */}
         <Image
-          src="/contents/1.jpg"
+          src={sanatories[0]?.image || "/contents/1.jpg"}
           alt="Hero background"
           fill
           className="object-cover absolute inset-0"
@@ -116,52 +126,74 @@ export default function SanatoryPage({ params }: SanatoryPageProps) {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {videos.map((video) => (
-              <div
-                key={video.id}
-                className="relative cursor-pointer rounded-lg overflow-hidden shadow-lg h-64 group"
-                onClick={() => setSelectedVideo(video)}
-              >
-                <video
-                  src={video.videoSrc}
-                  muted
-                  autoPlay
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover group-hover:brightness-75 transition-all duration-300"
-                />
+            {loading
+              ? Array.from({ length: 6 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="h-64 w-full bg-gray-200 rounded-lg animate-pulse"
+                  ></div>
+                ))
+              : sanatories.map((sanatory) =>
+                  sanatory.videos.map((video) => (
+                    <div
+                      key={video.id}
+                      className="relative cursor-pointer rounded-lg overflow-hidden shadow-lg h-64 group"
+                      onClick={() => setSelectedVideo(video)}
+                    >
+                      <video
+                        src={video.video}
+                        muted
+                        autoPlay
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover group-hover:brightness-75 transition-all duration-300"
+                      />
 
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-lg sm:text-xl">
-                  <span className="text-2xl mb-2">▶</span>
-                  <span className="text-center">{video.title}</span>
-                </div>
-              </div>
-            ))}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-lg sm:text-xl">
+                        <span className="text-2xl mb-2">▶</span>
+                        <span className="text-center">{sanatory.title}</span>
+                      </div>
+                    </div>
+                  ))
+                )}
           </div>
         </section>
 
-        {/* WOW Images Section */}
+        {/* Images Section */}
         <section>
           <h2 className="text-3xl font-bold text-green-700 text-center mb-8">
             Amazing Images
           </h2>
 
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
-            {images.map((img) => (
-              <div
-                key={img.id}
-                className="relative w-full md:w-1/2 h-80 md:h-96 rounded-xl overflow-hidden shadow-2xl"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover w-full h-full"
-                />
-
-                <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-10 transition-opacity"></div>
-              </div>
-            ))}
+            {loading
+              ? Array.from({ length: 2 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-full md:w-1/2 h-80 md:h-96 bg-gray-200 rounded-xl animate-pulse"
+                  ></div>
+                ))
+              : sanatories.map((sanatory) => (
+                  <div
+                    key={sanatory.id}
+                    className="relative w-full md:w-1/2 h-80 md:h-96 rounded-xl overflow-hidden shadow-2xl group"
+                  >
+                    <Image
+                      src={sanatory.image}
+                      alt={sanatory.title}
+                      fill
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <Link
+                        href={`/${params.locale}/sanatory/${sanatory.slug}`}
+                        className="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-lg hover:bg-green-700 transition"
+                      >
+                        View Details
+                      </Link>
+                    </div>
+                  </div>
+                ))}
           </div>
         </section>
 
@@ -192,14 +224,11 @@ export default function SanatoryPage({ params }: SanatoryPageProps) {
                 ×
               </button>
               <video
-                src={selectedVideo.videoSrc}
+                src={selectedVideo.video}
                 controls
                 autoPlay
                 className="w-full h-auto"
               />
-              <div className="p-4 text-white font-semibold bg-green-700">
-                {selectedVideo.title}
-              </div>
             </div>
           </div>
         )}
