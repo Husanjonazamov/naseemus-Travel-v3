@@ -1,7 +1,7 @@
 // config.ts
 const config = {
-  // BASE_URL: "https://travelapi.naseemus.com", // o'zingizning API server manzilingiz
-  BASE_URL: "http://127.0.0.1:8025", // o'zingizning API server manzilingiz
+  BASE_URL: "https://travelapi.naseemus.com", // o'zingizning API server manzilingiz
+  // BASE_URL: "http://127.0.0.1:8025", // o'zingizning API server manzilingiz
 
 }
 
