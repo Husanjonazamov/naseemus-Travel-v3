@@ -336,7 +336,7 @@ const TabsHotel = ({ active }: Props) => {
           {/* Search Button */}
           <div className="flex flex-col gap-2">
             <div className="h-[25px]" />
-            <Link href={'#'} className="bg-green-600 text-white h-[60px] flex items-center justify-center rounded-4xl text-center">
+            <Link href={'#'} className="bg-[#007654] text-white h-[60px] flex items-center justify-center rounded-4xl text-center">
               <p>{t('search_tours')}</p>
             </Link>
           </div>

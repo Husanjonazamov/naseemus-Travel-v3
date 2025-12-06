@@ -433,7 +433,7 @@ const TabsTourMobile = ({ active }: Props) => {
           <div className="flex flex-col gap-2">
             <Link
               href={'#'}
-              className="bg-green-600 text-white h-[60px] flex items-center justify-center rounded-2xl text-center"
+              className="bg-[#007654] text-white h-[60px] flex items-center justify-center rounded-2xl text-center"
             >
               <p>{t('searchTours')}</p>
             </Link>

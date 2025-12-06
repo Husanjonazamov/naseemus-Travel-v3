@@ -190,7 +190,7 @@ export default function ContactPage() {
               disabled={loading}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-70 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-xl shadow-lg transition-all"
+              className="w-full bg-[#007654] hover:bg-green-700 disabled:opacity-70 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-xl shadow-lg transition-all"
             >
               {loading ? t("sending") + "..." : t("send_message")}
             </motion.button>

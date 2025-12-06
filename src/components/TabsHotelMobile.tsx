@@ -278,7 +278,7 @@ const TabsHotelMobile = ({ active }: Props) => {
 
                 <div className="grid grid-cols-1 mt-5 gap-2">
                   <button
-                    className="bg-green-600 rounded-3xl p-3 text-white"
+                    className="bg-[#007654] rounded-3xl p-3 text-white"
                     onClick={() => {
                       setDataOpenMobile(false);
                       if (fromDate && toDate) {
@@ -394,7 +394,7 @@ const TabsHotelMobile = ({ active }: Props) => {
           <div className="flex flex-col gap-2">
             <Link
               href={'#'}
-              className="bg-green-600 text-white h-[60px] flex items-center justify-center rounded-4xl text-center"
+              className="bg-[#007654] text-white h-[60px] flex items-center justify-center rounded-4xl text-center"
             >
               <p>{t('search_tours')}</p>
             </Link>

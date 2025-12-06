@@ -20,7 +20,7 @@ const SearchTours = () => {
     <div className="min-h-[500px] flex flex-col items-center justify-start pt-10">
       {/* Banner blok */}
       <div className="relative w-full max-w-[1200px] mx-auto px-3 md:px-0">
-        <div className="w-full h-[220px] md:h-[280px] overflow-hidden rounded-2xl bg-gradient-to-r from-green-800 via-green-600 to-green-400 relative">
+        <div className="w-full h-[220px] md:h-[280px] overflow-hidden rounded-2xl bg-gradient-to-r bg-[#007654] relative">
           {/* Matn va button */}
           <div className="h-full px-4 md:px-6 flex flex-col justify-center gap-2">
             <p className="text-white text-lg md:text-3xl font-semibold leading-snug">
@@ -45,7 +45,7 @@ const SearchTours = () => {
             <button
               onClick={() => setActive('tours')}
               className={`flex items-center justify-center gap-1 px-3 py-1 md:py-2 rounded-3xl font-semibold transition
-                ${active === 'tours' ? 'bg-green-700 text-white' : 'text-black'}`}
+                ${active === 'tours' ? 'bg-[#007654] text-white' : 'text-black'}`}
             >
               <LuggageIcon fontSize="small" />
               <p className="text-sm md:text-base">{t("tours")}</p>
@@ -54,7 +54,7 @@ const SearchTours = () => {
             <button
               onClick={() => setActive('hotel')}
               className={`flex items-center justify-center gap-1 px-3 py-1 md:py-2 rounded-3xl font-semibold transition
-                ${active === 'hotel' ? 'bg-green-600 text-white' : 'text-black'}`}
+                ${active === 'hotel' ? 'bg-[#007654] text-white' : 'text-black'}`}
             >
               <HotelIcon fontSize="small" />
               <p className="text-sm md:text-base">{t("hotels")}</p>

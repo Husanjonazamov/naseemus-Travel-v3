@@ -67,7 +67,7 @@ export function Header() {
 
   return (
     <motion.header
-      className="w-full sticky top-0 z-50 bg-green-700 shadow-md"
+      className="w-full sticky top-0 z-50 bg-[#007654] shadow-md"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
@@ -98,7 +98,7 @@ export function Header() {
           <div className="hidden md:flex items-center gap-3">
             <a
               href="tel:+447985269296"
-              className="flex items-center gap-2 bg-green-500 px-3 py-1.5 rounded-md text-white font-semibold hover:bg-green-600 transition text-md"
+              className="flex items-center gap-2 bg-green-700 px-3 py-1.5 rounded-md text-white font-semibold hover:bg-green-600 transition text-md"
             >
               <Phone className="h-5 w-5" />
               +44 79 8526 9296
@@ -264,7 +264,7 @@ export function Header() {
       </div>
 
       {/* Main navigation */}
-      <nav className="bg-green-600 text-white sticky top-[calc(80px)] z-40">
+      <nav className="bg-[#007654] text-white sticky top-[calc(80px)] z-40">
         <div className="max-w-7xl mx-auto flex justify-center gap-2 py-2 px-2 text-sm font-semibold">
           {/* Tours dropdown */}
           <div className="relative">
