@@ -50,7 +50,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold text-gray-900 mb-6">{t("customer_support.contact_us")}</h3>
             <div className="space-y-4">
               <p className="text-gray-700">+44 79 8526 9296</p>
-              <p className="text-gray-700">naseemus@gmail.com</p>
+              <p className="text-gray-700">naseem's@gmail.com</p>
             </div>
 
             <div className="mt-8">

@@ -23,7 +23,7 @@ export function AboutSection() {
           <div className="relative rounded-lg overflow-hidden shadow-lg h-80">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/P2eKSeWyfvE"
+              src="https://www.youtube.com/embed/Kb2y-m7EhXQ?si=hhz2YsZu2UThYaDC"
               title="Travel Inspiration Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

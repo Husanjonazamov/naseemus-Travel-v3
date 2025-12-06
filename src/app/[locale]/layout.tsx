@@ -5,8 +5,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
-  title: "Naseemus Travel",
-  description: "Naseemus Travel",
+  title: "Naseem's Travel",
+  description: "Naseem's Travel",
   generator: "v0.app",
   icons: {
     icon: "/images/green.png", // bu favicon uchun yo‘l
