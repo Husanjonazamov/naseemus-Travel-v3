@@ -6,6 +6,7 @@ const withNextIntl = createNextIntlPlugin();
 
 
 const nextConfig = {
+  output: 'standalone',
   eslint: {
     ignoreDuringBuilds: true,
   },
