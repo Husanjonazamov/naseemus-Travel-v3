@@ -69,7 +69,7 @@ export function TourOverview({ tour }: TourOverviewProps) {
             onClick={() => setIsMapOpen(true)}
             className="bg-white/90 backdrop-blur-xl text-[#007654] px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl border border-white hover:bg-[#007654] hover:text-white transition-all duration-300"
           >
-            {t("enlarge_map")}
+            {t("tabs.enlarge_map")}
           </button>
         </div>
       </div>

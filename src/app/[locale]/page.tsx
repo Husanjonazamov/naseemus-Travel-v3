@@ -15,7 +15,7 @@ import { NewTouring } from "@/src/components/new-touring-holidays"
 import { PopularDestinations } from "@/src/components/popular-destinations"
 import { Footer } from "@/src/components/footer"
 import { TourOverview } from "@/src/components/tour-overview"
-import { Itinerary } from "@/src/components/itenerary"
+import { Itinerary } from "@/src/components/itinerary"
 import TabsHotel from "@/src/components/TabsHotel"
 import SearchTours from "@/src/components/SearchTours"
 

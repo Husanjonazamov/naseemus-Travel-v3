@@ -127,7 +127,7 @@
   "hero": {
     "title": "EXCLUSIVE OFFERS JUST FOR YOU",
     "subtitle": "DISCOVER YOUR PERFECT SUMMER ESCAPE",
-    "description": "BOOK YOUR DREAM VACATION TODAY AND SAVE UP TO 40% ON FLIGHTS, HOTELS, AND PACKAGES. LIMITED-TIME OFFER UNTIL AUGUST 31, 2025.",
+    "description": "BOOK YOUR DREAM VACATION TODAY AND SAVE UP TO 40% ON FLIGHTS, HOTELS, AND PACKAGES.",
     "cta": "SAVE NOW",
     "placeholder": "WHERE WOULD YOU LIKE TO GO?",
     "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Exclusively for solo travellers",
@@ -270,7 +270,7 @@
     "holiday_directors": "EXPERIENCED TOUR GUIDE",
     "holiday_assurance": "SUPPORT EVERY STEP OF THE WAY"
   },
-  "testimonials": [
+  "testimonials_data": [
     {
       "text": "WE WERE VERY WELL LOOKED AFTER BY LODGE STAFF & GUIDES.",
       "author": "CUSTOMER",
@@ -342,8 +342,10 @@
       "community": "Community",
       "faq": "FAQ"
     },
+    "brand_description": "Crafting extraordinary solo journeys and curated experiences across the legendary Silk Road and beyond.",
     "sections": {
       "tours": "Tours",
+      "company": "Company",
       "no_tours": "No tours available"
     },
     "contact": {
@@ -369,6 +371,7 @@
     "customer_support_title": "Customer Support",
     "newsletter": {
       "title": "Receive news and offers by email",
+      "description": "Join our newsletter to receive curated travel inspiration and exclusive offers.",
       "cta": "Subscribe"
     }
   },
@@ -405,10 +408,19 @@
     }
   },
   "newHoliday": {
-    "newHoliday": "NEW SOLO TOURING HOLIDAYS"
+    "newHoliday": "NEW SOLO TOURING HOLIDAYS",
+    "subtitle": "Discover the legendary Silk Road",
+    "description": "Experience Uzbekistan like never before. Hand-picked adventures designed for the bold solo traveler.",
+    "exploreMore": "Explore More Destinations"
   },
   "Popular": {
-    "popularDestinations": "MOST POPULAR SOLO TRAVEL DESTINATIONS"
+    "popularDestinations": "MOST POPULAR SOLO TRAVEL DESTINATIONS",
+    "description": "Our most loved journeys, as rated by thousands of travelers. Discover why these are our top picks.",
+    "exploreAll": "Explore All Popular Destinations"
+  },
+  "testimonials": {
+    "title": "What Our Travelers Say",
+    "subtitle": "Real stories from travelers who explored the world with Naseem Travel."
   },
   "service": {
     "we_take_care_of": "We take care of",
@@ -448,5 +460,29 @@
     },
     "logout": "Log Out",
     "account": "My Account"
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Naseem Travel?",
+    "subtitle": "We are committed to providing exceptional service and unforgettable experiences that exceed your expectations.",
+    "trustedSecurity": {
+      "title": "Trusted Security",
+      "description": "Your safety and security are our top priorities. We use industry-leading standards to protect your data and bookings."
+    },
+    "support247": {
+      "title": "24/7 Support",
+      "description": "Our dedicated travel experts are available around the clock to assist you with any questions or emergencies."
+    },
+    "premiumQuality": {
+      "title": "Premium Quality",
+      "description": "We curate only the best tours and sanatoriums to ensure you have a truly premium and memorable experience."
+    },
+    "bestPrice": {
+      "title": "Best Price Guarantee",
+      "description": "Enjoy competitive pricing and exclusive deals without compromising on the quality of your travel experience."
+    },
+    "globalExpertise": {
+      "title": "Global Expertise",
+      "description": "With years of experience in the travel industry, we provide expert guidance and local insights for your destinations."
+    }
   }
 }

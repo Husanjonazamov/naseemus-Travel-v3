@@ -92,7 +92,7 @@
   "hero": {
     "title": "Maxsus sayohat takliflari",
     "subtitle": "Mukammal dam olishni kashf eting",
-    "description": "Orzuingizdagi ta'tilni bugun bron qiling va parvozlar, mehmonxonalar hamda paketlar uchun 40% gacha tejang. Taklif 2025-yil 31-avgustgacha amal qiladi.",
+    "description": "Orzuingizdagi ta'tilni bugun bron qiling va parvozlar, mehmonxonalar hamda paketlar uchun 40% gacha tejang.",
     "cta": "Hozir bron qiling",
     "placeholder": "Qayerga bormoqchisiz?",
     "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Faqat yolg‘iz sayohatchilar uchun",
@@ -217,7 +217,7 @@
       "cta": "Qo‘shiling"
     }
   },
-  "testimonials": [
+  "testimonials_data": [
     {
       "text": "Xizmat juda yaxshi, hammasi mukammal.",
       "author": "Mijoz",
@@ -292,11 +292,14 @@
     "contact": {
       "phone": "03301 737293",
       "phone_pl": "Telefon",
-      "email": "enquiries@justyou.co.uk"
+      "email": "enquiries@justyou.co.uk",
+      "faq": "Ko'p so'raladigan savollar"
     },
+    "brand_description": "Afsonaviy Ipak yo'li va undan tashqarida unutilmas sayohatlar va maxsus tajribalarni yaratamiz.",
     "sections": {
-      "tours": "Turlar",
-      "no_tours": "Hozircha turlar mavjud emas"
+      "tours": "Sayohatlar",
+      "company": "Kompaniya",
+      "no_tours": "Sayohatlar mavjud emas"
     },
     "links": {
       "booking_conditions": "Bron shartlari",
@@ -326,8 +329,9 @@
     "author": "Anne"
   },
   "newsletter": {
-    "title": "Yangiliklar va takliflarni oling",
-    "button": "Obuna bo‘ling"
+    "title": "Email orqali yangiliklar va takliflarni oling",
+    "description": "Sayohat ilhomlari va eksklyuziv takliflarni olish uchun bizning xabarnomamizga qo'shiling.",
+    "cta": "Obuna bo'lish"
   },
   "about": {
     "title": "Faqat Siz Uchun Tatillar",
@@ -352,10 +356,19 @@
     }
   },
   "newHoliday": {
-    "newHoliday": "Yangi yakka sayohatlar"
+    "newHoliday": "Yangi yakka sayohatlar",
+    "subtitle": "Afsonaviy Ipak yo'lini kashf eting",
+    "description": "O'zbekistonni hech qachon ko'rmaganingizdek his eting. Jasur yakka sayohatchilar uchun tanlangan sarguzashtlar.",
+    "exploreMore": "Ko'proq manzillarni o'rganing"
   },
   "Popular": {
-    "popularDestinations": "Mashhur sayohat manzillari"
+    "popularDestinations": "Mashhur sayohat manzillari",
+    "description": "Minglab sayohatchilar tomonidan yuqori baholangan eng sevimli sayohatlarimiz. Nima uchun bular bizning eng yaxshi tanlovlarimiz ekanligini bilib oling.",
+    "exploreAll": "Barcha mashhur manzillarni ko'rish"
+  },
+  "testimonials": {
+    "title": "Sayohatchilarimiz nima deyishadi",
+    "subtitle": "Naseem Travel bilan dunyoni kashf qilgan sayohatchilarning haqiqiy hikoyalari."
   },
   "silk": {
     "loading": "Yuborilmoqda...",
@@ -441,5 +454,29 @@
     },
     "logout": "Chiqish",
     "account": "Mening hisobim"
+  },
+  "whyChooseUs": {
+    "title": "Nega Naseem Travel?",
+    "subtitle": "Biz sizning kutganingizdan oshib ketadigan ajoyib xizmat va unutilmas tajribalarni taqdim etishga intildik.",
+    "trustedSecurity": {
+      "title": "Ishonchli Xavfsizlik",
+      "description": "Sizning xavfsizligingiz va himoyangiz bizning asosiy ustuvorliklarimizdir. Ma'lumotlaringiz va bronlaringizni himoya qilish uchun sanoat standartlaridan foydalanamiz."
+    },
+    "support247": {
+      "title": "24/7 Qo'llab-quvvatlash",
+      "description": "Bizning sayohat mutaxassislarimiz har qanday savol yoki favqulodda holatlar uchun kechayu kunduz yordam berishga tayyor."
+    },
+    "premiumQuality": {
+      "title": "Premium Sifat",
+      "description": "Sizga haqiqiy premium va esda qoladigan tajriba berish uchun faqat eng yaxshi turlar va sanatoriyalarni tanlaymiz."
+    },
+    "bestPrice": {
+      "title": "Eng Yaxshi Narx Kafolati",
+      "description": "Sayohat tajribangiz sifatini pasaytirmasdan raqobatbardosh narxlar va eksklyuziv takliflardan bahramand bo'ling."
+    },
+    "globalExpertise": {
+      "title": "Global Tajriba",
+      "description": "Sayohat sohasidagi ko'p yillik tajribamiz bilan sizning manzillaringiz uchun ekspert ko'rsatmalar va mahalliy tushunchalarni taqdim etamiz."
+    }
   }
 }

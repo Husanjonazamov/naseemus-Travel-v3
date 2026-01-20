@@ -13,7 +13,7 @@ import { TrustBadges } from "@/src/components/trust-badges";
 import { PopularDestinations } from "@/src/components/popular-destinations";
 import { NewTouring } from "@/src/components/new-touring-holidays";
 import { Footer } from "@/src/components/footer";
-import { Itinerary } from "@/src/components/itenerary";
+import { Itinerary } from "@/src/components/itinerary";
 import { TourOverview } from "@/src/components/tour-overview";
 import { TourDetails } from "@/src/components/tour-details";
 import {

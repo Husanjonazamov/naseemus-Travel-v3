@@ -52,14 +52,15 @@ const testimonials = [
 ];
 
 export function CustomerTestimonial() {
+  const t = useTranslations("testimonials");
   return (
     <section className="py-24 bg-[#dcfae7]/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Travelers Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t("title")}</h2>
           <div className="w-24 h-1 bg-[#007654] mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Real stories from travelers who explored the world with Naseem Travel.
+            {t("subtitle")}
           </p>
         </div>
 

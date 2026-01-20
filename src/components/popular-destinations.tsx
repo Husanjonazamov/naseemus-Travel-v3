@@ -55,7 +55,7 @@ export function PopularDestinations() {
             {t("popularDestinations")}
           </h2>
           <p className="text-gray-500 text-lg">
-            Our most loved journeys, as rated by thousands of travelers. Discover why these are our top picks.
+            {t("description")}
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export function PopularDestinations() {
         <div className="text-center mt-16">
           <Link href="/tour">
             <Button variant="outline" className="border-[#007654] text-[#007654] hover:bg-[#dcfae7] rounded-full px-12 py-6 text-lg">
-              Explore All Popular Destinations
+              {t("exploreAll")}
             </Button>
           </Link>
         </div>

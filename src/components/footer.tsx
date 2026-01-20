@@ -20,6 +20,7 @@ interface Tour {
 
 export function Footer() {
   const t = useTranslations("footer")
+  const tHero = useTranslations("header")
   const locale = useLocale() || "en"
 
   const [tours, setTours] = useState<Tour[]>([])
@@ -48,9 +49,9 @@ export function Footer() {
           {/* Brand & Social */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white tracking-tight">Naseem's Travel</h2>
+              <h2 className="text-2xl font-bold text-white tracking-tight">{tHero("company_name")}</h2>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-                Crafting extraordinary solo journeys and curated experiences across the legendary Silk Road and beyond.
+                {t("brand_description")}
               </p>
             </div>
 
@@ -94,7 +95,7 @@ export function Footer() {
                   <Mail size={16} />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 font-bold uppercase mb-1">Email</p>
+                  <p className="text-xs text-gray-500 font-bold uppercase mb-1">{t("contact.email")}</p>
                   <a href="mailto:naseemstravel@gmail.com" className="text-gray-300 hover:text-white transition-colors">naseemstravel@gmail.com</a>
                 </div>
               </div>
@@ -116,7 +117,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">Company</h4>
+              <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">{t("sections.company")}</h4>
               <ul className="space-y-3">
                 {[
                   { label: t("customer_support.about_us"), href: "#" },
@@ -136,7 +137,7 @@ export function Footer() {
           {/* Newsletter */}
           <div className="space-y-6">
             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-8">{t("newsletter.title")}</h4>
-            <p className="text-gray-400 text-sm">Join our newsletter to receive curated travel inspiration and exclusive offers.</p>
+            <p className="text-gray-400 text-sm">{t("newsletter.description")}</p>
             <div className="flex flex-col gap-3">
               <div className="relative group">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 group-focus-within:text-[#007654] transition-colors" />
