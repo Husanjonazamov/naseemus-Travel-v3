@@ -5,69 +5,35 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Button } from "./ui/button"
 import { useTranslations, useLocale } from "next-intl"
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 import axios from "axios"
-import { motion } from "framer-motion"
 import config from "../config"
-
-// Helper: title ni URL-friendly qilish
-const slugify = (text: string) =>
-  text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "")
-
-interface BlogPost {
-  id: number
-  title: string
-  description: string
-  image: string
-}
-
-interface ApiResponse {
-  status: boolean
-  data: {
-    links: { previous: string | null; next: string | null }
-    total_items: number
-    total_pages: number
-    page_size: number
-    current_page: number
-    results: BlogPost[]
-  }
-}
+import { BlogCard } from "./BlogCard"
 
 export function BlogSection() {
   const t = useTranslations("blog")
-  const router = useRouter()
   const locale = useLocale()
 
-  const [destinations, setDestinations] = useState<BlogPost[]>([])
+  const [posts, setPosts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
   const [sliderRef] = useKeenSlider({
     loop: true,
-    slides: { perView: 1.1, spacing: 10 },
+    slides: { perView: 1.2, spacing: 16 },
     breakpoints: {
-      "(min-width: 768px)": { slides: { perView: 3, spacing: 16 }, drag: false },
+      "(min-width: 768px)": { slides: { perView: 2, spacing: 20 }, drag: false },
+      "(min-width: 1024px)": { slides: { perView: 3, spacing: 24 }, drag: false },
     },
   })
-
-  const [isMobile, setIsMobile] = useState(false)
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
         const lang = locale || "en"
-        const response = await axios.get<ApiResponse>(`${config.BASE_URL}/api/blog/`, {
+        const response = await axios.get(`${config.BASE_URL}/api/blog/`, {
           headers: { "Accept-Language": lang },
         })
-        setDestinations(response.data.data.results.slice(0, 6))
+        setPosts(response.data.data.results.slice(0, 6))
       } catch (error) {
         console.error("Blog API error:", error)
       } finally {
@@ -77,114 +43,48 @@ export function BlogSection() {
     fetchBlogPosts()
   }, [locale])
 
-  if (loading) return <p>Loading...</p>
-
-  const goToDetail = (destination: BlogPost) => {
-    router.push(`/blog/${slugify(destination.title)}`)
-  }
-
-  // Helper: descriptionni 20 ta so'zga qisqartirish
-  const shortDescription = (text: string, wordCount: number) => {
-    const words = text.split(" ").slice(0, wordCount)
-    return words.join(" ") + (words.length < text.split(" ").length ? "..." : "")
-  }
-
-  // Framer Motion variantlari
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.1, duration: 0.5 },
-    }),
-  }
-
   return (
-    <section className="py-16 px-4 bg-[#dcfae7]">
+    <section className="py-24 px-4 bg-gray-50/30">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl md:text-4xl font-bold text-center text-[#007654] mb-12">
-          {t("title")}
-        </h2>
+        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl text-center md:text-left">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              {t("title")}
+            </h2>
+            <p className="text-gray-500 text-lg">
+              Insights, stories, and guides from the heart of the Silk Road.
+            </p>
+          </div>
+          <Link href="/blog">
+            <Button variant="outline" className="border-[#007654] text-[#007654] hover:bg-[#dcfae7] rounded-full px-8">
+              View All Stories
+            </Button>
+          </Link>
+        </div>
 
-        {isMobile ? (
-          <div ref={sliderRef} className="keen-slider">
-            {destinations.map((destination, index) => (
-              <motion.div
-                key={destination.id}
-                className="keen-slider__slide flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden cursor-pointer"
-                onClick={() => goToDetail(destination)}
-                initial="hidden"
-                animate="visible"
-                custom={index}
-                variants={cardVariants}
-              >
-                <div
-                  className="h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${destination.image}')` }}
-                ></div>
-
-                <div className="flex flex-col flex-grow p-6">
-                  <h3 className="text-xl font-bold text-[#007654] mb-4">
-                    {destination.title}
-                  </h3>
-                  <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                    {shortDescription(destination.description, 20)}
-                  </p>
-
-                  <div className="flex items-center justify-between mt-auto">
-                    <Button
-                      className="bg-[#007654] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        goToDetail(destination)
-                      }}
-                    >
-                      {t("explore_button")}
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
+        {loading ? (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-gray-100 animate-pulse rounded-2xl h-[450px]" />
             ))}
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.map((destination, index) => (
-              <motion.div
-                key={destination.id}
-                className="flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden cursor-pointer"
-                onClick={() => goToDetail(destination)}
-                initial="hidden"
-                animate="visible"
-                custom={index}
-                variants={cardVariants}
-              >
-                <div
-                  className="h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${destination.image}')` }}
-                ></div>
+          <div className="relative">
+            {/* Desktop Grid */}
+            <div className="hidden lg:grid lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <BlogCard key={post.id} post={post} />
+              ))}
+            </div>
 
-                <div className="flex flex-col flex-grow p-6">
-                  <h3 className="text-xl font-bold text-[#007654] mb-4">
-                    {destination.title}
-                  </h3>
-                  <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                    {shortDescription(destination.description, 20)}
-                  </p>
-
-                  <div className="flex items-center justify-between mt-auto">
-                    <Button
-                      className="bg-[#007654] text-white font-bold px-8 py-6 rounded-md shadow-md text-lg"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        goToDetail(destination)
-                      }}
-                    >
-                      {t("explore_button")}
-                    </Button>
-                  </div>
+            {/* Mobile Slider */}
+            <div ref={sliderRef} className="keen-slider lg:hidden">
+              {posts.map((post) => (
+                <div key={post.id} className="keen-slider__slide pb-4">
+                  <BlogCard post={post} />
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
       </div>

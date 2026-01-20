@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import { format } from 'date-fns';
@@ -51,7 +51,7 @@ const TabsHotelMobile = ({ active }: Props) => {
 
 
   const formatDateString = (date?: Date) =>
-  date ? format(date, 'dd/MM/yyyy') : '';
+    date ? format(date, 'dd/MM/yyyy') : '';
 
 
   const [cities, setCities] = useState<City[]>([]);
@@ -344,13 +344,13 @@ const TabsHotelMobile = ({ active }: Props) => {
                     <p className="text-ring text-sm">{t('adults_info')}</p>
                   </Label>
                   <div className="grid grid-cols-3 border justify-center items-center rounded-lg w-48">
-                    <Button variant="ghost" onClick={() => setAdults(prev => Math.max(prev - 1, 0))}>
+                    <Button variant="text" onClick={() => setAdults(prev => Math.max(prev - 1, 0))}>
                       <RemoveIcon className="text-green-600" />
                     </Button>
-                    <Button variant="ghost" className="rounded-none border-r-2 h-full border-l-2 text-lg">
+                    <Button variant="text" className="rounded-none border-r-2 h-full border-l-2 text-lg">
                       {adults}
                     </Button>
-                    <Button variant="ghost" onClick={() => setAdults(prev => prev + 1)}>
+                    <Button variant="text" onClick={() => setAdults(prev => prev + 1)}>
                       <AddIcon className="text-green-600" />
                     </Button>
                   </div>
@@ -363,13 +363,13 @@ const TabsHotelMobile = ({ active }: Props) => {
                     <p className="text-ring text-sm">{t('children_info')}</p>
                   </Label>
                   <div className="grid grid-cols-3 border justify-center items-center rounded-lg w-48">
-                    <Button variant="ghost" onClick={() => setChildren(prev => Math.max(prev - 1, 0))}>
+                    <Button variant="text" onClick={() => setChildren(prev => Math.max(prev - 1, 0))}>
                       <RemoveIcon className="text-green-600" />
                     </Button>
-                    <Button variant="ghost" className="rounded-none border-r-2 h-full border-l-2 text-lg">
+                    <Button variant="text" className="rounded-none border-r-2 h-full border-l-2 text-lg">
                       {children}
                     </Button>
-                    <Button variant="ghost" onClick={() => setChildren(prev => prev + 1)}>
+                    <Button variant="text" onClick={() => setChildren(prev => prev + 1)}>
                       <AddIcon className="text-green-600" />
                     </Button>
                   </div>

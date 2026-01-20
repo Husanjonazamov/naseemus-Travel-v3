@@ -1,6 +1,6 @@
 {
   "contact": {
-     "contact_us": "Свяжитесь с нами",
+    "contact_us": "Свяжитесь с нами",
     "get_in_touch": "Связаться",
     "message_sent": "Ваше сообщение успешно отправлено!",
     "full_name": "Полное имя",
@@ -12,88 +12,74 @@
   },
   "hotel": {
     "directions": "Направления",
-  "placeholder_city": "Страна, город",
-  "start_date": "Дата отправления",
-  "when": "Когда",
-  "departure": "Выезд",
-  "tourists": "Туристы",
-  "adults": "Взрослых",
-  "children": "Дети",
-  "adults_info": "старше 13 лет",
-  "children_info": "до 13 лет",
-  "cancel": "Отмена",
-  "apply": "Применять",
-  "search_tours": "Искать туры",
-  "no_results": "Ничего не найдено",
-  "start_search": "Начните искать",
-  "start_search": "Начните искать"
-,
-     "seePrices": "Смотреть цены",
-
-     "from": "Откуда",
-  "noResults": "Ничего не найдено",
-  "to": "Куда",
-  "departureDate": "Дата отправления",
-  "exit": "Выезд",
-  "adultsHint": "старше 13 лет",
-  "childrenHint": "до 13 лет",
-
-  "offerOfDay": "Предложение дня: только сегодня!",
-  "bestDirections": "Лучшие направления по самым выгодным ценам",
-  "tours": "Туры",
-  "hotels": "Отели",
-  "tashkent": "Ташкент",
-  "countryResort": "Страна, курорт",
-  "twoAdults": "2 Взрослых",
-  "searchTours": "Искать туры"
+    "placeholder_city": "Страна, город",
+    "start_date": "Дата отправления",
+    "when": "Когда",
+    "departure": "Выезд",
+    "tourists": "Туристы",
+    "adults": "Взрослых",
+    "children": "Дети",
+    "adults_info": "старше 13 лет",
+    "children_info": "до 13 лет",
+    "cancel": "Отмена",
+    "apply": "Применять",
+    "search_tours": "Искать туры",
+    "no_results": "Ничего не найдено",
+    "start_search": "Начните искать",
+    "seePrices": "Смотреть цены",
+    "from": "Откуда",
+    "noResults": "Ничего не найдено",
+    "to": "Куда",
+    "departureDate": "Дата отправления",
+    "exit": "Выезд",
+    "adultsHint": "старше 13 лет",
+    "childrenHint": "до 13 лет",
+    "offerOfDay": "Предложение дня: только сегодня!",
+    "bestDirections": "Лучшие направления по самым выгодным ценам",
+    "tours": "Туры",
+    "hotels": "Отели",
+    "tashkent": "Ташкент",
+    "countryResort": "Страна, курорт",
+    "twoAdults": "2 Взрослых",
+    "searchTours": "Искать туры"
   },
-
-
-   "searchPage": {
-  "start_search": "Начните искать"
-,
-     "seePrices": "Смотреть цены",
-
-     "from": "Откуда",
-  "noResults": "Ничего не найдено",
-  "to": "Куда",
-  "departureDate": "Дата отправления",
-  "exit": "Выезд",
-  "cancel": "Отмена",
-  "apply": "Применять",
-  "tourists": "Туристы",
-  "adults": "Взрослые",
-  "adultsHint": "старше 13 лет",
-  "children": "Дети",
-  "childrenHint": "до 13 лет",
-
-  "offerOfDay": "Предложение дня: только сегодня!",
-  "bestDirections": "Лучшие направления по самым выгодным ценам",
-  "tours": "Туры",
-  "hotels": "Отели",
-  "tashkent": "Ташкент",
-  "countryResort": "Страна, курорт",
-  "when": "Когда",
-  "twoAdults": "2 Взрослых",
-  "searchTours": "Искать туры"
-    },
-   "working_hours": {
-      "working_hours_title": "Часы работы",
-
-      "monday_to_friday": "Понедельник - Пятница: 09:00 - 18:00",
-      "saturday": "Суббота: 10:00 - 16:00",
-      "sunday": "Воскресенье: Закрыто"
-    },
-
+  "searchPage": {
+    "start_search": "Начните искать",
+    "seePrices": "Смотреть цены",
+    "from": "Откуда",
+    "noResults": "Ничего не найдено",
+    "to": "Куда",
+    "departureDate": "Дата отправления",
+    "exit": "Выезд",
+    "cancel": "Отмена",
+    "apply": "Применять",
+    "tourists": "Туристы",
+    "adults": "Взрослые",
+    "adultsHint": "старше 13 лет",
+    "children": "Дети",
+    "childrenHint": "до 13 лет",
+    "offerOfDay": "Предложение дня: только сегодня!",
+    "bestDirections": "Лучшие направления по самым выгодным ценам",
+    "tours": "Туры",
+    "hotels": "Отели",
+    "tashkent": "Ташкент",
+    "countryResort": "Страна, курорт",
+    "when": "Когда",
+    "twoAdults": "2 Взрослых",
+    "searchTours": "Искать туры"
+  },
+  "working_hours": {
+    "working_hours_title": "Часы работы",
+    "monday_to_friday": "Понедельник - Пятница: 09:00 - 18:00",
+    "saturday": "Суббота: 10:00 - 16:00",
+    "sunday": "Воскресенье: Закрыто"
+  },
   "silk": {
-      "day": "день",
-
-      "loading": "Отправка...",
-            "submit": "Отправить",
-
-      "success": "Бронирование успешно отправлено!",
-      "error": "Произошла ошибка. Попробуйте снова.",
-
+    "day": "день",
+    "loading": "Отправка...",
+    "submit": "Отправить",
+    "success": "Бронирование успешно отправлено!",
+    "error": "Произошла ошибка. Попробуйте снова.",
     "title": "Путешествие по Узбекистану",
     "price": "750$",
     "price_label": "Начальная цена",
@@ -123,13 +109,12 @@
       "submit": "Отправить"
     }
   },
-
   "header": {
-  "holiday_types": "Виды отдыха",
-  "offers": "Предложения",
-  "inspire_me": "Вдохнови меня",
-  "our_services": "Наши услуги",
-  "contact_us": "Связаться с нами",
+    "holiday_types": "Виды отдыха",
+    "offers": "Предложения",
+    "inspire_me": "Вдохнови меня",
+    "our_services": "Наши услуги",
+    "contact_us": "Связаться с нами",
     "phone": "+998-94-001-47-41",
     "address": "Ташкент, Основная улица 123",
     "company_name": "Naseem's Travel",
@@ -151,15 +136,14 @@
     "description": "Забронируйте отпуск своей мечты сегодня и сэкономьте до 40% на перелетах, отелях и пакетах. Предложение действует до 31 августа 2025 года.",
     "cta": "Забронировать сейчас",
     "placeholder": "Куда вы хотите поехать?",
-     "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Исключительно для одиночных путешественников",
+    "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Исключительно для одиночных путешественников",
     "OVER_25_YEARS_EXPERTISE": "Более 25 лет опыта",
     "YOUR_MONEY_PROTECTED": "Ваши деньги защищены на 100%",
     "HOLIDAY_ASSURANCE_GUARANTEE": "Гарантия отдыха",
     "NO_SINGLE_SUPPLEMENT": "Без дополнительной платы"
   },
   "tour_uzbekistan": {
-        "videos": "Видео",
-
+    "videos": "Видео",
     "tabs": {
       "discover": "Открыть",
       "itinerary": "Маршрут",
@@ -174,7 +158,7 @@
     "departure_dates": "Сентябрь 2025 - Октябрь 2026",
     "cta_book": "Забронировать",
     "popular_tour": "Популярный тур",
-  "new_tour": "Новый тур",
+    "new_tour": "Новый тур",
     "overview": "Незабываемое путешествие в сердце Центральной Азии. Откройте для себя красоту Ташкента, Хивы, Бухары и Самарканда.",
     "type": "Классический тур",
     "enlarge_map": "Увеличить карту",
@@ -358,7 +342,7 @@
       "community": "Сообщество",
       "faq": "Вопросы"
     },
-     "sections": {
+    "sections": {
       "tours": "Туры",
       "no_tours": "Туры пока недоступны"
     },
@@ -394,7 +378,6 @@
     "testimonial": "Это было мое первое путешествие, и я определенно рекомендую.",
     "author": "Анна"
   },
-  
   "newsletter": {
     "title": "Получайте новости и предложения",
     "button": "Подписаться"
@@ -439,5 +422,31 @@
     "experienced_tour_guide": "Опытный гид",
     "holiday_assurance": "Гарантия путешествия",
     "support_every_step": "Поддержка на каждом шагу"
+  },
+  "auth": {
+    "login": {
+      "title": "С возвращением",
+      "subtitle": "Войдите, чтобы управлять бронированиями",
+      "email": "Электронная почта",
+      "password": "Пароль",
+      "forgot_password": "Забыли пароль?",
+      "submit": "Войти",
+      "loading": "Вход...",
+      "no_account": "Нет аккаунта?",
+      "signup_link": "Зарегистрироваться"
+    },
+    "signup": {
+      "title": "Присоединяйтесь к нам",
+      "subtitle": "Ваше следующее приключение начинается здесь",
+      "full_name": "Полное имя",
+      "email": "Электронная почта",
+      "password": "Создать пароль",
+      "submit": "Начать",
+      "loading": "Создание...",
+      "have_account": "Уже есть аккаунт?",
+      "login_link": "Войти"
+    },
+    "logout": "Выйти",
+    "account": "Мой аккаунт"
   }
 }

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import EastIcon from '@mui/icons-material/East';
@@ -24,7 +24,7 @@ const SearchTours = () => {
           {/* Matn va button */}
           <div className="h-full px-4 md:px-6 flex flex-col justify-center gap-2">
             <p className="text-white text-lg md:text-3xl font-semibold leading-snug">
-             {t("offerOfDay")}
+              {t("offerOfDay")}
             </p>
             <p className="text-gray-100 text-sm md:text-lg font-medium">
               {t("bestDirections")}

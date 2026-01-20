@@ -6,37 +6,27 @@ import "keen-slider/keen-slider.min.css"
 import { Button } from "./ui/button"
 import { useTranslations, useLocale } from "next-intl"
 import Link from "next/link"
+import { TourCard } from "./TourCard"
 import axios from "axios"
-import { motion } from "framer-motion"
 import config from "../config"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 
 export function NewTouring() {
-  const t = useTranslations("newHoliday") // Title
-  const e = useTranslations("last")       // Explore button text
+  const t = useTranslations("newHoliday")
   const locale = useLocale()
 
   const [destinations, setDestinations] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
-  // Keen Slider setup
-  const [sliderRef] = useKeenSlider({
+  const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
-    slides: { perView: 1.1, spacing: 10 },
+    slides: { perView: 1.1, spacing: 20 },
     breakpoints: {
-      "(min-width: 768px)": { slides: { perView: 3, spacing: 16 }, drag: false },
+      "(min-width: 768px)": { slides: { perView: 2, spacing: 30 } },
+      "(min-width: 1024px)": { slides: { perView: 3, spacing: 40 } },
     },
   })
 
-  // Detect mobile
-  const [isMobile, setIsMobile] = useState(false)
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768)
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  // Fetch tours from API
   useEffect(() => {
     const fetchTours = async () => {
       try {
@@ -44,7 +34,8 @@ export function NewTouring() {
         const res = await axios.get(`${config.BASE_URL}/api/tour/`, {
           headers: { "Accept-Language": lang },
         })
-        setDestinations(res.data.data.results.slice(0, 6))
+        // We take up to 9 new tours for a robust section
+        setDestinations(res.data.data.results.slice(0, 9))
       } catch (error) {
         console.error("API error:", error)
       } finally {
@@ -54,122 +45,65 @@ export function NewTouring() {
     fetchTours()
   }, [locale])
 
-  // Loading skeleton cards
-  const loadingCards = Array.from({ length: 6 }).map((_, index) => (
-    <div
-      key={index}
-      className="flex flex-col bg-gray-100 animate-pulse overflow-hidden  h-[400px]"
-    >
-      <div className="h-48 bg-gray-200"></div>
-      <div className="flex flex-col flex-grow p-6 space-y-4">
-        <div className="h-6 bg-gray-300 w-3/4 rounded"></div>
-        <div className="h-4 bg-gray-300 w-full rounded"></div>
-        <div className="h-4 bg-gray-300 w-full rounded"></div>
-        <div className="h-4 bg-gray-300 w-5/6 rounded"></div>
-        <div className="mt-auto h-10 bg-gray-300 w-full rounded"></div>
-      </div>
-    </div>
-  ))
-
-  // Price formatter
-  const formatPrice = (price: number) =>
-    new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(price)
-
-  // Framer Motion variants
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.1, duration: 0.5 },
-    }),
-  }
-
   return (
-    <section className="py-16 px-4 bg-[#dcfae7]" id="newTour">
+    <section className="py-24 px-4 bg-transparent overflow-hidden" id="newTour">
       <div className="max-w-7xl mx-auto">
-        {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#007654] mb-12">
-          {t("newHoliday")}
-        </h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+          <div className="max-w-3xl">
+            <h4 className="text-[#007654] font-black uppercase tracking-[0.3em] text-[10px] mb-4">Discover the legendary Silk Road</h4>
+            <h2 className="text-5xl md:text-6xl font-black text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
+              {t("newHoliday")}
+            </h2>
+            <p className="text-gray-500 text-lg md:text-xl font-medium max-w-2xl leading-relaxed">
+              Experience Uzbekistan like never before. Hand-picked adventures designed for the bold solo traveler.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Button
+              variant="outline"
+              size="icon"
+              className="w-14 h-14 rounded-full border-[#f0f0f0] hover:border-[#007654] hover:text-[#007654] bg-white transition-all shadow-sm"
+              onClick={() => instanceRef.current?.prev()}
+            >
+              <ArrowLeft size={24} />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="w-14 h-14 rounded-full border-[#f0f0f0] hover:border-[#007654] hover:text-[#007654] bg-white transition-all shadow-sm"
+              onClick={() => instanceRef.current?.next()}
+            >
+              <ArrowRight size={24} />
+            </Button>
+          </div>
+        </div>
 
         {loading ? (
-          <div className={isMobile ? "keen-slider" : "grid md:grid-cols-2 lg:grid-cols-3 gap-8"}>
-            {loadingCards}
-          </div>
-        ) : isMobile ? (
-          // Mobile slider
-          <div ref={sliderRef} className="keen-slider">
-            {destinations.map((destination, index) => (
-              <motion.div
-                key={destination.id}
-                className="keen-slider__slide flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden"
-                initial="hidden"
-                animate="visible"
-                custom={index}
-                variants={cardVariants}
-              >
-                <div
-                  className="h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${destination.image}')` }}
-                ></div>
-
-                <div className="flex flex-col flex-grow p-4">
-                  <h3 className="text-lg font-bold text-[#007654] mb-2">{destination.title}</h3>
-                  <p className="text-gray-700 text-sm mb-2 leading-relaxed">{destination.description}</p>
-
-                  <p className="text-[#007654] font-semibold text-xl mb-3">
-                    {formatPrice(destination.price)}
-                  </p>
-
-                  <Link href={`/tour/${encodeURIComponent(destination.slug || destination.title)}`}>
-                    <Button className="w-full bg-[#007654] text-white font-semibold py-3 shadow-md text-base">
-                      {e("explore")}
-                    </Button>
-                  </Link>
-                </div>
-              </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-white rounded-[32px] h-[600px] animate-pulse border border-[#f0f0f0]" />
             ))}
           </div>
         ) : (
-          // Desktop grid
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.map((destination, index) => (
-              <motion.div
-                key={destination.id}
-                className="flex flex-col bg-[#c8f4ce] shadow-lg overflow-hidden"
-                initial="hidden"
-                animate="visible"
-                custom={index}
-                variants={cardVariants}
-              >
-                <div
-                  className="h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${destination.image}')` }}
-                ></div>
-
-                <div className="flex flex-col flex-grow p-6">
-                  <h3 className="text-xl font-bold text-[#007654] mb-2">{destination.title}</h3>
-                  <p className="text-gray-700 text-sm mb-4 leading-relaxed">{destination.description}</p>
-
-                  <div className="flex items-center justify-between mt-auto">
-                    <p className="text-[#007654] font-bold text-3xl">{formatPrice(destination.price)}</p>
-                    <Link href={`/tour/${encodeURIComponent(destination.slug || destination.title)}`}>
-                      <Button className="bg-[#007654] text-white font-semibold px-6 py-3 shadow-md text-base">
-                        {e("explore")}
-                      </Button>
-                    </Link>
-                  </div>
+          <div className="relative">
+            <div ref={sliderRef} className="keen-slider !overflow-visible">
+              {destinations.map((tour) => (
+                <div key={tour.id} className="keen-slider__slide px-2 md:px-0">
+                  <TourCard tour={tour} />
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
+
+        <div className="mt-20 text-center">
+          <Link href="/tour">
+            <Button variant="outline" className="h-16 px-12 rounded-2xl border-[#007654] text-[#007654] hover:bg-[#007654] hover:text-white transition-all font-bold text-lg shadow-xl shadow-[#007654]/5">
+              Explore More Destinations
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   )

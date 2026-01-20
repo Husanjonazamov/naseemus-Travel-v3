@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { useTranslations } from "next-intl";
-import { Calendar, Users, DollarSign } from "lucide-react";
+import { Calendar, Users, DollarSign, ArrowRight, Loader2, Sparkles } from "lucide-react";
 import config from "../config";
 import { toast } from "react-toastify";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import { Card, CardContent } from "./ui/card";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface TourDetailsProps {
   tour: {
@@ -31,10 +32,9 @@ export function TourDetails({ tour }: TourDetailsProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // form state
   const [formData, setFormData] = useState({
     name: "",
-    phone: "+998", // default qiymat
+    phone: "+998",
     quantity: 1,
     date: "",
     comment: "",
@@ -44,13 +44,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-
-    // Telefon uchun maxsus shart
-    if (name === "phone") {
-      // Faqat +998 bilan boshlansin
-      if (!value.startsWith("+998")) return;
-    }
-
+    if (name === "phone" && !value.startsWith("+998")) return;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -61,38 +55,19 @@ export function TourDetails({ tour }: TourDetailsProps) {
     try {
       const res = await fetch(`${config.BASE_URL}/api/order/`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
+          ...formData,
           quantity: Number(formData.quantity),
-          date: formData.date,
-          comment: formData.comment,
           tour_id: tour.id,
         }),
       });
 
-      if (!res.ok) {
-        throw new Error("Failed to create order");
-      }
-
-      const result = await res.json();
-      console.log("✅ Order created:", result);
-
+      if (!res.ok) throw new Error("Failed");
       toast.success(t("success"));
-
       setIsOpen(false);
-      setFormData({
-        name: "",
-        phone: "+998",
-        quantity: 1,
-        date: "",
-        comment: "",
-      });
+      setFormData({ name: "", phone: "+998", quantity: 1, date: "", comment: "" });
     } catch (err) {
-      console.error("❌ Order error:", err);
       toast.error(t("error"));
     } finally {
       setLoading(false);
@@ -100,189 +75,147 @@ export function TourDetails({ tour }: TourDetailsProps) {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6 md:py-10">
-      {/* Title */}
-      <div className="text-center mb-6 md:mb-10">
-        <h1 className="text-2xl md:text-4xl font-extrabold text-[#007654] mb-4">
-          {tour.title}
-        </h1>
-
-        {/* Price, Duration, Dates, CTA */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-6">
-          {/* Price */}
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-2 text-xl md:text-2xl font-bold text-[#007654]">
-              <DollarSign size={20} />
-              ${tour.price}
+    <div className="w-full">
+      <Card className="border-0 shadow-2xl overflow-hidden bg-white/80 backdrop-blur-xl rounded-[40px] border-b-8 border-[#007654]">
+        <CardContent className="p-10">
+          <div className="flex flex-col gap-8">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-4 py-2 rounded-full">
+                <Sparkles size={16} className="text-[#007654]" />
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">Premium Booking</span>
+              </div>
+              <h3 className="text-3xl font-black text-[#1a1a1a] tracking-tight">Reserve Your Spot</h3>
+              <p className="text-gray-500 font-medium leading-relaxed">Ensure your legendary journey begins on your preferred dates. Our specialist team will handle your request immediately.</p>
             </div>
-            <p className="text-sm text-gray-600">{t("price_label")}</p>
-          </div>
 
-          {/* Duration */}
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-2 text-xl md:text-2xl font-bold text-[#007654]">
-              <Users size={20} />
-              {tour.date} {t("day")}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-gray-50/80 p-6 rounded-3xl border border-gray-100 flex flex-col items-center text-center">
+                <DollarSign size={24} className="text-[#007654] mb-2" />
+                <p className="text-[9px] font-black uppercase text-gray-400 mb-1">Fixed Price</p>
+                <p className="text-xl font-black text-[#1a1a1a]">${tour.price}</p>
+              </div>
+              <div className="bg-gray-50/80 p-6 rounded-3xl border border-gray-100 flex flex-col items-center text-center">
+                <Calendar size={24} className="text-[#007654] mb-2" />
+                <p className="text-[9px] font-black uppercase text-gray-400 mb-1">Duration</p>
+                <p className="text-xl font-black text-[#1a1a1a]">{tour.date} Days</p>
+              </div>
             </div>
-            <p className="text-sm text-gray-600">{t("duration_label")}</p>
-          </div>
 
-          {/* Dates */}
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-2 text-lg font-semibold text-[#007654]">
-              <Calendar size={18} />
-              {t("departure_dates")}
-            </div>
-            <p className="text-sm text-gray-600">{t("departure_dates_label")}</p>
-          </div>
-
-          {/* CTA */}
-          <div className="flex items-center justify-center">
             <Button
               onClick={() => setIsOpen(true)}
-              className="bg-gradient-to-r from-[#007654] to-[#009e6f] 
-                hover:from-[#006148] hover:to-[#00885d] 
-                text-white px-6 py-6 rounded-lg shadow-md 
-                transition-transform transform hover:scale-105 w-full sm:w-auto text-xl"
+              className="w-full h-20 bg-[#007654] hover:bg-[#008c64] text-white rounded-[24px] text-xl font-black transition-all duration-300 shadow-xl shadow-[#007654]/20 hover:scale-[1.02] active:scale-[0.98]"
             >
-              {t("cta_book")}
+              Proceed to Booking
+              <ArrowRight size={24} className="ml-3" />
             </Button>
+
+            <div className="flex items-center justify-center gap-4 py-2 text-gray-400">
+              <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5">
+                <Sparkles size={12} className="text-[#007654]" />
+                Best Price Guarantee
+              </span>
+            </div>
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
 
-      {/* Modal */}
-      {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center">
-          <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
-          />
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/80 backdrop-blur-xl"
+              onClick={() => setIsOpen(false)}
+            />
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 40 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 40 }}
+              className="relative bg-white w-full max-w-[500px] rounded-[40px] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.5)] overflow-hidden"
+            >
+              <div className="p-8 md:p-12">
+                <div className="mb-10 text-center">
+                  <h2 className="text-3xl font-black text-[#1a1a1a] tracking-tight">{t("booking_form.title")}</h2>
+                  <p className="text-gray-500 font-medium mt-2">Personalize your luxury experience.</p>
+                </div>
 
-          <div
-            className="relative bg-[#ffffff] rounded-t-2xl md:rounded-2xl shadow-xl p-5 sm:p-6 w-full max-w-md md:max-w-lg z-10 
-            h-[90vh] sm:h-auto overflow-y-auto animate-slideUp"
-          >
-            <h2 className="text-xl md:text-2xl font-bold text-[#007654] mb-4 text-center">
-              {t("booking_form.title")}
-            </h2>
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("booking_form.name")}</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full h-16 px-6 bg-gray-50 border border-gray-100 rounded-2xl font-bold focus:bg-white focus:ring-4 focus:ring-[#007654]/5 transition-all outline-none"
+                      placeholder={t("booking_form.name_placeholder")}
+                      required
+                    />
+                  </div>
 
-            <form className="space-y-5" onSubmit={handleSubmit}>
-              {/* Name */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("booking_form.name")}
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg shadow-sm 
-                    focus:ring-2 focus:ring-[#007654] focus:border-[#007654]"
-                  placeholder={t("booking_form.name_placeholder")}
-                  required
-                />
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("booking_form.phone")}</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full h-16 px-6 bg-gray-50 border border-gray-100 rounded-2xl font-bold focus:bg-white focus:ring-4 focus:ring-[#007654]/5 transition-all outline-none"
+                        placeholder="+998"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Travelers</label>
+                      <input
+                        type="number"
+                        name="quantity"
+                        value={formData.quantity}
+                        onChange={handleChange}
+                        className="w-full h-16 px-6 bg-gray-50 border border-gray-100 rounded-2xl font-bold focus:bg-white focus:ring-4 focus:ring-[#007654]/5 transition-all outline-none"
+                        min={1}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Preferred Date</label>
+                    <DatePicker
+                      selected={formData.date ? new Date(formData.date) : null}
+                      onChange={(date: Date | null) => setFormData(prev => ({ ...prev, date: date ? date.toISOString().split("T")[0] : "" }))}
+                      minDate={new Date()}
+                      dateFormat="dd/MM/yyyy"
+                      className="w-full h-16 px-6 bg-gray-50 border border-gray-100 rounded-2xl font-bold focus:bg-white focus:ring-4 focus:ring-[#007654]/5 transition-all outline-none"
+                      placeholderText="Select Departure Date"
+                    />
+                  </div>
+
+                  <div className="pt-4">
+                    <Button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full h-16 bg-[#007654] hover:bg-[#008c64] text-white rounded-2xl font-black text-lg shadow-xl shadow-[#007654]/20"
+                    >
+                      {loading ? <Loader2 className="animate-spin" /> : "Confirm Booking Request"}
+                    </Button>
+                    <button
+                      type="button"
+                      onClick={() => setIsOpen(false)}
+                      className="w-full mt-4 text-xs font-black text-gray-300 uppercase tracking-widest hover:text-gray-600 transition-colors"
+                    >
+                      Dismiss Request
+                    </button>
+                  </div>
+                </form>
               </div>
-
-              {/* Phone */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("booking_form.phone")}
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  pattern="^\+998\d{9}$"
-                  maxLength={13} // +998XXXXXXXXX (13 ta belgidan oshmasin)
-                  className="w-full px-4 py-2 border rounded-lg shadow-sm 
-                    focus:ring-2 focus:ring-[#007654] focus:border-[#007654]"
-                  placeholder="+998974241015"
-                  required
-                />
-                <p className="text-xs text-gray-500 mt-1">
-                  Format: +998974241015
-                </p>
-              </div>
-
-              {/* Passengers */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("booking_form.passengers")}
-                </label>
-                <input
-                  type="number"
-                  name="quantity"
-                  value={formData.quantity}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg shadow-sm 
-                    focus:ring-2 focus:ring-[#007654] focus:border-[#007654]"
-                  min={1}
-                  max={20}
-                  step={1}
-                  required
-                />
-              </div>
-
-              {/* Date */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("booking_form.date")}
-                </label>
-              <DatePicker
-                  selected={formData.date ? new Date(formData.date) : null}
-                  onChange={(date: Date | null) =>
-                    setFormData(prev => ({ ...prev, date: date ? date.toISOString().split("T")[0] : "" }))
-                  }
-                  minDate={new Date()}
-                  dateFormat="dd/MM/yyyy"
-                  className="w-full px-4 py-3 border rounded-lg shadow-sm 
-                    focus:ring-2 focus:ring-[#007654] focus:border-[#007654]"
-                  placeholderText="Sana tanlang"
-                />
-
-              </div>
-
-              {/* Notes */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("booking_form.notes")}
-                </label>
-                <textarea
-                  name="comment"
-                  value={formData.comment}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg shadow-sm 
-                    focus:ring-2 focus:ring-[#007654] focus:border-[#007654]"
-                  rows={3}
-                  placeholder={t("booking_form.notes_placeholder")}
-                />
-              </div>
-
-              {/* Actions */}
-              <div className="flex flex-col md:flex-row justify-end gap-3 pt-4">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => setIsOpen(false)}
-                  className="w-full md:w-auto"
-                >
-                  {t("booking_form.cancel")}
-                </Button>
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full md:w-auto bg-[#007654] hover:bg-[#006148] text-white px-6"
-                >
-                  {loading ? t("loading") : t("submit")}
-                </Button>
-              </div>
-            </form>
+            </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </div>
   );
 }

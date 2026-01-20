@@ -20,6 +20,8 @@ import TabsHotel from "@/src/components/TabsHotel"
 import SearchTours from "@/src/components/SearchTours"
 
 
+import { WhyChooseUs } from "@/src/components/why-choose-us"
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#dcfae7]">
@@ -27,6 +29,7 @@ export default function HomePage() {
       <TrustBadges />
       <HeroSection />
       <SearchTours />
+      <WhyChooseUs />
       <ContentSection />
       <LastMinuteHolidays />
       <ServicesSection />

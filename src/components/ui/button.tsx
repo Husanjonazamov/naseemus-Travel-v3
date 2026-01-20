@@ -62,7 +62,7 @@ function Spinner() {
 
 interface ButtonProps
   extends React.ComponentProps<"button">,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean
   isLoading?: boolean
 }

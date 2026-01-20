@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -90,7 +90,7 @@ const TabsTourMobile = ({ active }: Props) => {
     <>
       {active === 'tours' && (
         <div className="mt-20 bg-[#dcfae7] shadow-sm py-4 gap-4 w-full rounded-2xl grid grid-cols-1 items-center px-10 min-lg:hidden font-medium">
-          
+
           {/* Qayerdan */}
           <div className="relative flex gap-2 h-full">
             <div
@@ -409,7 +409,7 @@ const TabsTourMobile = ({ active }: Props) => {
                   </div>
                 </div>
 
-               {/* <Button
+                {/* <Button
                     variant="contained"
                     color="success"
                     sx={{

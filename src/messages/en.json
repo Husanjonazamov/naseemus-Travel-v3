@@ -1,30 +1,28 @@
 {
   "hotel": {
-     "directions": "Directions",
-  "placeholder_city": "Country, city",
-  "start_date": "Departure Date",
-  "when": "When",
-  "departure": "Departure",
-  "tourists": "Tourists",
-  "adults": "Adults",
-  "children": "Children",
-  "adults_info": "older than 13",
-  "children_info": "up to 13",
-  "cancel": "Cancel",
-  "apply": "Apply",
-  "search_tours": "Search Tours",
-  "no_results": "No results found",
-
-  "start_search": "Start searching",
-
+    "directions": "Directions",
+    "placeholder_city": "Country, city",
+    "start_date": "Departure Date",
+    "when": "When",
+    "departure": "Departure",
+    "tourists": "Tourists",
+    "adults": "Adults",
+    "children": "Children",
+    "adults_info": "older than 13",
+    "children_info": "up to 13",
+    "cancel": "Cancel",
+    "apply": "Apply",
+    "search_tours": "Search Tours",
+    "no_results": "No results found",
+    "start_search": "Start searching",
     "from": "From",
-  "noResults": "Nothing found",
-  "to": "To",
-  "departureDate": "Departure date",
-  "exit": "Exit",
-  "childrenHint": "under 13 years",
-     "offerOfDay": "Deal of the day: only today!",
-  "bestDirections": "Best destinations at the most affordable prices",
+    "noResults": "Nothing found",
+    "to": "To",
+    "departureDate": "Departure date",
+    "exit": "Exit",
+    "childrenHint": "under 13 years",
+    "offerOfDay": "Deal of the day: only today!",
+    "bestDirections": "Best destinations at the most affordable prices",
     "seePrices": "See prices",
     "tours": "Tours",
     "hotels": "Hotels",
@@ -32,30 +30,24 @@
     "countryResort": "Country, resort",
     "twoAdults": "2 Adults",
     "searchTours": "Search tours",
-  "adultsHint": "older than 13 years"
-
-  
+    "adultsHint": "older than 13 years"
   },
-
-   "searchPage": {
-  "start_search": "Start searching",
-
+  "searchPage": {
+    "start_search": "Start searching",
     "from": "From",
-  "noResults": "Nothing found",
-  "to": "To",
-  "departureDate": "Departure date",
-  "exit": "Exit",
-  "cancel": "Cancel",
-  "apply": "Apply",
-  "tourists": "Tourists",
-  "adults": "Adults",
-  "adultsHint": "older than 13 years",
-  "children": "Children",
-  "childrenHint": "under 13 years",
-
-
-     "offerOfDay": "Deal of the day: only today!",
-  "bestDirections": "Best destinations at the most affordable prices",
+    "noResults": "Nothing found",
+    "to": "To",
+    "departureDate": "Departure date",
+    "exit": "Exit",
+    "cancel": "Cancel",
+    "apply": "Apply",
+    "tourists": "Tourists",
+    "adults": "Adults",
+    "adultsHint": "older than 13 years",
+    "children": "Children",
+    "childrenHint": "under 13 years",
+    "offerOfDay": "Deal of the day: only today!",
+    "bestDirections": "Best destinations at the most affordable prices",
     "seePrices": "See prices",
     "tours": "Tours",
     "hotels": "Hotels",
@@ -64,20 +56,19 @@
     "when": "When",
     "twoAdults": "2 Adults",
     "searchTours": "Search tours"
-    },
+  },
   "working_hours": {
-      "working_hours_title": "Working Hours",
-
-      "monday_to_friday": "Monday - Friday: 09:00 - 18:00",
-      "saturday": "Saturday: 10:00 - 16:00",
-      "sunday": "Sunday: Closed"
-    },
+    "working_hours_title": "Working Hours",
+    "monday_to_friday": "Monday - Friday: 09:00 - 18:00",
+    "saturday": "Saturday: 10:00 - 16:00",
+    "sunday": "Sunday: Closed"
+  },
   "header": {
-  "holiday_types": "Holiday types",
-  "offers": "Offers",
-  "inspire_me": "Inspire me",
-  "our_services": "Our services",
-  "contact_us": "Contact us",
+    "holiday_types": "Holiday types",
+    "offers": "Offers",
+    "inspire_me": "Inspire me",
+    "our_services": "Our services",
+    "contact_us": "Contact us",
     "phone": "+998-94-001-47-41",
     "address": "123 MAIN STREET, TASHKENT",
     "company_name": "NASEEM'S TRAVEL",
@@ -99,13 +90,11 @@
     "OVER_25_YEARS_EXPERTISE": "Over 25 years of expertise"
   },
   "silk": {
-      "day": "day",
-        "loading": "Submitting...",
-              "submit": "Submit",
-
-      "success": "Booking submitted successfully!",
-      "error": "An error occurred. Please try again.",
-
+    "day": "day",
+    "loading": "Submitting...",
+    "submit": "Submit",
+    "success": "Booking submitted successfully!",
+    "error": "An error occurred. Please try again.",
     "title": "Uzbekistan Tour",
     "price": "$750",
     "price_label": "Starting price",
@@ -135,22 +124,20 @@
       "submit": "Submit"
     }
   },
-
   "hero": {
     "title": "EXCLUSIVE OFFERS JUST FOR YOU",
     "subtitle": "DISCOVER YOUR PERFECT SUMMER ESCAPE",
     "description": "BOOK YOUR DREAM VACATION TODAY AND SAVE UP TO 40% ON FLIGHTS, HOTELS, AND PACKAGES. LIMITED-TIME OFFER UNTIL AUGUST 31, 2025.",
     "cta": "SAVE NOW",
     "placeholder": "WHERE WOULD YOU LIKE TO GO?",
-     "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Exclusively for solo travellers",
+    "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Exclusively for solo travellers",
     "OVER_25_YEARS_EXPERTISE": "Over 25 years expertise",
     "YOUR_MONEY_PROTECTED": "Your money is 100% protected",
     "HOLIDAY_ASSURANCE_GUARANTEE": "Holiday assurance guarantee",
     "NO_SINGLE_SUPPLEMENT": "No single supplement"
   },
   "tour_uzbekistan": {
-        "videos": "Videos",
-
+    "videos": "Videos",
     "title": "UZBEKISTAN & THE SILK ROAD",
     "tabs": {
       "discover": "DISCOVER",
@@ -163,8 +150,8 @@
     },
     "price": "£2399 PER PERSON",
     "duration": " DAYS",
-     "popular_tour": "Popular Tour",
-  "new_tour": "New Tour",
+    "popular_tour": "Popular Tour",
+    "new_tour": "New Tour",
     "departure_dates": "SEPT 2025 - OCT 2026",
     "cta_book": "BOOK NOW",
     "overview": "JOURNEY THROUGH THE HEART OF CENTRAL ASIA AND DISCOVER UZBEKISTAN, WITH ITS RICH HISTORY AND CONNECTION TO THE FAMOUS SILK ROAD. EVERY STEP REVEALS CULTURAL CONNECTIONS WITH THE PAST, AND YOU WILL EXPERIENCE A HISTORICAL THEATRICAL PERFORMANCE.",
@@ -178,29 +165,69 @@
       "day_label": "DAY {day}",
       "day_heading": "DAY {day}: {title}",
       "days": {
-        "1": { "title": "UK TO TASHKENT", "description": "FLIGHT TO TASHKENT AND OVERNIGHT STAY.", "image": "/images/african-elephant-safari.png" },
-        "2": { "title": "TASHKENT", "description": "EXPLORE TASHKENT CITY TOUR.", "image": "/images/boat-trip-fun.png" },
-        "3": { "title": "TASHKENT - KHIVA", "description": "MORNING FLIGHT AND EXPLORE KHIVA’S OLD TOWN.", "image": "/images/cappadocia-balloons.png" },
-        "4": { "title": "KHIVA - BUKHARA", "description": "DRIVE THROUGH THE DESERT TO BUKHARA.", "image": "/images/classical-european-columns.png" },
-        "5": { "title": "BUKHARA", "description": "FULL DAY EXPLORING BUKHARA’S HISTORICAL SITES.", "image": "/images/colorful-street-art-mural-people.png" },
-        "6": { "title": "BUKHARA", "description": "FREE DAY TO EXPLORE BUKHARA AT YOUR PACE.", "image": "/images/croatian-coast.png" },
-        "7": { "title": "BUKHARA - SAMARKAND", "description": "TRANSFER TO SAMARKAND VIA TRAIN.", "image": "/images/danube-castle-autumn.png" },
-        "8": { "title": "SAMARKAND", "description": "DISCOVER REGISTAN SQUARE AND ANCIENT SITES.", "image": "/images/japanese-hillside-town-fuji.png" },
-        "9": { "title": "SAMARKAND", "description": "FREE EXPLORATION DAY IN SAMARKAND.", "image": "/images/swiss-mountain-train-snowy-landscape.png" },
-        "10": { "title": "SAMARKAND - TASHKENT", "description": "RETURN TO TASHKENT AND EVENING FAREWELL.", "image": "/images/traditional-dancers-lake-mountains.png" }
+        "1": {
+          "title": "UK TO TASHKENT",
+          "description": "FLIGHT TO TASHKENT AND OVERNIGHT STAY.",
+          "image": "/images/african-elephant-safari.png"
+        },
+        "2": {
+          "title": "TASHKENT",
+          "description": "EXPLORE TASHKENT CITY TOUR.",
+          "image": "/images/boat-trip-fun.png"
+        },
+        "3": {
+          "title": "TASHKENT - KHIVA",
+          "description": "MORNING FLIGHT AND EXPLORE KHIVA’S OLD TOWN.",
+          "image": "/images/cappadocia-balloons.png"
+        },
+        "4": {
+          "title": "KHIVA - BUKHARA",
+          "description": "DRIVE THROUGH THE DESERT TO BUKHARA.",
+          "image": "/images/classical-european-columns.png"
+        },
+        "5": {
+          "title": "BUKHARA",
+          "description": "FULL DAY EXPLORING BUKHARA’S HISTORICAL SITES.",
+          "image": "/images/colorful-street-art-mural-people.png"
+        },
+        "6": {
+          "title": "BUKHARA",
+          "description": "FREE DAY TO EXPLORE BUKHARA AT YOUR PACE.",
+          "image": "/images/croatian-coast.png"
+        },
+        "7": {
+          "title": "BUKHARA - SAMARKAND",
+          "description": "TRANSFER TO SAMARKAND VIA TRAIN.",
+          "image": "/images/danube-castle-autumn.png"
+        },
+        "8": {
+          "title": "SAMARKAND",
+          "description": "DISCOVER REGISTAN SQUARE AND ANCIENT SITES.",
+          "image": "/images/japanese-hillside-town-fuji.png"
+        },
+        "9": {
+          "title": "SAMARKAND",
+          "description": "FREE EXPLORATION DAY IN SAMARKAND.",
+          "image": "/images/swiss-mountain-train-snowy-landscape.png"
+        },
+        "10": {
+          "title": "SAMARKAND - TASHKENT",
+          "description": "RETURN TO TASHKENT AND EVENING FAREWELL.",
+          "image": "/images/traditional-dancers-lake-mountains.png"
+        }
       }
     }
   },
   "contact": {
     "contact_us": "Contact Us",
-  "get_in_touch": "Get in Touch",
-  "message_sent": "Your message has been sent successfully!",
-  "full_name": "Full Name",
-  "phone": "Phone Number",
-  "message": "Message",
-  "send_message": "Send Message",
-  "sending": "Sending",
-  "intro_text": "Fill out the form below to get in touch with us."
+    "get_in_touch": "Get in Touch",
+    "message_sent": "Your message has been sent successfully!",
+    "full_name": "Full Name",
+    "phone": "Phone Number",
+    "message": "Message",
+    "send_message": "Send Message",
+    "sending": "Sending",
+    "intro_text": "Fill out the form below to get in touch with us."
   },
   "solo_travel": {
     "title": "THE TRUSTED EXPERTS FOR SOLO HOLIDAYS",
@@ -244,11 +271,31 @@
     "holiday_assurance": "SUPPORT EVERY STEP OF THE WAY"
   },
   "testimonials": [
-    { "text": "WE WERE VERY WELL LOOKED AFTER BY LODGE STAFF & GUIDES.", "author": "CUSTOMER", "date": "1 DAY AGO" },
-    { "text": "A FANTASTIC HOLIDAY WITH BEAUTIFUL CROATIA AND FRIENDLY PEOPLE.", "author": "NIGEL WOOD", "date": "5 DAYS AGO" },
-    { "text": "EXCELLENT TOUR. SHIP AMAZING & CREW SO FRIENDLY.", "author": "SANDRA", "date": "AUGUST 11" },
-    { "text": "THE ENTIRE EXPERIENCE, FROM BOOKING TO END, WAS SMOOTH.", "author": "MAGGIE", "date": "AUGUST 8" },
-    { "text": "MY FIRST TOUR WITH Naseem's travel. HIGHLY RECOMMENDED!", "author": "ANNE", "date": null }
+    {
+      "text": "WE WERE VERY WELL LOOKED AFTER BY LODGE STAFF & GUIDES.",
+      "author": "CUSTOMER",
+      "date": "1 DAY AGO"
+    },
+    {
+      "text": "A FANTASTIC HOLIDAY WITH BEAUTIFUL CROATIA AND FRIENDLY PEOPLE.",
+      "author": "NIGEL WOOD",
+      "date": "5 DAYS AGO"
+    },
+    {
+      "text": "EXCELLENT TOUR. SHIP AMAZING & CREW SO FRIENDLY.",
+      "author": "SANDRA",
+      "date": "AUGUST 11"
+    },
+    {
+      "text": "THE ENTIRE EXPERIENCE, FROM BOOKING TO END, WAS SMOOTH.",
+      "author": "MAGGIE",
+      "date": "AUGUST 8"
+    },
+    {
+      "text": "MY FIRST TOUR WITH Naseem's travel. HIGHLY RECOMMENDED!",
+      "author": "ANNE",
+      "date": null
+    }
   ],
   "other_tours": [
     {
@@ -285,51 +332,50 @@
       "cta": "EXPLORE"
     }
   ],
-"footer": {
-  "customer_support": {
-    "contact_us": "Contact Us",
-    "follow_us": "Follow Us",
-    "information": "Information",
-    "corporate_title": "Corporate",
-    "about_us": "About Us",
-    "community": "Community",
-    "faq": "FAQ"
-  },
-  "sections": {
+  "footer": {
+    "customer_support": {
+      "contact_us": "Contact Us",
+      "follow_us": "Follow Us",
+      "information": "Information",
+      "corporate_title": "Corporate",
+      "about_us": "About Us",
+      "community": "Community",
+      "faq": "FAQ"
+    },
+    "sections": {
       "tours": "Tours",
       "no_tours": "No tours available"
     },
-  "contact": {
-    "phone": "03301 737293",
-    "phone_pl": "Phone",
-    "email": "enquiries@justyou.co.uk"
-  },
-  "links": {
-    "booking_conditions": "Booking Conditions",
-    "essential_information": "Essential Information",
-    "package_travel": "Package Travel",
-    "foreign_travel_advice": "Foreign Travel Advice",
-    "brexit_travel_advice": "Brexit Travel Advice",
-    "modern_slavery_statement": "Modern Slavery Statement",
-    "animal_welfare_policy": "Animal Welfare Policy",
-    "website_disclaimer": "Website Disclaimer"
-  },
-  "corporate": {
-    "travelsphere": "TravelSphere",
-    "careers": "Careers",
-    "trade_agent_hub": "Trade Agent Hub"
-  },
-  "customer_support_title": "Customer Support",
-  "newsletter": {
-    "title": "Receive news and offers by email",
-    "cta": "Subscribe"
-  }
-},
-
-   "newsletter": {
-      "title": "GET INSPIRED AND RECEIVE OFFERS",
-      "button": "SUBSCRIBE"
+    "contact": {
+      "phone": "03301 737293",
+      "phone_pl": "Phone",
+      "email": "enquiries@justyou.co.uk"
     },
+    "links": {
+      "booking_conditions": "Booking Conditions",
+      "essential_information": "Essential Information",
+      "package_travel": "Package Travel",
+      "foreign_travel_advice": "Foreign Travel Advice",
+      "brexit_travel_advice": "Brexit Travel Advice",
+      "modern_slavery_statement": "Modern Slavery Statement",
+      "animal_welfare_policy": "Animal Welfare Policy",
+      "website_disclaimer": "Website Disclaimer"
+    },
+    "corporate": {
+      "travelsphere": "TravelSphere",
+      "careers": "Careers",
+      "trade_agent_hub": "Trade Agent Hub"
+    },
+    "customer_support_title": "Customer Support",
+    "newsletter": {
+      "title": "Receive news and offers by email",
+      "cta": "Subscribe"
+    }
+  },
+  "newsletter": {
+    "title": "GET INSPIRED AND RECEIVE OFFERS",
+    "button": "SUBSCRIBE"
+  },
   "last": {
     "last_minute_holidays": "LAST MINUTE HOLIDAYS",
     "explore": "SEE MORE →",
@@ -376,6 +422,31 @@
     "experienced_tour_guide": "Experienced tour guide",
     "holiday_assurance": "Holiday assurance",
     "support_every_step": "Support every step"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Log in to manage your bookings and explore tours",
+      "email": "Email Address",
+      "password": "Password",
+      "forgot_password": "Forgot Password?",
+      "submit": "Log In",
+      "loading": "Logging in...",
+      "no_account": "Don't have an account?",
+      "signup_link": "Sign Up"
+    },
+    "signup": {
+      "title": "Join Us Today",
+      "subtitle": "Your next adventure starts here",
+      "full_name": "Full Name",
+      "email": "Email Address",
+      "password": "Create Password",
+      "submit": "Get Started",
+      "loading": "Creating Account...",
+      "have_account": "Already have an account?",
+      "login_link": "Log In"
+    },
+    "logout": "Log Out",
+    "account": "My Account"
   }
-
 }

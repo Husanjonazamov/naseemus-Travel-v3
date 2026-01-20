@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import { format as formatDate } from 'date-fns';
 import Button from '@mui/material/Button';
@@ -84,7 +86,7 @@ const TabsTours = ({ active }: Props) => {
     <>
       {active === 'tours' && (
         <div className="mt-10 bg-[#dcfae7] shadow-sm py-4 gap-4 w-full max-w-[1200px] rounded-2xl grid grid-cols-5 items-center px-10 max-lg:hidden font-medium">
-          
+
           {/* FROM CITY */}
           <div className="relative gap-2 h-full ">
             <div
@@ -252,7 +254,7 @@ const TabsTours = ({ active }: Props) => {
               </div>
             )}
           </div>
-<div className="relative gap-2 h-full ">
+          <div className="relative gap-2 h-full ">
             <div
               onClick={() => {
                 setDataOpen(!dataOpen);
@@ -310,7 +312,7 @@ const TabsTours = ({ active }: Props) => {
                   <Input
                     placeholder={t("from")}
                     value={
-                      fromDate ? formatDate.format(fromDate, 'DD/MM/YYYY') : ''
+                      fromDate ? formatDate(fromDate, 'dd/MM/yyyy') : ''
                     }
                     onChange={(e) => setSearch(e.target.value)}
                     className="w-full text-black h-[50px]"
@@ -324,7 +326,7 @@ const TabsTours = ({ active }: Props) => {
                   <Input
                     placeholder={t("to")}
                     value={
-                      toDate ? formatDate.format(toDate, 'DD/MM/YYYY') : ''
+                      toDate ? formatDate(toDate, 'dd/MM/yyyy') : ''
                     }
                     disabled={fromDate === undefined}
                     onChange={(e) => setSearch(e.target.value)}
@@ -383,7 +385,7 @@ const TabsTours = ({ active }: Props) => {
                       setDataOpen(false);
                       if (fromDate && toDate) {
                         setSelectData(
-                          `${formatDate.format(fromDate, 'DD/MM/YYYY') + ' - ' + formatDate.format(toDate, 'DD/MM/YYYY')}`,
+                          `${formatDate(fromDate, 'dd/MM/yyyy') + ' - ' + formatDate(toDate, 'dd/MM/yyyy')}`,
                         );
                       } else {
                         setSelectData('');
@@ -448,7 +450,7 @@ const TabsTours = ({ active }: Props) => {
                   </Label>
                   <div className="grid grid-cols-3 border justify-center items-center rounded-lg w-48">
                     <Button
-                      variant={'ghost'}
+                      variant={'text'}
                       className="h-full rounded-bl-lg rounded-br-none rounded-tr-none"
                       onClick={() => {
                         setAdults((prev) => (prev > 0 ? prev - 1 : prev));
@@ -457,13 +459,13 @@ const TabsTours = ({ active }: Props) => {
                       <RemoveIcon className="text-green-600" />
                     </Button>
                     <Button
-                      variant={'ghost'}
+                      variant={'text'}
                       className="rounded-none border-r-2 h-full border-l-2 text-lg"
                     >
                       {adults}
                     </Button>
                     <Button
-                      variant={'ghost'}
+                      variant={'text'}
                       className="h-full rounded-tl-none rounded-bl-none rounded-br-lg rounded-tr-lg"
                       onClick={() => {
                         setAdults((prev) => prev + 1);
@@ -480,7 +482,7 @@ const TabsTours = ({ active }: Props) => {
                   </Label>
                   <div className="grid grid-cols-3 border justify-center items-center rounded-lg w-48">
                     <Button
-                      variant={'ghost'}
+                      variant={'text'}
                       className="h-full rounded-tl-lg rounded-bl-lg rounded-br-none rounded-tr-none"
                       onClick={() =>
                         setChildren((prev) => (prev > 0 ? prev - 1 : prev))
@@ -489,13 +491,13 @@ const TabsTours = ({ active }: Props) => {
                       <RemoveIcon className="text-green-600" />
                     </Button>
                     <Button
-                      variant={'ghost'}
+                      variant={'text'}
                       className="rounded-none border-r-2 h-full border-l-2 text-lg"
                     >
                       {children}
                     </Button>
                     <Button
-                      variant={'ghost'}
+                      variant={'text'}
                       className="h-full rounded-tl-none rounded-bl-none rounded-br-lg rounded-tr-lg"
                       onClick={() => {
                         setChildren((prev) => prev + 1);

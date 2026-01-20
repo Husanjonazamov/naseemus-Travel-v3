@@ -15,8 +15,7 @@
     "search_tours": "Sayohatlarni qidirish",
     "no_results": "Hech narsa topilmadi",
     "start_search": "Qidirishni boshlang",
-
-     "from": "Qayerdan",
+    "from": "Qayerdan",
     "noResults": "Hech narsa topilmadi",
     "to": "Qayerga",
     "departureDate": "Jo‘nash sanasi",
@@ -35,8 +34,7 @@
   },
   "searchPage": {
     "start_search": "Qidirishni boshlang",
-    
-     "from": "Qayerdan",
+    "from": "Qayerdan",
     "noResults": "Hech narsa topilmadi",
     "to": "Qayerga",
     "departureDate": "Jo‘nash sanasi",
@@ -59,22 +57,18 @@
     "twoAdults": "2 kattalar",
     "searchTours": "Turlarni qidirish"
   },
-
   "working_hours": {
-      "working_hours_title": "Ish vaqti",
-
-      "monday_to_friday": "Dushanba - Juma: 09:00 - 18:00",
-      "saturday": "Shanba: 10:00 - 16:00",
-      "sunday": "Yakshanba: Yopiq"
-    },
+    "working_hours_title": "Ish vaqti",
+    "monday_to_friday": "Dushanba - Juma: 09:00 - 18:00",
+    "saturday": "Shanba: 10:00 - 16:00",
+    "sunday": "Yakshanba: Yopiq"
+  },
   "header": {
-
-  "holiday_types": "Bay",
-  "offers": "Takliflar",
-  "inspire_me": "Ilhom ber",
-  "our_services": "Xizmatlarimiz",
-  "contact_us": "BOG'LANISH",
-    
+    "holiday_types": "Bay",
+    "offers": "Takliflar",
+    "inspire_me": "Ilhom ber",
+    "our_services": "Xizmatlarimiz",
+    "contact_us": "BOG'LANISH",
     "phone": "+998-94-001-47-41",
     "address": "Toshkent, Asosiy ko'cha 123",
     "company_name": "Naseem's Travel",
@@ -90,19 +84,18 @@
       "en": "EN"
     }
   },
-   "trustBadges": {
+  "trustBadges": {
     "ROOM_OF_YOUR_OWN_GUARANTEED": "Shaxsiy xonangiz kafolatlanadi",
     "RATED_EXCELLENT_ON_TRUSTPILOT": "Trustpilot’da a’lo baholangan",
     "OVER_25_YEARS_EXPERTISE": "25 yildan ortiq tajriba"
   },
-  
   "hero": {
     "title": "Maxsus sayohat takliflari",
     "subtitle": "Mukammal dam olishni kashf eting",
     "description": "Orzuingizdagi ta'tilni bugun bron qiling va parvozlar, mehmonxonalar hamda paketlar uchun 40% gacha tejang. Taklif 2025-yil 31-avgustgacha amal qiladi.",
     "cta": "Hozir bron qiling",
     "placeholder": "Qayerga bormoqchisiz?",
-     "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Faqat yolg‘iz sayohatchilar uchun",
+    "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Faqat yolg‘iz sayohatchilar uchun",
     "OVER_25_YEARS_EXPERTISE": "25 yildan ortiq tajriba",
     "YOUR_MONEY_PROTECTED": "Pul mablag‘ingiz 100% himoyalangan",
     "HOLIDAY_ASSURANCE_GUARANTEE": "Dam olish kafolati",
@@ -121,9 +114,8 @@
     "price": "£2399 kishi boshiga",
     "duration": "kun",
     "videos": "Videolar",
-
     "popular_tour": "Mashhur sayohat",
-  "new_tour": "Yangi sayohat",
+    "new_tour": "Yangi sayohat",
     "departure_dates": "Sentabr 2025 - Oktyabr 2026",
     "cta_book": "Bron qilish",
     "overview": "Markaziy Osiyoning yuragida unutilmas safar. Toshkent, Xiva, Buxoro va Samarqandning go‘zalligini kashf eting.",
@@ -225,7 +217,6 @@
       "cta": "Qo‘shiling"
     }
   },
-
   "testimonials": [
     {
       "text": "Xizmat juda yaxshi, hammasi mukammal.",
@@ -334,7 +325,6 @@
     "testimonial": "Bu mening birinchi safarim edi va albatta tavsiya qilaman.",
     "author": "Anne"
   },
-
   "newsletter": {
     "title": "Yangiliklar va takliflarni oling",
     "button": "Obuna bo‘ling"
@@ -368,11 +358,11 @@
     "popularDestinations": "Mashhur sayohat manzillari"
   },
   "silk": {
-     "loading": "Yuborilmoqda...",
-      "success": "Buyurtma muvaffaqiyatli yuborildi!",
-      "error": "Xatolik yuz berdi. Qayta urinib ko‘ring.",
-       "submit": "Yuborish",
-     "day": "kun",
+    "loading": "Yuborilmoqda...",
+    "success": "Buyurtma muvaffaqiyatli yuborildi!",
+    "error": "Xatolik yuz berdi. Qayta urinib ko‘ring.",
+    "submit": "Yuborish",
+    "day": "kun",
     "title": "O‘zbekiston sayohati",
     "price": "$750",
     "price_label": "Boshlang‘ich narx",
@@ -401,7 +391,7 @@
       "cancel": "Bekor qilish",
       "submit": "Yuborish"
     }
-},
+  },
   "service": {
     "we_take_care_of": "Biz g‘amxo‘rlik qilamiz",
     "flights": "Parvozlar",
@@ -416,7 +406,7 @@
     "support_every_step": "Har bosqichda yordam"
   },
   "contact": {
-     "contact_us": "Biz bilan bog‘laning",
+    "contact_us": "Biz bilan bog‘laning",
     "get_in_touch": "Aloqaga chiqish",
     "message_sent": "Xabaringiz muvaffaqiyatli yuborildi!",
     "full_name": "Ism Familiya",
@@ -425,6 +415,31 @@
     "send_message": "Xabar yuborish",
     "sending": "Yuborilmoqda",
     "intro_text": "Biz bilan bog‘lanish uchun quyidagi formani to‘ldiring."
+  },
+  "auth": {
+    "login": {
+      "title": "Xush kelibsiz",
+      "subtitle": "Sayohatlaringizni boshqarish uchun tizimga kiring",
+      "email": "Email manzil",
+      "password": "Parol",
+      "forgot_password": "Parolni unutdingizmi?",
+      "submit": "Kirish",
+      "loading": "Kirilmoqda...",
+      "no_account": "Hisobingiz yo'qmi?",
+      "signup_link": "Ro'yxatdan o'ting"
+    },
+    "signup": {
+      "title": "Bizga qo'shiling",
+      "subtitle": "Sizning yangi sarguzashtingiz shu yerdan boshlanadi",
+      "full_name": "To'liq ism",
+      "email": "Email manzil",
+      "password": "Parol yaratish",
+      "submit": "Ro'yxatdan o'tish",
+      "loading": "Yaratilmoqda...",
+      "have_account": "Hisobingiz bormi?",
+      "login_link": "Kirish"
+    },
+    "logout": "Chiqish",
+    "account": "Mening hisobim"
   }
-
 }
