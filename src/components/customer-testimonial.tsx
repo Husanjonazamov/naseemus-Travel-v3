@@ -10,45 +10,51 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Adventure Enthusiast",
-    content: "Naseem Travel made our European tour absolutely seamless. The attention to detail and premium service was beyond our expectations.",
+    content:
+      "Naseem's Travel made our Uzbekistan tour absolutely seamless. The attention to detail and premium service was beyond our expectations.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=sarah"
+    avatar: "https://i.pravatar.cc/150?u=sarah",
   },
   {
     name: "Michael Chen",
     role: "Business Traveler",
-    content: "The wellness retreat in Switzerland was exactly what I needed. Highly professional staff and breathtaking locations.",
+    content:
+      "The wellness retreat in Uzbekistan was exactly what I needed. Highly professional staff and breathtaking locations.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=michael"
+    avatar: "https://i.pravatar.cc/150?u=michael",
   },
   {
     name: "Elena Rodriguez",
     role: "Solo Traveler",
-    content: "Safety was my main concern, and Naseem Travel delivered. Their 24/7 support gave me complete peace of mind during my Asian trip.",
+    content:
+      "Safety was my main concern, and Naseem's Travel delivered. Their 24/7 support gave me complete peace of mind during my Uzbekistan trip.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=elena"
+    avatar: "https://i.pravatar.cc/150?u=elena",
   },
   {
     name: "David Smith",
     role: "Family Traveler",
-    content: "Fantastic experience for the whole family. The kids loved the activities, and we enjoyed the cultural depth of the tours.",
+    content:
+      "Fantastic experience for the whole family. The kids loved the activities, and we enjoyed the cultural depth of the tours.",
     rating: 4,
-    avatar: "https://i.pravatar.cc/150?u=david"
+    avatar: "https://i.pravatar.cc/150?u=david",
   },
   {
     name: "Aisha Khan",
     role: "Luxury Traveler",
-    content: "The Samarkand tour was a masterclass in history and luxury. Everything from the hotels to the guides was top-notch.",
+    content:
+      "The Samarkand tour was a masterclass in history and luxury. Everything from the hotels to the guides was top-notch.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=aisha"
+    avatar: "https://i.pravatar.cc/150?u=aisha",
   },
   {
     name: "Robert Wilson",
     role: "Nature Lover",
-    content: "Unforgettable landscapes and perfectly organized logistics. Can't wait for my next booking with Naseem.",
+    content:
+      "Unforgettable landscapes and perfectly organized logistics. Can't wait for my next booking with Naseem's Travel.",
     rating: 5,
-    avatar: "https://i.pravatar.cc/150?u=robert"
-  }
+    avatar: "https://i.pravatar.cc/150?u=robert",
+  },
 ];
 
 export function CustomerTestimonial() {
@@ -57,7 +63,9 @@ export function CustomerTestimonial() {
     <section className="py-24 bg-[#dcfae7]/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t("title")}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            {t("title")}
+          </h2>
           <div className="w-24 h-1 bg-[#007654] mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {t("subtitle")}
@@ -81,8 +89,11 @@ export function CustomerTestimonial() {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-4 h-4 ${i < testimonial.rating ? "text-yellow-400 fill-current" : "text-gray-300"
-                          }`}
+                        className={`w-4 h-4 ${
+                          i < testimonial.rating
+                            ? "text-yellow-400 fill-current"
+                            : "text-gray-300"
+                        }`}
                       />
                     ))}
                   </div>
@@ -93,14 +104,21 @@ export function CustomerTestimonial() {
 
                   <div className="flex items-center gap-4">
                     <Avatar className="w-12 h-12 border-2 border-[#007654]/10">
-                      <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                      <AvatarImage
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                      />
                       <AvatarFallback className="bg-[#007654] text-white">
                         <User className="w-6 h-6" />
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-500">{testimonial.role}</p>
+                      <h4 className="font-bold text-gray-900">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-sm text-gray-500">
+                        {testimonial.role}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -112,4 +130,3 @@ export function CustomerTestimonial() {
     </section>
   );
 }
-

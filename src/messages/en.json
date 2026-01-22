@@ -350,8 +350,7 @@
     },
     "contact": {
       "phone": "03301 737293",
-      "phone_pl": "Phone",
-      "email": "enquiries@justyou.co.uk"
+      "phone_pl": "Phone"
     },
     "links": {
       "booking_conditions": "Booking Conditions",
@@ -462,7 +461,7 @@
     "account": "My Account"
   },
   "whyChooseUs": {
-    "title": "Why Choose Naseem Travel?",
+    "title": "Why Choose Naseem's Travel?",
     "subtitle": "We are committed to providing exceptional service and unforgettable experiences that exceed your expectations.",
     "trustedSecurity": {
       "title": "Trusted Security",
