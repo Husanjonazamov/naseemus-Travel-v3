@@ -104,7 +104,7 @@ export default function BlogsPage() {
   }, [page, locale]);
 
   return (
-    <div className="w-full bg-[#fbfbf9] overflow-x-hidden font-poppins">
+    <div className="w-full bg-[#fbfbf9] overflow-x-hidden font-plus-jakarta">
       <Header />
 
       {/* Premium Blog Hero */}

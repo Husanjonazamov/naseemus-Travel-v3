@@ -27,11 +27,11 @@ export default function LastMinuteHolidays() {
   })
 
   useEffect(() => {
-    const fetchHolidays = async (url?: string) => {
+    const fetchHolidays = async () => {
       try {
-        const res = await axios.get(url || `${config.BASE_URL}/api/tour/`)
+        const res = await axios.get(`${config.BASE_URL}/api/tour/`)
         if (res.data.status && res.data.data.results) {
-          setHolidays((prev) => [...prev, ...res.data.data.results])
+          setHolidays(res.data.data.results)
         }
       } catch (error) {
         console.error("Holidays API error:", error)
@@ -40,6 +40,7 @@ export default function LastMinuteHolidays() {
     fetchHolidays()
     setMounted(true)
   }, [])
+
 
   useEffect(() => {
     if (instanceRef.current) {
@@ -63,7 +64,7 @@ export default function LastMinuteHolidays() {
               {t("last_minute_holidays")}
             </h2>
             <p className="text-gray-500 text-lg max-w-xl">
-              Spontaneous escapes at unbeatable prices. Book your next adventure today.
+              {t("description")}
             </p>
           </div>
           <div className="flex gap-2">

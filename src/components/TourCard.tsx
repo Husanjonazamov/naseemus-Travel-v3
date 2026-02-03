@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
 import { MapPin, Clock, Star, ArrowRight, Heart } from "lucide-react";
 import { Button } from "./ui/button";
 import { toast } from "react-toastify";
@@ -28,6 +29,8 @@ interface TourCardProps {
 export function TourCard({ tour }: TourCardProps) {
     const [isLiked, setIsLiked] = useState(false);
     const [user, setUser] = useState<any>(null);
+    const locale = useLocale();
+    const t = useTranslations("tour_card");
 
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
@@ -45,7 +48,7 @@ export function TourCard({ tour }: TourCardProps) {
         e.stopPropagation();
 
         if (!user) {
-            toast.info("Please log in to save tours!");
+            toast.info(t("login_to_save"));
             return;
         }
 
@@ -54,10 +57,10 @@ export function TourCard({ tour }: TourCardProps) {
 
         if (isLiked) {
             updatedTours = likedTours.filter((t: any) => t.id !== tour.id);
-            toast.info("Removed from saved tours");
+            toast.info(t("removed_from_saved"));
         } else {
             updatedTours = [...likedTours, tour];
-            toast.success("Added to saved tours!");
+            toast.success(t("added_to_saved"));
         }
 
         const updatedUser = { ...user, likedTours: updatedTours };
@@ -114,10 +117,10 @@ export function TourCard({ tour }: TourCardProps) {
                 {/* Floating Info */}
                 <div className="absolute bottom-6 left-6 flex items-center gap-3">
                     <div className="bg-white/95 backdrop-blur-xl px-4 py-2.5 rounded-2xl shadow-xl border border-white/20 flex flex-col">
-                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider leading-none mb-1">Duration</span>
+                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider leading-none mb-1">{t("duration")}</span>
                         <div className="flex items-center gap-1.5">
                             <Clock size={12} className="text-[#007654]" />
-                            <span className="text-sm font-bold text-gray-900">{duration} Days</span>
+                            <span className="text-sm font-bold text-gray-900">{duration} {t("days")}</span>
                         </div>
                     </div>
                 </div>
@@ -149,20 +152,20 @@ export function TourCard({ tour }: TourCardProps) {
                     <div className="flex flex-col gap-1">
                         <div className="flex items-center gap-1.5 text-gray-400 mb-2">
                             <MapPin size={14} className="text-[#007654]" />
-                            <span className="text-[11px] font-bold uppercase tracking-wider">Uzbekistan</span>
+                            <span className="text-[11px] font-bold uppercase tracking-wider">{t("uzbekistan")}</span>
                         </div>
                         <div>
-                            <span className="text-[10px] block text-gray-400 font-bold uppercase tracking-wider mb-0.5">Starting from</span>
+                            <span className="text-[10px] block text-gray-400 font-bold uppercase tracking-wider mb-0.5">{t("starting_from")}</span>
                             <span className="text-2xl font-black text-[#1a1a1a]">{formattedPrice}</span>
                         </div>
                     </div>
 
-                    <Link href={`/tour/${tour.slug}`}>
+                    <Link href={`/${locale}/tour/${tour.slug}`}>
                         <Button
                             variant="ghost"
                             className="bg-[#007654] hover:bg-[#008c64] text-white px-8 h-14 rounded-2xl transition-all duration-300 font-bold shadow-lg shadow-[#007654]/10 hover:shadow-[#007654]/20 hover:translate-y-[-2px]"
                         >
-                            Details
+                            {t("details")}
                             <ArrowRight size={20} className="ml-2" />
                         </Button>
                     </Link>

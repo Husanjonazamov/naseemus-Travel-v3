@@ -1,4 +1,82 @@
 {
+  "content_section": {
+    "blog_title": "Maqolalarimizni o'qing",
+    "blog_subtitle": "Sayohat tushunchalari",
+    "blog_badge": "Ekspert maslahati",
+    "tour_title": "Eksklyuziv tur paketlarimizni o'rganing",
+    "tour_subtitle": "Tanlangan tajribalar",
+    "tour_badge": "Eksklyuziv tur",
+    "explore_button": "Ko'rish",
+    "default_description": "Haqiqiy tajribalarni izlayotgan sayohatchilar uchun yaratilgan.",
+    "specialist": "Sayohat mutaxassisi",
+    "trusted_by": "Ishongan",
+    "travelers": "yakka sayohatchilar",
+    "certified": "Sertifikatlangan",
+    "awarded": "Mukofotlangan",
+    "global": "Global"
+  },
+  "new_holidays": {
+    "title": "Yangi sayohatlarimiz",
+    "description": "Keyingi unutilmas sayohatingiz uchun tanlangan manzillar."
+  },
+  "tour_dropdown": {
+    "discover_beauty": "Go'zalligini kashf eting:",
+    "view_detail": "Batafsil ko'rish",
+    "cant_find": "Izlayotgan narsangizni topa olmadingizmi?",
+    "explore_all": "Ipak yo'li bo'ylab barcha tanlangan sayohat tajribalarimizni o'rganing.",
+    "view_all_tours": "Barcha turlarni ko'rish"
+  },
+  "tour_card": {
+    "duration": "Davomiylik",
+    "days": "Kun",
+    "starting_from": "Narxi",
+    "details": "Batafsil",
+    "uzbekistan": "O'zbekiston",
+    "login_to_save": "Turlarni saqlash uchun tizimga kiring!",
+    "removed_from_saved": "Saqlangan turlardan o'chirildi",
+    "added_to_saved": "Saqlangan turlarga qo'shildi!"
+  },
+  "tour_overview": {
+    "journey_overview": "Sayohat haqida",
+    "section_title": "Sayohatingizning mohiyatini kashf eting",
+    "focus": "Yo'nalish",
+    "classic_touring": "Klassik sayohat",
+    "transport": "Transport",
+    "flight_choices": "Parvoz tanlovlari mavjud",
+    "standard_inclusions": "Standart xizmatlar",
+    "inclusion_airport": "Aeroportdan transfer",
+    "inclusion_guide": "O'zbek/Ingliz tilida gid",
+    "inclusion_breakfast": "Kunlik nonushta",
+    "inclusion_sightseeing": "Ekskursiya turlari",
+    "enlarge_map": "Xaritani kattalashtirish",
+    "map_alt": "Tur yo'nalishi xaritasi"
+  },
+  "tour_booking": {
+    "premium_booking": "Premium bron",
+    "reserve_spot": "O'rningizni band qiling",
+    "reserve_description": "Afsonaviy sayohatingiz siz xohlagan sanada boshlanishini ta'minlang. Mutaxassislar jamoasi so'rovingizni darhol ko'rib chiqadi.",
+    "fixed_price": "Belgilangan narx",
+    "duration": "Davomiylik",
+    "days": "Kun",
+    "proceed_booking": "Bronlashga o'tish",
+    "best_price_guarantee": "Eng yaxshi narx kafolati",
+    "personalize_experience": "Hashamatli tajribangizni shaxsiylashtiring.",
+    "travelers": "Sayohatchilar",
+    "preferred_date": "Afzal sana",
+    "select_date": "Jo'nash sanasini tanlang",
+    "confirm_booking": "Bronni tasdiqlash",
+    "dismiss": "Bekor qilish"
+  },
+  "tour_detail": {
+    "guaranteed_departure": "Kafolatlangan jo'nash",
+    "duration": "Davomiylik",
+    "rating": "Reyting",
+    "starting_from": "Narxi",
+    "central_asia": "Markaziy Osiyo tadqiqotchisi",
+    "max_group": "Maksimal guruh: 15",
+    "individual_pricing": "Individual narxlash",
+    "book_now": "Hozir bron qiling"
+  },
   "hotel": {
     "directions": "Yo'nalishlar",
     "placeholder_city": "Davlat, shahar",
@@ -323,6 +401,7 @@
   },
   "last": {
     "last_minute_holidays": "Oxirgi daqiqadagi sayohatlar",
+    "description": "Ajoyib narxlarda kutilmagan sayohatlar. Bugun keyingi sarguzashtingizni bron qiling.",
     "explore": "Ko‘proq ko‘rish →",
     "testimonial": "Bu mening birinchi safarim edi va albatta tavsiya qilaman.",
     "author": "Anne"
@@ -330,6 +409,7 @@
   "newsletter": {
     "title": "Email orqali yangiliklar va takliflarni oling",
     "description": "Sayohat ilhomlari va eksklyuziv takliflarni olish uchun bizning xabarnomamizga qo'shiling.",
+    "button": "Obuna bo'lish",
     "cta": "Obuna bo'lish"
   },
   "about": {

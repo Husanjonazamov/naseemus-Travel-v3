@@ -86,7 +86,7 @@ export function PopularDestinations() {
         )}
 
         <div className="text-center mt-16">
-          <Link href="/tour">
+          <Link href={`/${locale}/tour`}>
             <Button variant="outline" className="border-[#007654] text-[#007654] hover:bg-[#dcfae7] rounded-full px-12 py-6 text-lg">
               {t("exploreAll")}
             </Button>

@@ -89,7 +89,7 @@ export default function BlogDetailPage() {
   const contentParagraphs = blog.description.split('.').filter(p => p.trim());
 
   return (
-    <div className="w-full bg-[#fbfbf9] overflow-x-hidden font-poppins">
+    <div className="w-full bg-[#fbfbf9] overflow-x-hidden">
       <Header />
 
       {/* Reading Progress Indicator */}

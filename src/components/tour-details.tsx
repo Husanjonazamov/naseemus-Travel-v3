@@ -28,7 +28,8 @@ interface TourDetailsProps {
 }
 
 export function TourDetails({ tour }: TourDetailsProps) {
-  const t = useTranslations("silk");
+  const t = useTranslations("tour_booking");
+  const silkT = useTranslations("silk");
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -64,11 +65,11 @@ export function TourDetails({ tour }: TourDetailsProps) {
       });
 
       if (!res.ok) throw new Error("Failed");
-      toast.success(t("success"));
+      toast.success(silkT("success"));
       setIsOpen(false);
       setFormData({ name: "", phone: "+998", quantity: 1, date: "", comment: "" });
     } catch (err) {
-      toast.error(t("error"));
+      toast.error(silkT("error"));
     } finally {
       setLoading(false);
     }
@@ -82,22 +83,22 @@ export function TourDetails({ tour }: TourDetailsProps) {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-4 py-2 rounded-full">
                 <Sparkles size={16} className="text-[#007654]" />
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">Premium Booking</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">{t("premium_booking")}</span>
               </div>
-              <h3 className="text-3xl font-black text-[#1a1a1a] tracking-tight">Reserve Your Spot</h3>
-              <p className="text-gray-500 font-medium leading-relaxed">Ensure your legendary journey begins on your preferred dates. Our specialist team will handle your request immediately.</p>
+              <h3 className="text-3xl font-black text-[#1a1a1a] tracking-tight">{t("reserve_spot")}</h3>
+              <p className="text-gray-500 font-medium leading-relaxed">{t("reserve_description")}</p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gray-50/80 p-6 rounded-3xl border border-gray-100 flex flex-col items-center text-center">
                 <DollarSign size={24} className="text-[#007654] mb-2" />
-                <p className="text-[9px] font-black uppercase text-gray-400 mb-1">Fixed Price</p>
+                <p className="text-[9px] font-black uppercase text-gray-400 mb-1">{t("fixed_price")}</p>
                 <p className="text-xl font-black text-[#1a1a1a]">${tour.price}</p>
               </div>
               <div className="bg-gray-50/80 p-6 rounded-3xl border border-gray-100 flex flex-col items-center text-center">
                 <Calendar size={24} className="text-[#007654] mb-2" />
-                <p className="text-[9px] font-black uppercase text-gray-400 mb-1">Duration</p>
-                <p className="text-xl font-black text-[#1a1a1a]">{tour.date} Days</p>
+                <p className="text-[9px] font-black uppercase text-gray-400 mb-1">{t("duration")}</p>
+                <p className="text-xl font-black text-[#1a1a1a]">{tour.date} {t("days")}</p>
               </div>
             </div>
 
@@ -105,14 +106,14 @@ export function TourDetails({ tour }: TourDetailsProps) {
               onClick={() => setIsOpen(true)}
               className="w-full h-20 bg-[#007654] hover:bg-[#008c64] text-white rounded-[24px] text-xl font-black transition-all duration-300 shadow-xl shadow-[#007654]/20 hover:scale-[1.02] active:scale-[0.98]"
             >
-              Proceed to Booking
+              {t("proceed_booking")}
               <ArrowRight size={24} className="ml-3" />
             </Button>
 
             <div className="flex items-center justify-center gap-4 py-2 text-gray-400">
               <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5">
                 <Sparkles size={12} className="text-[#007654]" />
-                Best Price Guarantee
+                {t("best_price_guarantee")}
               </span>
             </div>
           </div>
@@ -137,27 +138,27 @@ export function TourDetails({ tour }: TourDetailsProps) {
             >
               <div className="p-8 md:p-12">
                 <div className="mb-10 text-center">
-                  <h2 className="text-3xl font-black text-[#1a1a1a] tracking-tight">{t("booking_form.title")}</h2>
-                  <p className="text-gray-500 font-medium mt-2">Personalize your luxury experience.</p>
+                  <h2 className="text-3xl font-black text-[#1a1a1a] tracking-tight">{silkT("booking_form.title")}</h2>
+                  <p className="text-gray-500 font-medium mt-2">{t("personalize_experience")}</p>
                 </div>
 
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("booking_form.name")}</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{silkT("booking_form.name")}</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full h-16 px-6 bg-gray-50 border border-gray-100 rounded-2xl font-bold focus:bg-white focus:ring-4 focus:ring-[#007654]/5 transition-all outline-none"
-                      placeholder={t("booking_form.name_placeholder")}
+                      placeholder={silkT("booking_form.name_placeholder")}
                       required
                     />
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("booking_form.phone")}</label>
+                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{silkT("booking_form.phone")}</label>
                       <input
                         type="tel"
                         name="phone"
@@ -169,7 +170,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Travelers</label>
+                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("travelers")}</label>
                       <input
                         type="number"
                         name="quantity"
@@ -183,14 +184,14 @@ export function TourDetails({ tour }: TourDetailsProps) {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Preferred Date</label>
+                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("preferred_date")}</label>
                     <DatePicker
                       selected={formData.date ? new Date(formData.date) : null}
                       onChange={(date: Date | null) => setFormData(prev => ({ ...prev, date: date ? date.toISOString().split("T")[0] : "" }))}
                       minDate={new Date()}
                       dateFormat="dd/MM/yyyy"
                       className="w-full h-16 px-6 bg-gray-50 border border-gray-100 rounded-2xl font-bold focus:bg-white focus:ring-4 focus:ring-[#007654]/5 transition-all outline-none"
-                      placeholderText="Select Departure Date"
+                      placeholderText={t("select_date")}
                     />
                   </div>
 
@@ -200,14 +201,14 @@ export function TourDetails({ tour }: TourDetailsProps) {
                       disabled={loading}
                       className="w-full h-16 bg-[#007654] hover:bg-[#008c64] text-white rounded-2xl font-black text-lg shadow-xl shadow-[#007654]/20"
                     >
-                      {loading ? <Loader2 className="animate-spin" /> : "Confirm Booking Request"}
+                      {loading ? <Loader2 className="animate-spin" /> : t("confirm_booking")}
                     </Button>
                     <button
                       type="button"
                       onClick={() => setIsOpen(false)}
                       className="w-full mt-4 text-xs font-black text-gray-300 uppercase tracking-widest hover:text-gray-600 transition-colors"
                     >
-                      Dismiss Request
+                      {t("dismiss")}
                     </button>
                   </div>
                 </form>

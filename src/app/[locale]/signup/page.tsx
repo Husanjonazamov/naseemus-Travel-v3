@@ -58,7 +58,7 @@ export default function SignupPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#fbfbf9] flex flex-col font-poppins">
+        <div className="min-h-screen bg-[#fbfbf9] flex flex-col font-plus-jakarta">
             <Header />
 
             <main className="flex-grow flex items-center justify-center px-4 py-20 relative overflow-hidden">

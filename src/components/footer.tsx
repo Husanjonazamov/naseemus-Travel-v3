@@ -128,7 +128,7 @@ export function Footer() {
                 {tours.map((tour) => (
                   <li key={tour.id}>
                     <Link
-                      href={`/tour/${tour.slug}`}
+                      href={`/${locale}/tour/${tour.slug}`}
                       className="text-sm text-gray-400 hover:text-white transition-colors block py-0.5"
                     >
                       {tour.title}

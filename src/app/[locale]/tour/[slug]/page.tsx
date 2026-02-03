@@ -40,6 +40,7 @@ interface Tour {
   is_popular: boolean;
   is_new: boolean;
   images: string[];
+  itineraries: any[];
 }
 
 export default function TourDetail() {
@@ -48,6 +49,7 @@ export default function TourDetail() {
   const locale = useLocale();
   const t = useTranslations("tour_uzbekistan");
   const silkT = useTranslations("silk");
+  const detailT = useTranslations("tour_detail");
 
   const slug = params.slug;
   const [tour, setTour] = useState<Tour | null>(null);
@@ -100,7 +102,7 @@ export default function TourDetail() {
   );
 
   return (
-    <div className="w-full bg-[#fbfbf9] overflow-x-hidden font-poppins">
+    <div className="w-full bg-[#fbfbf9] overflow-x-hidden">
       <Header />
 
       {/* Premium Hero Section */}
@@ -147,7 +149,7 @@ export default function TourDetail() {
               )}
               <div className="bg-[#007654] px-4 py-1.5 rounded-full flex items-center gap-2 shadow-xl shadow-black/20">
                 <ShieldCheck size={14} className="text-white" />
-                <span className="text-[10px] font-black uppercase tracking-widest text-white">Guaranteed Departure</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-white">{detailT("guaranteed_departure")}</span>
               </div>
             </div>
 
@@ -161,7 +163,7 @@ export default function TourDetail() {
                   <Clock size={24} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 mb-0.5">Duration</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 mb-0.5">{detailT("duration")}</p>
                   <p className="text-xl font-bold text-white">{tour.date} {t("duration")}</p>
                 </div>
               </div>
@@ -170,7 +172,7 @@ export default function TourDetail() {
                   <Star size={24} className="fill-yellow-400 text-yellow-400" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 mb-0.5">Rating</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60 mb-0.5">{detailT("rating")}</p>
                   <p className="text-xl font-bold text-white">4.9/5.0</p>
                 </div>
               </div>
@@ -187,7 +189,7 @@ export default function TourDetail() {
         >
           <div className="bg-white/90 backdrop-blur-2xl p-8 rounded-[40px] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.3)] border border-white/40 w-80">
             <div className="mb-6">
-              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-1">Starting from</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-1">{detailT("starting_from")}</p>
               <div className="flex items-baseline gap-1">
                 <span className="text-5xl font-black text-[#1a1a1a]">${tour.price}</span>
                 <span className="text-gray-400 font-bold ml-1">/pp</span>
@@ -197,11 +199,11 @@ export default function TourDetail() {
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3 text-sm font-bold text-gray-700">
                 <MapPin size={18} className="text-[#007654]" />
-                <span>Central Asia Explorer</span>
+                <span>{detailT("central_asia")}</span>
               </div>
               <div className="flex items-center gap-3 text-sm font-bold text-gray-700">
                 <Users size={18} className="text-[#007654]" />
-                <span>Max Group: 15</span>
+                <span>{detailT("max_group")}</span>
               </div>
             </div>
 
@@ -223,7 +225,7 @@ export default function TourDetail() {
       <div className="lg:hidden fixed bottom-6 left-6 right-6 z-50">
         <div className="bg-white/90 backdrop-blur-xl p-4 rounded-3xl shadow-2xl border border-gray-100 flex items-center justify-between">
           <div>
-            <p className="text-[9px] font-black uppercase text-gray-400">Individual Pricing</p>
+            <p className="text-[9px] font-black uppercase text-gray-400">{detailT("individual_pricing")}</p>
             <p className="text-2xl font-black text-[#1a1a1a]">${tour.price}</p>
           </div>
           <Button
@@ -233,7 +235,7 @@ export default function TourDetail() {
             }}
             className="bg-[#007654] text-white h-12 px-6 rounded-2xl font-bold"
           >
-            Book Now
+            {detailT("book_now")}
           </Button>
         </div>
       </div>
@@ -245,9 +247,11 @@ export default function TourDetail() {
             <div id="overview">
               <TourOverview tour={tour} />
             </div>
-            <div id="itinerary">
-              <Itinerary />
-            </div>
+            {tour.itineraries && tour.itineraries.length > 0 && (
+              <div id="itinerary">
+                <Itinerary days={tour.itineraries} />
+              </div>
+            )}
           </div>
 
           {/* Right Column: Details & Booking Form */}

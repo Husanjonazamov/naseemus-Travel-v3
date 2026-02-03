@@ -20,44 +20,43 @@ const SearchTours = () => {
     <div className="min-h-[500px] flex flex-col items-center justify-start pt-10">
       {/* Banner blok */}
       <div className="relative w-full max-w-[1200px] mx-auto px-3 md:px-0">
-        <div className="w-full h-[220px] md:h-[280px] overflow-hidden rounded-2xl bg-gradient-to-r bg-[#007654] relative">
+        <div className="w-full h-[240px] md:h-[320px] overflow-hidden rounded-[32px] bg-[#007654] relative shadow-2xl shadow-[#007654]/20">
           {/* Matn va button */}
-          <div className="h-full px-4 md:px-6 flex flex-col justify-center gap-2">
-            <p className="text-white text-lg md:text-3xl font-semibold leading-snug">
+          <div className="h-full px-8 md:px-12 flex flex-col justify-center gap-4">
+            <h2 className="text-white text-3xl md:text-5xl font-black leading-tight tracking-tight">
               {t("offerOfDay")}
-            </p>
-            <p className="text-gray-100 text-sm md:text-lg font-medium">
+            </h2>
+            <p className="text-white/80 text-base md:text-xl font-medium max-w-2xl">
               {t("bestDirections")}
             </p>
             <Link
               href={'#newTour'}
-              className="bg-[#dcfae7] mt-4 text-black flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 shadow-sm rounded-3xl w-fit text-sm md:text-base font-medium"
+              className="mt-4 bg-white text-[#007654] hover:bg-[#dcfae7] transition-all duration-300 flex items-center gap-3 px-8 py-4 shadow-xl shadow-black/10 rounded-2xl w-fit text-base md:text-lg font-bold"
             >
               <span>{t("seePrices")}</span>
-              <EastIcon fontSize="small" />
+              <EastIcon fontSize="medium" />
             </Link>
           </div>
         </div>
 
         {/* Tugmalar (tours/hotel) */}
-        <div className="bg-[#edeef1] flex justify-center py-2 h-[40px] w-[240px] md:w-[260px] absolute bottom-0 left-1/2 -translate-x-1/2 rounded-t-full">
-          <div className="w-[200px] md:w-[220px] bg-[#dcfae7] grid grid-cols-2 py-1 px-1 h-[40px] md:h-[45px] rounded-3xl shadow-sm">
+        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex justify-center w-full max-w-[400px] px-4">
+          <div className="w-full bg-white/95 backdrop-blur-xl flex p-1.5 rounded-[24px] shadow-2xl border border-white/20">
             <button
               onClick={() => setActive('tours')}
-              className={`flex items-center justify-center gap-1 px-3 py-1 md:py-2 rounded-3xl font-semibold transition
-                ${active === 'tours' ? 'bg-[#007654] text-white' : 'text-black'}`}
+              className={`flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-[18px] font-bold transition-all duration-500
+                ${active === 'tours' ? 'bg-[#007654] text-white shadow-lg shadow-[#007654]/30 scale-100' : 'text-gray-500 hover:text-[#007654] hover:bg-gray-50'}`}
             >
-              <LuggageIcon fontSize="small" />
-              <p className="text-sm md:text-base">{t("tours")}</p>
+              <LuggageIcon fontSize="small" className={active === 'tours' ? 'text-white' : ''} />
+              <span className="text-sm md:text-base whitespace-nowrap">{t("tours")}</span>
             </button>
-
             <button
               onClick={() => setActive('hotel')}
-              className={`flex items-center justify-center gap-1 px-3 py-1 md:py-2 rounded-3xl font-semibold transition
-                ${active === 'hotel' ? 'bg-[#007654] text-white' : 'text-black'}`}
+              className={`flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-[18px] font-bold transition-all duration-500
+                ${active === 'hotel' ? 'bg-[#007654] text-white shadow-lg shadow-[#007654]/30 scale-100' : 'text-gray-500 hover:text-[#007654] hover:bg-gray-50'}`}
             >
-              <HotelIcon fontSize="small" />
-              <p className="text-sm md:text-base">{t("hotels")}</p>
+              <HotelIcon fontSize="small" className={active === 'hotel' ? 'text-white' : ''} />
+              <span className="text-sm md:text-base whitespace-nowrap">{t("hotels")}</span>
             </button>
           </div>
         </div>

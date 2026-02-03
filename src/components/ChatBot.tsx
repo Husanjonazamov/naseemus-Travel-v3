@@ -64,8 +64,8 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
                             {messages.map((msg, i) => (
                                 <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                                     <div className={`max-w-[80%] p-3 rounded-2xl text-sm shadow-sm ${msg.role === "user"
-                                            ? "bg-[#007654] text-white rounded-tr-none"
-                                            : "bg-white text-gray-800 rounded-tl-none"
+                                        ? "bg-[#007654] text-white rounded-tr-none"
+                                        : "bg-white text-gray-800 rounded-tl-none"
                                         }`}>
                                         {msg.content}
                                     </div>

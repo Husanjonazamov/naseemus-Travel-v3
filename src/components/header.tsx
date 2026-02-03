@@ -28,10 +28,10 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isTourOpen, setIsTourOpen] = useState(false);
-  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const [isUserOpen, setIsUserOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [user, setUser] = useState<any>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   const languages = ["UZ", "RU", "EN"];
   const daysByLocale: Record<string, string[]> = {
@@ -50,6 +50,7 @@ export function Header() {
 
   // Check auth state
   useEffect(() => {
+    setIsMounted(true);
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -67,7 +68,6 @@ export function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleSearchDropdown = () => setIsSearchOpen(!isSearchOpen);
   const toggleTourDropdown = () => setIsTourOpen(!isTourOpen);
-  const toggleBrochureDropdown = () => setIsBrochureOpen(!isBrochureOpen);
   const toggleUserDropdown = () => setIsUserOpen(!isUserOpen);
 
   const selectLanguage = (lang: string) => {
@@ -125,8 +125,8 @@ export function Header() {
 
             {/* Brochure */}
             <Link
-              href="/brochure"
-              className="flex items-center gap-2 border border-white/20 px-4 py-2 rounded-xl hover:bg-white hover:text-[#007654] transition-all duration-300 text-sm font-bold"
+              href={`/${locale}/brochure`}
+              className="flex items-center gap-2 border border-white/20 px-4 py-2 rounded-xl hover:bg-white hover:text-[#007654] transition-all duration-300 text-sm font-bold h-11"
             >
               <BookOpen className="h-4 w-4" /> {t("brochureRequest")}
             </Link>
@@ -289,7 +289,7 @@ export function Header() {
                 )}
               </div>
 
-              <Link href="/brochure" className="flex items-center gap-3 px-4 py-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all">
+              <Link href={`/${locale}/brochure`} className="flex items-center gap-3 px-4 py-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-all">
                 <BookOpen size={20} />
                 <span className="font-bold text-sm">Brochures</span>
               </Link>
@@ -310,21 +310,34 @@ export function Header() {
 
       {/* Main navigation */}
       <nav className="bg-[#007654] text-white border-t border-white/5 py-1">
-        <div className="max-w-7xl mx-auto flex justify-center gap-2 md:gap-8 py-2 px-4 overflow-x-auto no-scrollbar">
+        <div className="max-w-7xl mx-auto flex justify-center gap-2 md:gap-8 py-2 px-4">
           {/* Tours dropdown */}
-          <div className="relative group">
+          <div
+            className="relative group"
+            onMouseEnter={() => setIsTourOpen(true)}
+            onMouseLeave={() => setIsTourOpen(false)}
+          >
             <button
-              onClick={toggleTourDropdown}
-              className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl hover:bg-white/10 transition-all duration-300 whitespace-nowrap text-xs font-black uppercase tracking-widest"
+              className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl hover:bg-white/10 transition-all duration-300 whitespace-nowrap text-xs font-black uppercase tracking-widest outline-none"
             >
               {t("tours")}
               <ChevronDown className={`h-3 w-3 transition-transform duration-300 ${isTourOpen ? 'rotate-180' : ''}`} />
             </button>
-            {isTourOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50">
-                <TourDrop />
-              </div>
-            )}
+            <AnimatePresence>
+              {isTourOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[100] w-screen max-w-5xl px-4"
+                >
+                  <div className="bg-white rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] border border-gray-100 overflow-hidden backdrop-blur-xl">
+                    <TourDrop />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {[

@@ -49,7 +49,7 @@ export default function MyBookingsPage() {
     if (!user) return null;
 
     return (
-        <div className="min-h-screen bg-[#fbfbf9] flex flex-col font-poppins">
+        <div className="min-h-screen bg-[#fbfbf9] flex flex-col">
             <Header />
 
             <main className="flex-grow max-w-7xl mx-auto w-full px-4 py-16 relative">

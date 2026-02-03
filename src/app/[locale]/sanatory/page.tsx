@@ -59,7 +59,7 @@ export default function SanatoryPage() {
   }, [locale]);
 
   return (
-    <div className="w-full bg-[#fbfbf9] overflow-x-hidden font-poppins">
+    <div className="w-full bg-[#fbfbf9] overflow-x-hidden">
       <Header />
 
       {/* Compact Hero */}

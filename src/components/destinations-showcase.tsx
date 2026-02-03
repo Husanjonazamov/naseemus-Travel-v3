@@ -9,7 +9,7 @@ import config from "../config"
 import { TourCard } from "./TourCard"
 
 export default function NewHolidays() {
-  const t = useTranslations("last")
+  const t = useTranslations("new_holidays")
   const [holidays, setHolidays] = useState<any[]>([])
   const [mounted, setMounted] = useState(false)
 
@@ -23,11 +23,11 @@ export default function NewHolidays() {
   })
 
   useEffect(() => {
-    const fetchHolidays = async (url?: string) => {
+    const fetchHolidays = async () => {
       try {
-        const res = await axios.get(url || `${config.BASE_URL}/api/tour/`)
+        const res = await axios.get(`${config.BASE_URL}/api/tour/`)
         if (res.data.status && res.data.data.results) {
-          setHolidays((prev) => [...prev, ...res.data.data.results])
+          setHolidays(res.data.data.results)
         }
       } catch (error) {
         console.error("Holidays API error:", error)
@@ -56,10 +56,10 @@ export default function NewHolidays() {
         <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-6">
           <div className="text-center md:text-left">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
-              Our New Holidays
+              {t("title")}
             </h2>
             <p className="text-gray-500 text-lg max-w-xl">
-              Freshly handpicked destinations for your next unforgettable journey.
+              {t("description")}
             </p>
           </div>
         </div>

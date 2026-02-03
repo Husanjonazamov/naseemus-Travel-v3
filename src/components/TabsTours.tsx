@@ -16,6 +16,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import RemoveIcon from '@mui/icons-material/Remove';
 import SearchIcon from '@mui/icons-material/Search';
 import { useTranslations } from 'next-intl';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { DateRange } from 'react-day-picker';
 import config from '../config';
@@ -85,7 +86,7 @@ const TabsTours = ({ active }: Props) => {
   return (
     <>
       {active === 'tours' && (
-        <div className="mt-10 bg-[#dcfae7] shadow-sm py-4 gap-4 w-full max-w-[1200px] rounded-2xl grid grid-cols-5 items-center px-10 max-lg:hidden font-medium">
+        <div className="mt-12 bg-white/95 backdrop-blur-xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-white/20 p-2 rounded-[32px] w-full max-w-[1240px] grid grid-cols-5 items-center max-lg:hidden font-medium">
 
           {/* FROM CITY */}
           <div className="relative gap-2 h-full ">
@@ -94,12 +95,12 @@ const TabsTours = ({ active }: Props) => {
                 setOpenCity(!openCity);
                 setSearch('');
               }}
-              className="cursor-pointer flex flex-col gap-2"
+              className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors"
             >
-              <Label className="font-semibold text-md ">{t("from")}</Label>
+              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t("from")}</Label>
               <div className="relative">
                 <Input
-                  className="h-[60px] text-md placeholder:text-md"
+                  className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
                   placeholder={t("tashkent")}
                   value={selectedCity}
                   readOnly
@@ -119,56 +120,59 @@ const TabsTours = ({ active }: Props) => {
 
             {openCity && <div className="fixed inset-0 z-40" onClick={() => setOpenCity(false)} />}
 
-            {openCity && (
-              <ArrowDropUpOutlinedIcon
-                sx={{
-                  position: 'absolute',
-                  top: '85px',
-                  zIndex: 60,
-                  fontSize: '32px',
-                  color: 'white',
-                  filter: 'drop-shadow(0px 0px 0px rgba(0,0,0,0.3))',
-                  left: '10px',
-                }}
-              />
-            )}
-
-            {openCity && (
-              <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] w-60 z-50 p-2"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="relative mb-2">
-                  <SearchIcon className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400" />
-                  <Input
-                    placeholder="Укажите город"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="w-full pl-10 text-black"
-                  />
-                </div>
-
-                {filteredCities.length > 0 ? (
-                  filteredCities.map((city) => (
-                    <div
-                      key={city.slug}
-                      className="p-2 hover:bg-gray-200 rounded-lg text-black items-center cursor-pointer flex justify-between"
-                      onClick={() => {
-                        setSelectedCity(city.title);
-                        setOpenCity(false);
-                      }}
-                    >
-                      {city.title}
-                      {city.title === selectedCity && (
-                        <DoneIcon sx={{ width: '14px', height: '14px' }} />
-                      )}
+            <AnimatePresence>
+              {openCity && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="absolute top-[115px] border border-white/40 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] rounded-[28px] bg-white/95 backdrop-blur-xl w-[320px] z-50 p-3 overflow-hidden"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="relative mb-3 pt-1 px-1">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                      <SearchIcon fontSize="small" />
                     </div>
-                  ))
-                ) : (
-                  <div className="p-2 text-black">{t("noResults")}</div>
-                )}
-              </div>
-            )}
+                    <Input
+                      placeholder="Укажите город"
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      className="w-full pl-10 h-11 bg-gray-50 border-none rounded-2xl text-sm focus-visible:ring-1 focus-visible:ring-[#007654]/20"
+                      onClick={(e) => e.stopPropagation()}
+                      onFocus={(e) => e.stopPropagation()}
+                    />
+                  </div>
+
+                  <div className="max-h-[300px] overflow-y-auto custom-scrollbar px-1">
+                    {filteredCities.length > 0 ? (
+                      filteredCities.map((city) => (
+                        <div
+                          key={city.slug}
+                          className="group p-3 hover:bg-[#dcfae7]/40 rounded-2xl text-gray-700 items-center cursor-pointer flex justify-between transition-all duration-200"
+                          onClick={() => {
+                            setSelectedCity(city.title);
+                            setOpenCity(false);
+                          }}
+                        >
+                          <div className="flex flex-col">
+                            <span className="font-bold text-[15px] group-hover:text-[#007654] transition-colors">{city.title}</span>
+                            <span className="text-xs text-gray-400">City, Uzbekistan</span>
+                          </div>
+                          {city.title === selectedCity && (
+                            <div className="bg-[#007654] rounded-full p-0.5">
+                              <DoneIcon sx={{ width: '14px', height: '14px', color: 'white' }} />
+                            </div>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="p-4 text-center text-gray-400 text-sm">{t("noResults")}</div>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* TO CITY */}
@@ -178,12 +182,12 @@ const TabsTours = ({ active }: Props) => {
                 setWhere(!where);
                 setSearchWhere('');
               }}
-              className="cursor-pointer flex flex-col gap-2"
+              className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors border-l border-gray-100"
             >
-              <Label className="font-semibold text-md ">{t("to")}</Label>
+              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t("to")}</Label>
               <div className="relative">
                 <Input
-                  className="h-[60px] text-md placeholder:text-md"
+                  className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
                   placeholder="Страна, курорт"
                   value={selectedWhere}
                   readOnly
@@ -203,68 +207,69 @@ const TabsTours = ({ active }: Props) => {
 
             {where && <div className="fixed inset-0 z-40 " onClick={() => setWhere(false)} />}
 
-            {where && (
-              <ArrowDropUpOutlinedIcon
-                sx={{
-                  position: 'absolute',
-                  top: '85px',
-                  zIndex: 60,
-                  fontSize: '32px',
-                  color: 'white',
-                  filter: 'drop-shadow(0px 0px 0px rgba(0,0,0,0.3))',
-                  left: '10px',
-                }}
-              />
-            )}
-
-            {where && (
-              <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] w-60 z-50 p-2"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="relative mb-2">
-                  <SearchIcon className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400" />
-                  <Input
-                    placeholder="Укажите город"
-                    value={searchWhere}
-                    onChange={(e) => setSearchWhere(e.target.value)}
-                    className="w-full pl-10 text-black"
-                  />
-                </div>
-
-                {filteredCitiesWhere.length > 0 ? (
-                  filteredCitiesWhere.map((city) => (
-                    <div
-                      key={city.slug}
-                      className="p-2 hover:bg-gray-200 rounded-lg text-black items-center cursor-pointer flex justify-between"
-                      onClick={() => {
-                        setSelectedWhere(city.title);
-                        setWhere(false);
-                      }}
-                    >
-                      {city.title}
-                      {city.title === selectedWhere && (
-                        <DoneIcon sx={{ width: '14px', height: '14px' }} />
-                      )}
+            <AnimatePresence>
+              {where && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="absolute top-[115px] border border-white/40 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] rounded-[28px] bg-white/95 backdrop-blur-xl w-[320px] z-50 p-3 overflow-hidden"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="relative mb-3 pt-1 px-1">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                      <SearchIcon fontSize="small" />
                     </div>
-                  ))
-                ) : (
-                  <div className="p-2 text-black">{t("noResults")}</div>
-                )}
-              </div>
-            )}
+                    <Input
+                      placeholder="Укажите город"
+                      value={searchWhere}
+                      onChange={(e) => setSearchWhere(e.target.value)}
+                      className="w-full pl-10 h-11 bg-gray-50 border-none rounded-2xl text-sm focus-visible:ring-1 focus-visible:ring-[#007654]/20"
+                    />
+                  </div>
+
+                  <div className="max-h-[300px] overflow-y-auto custom-scrollbar px-1">
+                    {filteredCitiesWhere.length > 0 ? (
+                      filteredCitiesWhere.map((city) => (
+                        <div
+                          key={city.slug}
+                          className="group p-3 hover:bg-[#dcfae7]/40 rounded-2xl text-gray-700 items-center cursor-pointer flex justify-between transition-all duration-200"
+                          onClick={() => {
+                            setSelectedWhere(city.title);
+                            setWhere(false);
+                          }}
+                        >
+                          <div className="flex flex-col">
+                            <span className="font-bold text-[15px] group-hover:text-[#007654] transition-colors">{city.title}</span>
+                            <span className="text-xs text-gray-400">Destination</span>
+                          </div>
+                          {city.title === selectedWhere && (
+                            <div className="bg-[#007654] rounded-full p-0.5">
+                              <DoneIcon sx={{ width: '14px', height: '14px', color: 'white' }} />
+                            </div>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="p-4 text-center text-gray-400 text-sm">{t("noResults")}</div>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <div className="relative gap-2 h-full ">
             <div
               onClick={() => {
                 setDataOpen(!dataOpen);
               }}
-              className="cursor-pointer flex flex-col gap-2"
+              className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors border-l border-gray-100"
             >
-              <Label className="font-semibold text-md">{t("departureDate")}</Label>
+              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t("departureDate")}</Label>
               <div className="relative">
                 <Input
-                  className="h-[60px] text-md placeholder:text-md"
+                  className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
                   placeholder={t("when")}
                   value={selectData}
                   readOnly
@@ -289,114 +294,77 @@ const TabsTours = ({ active }: Props) => {
               />
             )}
 
-            {dataOpen && (
-              <ArrowDropUpOutlinedIcon
-                sx={{
-                  position: 'absolute',
-                  top: '85px',
-                  zIndex: 60,
-                  fontSize: '32px',
-                  color: 'white',
-                  filter: 'drop-shadow(0px 0px 0px rgba(0,0,0,0.3))',
-                  left: '10px',
-                }}
-              />
-            )}
+            <AnimatePresence>
+              {dataOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="absolute top-[115px] border border-white/40 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] rounded-[28px] bg-white/95 backdrop-blur-xl z-50 p-6 overflow-hidden min-w-[600px]"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="flex gap-4 items-center mb-6">
+                    <div className="flex-1 bg-gray-50 p-3 rounded-2xl border-none">
+                      <Label className="text-[10px] uppercase font-bold text-gray-400 mb-1 block">{t("from")}</Label>
+                      <span className="text-base font-bold text-gray-700">
+                        {fromDate ? formatDate(fromDate, 'dd/MM/yyyy') : t("when")}
+                      </span>
+                    </div>
+                    <ArrowRightAltIcon color="action" />
+                    <div className="flex-1 bg-gray-50 p-3 rounded-2xl border-none">
+                      <Label className="text-[10px] uppercase font-bold text-gray-400 mb-1 block">{t("to")}</Label>
+                      <span className="text-base font-bold text-gray-700">
+                        {toDate ? formatDate(toDate, 'dd/MM/yyyy') : t("to")}
+                      </span>
+                    </div>
+                  </div>
 
-            {dataOpen && (
-              <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] z-50 p-2"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="flex gap-2 items-center">
-                  <Input
-                    placeholder={t("from")}
-                    value={
-                      fromDate ? formatDate(fromDate, 'dd/MM/yyyy') : ''
-                    }
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="w-full text-black h-[50px]"
-                    onClick={(e) => e.stopPropagation()}
-                    onFocus={(e) => e.stopPropagation()}
-                  />
-                  <ArrowRightAltIcon
-                    color="action"
-                    sx={{ width: '28px', height: '28px' }}
-                  />
-                  <Input
-                    placeholder={t("to")}
-                    value={
-                      toDate ? formatDate(toDate, 'dd/MM/yyyy') : ''
-                    }
-                    disabled={fromDate === undefined}
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="w-full text-black h-[50px]"
-                    onClick={(e) => e.stopPropagation()}
-                    onFocus={(e) => e.stopPropagation()}
-                  />
-                </div>
-                <div className="flex gap-2 border-t-2 p-2 border-b-2 mt-5 border-t-secondary">
-                  {/* <Calendar
-                    mode="single"
-                    className="border-r-2"
-                    selected={fromDate}
-                    onSelect={setFromDate}
-                    disabled={(date: Date) => {
-                      const today = new Date();
-                      today.setHours(0, 0, 0, 0);
-                      return date < today;
-                    }}
-                  />
+                  <div className="flex justify-center border-y border-gray-100 py-4">
+                    <Calendar
+                      mode="range"
+                      selected={range}
+                      onSelect={(val) => {
+                        setRange(val);
+                        setFromDate(val?.from);
+                        setToDate(val?.to);
+                      }}
+                      showOutsideDays={false}
+                      numberOfMonths={2}
+                      className="rounded-3xl"
+                    />
+                  </div>
 
-                  <Calendar
-                    mode="single"
-                    selected={toDate}
-                    onSelect={setToDate}
-                    disabled={(date: Date) => {
-                      if (!fromDate) return true;
-                      return date <= fromDate;
-                    }}
-                  /> */}
-                  <Calendar
-                    mode="range"
-                    selected={range}
-                    onSelect={(val) => {
-                      setRange(val);
-                      setFromDate(val?.from);
-                      setToDate(val?.to);
-                    }}
-                    showOutsideDays={false}
-                    numberOfMonths={2}
-                  />
-                </div>
-                <div className="grid grid-cols-2 mt-5 gap-2">
-                  <button
-                    className="bg-green-500/40 rounded-3xl p-3 text-green-600 cursor-pointer"
-                    onClick={() => {
-                      setDataOpen(false), setFromDate(undefined);
-                      setToDate(undefined);
-                    }}
-                  >
-                    {t("exit")}
-                  </button>
-                  <button
-                    className="bg-green-600 rounded-3xl text-white"
-                    onClick={() => {
-                      setDataOpen(false);
-                      if (fromDate && toDate) {
-                        setSelectData(
-                          `${formatDate(fromDate, 'dd/MM/yyyy') + ' - ' + formatDate(toDate, 'dd/MM/yyyy')}`,
-                        );
-                      } else {
-                        setSelectData('');
-                      }
-                    }}
-                  >
-                    {t("apply")}
-                  </button>
-                </div>
-              </div>
-            )}
+                  <div className="grid grid-cols-2 mt-6 gap-3">
+                    <button
+                      className="bg-gray-100 hover:bg-gray-200 rounded-2xl p-4 text-gray-500 font-bold transition-all duration-200"
+                      onClick={() => {
+                        setDataOpen(false), setFromDate(undefined);
+                        setToDate(undefined);
+                        setRange(undefined);
+                      }}
+                    >
+                      {t("exit")}
+                    </button>
+                    <button
+                      className="bg-[#007654] hover:bg-[#008c64] shadow-lg shadow-[#007654]/20 rounded-2xl p-4 text-white font-bold transition-all duration-200"
+                      onClick={() => {
+                        setDataOpen(false);
+                        if (fromDate && toDate) {
+                          setSelectData(
+                            `${formatDate(fromDate, 'dd/MM/yyyy') + ' - ' + formatDate(toDate, 'dd/MM/yyyy')}`,
+                          );
+                        } else {
+                          setSelectData('');
+                        }
+                      }}
+                    >
+                      {t("apply")}
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <div className="relative gap-2 h-full ">
@@ -404,12 +372,12 @@ const TabsTours = ({ active }: Props) => {
               onClick={() => {
                 setAgeOpen(!where);
               }}
-              className="cursor-pointer flex flex-col gap-2"
+              className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors border-l border-gray-100"
             >
-              <Label className="font-semibold text-md">{t("tourists")}</Label>
+              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t("tourists")}</Label>
               <div className="relative">
                 <Input
-                  className="h-[60px] text-md placeholder:text-md"
+                  className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
                   placeholder={t("adults")}
                   value={selectAge === 0 ? '' : selectAge}
                   readOnly
@@ -418,106 +386,83 @@ const TabsTours = ({ active }: Props) => {
             </div>
 
             {ageOpen && (
-              <ArrowDropUpOutlinedIcon
-                sx={{
-                  position: 'absolute',
-                  top: '85px',
-                  zIndex: 60,
-                  fontSize: '32px',
-                  color: 'white',
-                  filter: 'drop-shadow(0px 0px 0px rgba(0,0,0,0.3))',
-                  left: '10px',
-                }}
-              />
-            )}
-
-            {ageOpen && (
               <div
                 className="fixed inset-0 z-40 "
                 onClick={() => setAgeOpen(false)}
               />
             )}
 
-            {ageOpen && (
-              <div
-                className="absolute top-[105px] border border-white shadow-2xl rounded-2xl bg-[#dcfae7] z-50 p-2 px-4 w-96 font-medium"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="flex justify-between">
-                  <Label className="flex flex-col gap-0 items-start">
-                    <p className="font-semibold text-lg">{t("adults")}</p>
-                    <p className="text-ring text-sm">{t("childrenHint")}</p>
-                  </Label>
-                  <div className="grid grid-cols-3 border justify-center items-center rounded-lg w-48">
-                    <Button
-                      variant={'text'}
-                      className="h-full rounded-bl-lg rounded-br-none rounded-tr-none"
-                      onClick={() => {
-                        setAdults((prev) => (prev > 0 ? prev - 1 : prev));
-                      }}
-                    >
-                      <RemoveIcon className="text-green-600" />
-                    </Button>
-                    <Button
-                      variant={'text'}
-                      className="rounded-none border-r-2 h-full border-l-2 text-lg"
-                    >
-                      {adults}
-                    </Button>
-                    <Button
-                      variant={'text'}
-                      className="h-full rounded-tl-none rounded-bl-none rounded-br-lg rounded-tr-lg"
-                      onClick={() => {
-                        setAdults((prev) => prev + 1);
-                      }}
-                    >
-                      <AddIcon className="text-green-600" />
-                    </Button>
+            <AnimatePresence>
+              {ageOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="absolute top-[115px] border border-white/40 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] rounded-[28px] bg-white/95 backdrop-blur-xl z-50 p-6 w-[340px] overflow-hidden"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="flex items-center justify-between mb-8 group">
+                    <div className="flex flex-col">
+                      <span className="font-bold text-lg text-gray-700">{t("adults")}</span>
+                      <span className="text-xs text-gray-400">{t("childrenHint")}</span>
+                    </div>
+                    <div className="flex items-center bg-gray-50 rounded-[18px] p-1 border border-gray-100">
+                      <button
+                        className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white hover:shadow-sm transition-all text-gray-500 hover:text-[#007654]"
+                        onClick={() => setAdults((prev) => (prev > 0 ? prev - 1 : prev))}
+                      >
+                        <RemoveIcon fontSize="small" />
+                      </button>
+                      <span className="w-10 text-center font-bold text-gray-700 text-lg">{adults}</span>
+                      <button
+                        className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white hover:shadow-sm transition-all text-gray-500 hover:text-[#007654]"
+                        onClick={() => setAdults((prev) => prev + 1)}
+                      >
+                        <AddIcon fontSize="small" />
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div className="flex justify-between mt-5">
-                  <Label className="flex flex-col gap-0 items-start">
-                    <p className="font-semibold text-lg">Дети</p>
-                    <p className="text-ring text-sm">до 13 лет</p>
-                  </Label>
-                  <div className="grid grid-cols-3 border justify-center items-center rounded-lg w-48">
-                    <Button
-                      variant={'text'}
-                      className="h-full rounded-tl-lg rounded-bl-lg rounded-br-none rounded-tr-none"
-                      onClick={() =>
-                        setChildren((prev) => (prev > 0 ? prev - 1 : prev))
-                      }
-                    >
-                      <RemoveIcon className="text-green-600" />
-                    </Button>
-                    <Button
-                      variant={'text'}
-                      className="rounded-none border-r-2 h-full border-l-2 text-lg"
-                    >
-                      {children}
-                    </Button>
-                    <Button
-                      variant={'text'}
-                      className="h-full rounded-tl-none rounded-bl-none rounded-br-lg rounded-tr-lg"
-                      onClick={() => {
-                        setChildren((prev) => prev + 1);
-                      }}
-                    >
-                      <AddIcon className="text-green-600" />
-                    </Button>
+
+                  <div className="flex items-center justify-between group">
+                    <div className="flex flex-col">
+                      <span className="font-bold text-lg text-gray-700">Дети</span>
+                      <span className="text-xs text-gray-400">до 13 лет</span>
+                    </div>
+                    <div className="flex items-center bg-gray-50 rounded-[18px] p-1 border border-gray-100">
+                      <button
+                        className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white hover:shadow-sm transition-all text-gray-500 hover:text-[#007654]"
+                        onClick={() => setChildren((prev) => (prev > 0 ? prev - 1 : prev))}
+                      >
+                        <RemoveIcon fontSize="small" />
+                      </button>
+                      <span className="w-10 text-center font-bold text-gray-700 text-lg">{children}</span>
+                      <button
+                        className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white hover:shadow-sm transition-all text-gray-500 hover:text-[#007654]"
+                        onClick={() => setChildren((prev) => prev + 1)}
+                      >
+                        <AddIcon fontSize="small" />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </div>
-            )}
+
+                  <button
+                    className="w-full mt-8 bg-[#007654] hover:bg-[#008c64] shadow-lg shadow-[#007654]/20 rounded-2xl p-4 text-white font-bold transition-all duration-200"
+                    onClick={() => setAgeOpen(false)}
+                  >
+                    {t("apply")}
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <div className="h-[25px]" />
+          <div className="p-2">
             <Link
               href={'#'}
-              className="bg-[#007654] text-white h-[60px] flex items-center justify-center rounded-2xl text-center"
+              className="bg-[#007654] hover:bg-[#008c64] text-white h-[72px] flex items-center justify-center rounded-[24px] text-center transition-all duration-300 shadow-xl shadow-[#007654]/20 hover:scale-[1.02] active:scale-[0.98]"
             >
-              <p>{t("searchTours")}</p>
+              <p className="text-white font-bold text-lg uppercase tracking-wider">{t("searchTours")}</p>
             </Link>
           </div>
         </div>

@@ -98,7 +98,7 @@ export function NewTouring() {
         )}
 
         <div className="mt-20 text-center">
-          <Link href="/tour">
+          <Link href={`/${locale}/tour`}>
             <Button variant="outline" className="h-16 px-12 rounded-2xl border-[#007654] text-[#007654] hover:bg-[#007654] hover:text-white transition-all font-bold text-lg shadow-xl shadow-[#007654]/5">
               {t("exploreMore")}
             </Button>

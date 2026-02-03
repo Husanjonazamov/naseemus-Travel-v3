@@ -15,8 +15,15 @@ interface TourOverviewProps {
 }
 
 export function TourOverview({ tour }: TourOverviewProps) {
-  const t = useTranslations("tour_uzbekistan");
+  const t = useTranslations("tour_overview");
   const [isMapOpen, setIsMapOpen] = useState(false);
+
+  const inclusions = [
+    t("inclusion_airport"),
+    t("inclusion_guide"),
+    t("inclusion_breakfast"),
+    t("inclusion_sightseeing"),
+  ];
 
   return (
     <div className="space-y-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
@@ -24,10 +31,10 @@ export function TourOverview({ tour }: TourOverviewProps) {
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-4 py-2 rounded-full">
             <Compass size={16} className="text-[#007654]" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">Journey Overview</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">{t("journey_overview")}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight">
-            Capturing the Essence of Your Stay
+            {t("section_title")}
           </h2>
           <div className="prose prose-lg text-gray-500 font-medium leading-[1.8] max-w-none">
             {tour.description}
@@ -40,8 +47,8 @@ export function TourOverview({ tour }: TourOverviewProps) {
               <MapPin size={24} />
             </div>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-0.5">Focus</p>
-              <p className="text-lg font-bold text-[#1a1a1a]">Classic Touring</p>
+              <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-0.5">{t("focus")}</p>
+              <p className="text-lg font-bold text-[#1a1a1a]">{t("classic_touring")}</p>
             </div>
           </div>
           <div className="flex items-center gap-4 bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
@@ -49,8 +56,8 @@ export function TourOverview({ tour }: TourOverviewProps) {
               <Plane size={24} />
             </div>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-0.5">Transport</p>
-              <p className="text-lg font-bold text-[#1a1a1a]">Flight Choices Available</p>
+              <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-0.5">{t("transport")}</p>
+              <p className="text-lg font-bold text-[#1a1a1a]">{t("flight_choices")}</p>
             </div>
           </div>
         </div>
@@ -69,21 +76,16 @@ export function TourOverview({ tour }: TourOverviewProps) {
             onClick={() => setIsMapOpen(true)}
             className="bg-white/90 backdrop-blur-xl text-[#007654] px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl border border-white hover:bg-[#007654] hover:text-white transition-all duration-300"
           >
-            {t("tabs.enlarge_map")}
+            {t("enlarge_map")}
           </button>
         </div>
       </div>
 
       {/* Highlights / Inclusions Mock */}
       <div className="bg-[#f0f9f4] p-10 rounded-[40px] border border-[#d1f2e1]">
-        <h3 className="text-xl font-black text-[#007654] mb-8 uppercase tracking-widest text-center">Standard Inclusions</h3>
+        <h3 className="text-xl font-black text-[#007654] mb-8 uppercase tracking-widest text-center">{t("standard_inclusions")}</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            "Airport transfers",
-            "English-speaking guide",
-            "Breakfast Daily",
-            "Sightseeing tours",
-          ].map((item, idx) => (
+          {inclusions.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center text-center gap-3">
               <CheckCircle2 size={24} className="text-[#007654]" />
               <span className="text-sm font-bold text-[#1a1a1a]">{item}</span>

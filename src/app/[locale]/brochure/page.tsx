@@ -3,7 +3,6 @@
 import { Header } from "@/src/components/header";
 import { Footer } from "@/src/components/footer";
 import { FileText, Download, Map, Heart } from "lucide-react";
-import { Button } from "@/src/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/src/components/ui/card";
 import { motion } from "framer-motion";
 
@@ -111,12 +110,14 @@ function BrochureCard({ brochure, index }: { brochure: typeof brochures[0], inde
                     </p>
                 </CardContent>
                 <CardFooter>
-                    <Button asChild className="w-full bg-[#007654] hover:bg-[#005c42] text-white gap-2 py-6 text-lg">
-                        <a href={brochure.pdfUrl} download>
-                            <Download className="w-5 h-5" />
-                            Download PDF
-                        </a>
-                    </Button>
+                    <a
+                        href={brochure.pdfUrl}
+                        download
+                        className="w-full bg-[#007654] hover:bg-[#005c42] text-white py-4 text-lg font-bold rounded-md transition-colors flex items-center justify-center gap-2"
+                    >
+                        <Download className="w-5 h-5" />
+                        Download PDF
+                    </a>
                 </CardFooter>
             </Card>
         </motion.div>

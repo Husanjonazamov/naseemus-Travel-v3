@@ -10,6 +10,8 @@ import axios from "axios"
 import config from "../config"
 import { BlogCard } from "./BlogCard"
 
+
+
 export function BlogSection() {
   const t = useTranslations("blog")
   const locale = useLocale()
@@ -78,12 +80,14 @@ export function BlogSection() {
             </div>
 
             {/* Mobile Slider */}
-            <div ref={sliderRef} className="keen-slider lg:hidden">
-              {posts.map((post) => (
-                <div key={post.id} className="keen-slider__slide pb-4">
-                  <BlogCard post={post} />
-                </div>
-              ))}
+            <div className="lg:hidden">
+              <div ref={sliderRef} className="keen-slider">
+                {posts.map((post) => (
+                  <div key={post.id} className="keen-slider__slide pb-4">
+                    <BlogCard post={post} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         )}

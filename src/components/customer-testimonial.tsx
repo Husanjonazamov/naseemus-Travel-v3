@@ -89,11 +89,10 @@ export function CustomerTestimonial() {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-4 h-4 ${
-                          i < testimonial.rating
+                        className={`w-4 h-4 ${i < testimonial.rating
                             ? "text-yellow-400 fill-current"
                             : "text-gray-300"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>

@@ -1,4 +1,82 @@
 {
+  "content_section": {
+    "blog_title": "Read Our Articles",
+    "blog_subtitle": "Travel Insights",
+    "blog_badge": "Expert Insight",
+    "tour_title": "Explore Our Exclusive Tour Packages",
+    "tour_subtitle": "Curated Experiences",
+    "tour_badge": "Exclusive Tour",
+    "explore_button": "Explore",
+    "default_description": "Crafted for the discerning traveler looking for authentic experiences.",
+    "specialist": "Travel Specialist",
+    "trusted_by": "Trusted by",
+    "travelers": "solo travelers",
+    "certified": "Certified",
+    "awarded": "Awarded",
+    "global": "Global"
+  },
+  "new_holidays": {
+    "title": "Our New Holidays",
+    "description": "Freshly handpicked destinations for your next unforgettable journey."
+  },
+  "tour_dropdown": {
+    "discover_beauty": "Discover the beauty of",
+    "view_detail": "View Detail",
+    "cant_find": "Can't find what you are looking for?",
+    "explore_all": "Explore all our curated travel experiences across the Silk Road.",
+    "view_all_tours": "View All Tours"
+  },
+  "tour_card": {
+    "duration": "Duration",
+    "days": "Days",
+    "starting_from": "Starting from",
+    "details": "Details",
+    "uzbekistan": "Uzbekistan",
+    "login_to_save": "Please log in to save tours!",
+    "removed_from_saved": "Removed from saved tours",
+    "added_to_saved": "Added to saved tours!"
+  },
+  "tour_overview": {
+    "journey_overview": "Journey Overview",
+    "section_title": "Capturing the Essence of Your Stay",
+    "focus": "Focus",
+    "classic_touring": "Classic Touring",
+    "transport": "Transport",
+    "flight_choices": "Flight Choices Available",
+    "standard_inclusions": "Standard Inclusions",
+    "inclusion_airport": "Airport transfers",
+    "inclusion_guide": "English-speaking guide",
+    "inclusion_breakfast": "Breakfast Daily",
+    "inclusion_sightseeing": "Sightseeing tours",
+    "enlarge_map": "Enlarge Map",
+    "map_alt": "Tour route map"
+  },
+  "tour_booking": {
+    "premium_booking": "Premium Booking",
+    "reserve_spot": "Reserve Your Spot",
+    "reserve_description": "Ensure your legendary journey begins on your preferred dates. Our specialist team will handle your request immediately.",
+    "fixed_price": "Fixed Price",
+    "duration": "Duration",
+    "days": "Days",
+    "proceed_booking": "Proceed to Booking",
+    "best_price_guarantee": "Best Price Guarantee",
+    "personalize_experience": "Personalize your luxury experience.",
+    "travelers": "Travelers",
+    "preferred_date": "Preferred Date",
+    "select_date": "Select Departure Date",
+    "confirm_booking": "Confirm Booking Request",
+    "dismiss": "Dismiss Request"
+  },
+  "tour_detail": {
+    "guaranteed_departure": "Guaranteed Departure",
+    "duration": "Duration",
+    "rating": "Rating",
+    "starting_from": "Starting from",
+    "central_asia": "Central Asia Explorer",
+    "max_group": "Max Group: 15",
+    "individual_pricing": "Individual Pricing",
+    "book_now": "Book Now"
+  },
   "hotel": {
     "directions": "Directions",
     "placeholder_city": "Country, city",
@@ -380,6 +458,7 @@
   },
   "last": {
     "last_minute_holidays": "LAST MINUTE HOLIDAYS",
+    "description": "Spontaneous escapes at unbeatable prices. Book your next adventure today.",
     "explore": "SEE MORE →",
     "testimonial": "IT WAS MY FIRST TOUR WITH Naseem's travel. HIGHLY RECOMMENDED!",
     "author": "ANNE"

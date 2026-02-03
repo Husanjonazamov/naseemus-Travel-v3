@@ -24,19 +24,13 @@ interface ItineraryProps {
   days?: ItineraryDay[];
 }
 
-export function Itinerary({ days: propDays }: ItineraryProps) {
+export function Itinerary({ days }: ItineraryProps) {
   const t = useTranslations("tour_uzbekistan.itinerary");
   const [activeDay, setActiveDay] = useState(1);
 
-  // Use props if provided, otherwise fallback to translation data
-  const days: ItineraryDay[] = propDays && propDays.length > 0
-    ? propDays
-    : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(d => ({
-      day: d,
-      title: t(`days.${d}.title`),
-      description: t(`days.${d}.description`),
-      image: t(`days.${d}.image`)
-    }));
+  if (!days || days.length === 0) {
+    return null;
+  }
 
   const handlePrint = () => {
     window.print();
@@ -46,7 +40,7 @@ export function Itinerary({ days: propDays }: ItineraryProps) {
 
   return (
     <div className="w-full py-12 bg-transparent" id="itinerary">
-      <div className="flex flex-col md:flex-row items-end justify-between font-poppins mb-10 gap-6">
+      <div className="flex flex-col md:flex-row items-end justify-between mb-10 gap-6">
         <div>
           <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-3 py-1.5 rounded-full mb-3">
             <Compass size={14} className="text-[#007654]" />
