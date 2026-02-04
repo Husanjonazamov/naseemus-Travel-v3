@@ -143,7 +143,7 @@ export default function SanatoryPage() {
                     <h3 className="text-lg font-bold text-[#1a1a1a] mb-2 group-hover:text-[#007654] transition-colors">
                       {resort.title}
                     </h3>
-                    <p className="text-gray-500 text-sm mb-4 line-clamp-2">
+                    <p className="text-gray-500 text-sm mb-4 line-clamp-3 whitespace-pre-line">
                       {resort.description}
                     </p>
                     <div className="flex items-center justify-between pt-3 border-t border-gray-50">

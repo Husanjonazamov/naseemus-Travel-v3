@@ -160,13 +160,13 @@ export function TourCard({ tour }: TourCardProps) {
                         </div>
                     </div>
 
-                    <Link href={`/${locale}/tour/${tour.slug}`}>
+                    <Link href={`/${locale}/tour/${tour.slug}`} className="mt-auto">
                         <Button
                             variant="ghost"
-                            className="bg-[#007654] hover:bg-[#008c64] text-white px-8 h-14 rounded-2xl transition-all duration-300 font-bold shadow-lg shadow-[#007654]/10 hover:shadow-[#007654]/20 hover:translate-y-[-2px]"
+                            className="p-0 h-auto bg-transparent hover:bg-transparent text-[#007654] hover:text-[#008c64] font-bold transition-all flex items-center gap-2 text-sm whitespace-nowrap flex-shrink-0 group/btn"
                         >
                             {t("details")}
-                            <ArrowRight size={20} className="ml-2" />
+                            <ArrowRight size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
                         </Button>
                     </Link>
                 </div>

@@ -396,7 +396,8 @@
     "customer_support_title": "Qo‘llab-quvvatlash",
     "newsletter": {
       "title": "Yangiliklar va takliflarni pochta orqali oling",
-      "cta": "Obuna bo‘lish"
+      "cta": "Obuna bo‘lish",
+      "description": "Sayohat ilhomlari va eksklyuziv takliflarni olish uchun yangiliklar xatlarimizga obuna bo'ling."
     }
   },
   "last": {
@@ -407,20 +408,34 @@
     "author": "Anne"
   },
   "newsletter": {
-    "title": "Email orqali yangiliklar va takliflarni oling",
-    "description": "Sayohat ilhomlari va eksklyuziv takliflarni olish uchun bizning xabarnomamizga qo'shiling.",
-    "button": "Obuna bo'lish",
-    "cta": "Obuna bo'lish"
+    "title": "Ilhomlantirilgan Takliflarni Oling",
+    "subtitle": "Minglab sayohatchilar bilan birga sayohat ilhomlari, eksklyuziv takliflar va ichki sirlarni oling.",
+    "button": "Hozir Obuna Bo'ling",
+    "badge": "Maxsus Takliflar",
+    "trust": "10,000+ sayohatchi bilan qo'shiling. Istalgan vaqtda obunani bekor qiling."
   },
   "about": {
     "title": "Faqat Siz Uchun Tatillar",
     "paragraph1": "Biz yakka sayohatlar bo‘yicha mutaxassislar bo‘lib, siz faqat dam olishdan zavqlanasiz.",
     "paragraph2": "Qaysi manzilni tanlashingizdan qat'i nazar, hammasini biz tashkil qilamiz.",
-    "paragraph3": "25 yillik tajribamiz va yo‘lboshchilarimiz yordamida o‘zingizni erkin his qilasiz."
+    "paragraph3": "25 yillik tajribamiz va yo‘lboshchilarimiz yordamida o‘zingizni erkin his qilasiz.",
+    "our_story": "Bizning Hikoyamiz",
+    "years_experience": "Yillik Tajriba",
+    "highlights": {
+      "passion": "Mehr",
+      "expertise": "Mahorat",
+      "community": "Jamoa",
+      "quality": "Sifat"
+    },
+    "badge": "Bizning Hikoyamiz",
+    "passion": "Mehr",
+    "expertise": "Mahorat",
+    "community": "Jamoa",
+    "quality": "Sifat"
   },
   "blog": {
-    "title": "Bloglar",
-    "explore_button": "Ko‘proq ko‘rish →",
+    "title": "BLOGLARIMIZNI O'QING",
+    "explore_button": "KO'RISH →",
     "balkan_explorer": {
       "title": "Balkan sayohati",
       "description": "Yevropaning kam o‘rganilgan joylarini kashf eting."
@@ -432,7 +447,21 @@
     "turkish_treasures": {
       "title": "Turkiya xazinalari",
       "description": "Istanbul, Kapadokiya va boshqa go‘zalliklar."
-    }
+    },
+    "loading": "Yuklanmoqda...",
+    "not_found": "Maqola topilmadi",
+    "back_to_blog": "Blogga qaytish",
+    "badge": "Sayohat jurnali",
+    "author": "Sayohat mutaxassisi",
+    "date": "Mart 2026",
+    "read_time": "6 daqiqa o'qish",
+    "written_by": "Muallif: Naseem mutaxassisi",
+    "author_bio": "Markaziy Osiyo madaniy merosi va hashamatli ekspeditsiyalar bo'yicha 15 yildan ortiq tajribaga ega tajribali tadqiqotchi.",
+    "contact_author": "Muallif bilan bog'lanish",
+    "related_badge": "Tegishli maqolalar",
+    "related_title": "Boshqa bloglar",
+    "related_subtitle": "Sizning qiziqishingiz uchun maxsus tanlangan hikoyalar va qo'llanmalar.",
+    "read_article": "Maqolani o'qish"
   },
   "newHoliday": {
     "newHoliday": "Yangi yakka sayohatlar",
@@ -446,8 +475,39 @@
     "exploreAll": "Barcha mashhur manzillarni ko'rish"
   },
   "testimonials": {
+    "badge": "Sharhlar",
     "title": "Sayohatchilarimiz nima deyishadi",
-    "subtitle": "Naseem Travel bilan dunyoni kashf qilgan sayohatchilarning haqiqiy hikoyalari."
+    "subtitle": "Naseem Travel bilan dunyoni kashf qilgan sayohatchilarning haqiqiy hikoyalari.",
+    "review1": {
+      "name": "Sara Johnson",
+      "role": "Sarguzasht ishqibozi",
+      "content": "Naseem Travel bizning O'zbekiston turimizni mukammal tashkil qildi. Tafsilotlarga e'tibor va premium xizmat kutganimizdan ham oshib ketdi."
+    },
+    "review2": {
+      "name": "Maykl Chen",
+      "role": "Biznes sayohatchi",
+      "content": "O'zbekistondagi sog'lomlashtirish dam olishi menga aynan kerak bo'lgan narsa edi. Yuqori malakali xodimlar va hayratlanarli joylar."
+    },
+    "review3": {
+      "name": "Elena Rodriges",
+      "role": "Yakka sayohatchi",
+      "content": "Xavfsizlik mening asosiy tashvishim edi va Naseem Travel buni ta'minladi. Ularning 24/7 yordami menga to'liq xotirjamlik berdi."
+    },
+    "review4": {
+      "name": "Dovud Smit",
+      "role": "Oilaviy sayohatchi",
+      "content": "Butun oila uchun ajoyib tajriba. Bolalar faoliyatlarni yaxshi ko'rishdi, biz esa turlarning madaniy chuqurligidan zavqlandik."
+    },
+    "review5": {
+      "name": "Oisha Xon",
+      "role": "Hashamat ishqibozi",
+      "content": "Samarqand turi tarix va hashamat bo'yicha mukammal edi. Mehmonxonalardan gidlargacha hamma narsa yuqori darajada edi."
+    },
+    "review6": {
+      "name": "Robert Uilson",
+      "role": "Tabiat ishqibozi",
+      "content": "Unutilmas manzaralar va mukammal tashkil etilgan logistika. Naseem Travel bilan keyingi bronimni sabrsizlik bilan kutaman."
+    }
   },
   "silk": {
     "loading": "Yuborilmoqda...",
@@ -501,12 +561,25 @@
     "contact_us": "Biz bilan bog‘laning",
     "get_in_touch": "Aloqaga chiqish",
     "message_sent": "Xabaringiz muvaffaqiyatli yuborildi!",
-    "full_name": "Ism Familiya",
+    "full_name": "To'liq ism",
     "phone": "Telefon raqam",
-    "message": "Xabar",
+    "message": "Xabaringiz",
     "send_message": "Xabar yuborish",
-    "sending": "Yuborilmoqda",
-    "intro_text": "Biz bilan bog‘lanish uchun quyidagi formani to‘ldiring."
+    "sending": "Yuborilmoqda...",
+    "intro_text": "Biz bilan bog‘lanish uchun quyidagi formani to‘ldiring.",
+    "badge": "Biz bilan bog'laning",
+    "title": "Aloqa",
+    "subtitle": "Savolingiz bormi yoki sayohatingizni rejalashtirishda yordam kerakmi? Biz har qadamda sizga yordam berishga tayyormiz.",
+    "form_badge": "Xabar yuboring",
+    "form_title": "Bizga yozing",
+    "form_subtitle": "Quyidagi formani to'ldiring va jamoamiz 24 soat ichida sizga javob beradi.",
+    "name_placeholder": "Ismingizni kiriting",
+    "phone_placeholder": "+998 90 123 45 67",
+    "message_placeholder": "Sizga qanday yordam bera olamiz?",
+    "phone_label": "Telefon",
+    "phone_value": "+44 79 8526 9296",
+    "email_label": "Email",
+    "email_value": "naseemstravel@gmail.com"
   },
   "auth": {
     "login": {
@@ -557,5 +630,94 @@
       "title": "Global Tajriba",
       "description": "Sayohat sohasidagi ko'p yillik tajribamiz bilan sizning manzillaringiz uchun ekspert ko'rsatmalar va mahalliy tushunchalarni taqdim etamiz."
     }
+  },
+  "faq": {
+    "title": "Ko'p beriladigan savollar",
+    "subtitle": "Xizmatlarimiz va bron qilish jarayoni haqida barcha kerakli ma'lumotlar.",
+    "items": {
+      "booking": {
+        "q": "Sayohatni qanday bron qilish mumkin?",
+        "a": "Siz o'zingizga yoqqan turni tanlab, saytimiz orqali to'g'ridan-to'g'ri bron qilishingiz yoki telefon/email orqali mutaxassislarimiz bilan bog'lanishingiz mumkin."
+      },
+      "payment": {
+        "q": "Qanday to'lov usullarini qabul qilasiz?",
+        "a": "Biz barcha asosiy kredit/debet kartalarini, bank o'tkazmalarini va xavfsiz onlayn to'lov tizimlarini qabul qilamiz."
+      },
+      "cancellation": {
+        "q": "Bekor qilish tartibi qanday?",
+        "a": "Bekor qilish shartlari har bir tur uchun farq qilishi mumkin. Odatda, jo'nashdan 30 kun oldin bekor qilinganda qisman qaytariladi."
+      },
+      "visa": {
+        "q": "Viza masalasida yordam berasizmi?",
+        "a": "Ha, biz aksariyat yo'nalishlarimiz uchun viza yordami va taklifnomalar taqdim etamiz. Jamoamiz sizga hujjat topshirish jarayonida ko'maklashadi."
+      },
+      "insurance": {
+        "q": "Tibbiy sug'urta paket ichiga kiradimi?",
+        "a": "Tibbiy sug'urta standart paketga kirmaydi, lekin biz uni rasiylashtirishni tavsiya qilamiz. Sizga munosib sug'urta kompaniyasini topishda yordam bera olamiz."
+      }
+    },
+    "badge": "FAQ"
+  },
+  "companyInfo": {
+    "subtitle": "Biz Haqimizda",
+    "title": "Naseem's Travel",
+    "description": "Buyuk Ipak Yo'li bo'ylab unutilmas guruhli sayohatlar uchun ishonchli hamkoringiz.",
+    "paragraph1": "Naseem's Travel — Buyuk Britaniyada ro'yxatdan o'tgan sayohat kompaniyasi bo'lib, faqat Markaziy Osiyo bo'ylab guruhli turlarga ixtisoslashgan. O'zbekiston, Qozog'iston, Qirg'iziston va boshqa mamlakatlar bo'yicha chuqur bilimga ega holda, biz sayohatchilarni qadimiy shaharlar, ajoyib manzaralar va boy madaniy merosni o'rganish uchun birlashtiruvchi sayohatlar yaratamiz.",
+    "paragraph2": "An'anaviy tur operatorlaridan farqli o'laroq, biz faqat guruhli tajribalarga e'tibor qaratamiz. Bu bizga raqobatbardosh narxlarni taklif qilish, sayohatchilar o'rtasida mazmunli aloqalarni o'rnatish va individual sayohat taqdim eta olmaydigan darajadagi mahalliy ekspertizani ta'minlash imkonini beradi.",
+    "highlight": {
+      "title": "Faqat Guruhli Turlar",
+      "description": "Biz faqat guruhli sayohatlarga ixtisoslashamiz. Bu noyob yondashuv bizga chuqur ta'sirli tajribalar yaratish va sayohatingiz uchun eng yaxshi qiymatni taklif qilish imkonini beradi. O'xshash fikrli sarguzashtchilar bilan sayohat qiling va birga xotiralar yarating."
+    },
+    "features": {
+      "groupTours": {
+        "title": "Guruhli Tajribalar",
+        "description": "Dunyo bo'ylab o'xshash fikrli sayohatchilar bilan tanlangan guruhli sayohatlar."
+      },
+      "silkRoad": {
+        "title": "Ipak Yo'li Mutaxassislari",
+        "description": "Markaziy Osiyo tarixi, madaniyati va yashirin durdonalari bo'yicha chuqur bilim."
+      },
+      "experience": {
+        "title": "Tasdiqlangan Sifat",
+        "description": "Unutilmas sayohat xotiralarini yaratishda ko'p yillik tajriba."
+      },
+      "safety": {
+        "title": "Xavfsiz va Ishonchli",
+        "description": "Buyuk Britaniyada ro'yxatdan o'tgan kompaniya, to'liq himoya va 24/7 qo'llab-quvvatlash."
+      }
+    },
+    "stats": {
+      "tours": {
+        "value": "50+",
+        "label": "Yillik Turlar"
+      },
+      "travelers": {
+        "value": "5000+",
+        "label": "Mamnun Sayohatchilar"
+      },
+      "countries": {
+        "value": "12",
+        "label": "Mamlakatlar"
+      },
+      "years": {
+        "value": "10+",
+        "label": "Yillik Tajriba"
+      }
+    }
+  },
+  "tour_reviews": {
+    "view_reviews": "Sharhlar",
+    "leave_review": "Sharh qoldirish",
+    "no_reviews": "Hozircha sharhlar yo'q. Tajribangiz bilan birinchi bo'lib o'rtoqlashing!",
+    "anonymous": "Anonim",
+    "thank_you": "Rahmat!",
+    "review_submitted": "Sharhingiz muvaffaqiyatli yuborildi.",
+    "how_was_it": "Sayohat qanday o'tdi?",
+    "share_experience": "Tajribangizni boshqa sayohatchilar bilan baham ko'ring.",
+    "your_name": "Ismingiz (ixtiyoriy)",
+    "name_placeholder": "Ismingizni kiriting yoki anonim qoldiring",
+    "your_comment": "Sizning sharhingiz",
+    "comment_placeholder": "Sayohat haqida so'zlab bering...",
+    "submit_review": "Sharhni yuborish"
   }
 }

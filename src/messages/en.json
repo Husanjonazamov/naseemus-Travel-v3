@@ -302,10 +302,23 @@
     "message_sent": "Your message has been sent successfully!",
     "full_name": "Full Name",
     "phone": "Phone Number",
-    "message": "Message",
+    "message": "Your Message",
     "send_message": "Send Message",
-    "sending": "Sending",
-    "intro_text": "Fill out the form below to get in touch with us."
+    "sending": "Sending...",
+    "intro_text": "Fill out the form below to get in touch with us.",
+    "badge": "Get in Touch",
+    "title": "Contact Us",
+    "subtitle": "Have a question or need help planning your trip? We're here to assist you every step of the way.",
+    "form_badge": "Send a Message",
+    "form_title": "Write to Us",
+    "form_subtitle": "Fill out the form below and our team will get back to you within 24 hours.",
+    "name_placeholder": "Enter your name",
+    "phone_placeholder": "+998 90 123 45 67",
+    "message_placeholder": "How can we help you?",
+    "phone_label": "Phone",
+    "phone_value": "+44 79 8526 9296",
+    "email_label": "Email",
+    "email_value": "naseemstravel@gmail.com"
   },
   "solo_travel": {
     "title": "THE TRUSTED EXPERTS FOR SOLO HOLIDAYS",
@@ -453,8 +466,11 @@
     }
   },
   "newsletter": {
-    "title": "GET INSPIRED AND RECEIVE OFFERS",
-    "button": "SUBSCRIBE"
+    "title": "Get Inspired & Receive Exclusive Offers",
+    "subtitle": "Join thousands of travelers receiving curated travel inspiration, exclusive deals, and insider tips.",
+    "button": "Subscribe Now",
+    "badge": "Exclusive Offers",
+    "trust": "Join 10,000+ travelers. Unsubscribe anytime."
   },
   "last": {
     "last_minute_holidays": "LAST MINUTE HOLIDAYS",
@@ -467,7 +483,12 @@
     "title": "HOLIDAYS THAT LET YOU BE Naseem's travel",
     "paragraph1": "On a Naseem's travel holiday, you're free to enjoy the experience. We'll take care of everything else.",
     "paragraph2": "No worrying about tickets or schedules. Just enjoy your destination, relax and make friends with like-minded people.",
-    "paragraph3": "With 25 years of experience and a Holiday Director by your side, you’ll be free to do whatever feels... Naseem's travel."
+    "paragraph3": "With 25 years of experience and a Holiday Director by your side, you’ll be free to do whatever feels... Naseem's travel.",
+    "badge": "Our Story",
+    "passion": "Passion",
+    "expertise": "Expertise",
+    "community": "Community",
+    "quality": "Quality"
   },
   "blog": {
     "title": "READ OUR BLOGS",
@@ -483,7 +504,21 @@
     "turkish_treasures": {
       "title": "TURKISH TREASURES",
       "description": "FROM THE GRAND BAZAAR TO CAPPADOCIA AND THE BLUE MOSQUE—DISCOVER TURKEY’S RICH HERITAGE."
-    }
+    },
+    "loading": "Loading...",
+    "not_found": "Story Not Found",
+    "back_to_blog": "Back to Blog",
+    "badge": "Travel Journal",
+    "author": "Travel Specialist",
+    "date": "March 2026",
+    "read_time": "6 Min Read",
+    "written_by": "Written by Naseem's Specialist",
+    "author_bio": "A seasoned explorer with over 15 years of experience in Central Asian cultural heritage and luxury expeditions.",
+    "contact_author": "Contact Author",
+    "related_badge": "Related Articles",
+    "related_title": "More Blogs",
+    "related_subtitle": "Stories and guides hand-picked for your curiosity.",
+    "read_article": "Read Article"
   },
   "newHoliday": {
     "newHoliday": "NEW SOLO TOURING HOLIDAYS",
@@ -497,21 +532,52 @@
     "exploreAll": "Explore All Popular Destinations"
   },
   "testimonials": {
+    "badge": "Reviews",
     "title": "What Our Travelers Say",
-    "subtitle": "Real stories from travelers who explored the world with Naseem's Travel."
+    "subtitle": "Real stories from travelers who explored the world with Naseem's Travel.",
+    "review1": {
+      "name": "Sarah Johnson",
+      "role": "Adventure Enthusiast",
+      "content": "Naseem's Travel made our Uzbekistan tour absolutely seamless. The attention to detail and premium service was beyond our expectations."
+    },
+    "review2": {
+      "name": "Michael Chen",
+      "role": "Business Traveler",
+      "content": "The wellness retreat in Uzbekistan was exactly what I needed. Highly professional staff and breathtaking locations."
+    },
+    "review3": {
+      "name": "Elena Rodriguez",
+      "role": "Solo Traveler",
+      "content": "Safety was my main concern, and Naseem's Travel delivered. Their 24/7 support gave me complete peace of mind during my Uzbekistan trip."
+    },
+    "review4": {
+      "name": "David Smith",
+      "role": "Family Traveler",
+      "content": "Fantastic experience for the whole family. The kids loved the activities, and we enjoyed the cultural depth of the tours."
+    },
+    "review5": {
+      "name": "Aisha Khan",
+      "role": "Luxury Traveler",
+      "content": "The Samarkand tour was a masterclass in history and luxury. Everything from the hotels to the guides was top-notch."
+    },
+    "review6": {
+      "name": "Robert Wilson",
+      "role": "Nature Lover",
+      "content": "Unforgettable landscapes and perfectly organized logistics. Can't wait for my next booking with Naseem's Travel."
+    }
   },
   "service": {
-    "we_take_care_of": "We take care of",
+    "we_take_care_of": "We Take Care Of",
     "flights": "Flights",
-    "return_flights": "Return flight",
+    "return_flights": "Return flights included",
     "hotels": "Hotels",
-    "hand_picked_hotels": "Hand-picked hotels",
+    "hand_picked_hotels": "Premium 4-5 star hotels",
     "breakfasts": "Breakfasts",
-    "breakfast_together": "Breakfast together",
-    "holiday_directors": "Tour directors",
-    "experienced_tour_guide": "Experienced tour guide",
-    "holiday_assurance": "Holiday assurance",
-    "support_every_step": "Support every step"
+    "breakfast_together": "Daily breakfast together",
+    "holiday_directors": "Tour Guides",
+    "experienced_tour_guide": "Professional expert guides",
+    "holiday_assurance": "Assurance",
+    "support_every_step": "24/7 support guaranteed"
   },
   "auth": {
     "login": {
@@ -562,5 +628,94 @@
       "title": "Global Expertise",
       "description": "With years of experience in the travel industry, we provide expert guidance and local insights for your destinations."
     }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our services and booking process.",
+    "items": {
+      "booking": {
+        "q": "How do I book a tour?",
+        "a": "You can book a tour directly through our website by selecting your preferred package, or contact our specialists via phone/email for personalized assistance."
+      },
+      "payment": {
+        "q": "What payment methods do you accept?",
+        "a": "We accept all major credit/debit cards, bank transfers, and secure online payment systems. Payment options are displayed during the booking process."
+      },
+      "cancellation": {
+        "q": "What is your cancellation policy?",
+        "a": "Cancellation policies vary by tour. Generally, cancellations made 30 days before departure receive a partial refund. Please check your specific tour terms."
+      },
+      "visa": {
+        "q": "Do you help with visa applications?",
+        "a": "Yes, we provide visa assistance and invitation letters for most of our destinations. Our team will guide you through the document submission process."
+      },
+      "insurance": {
+        "q": "Is travel insurance included?",
+        "a": "Travel insurance is not included in standard packages, but we strongly recommend it. We can help you find a suitable insurance provider."
+      }
+    },
+    "badge": "FAQ"
+  },
+  "companyInfo": {
+    "subtitle": "About Us",
+    "title": "Naseem's Travel",
+    "description": "Your trusted partner for unforgettable group travel experiences across the legendary Silk Road and beyond.",
+    "paragraph1": "Naseem's Travel is a UK-registered travel company specializing exclusively in group tours across Central Asia. With deep expertise in Uzbekistan, Kazakhstan, Kyrgyzstan, and beyond, we craft journeys that bring travelers together to explore ancient cities, stunning landscapes, and rich cultural heritage.",
+    "paragraph2": "Unlike traditional tour operators, we focus solely on group experiences. This allows us to offer competitive pricing, foster meaningful connections between travelers, and provide a level of local expertise that individual travel simply cannot match.",
+    "highlight": {
+      "title": "Group Tours Only",
+      "description": "We specialize exclusively in group travel. This unique focus allows us to create deeply immersive experiences while offering the best value for your journey. Travel with like-minded adventurers and create memories together."
+    },
+    "features": {
+      "groupTours": {
+        "title": "Group Experiences",
+        "description": "Curated group journeys with like-minded travelers from around the world."
+      },
+      "silkRoad": {
+        "title": "Silk Road Experts",
+        "description": "Deep knowledge of Central Asian history, culture, and hidden gems."
+      },
+      "experience": {
+        "title": "Proven Excellence",
+        "description": "Years of experience creating unforgettable travel memories."
+      },
+      "safety": {
+        "title": "Safe & Secure",
+        "description": "UK-registered company with full travel protection and 24/7 support."
+      }
+    },
+    "stats": {
+      "tours": {
+        "value": "50+",
+        "label": "Tours Annually"
+      },
+      "travelers": {
+        "value": "5000+",
+        "label": "Happy Travelers"
+      },
+      "countries": {
+        "value": "12",
+        "label": "Countries"
+      },
+      "years": {
+        "value": "10+",
+        "label": "Years Experience"
+      }
+    }
+  },
+  "tour_reviews": {
+    "view_reviews": "Reviews",
+    "leave_review": "Leave a Review",
+    "no_reviews": "No reviews yet. Be the first to share your experience!",
+    "anonymous": "Anonymous",
+    "thank_you": "Thank You!",
+    "review_submitted": "Your review has been submitted successfully.",
+    "how_was_it": "How was your trip?",
+    "share_experience": "Share your experience with other travelers.",
+    "your_name": "Your Name (Optional)",
+    "name_placeholder": "Enter your name or leave blank for anonymous",
+    "your_comment": "Your Review",
+    "comment_placeholder": "Tell us about your trip...",
+    "submit_review": "Submit Review"
   }
 }

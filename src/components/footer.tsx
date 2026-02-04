@@ -143,9 +143,9 @@ export function Footer() {
               </h4>
               <ul className="space-y-3">
                 {[
-                  { label: t("customer_support.about_us"), href: "#" },
+                  { label: t("customer_support.about_us"), href: `/${locale}#about` },
                   { label: t("customer_support.community"), href: "#" },
-                  { label: t("customer_support.faq"), href: "#" },
+                  { label: t("customer_support.faq"), href: `/${locale}/contact#faq` },
                 ].map((link, i) => (
                   <li key={i}>
                     <Link

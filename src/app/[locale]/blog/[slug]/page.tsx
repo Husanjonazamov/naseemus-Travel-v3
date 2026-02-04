@@ -7,7 +7,7 @@ import axios from "axios";
 import { useLocale, useTranslations } from "next-intl";
 import { Header } from "@/src/components/header";
 import { Footer } from "@/src/components/footer";
-import { NewTouring } from "@/src/components/new-touring-holidays";
+import { BlogCard } from "@/src/components/BlogCard";
 import config from "@/src/config";
 import { motion, useScroll, useSpring } from "framer-motion";
 import {
@@ -15,7 +15,6 @@ import {
   Share2,
   Bookmark,
   MessageCircle,
-  ArrowLeft,
   Clock,
   User,
   Sparkles
@@ -31,6 +30,15 @@ interface BlogDetail {
   image: string;
 }
 
+interface BlogListItem {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  created_at?: string;
+  author?: string;
+}
+
 export default function BlogDetailPage() {
   const params = useParams();
   const slug = params.slug;
@@ -38,6 +46,7 @@ export default function BlogDetailPage() {
   const t = useTranslations("blog");
 
   const [blog, setBlog] = useState<BlogDetail | null>(null);
+  const [relatedBlogs, setRelatedBlogs] = useState<BlogListItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   const { scrollYProgress } = useScroll();
@@ -56,6 +65,16 @@ export default function BlogDetailPage() {
           headers: { "Accept-Language": locale },
         });
         setBlog(response.data.data);
+
+        // Fetch related blogs
+        const blogsResponse = await axios.get(`${config.BASE_URL}/api/blog/`, {
+          headers: { "Accept-Language": locale },
+        });
+        // Filter out the current blog and take first 3
+        const otherBlogs = blogsResponse.data.data
+          .filter((b: BlogListItem) => b.id !== response.data.data.id)
+          .slice(0, 3);
+        setRelatedBlogs(otherBlogs);
       } catch (error) {
         console.error("Blog fetch error:", error);
       } finally {
@@ -76,10 +95,10 @@ export default function BlogDetailPage() {
 
   if (!blog) return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-6">
-      <p className="text-3xl font-black text-gray-300 uppercase tracking-widest">Story Not Found</p>
+      <p className="text-3xl font-black text-gray-300 uppercase tracking-widest">{t("not_found")}</p>
       <Link href="/blog">
         <Button variant="outline" className="h-14 px-8 border-[#007654] text-[#007654] rounded-2xl font-bold">
-          Back to Journal
+          {t("back_to_blog")}
         </Button>
       </Link>
     </div>
@@ -108,7 +127,7 @@ export default function BlogDetailPage() {
           >
             <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-4 py-2 rounded-full mb-8">
               <Sparkles size={16} className="text-[#007654]" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">Explorer's Journal</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">{t("badge")}</span>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#1a1a1a] mb-8 tracking-tighter leading-[1.1]">
               {blog.title}
@@ -119,15 +138,15 @@ export default function BlogDetailPage() {
                 <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
                   <User size={18} />
                 </div>
-                <span className="text-sm font-bold text-gray-900">Travel Specialist</span>
+                <span className="text-sm font-bold text-gray-900">{t("author")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Calendar size={18} className="text-[#007654]" />
-                <span className="text-sm font-bold">March 2026</span>
+                <span className="text-sm font-bold">{t("date")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock size={18} className="text-[#007654]" />
-                <span className="text-sm font-bold">6 Min Read</span>
+                <span className="text-sm font-bold">{t("read_time")}</span>
               </div>
             </div>
           </motion.div>
@@ -186,10 +205,10 @@ export default function BlogDetailPage() {
                   </div>
                 </div>
                 <div className="text-center md:text-left">
-                  <h4 className="text-2xl font-black text-[#1a1a1a] mb-2 tracking-tight">Written by Naseem's Specialist</h4>
-                  <p className="text-gray-500 font-medium mb-4">A seasoned explorer with over 15 years of experience in Central Asian cultural heritage and luxury expeditions.</p>
+                  <h4 className="text-2xl font-black text-[#1a1a1a] mb-2 tracking-tight">{t("written_by")}</h4>
+                  <p className="text-gray-500 font-medium mb-4">{t("author_bio")}</p>
                   <div className="flex items-center justify-center md:justify-start gap-4">
-                    <Link href="/contact" className="text-[#007654] font-black uppercase tracking-widest text-xs hover:underline">Contact Author</Link>
+                    <Link href="/contact" className="text-[#007654] font-black uppercase tracking-widest text-xs hover:underline">{t("contact_author")}</Link>
                   </div>
                 </div>
               </div>
@@ -198,15 +217,39 @@ export default function BlogDetailPage() {
         </div>
       </article>
 
-      <div className="bg-[#f0f9f4] py-32 rounded-t-[80px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-20">
-          <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight mb-4">Keep Exploring</h2>
-          <p className="text-gray-500 font-medium">Stories and guides hand-picked for your curiosity.</p>
+      {/* Related Blogs Section */}
+      {relatedBlogs.length > 0 && (
+        <div className="bg-gradient-to-b from-white to-[#dcfae7]/30 py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <div className="inline-flex items-center gap-2 bg-[#007654]/10 px-4 py-2 rounded-full mb-6 border border-[#007654]/20">
+                <span className="w-2 h-2 bg-[#007654] rounded-full animate-pulse" />
+                <span className="text-[#007654] text-sm font-bold uppercase tracking-wider">{t("related_badge")}</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] mb-4">
+                {t("related_title")}
+              </h2>
+              <p className="text-gray-600 font-medium max-w-2xl mx-auto">
+                {t("related_subtitle")}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedBlogs.map((relatedBlog) => (
+                <BlogCard key={relatedBlog.id} post={relatedBlog} />
+              ))}
+            </div>
+          </div>
         </div>
-        <NewTouring />
-      </div>
+      )}
 
       <Footer />
     </div>
   );
 }
+

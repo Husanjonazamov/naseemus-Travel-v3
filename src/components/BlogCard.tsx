@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, User } from "lucide-react";
 import { Button } from "./ui/button";
+import { useTranslations } from "next-intl";
 
 interface BlogCardProps {
     post: {
@@ -25,13 +26,15 @@ const slugify = (text: string) =>
         .replace(/(^-|-$)/g, "");
 
 export function BlogCard({ post }: BlogCardProps) {
+    const t = useTranslations("blog");
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col h-full"
+            className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col h-full"
         >
             <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -67,9 +70,9 @@ export function BlogCard({ post }: BlogCardProps) {
                     <Link href={`/blog/${slugify(post.title)}`}>
                         <Button
                             variant="ghost"
-                            className="p-0 h-auto text-[#007654] font-bold text-sm hover:bg-transparent group/btn"
+                            className="p-0 h-auto text-[#007654] font-bold text-sm hover:bg-transparent group/btn whitespace-nowrap"
                         >
-                            Read Article
+                            {t("read_article")}
                             <ArrowRight size={16} className="ml-2 transition-transform group-hover/btn:translate-x-1" />
                         </Button>
                     </Link>
@@ -78,3 +81,4 @@ export function BlogCard({ post }: BlogCardProps) {
         </motion.div>
     );
 }
+

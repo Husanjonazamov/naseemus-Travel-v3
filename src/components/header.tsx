@@ -191,30 +191,72 @@ export function Header() {
               )}
             </div>
 
-            {/* Language */}
+            {/* Language - Beautiful Switcher */}
             <div className="relative">
               <button
                 onClick={toggleLangDropdown}
-                className="flex items-center gap-2 border border-white/20 px-4 py-2 rounded-xl hover:bg-white hover:text-[#007654] transition-all duration-300 text-sm font-bold"
+                className="flex items-center gap-3 bg-white/10 hover:bg-white hover:text-[#007654] px-4 py-2.5 rounded-2xl transition-all duration-300 text-sm font-bold border border-white/20 group"
               >
-                <Globe className="h-4 w-4" /> {locale.toUpperCase()}
+                <span className="text-lg">
+                  {locale === 'uz' ? '🇺🇿' : locale === 'ru' ? '🇷🇺' : '🇬🇧'}
+                </span>
+                <span className="hidden sm:inline">{locale === 'uz' ? "O'zbek" : locale === 'ru' ? 'Русский' : 'English'}</span>
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`}
+                />
               </button>
               <AnimatePresence>
                 {isLangOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full mt-3 right-0 bg-white text-black rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50 min-w-[120px] p-1"
+                    initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, x: 20 }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute top-full mt-3 right-0 bg-white rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.2)] border border-gray-100 overflow-hidden z-50 p-2 min-w-[200px]"
                   >
-                    {languages.map((lang) => (
-                      <button
-                        key={lang}
-                        onClick={() => selectLanguage(lang)}
-                        className={`block w-full text-left px-4 py-3 rounded-xl text-xs font-bold transition-all ${locale.toUpperCase() === lang ? 'bg-[#dcfae7] text-[#007654]' : 'hover:bg-gray-50'}`}
+                    <div className="px-3 py-2 mb-1">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                        Select Language
+                      </p>
+                    </div>
+                    {[
+                      { code: 'uz', flag: '🇺🇿', name: "O'zbekcha", nativeName: 'Uzbek' },
+                      { code: 'ru', flag: '🇷🇺', name: 'Русский', nativeName: 'Russian' },
+                      { code: 'en', flag: '🇬🇧', name: 'English', nativeName: 'English' },
+                    ].map((lang, index) => (
+                      <motion.button
+                        key={lang.code}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        onClick={() => selectLanguage(lang.code)}
+                        className={`flex items-center gap-4 w-full px-4 py-3.5 rounded-2xl text-left transition-all duration-200 group ${locale === lang.code
+                          ? 'bg-gradient-to-r from-[#007654] to-[#00a572] text-white shadow-lg'
+                          : 'hover:bg-[#dcfae7] text-gray-700'
+                          }`}
                       >
-                        {lang}
-                      </button>
+                        <span className="text-2xl">{lang.flag}</span>
+                        <div className="flex-1">
+                          <p className={`text-sm font-black ${locale === lang.code ? 'text-white' : 'text-[#1a1a1a]'}`}>
+                            {lang.name}
+                          </p>
+                          <p className={`text-xs ${locale === lang.code ? 'text-white/70' : 'text-gray-400'}`}>
+                            {lang.nativeName}
+                          </p>
+                        </div>
+                        {locale === lang.code && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"
+                          >
+                            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </motion.div>
+                        )}
+                      </motion.button>
                     ))}
                   </motion.div>
                 )}
@@ -293,6 +335,30 @@ export function Header() {
                 <BookOpen size={20} />
                 <span className="font-bold text-sm">Brochures</span>
               </Link>
+
+              {/* Mobile Language Switcher */}
+              <div className="flex gap-2 mt-2">
+                {[
+                  { code: 'uz', flag: '🇺🇿', name: "O'zbek" },
+                  { code: 'ru', flag: '🇷🇺', name: 'Рус' },
+                  { code: 'en', flag: '🇬🇧', name: 'Eng' },
+                ].map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      selectLanguage(lang.code);
+                      setIsMenuOpen(false);
+                    }}
+                    className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl font-bold text-sm transition-all ${locale === lang.code
+                        ? 'bg-white text-[#007654] shadow-lg'
+                        : 'bg-white/10 hover:bg-white/20'
+                      }`}
+                  >
+                    <span className="text-lg">{lang.flag}</span>
+                    <span>{lang.name}</span>
+                  </button>
+                ))}
+              </div>
 
               {user && (
                 <button

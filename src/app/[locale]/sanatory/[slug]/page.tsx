@@ -172,8 +172,27 @@ export default function SanatoryDetail() {
                 <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight">
                   Escape to Serenity
                 </h2>
-                <div className="prose prose-xl text-gray-500 font-medium leading-[1.8] max-w-none">
-                  {tour.description}
+                <div className="prose prose-xl text-gray-500 font-medium leading-[1.8] max-w-none whitespace-pre-line">
+                  {tour.description.split(/\n\s*\n/).filter(p => p.trim()).map((para, idx) => {
+                    const lines = para.trim().split('\n');
+                    const isList = lines.every(line => line.trim().startsWith('-') || line.trim().startsWith('*'));
+
+                    if (isList) {
+                      return (
+                        <ul key={idx} className="list-disc pl-6 mb-6 space-y-2">
+                          {lines.map((line, lIdx) => (
+                            <li key={lIdx}>{line.trim().substring(1).trim()}</li>
+                          ))}
+                        </ul>
+                      );
+                    }
+
+                    return (
+                      <p key={idx} className="mb-6 last:mb-0">
+                        {para.trim()}
+                      </p>
+                    );
+                  })}
                 </div>
               </div>
 

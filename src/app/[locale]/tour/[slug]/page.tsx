@@ -16,6 +16,7 @@ import { Footer } from "@/src/components/footer";
 import { Itinerary } from "@/src/components/itinerary";
 import { TourOverview } from "@/src/components/tour-overview";
 import { TourDetails } from "@/src/components/tour-details";
+import { TourReviews } from "@/src/components/tour-reviews";
 import {
   Clock,
   Users,
@@ -252,6 +253,10 @@ export default function TourDetail() {
                 <Itinerary days={tour.itineraries} />
               </div>
             )}
+
+            <div id="reviews">
+              <TourReviews tourId={tour.id} />
+            </div>
           </div>
 
           {/* Right Column: Details & Booking Form */}

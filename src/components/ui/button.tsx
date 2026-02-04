@@ -80,7 +80,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {isLoading && <Spinner />}
-        <span className={isLoading ? "opacity-0" : ""}>{children}</span>
+        <span className={cn("inline-flex items-center gap-[inherit]", isLoading ? "opacity-0" : "")}>{children}</span>
       </Comp>
     )
   }

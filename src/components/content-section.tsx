@@ -126,16 +126,17 @@ export function ContentSection() {
               </p>
 
               <div className="mt-auto flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#dcfae7] flex items-center justify-center text-[#007654] font-black text-xs uppercase">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 flex-shrink-0 rounded-full bg-[#dcfae7] flex items-center justify-center text-[#007654] font-black text-xs uppercase">
                     {type === "tour" ? "TR" : "BL"}
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 truncate">
                     {card.author || t("specialist")}
                   </span>
                 </div>
                 <Button
-                  className="bg-transparent hover:bg-[#007654] text-[#007654] hover:text-white border border-[#007654] px-5 h-10 rounded-xl font-bold transition-all flex items-center gap-2 text-sm"
+                  variant="ghost"
+                  className="p-0 h-auto bg-transparent hover:bg-transparent text-[#007654] hover:text-[#008c64] font-bold transition-all flex items-center gap-2 text-sm whitespace-nowrap flex-shrink-0 group/btn"
                   onClick={() =>
                     router.push(
                       type === "tour"
@@ -145,7 +146,7 @@ export function ContentSection() {
                   }
                 >
                   {t("explore_button")}
-                  <ArrowRight size={16} />
+                  <ArrowRight size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </Button>
               </div>
             </div>

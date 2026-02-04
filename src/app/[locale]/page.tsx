@@ -18,6 +18,7 @@ import { TourOverview } from "@/src/components/tour-overview"
 import { Itinerary } from "@/src/components/itinerary"
 import TabsHotel from "@/src/components/TabsHotel"
 import SearchTours from "@/src/components/SearchTours"
+import { CompanyInfo } from "@/src/components/company-info"
 
 
 import { WhyChooseUs } from "@/src/components/why-choose-us"
@@ -29,7 +30,7 @@ export default function HomePage() {
       <TrustBadges />
       <HeroSection />
       <SearchTours />
-      <WhyChooseUs />
+      <CompanyInfo />
       <ContentSection />
       <LastMinuteHolidays />
       <ServicesSection />
@@ -38,9 +39,9 @@ export default function HomePage() {
       <NewHolidays />
       {/* <TrustpilotReviews /> */}
       <CustomerTestimonial />
-      <BlogSection />
-      <NewTouring />
-      <PopularDestinations />
+      {/* <BlogSection /> */}
+      {/* <NewTouring /> */}
+      {/* <PopularDestinations /> */}
       <Footer />
       <FloatingButtons />
     </div>
