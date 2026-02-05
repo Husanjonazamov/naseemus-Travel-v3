@@ -15,6 +15,11 @@
     "awarded": "Mukofotlangan",
     "global": "Global"
   },
+  "sanatorium": {
+    "medical_wellness": "Tibbiyot va Sog'lomlashtirish",
+    "amenities_included": "Xizmatlar To'plami",
+    "view_gallery": "Galereyani Ko'rish"
+  },
   "new_holidays": {
     "title": "Yangi sayohatlarimiz",
     "description": "Keyingi unutilmas sayohatingiz uchun tanlangan manzillar."
@@ -75,7 +80,9 @@
     "central_asia": "Markaziy Osiyo tadqiqotchisi",
     "max_group": "Maksimal guruh: 15",
     "individual_pricing": "Individual narxlash",
-    "book_now": "Hozir bron qiling"
+    "book_now": "Hozir bron qiling",
+    "gallery_subtitle": "Sayohat Taassurotlari Gallereyasi",
+    "gallery_title": "Video va Suratlar"
   },
   "hotel": {
     "directions": "Yo'nalishlar",
@@ -154,7 +161,7 @@
     "search": "Qidirish",
     "tours": "TURLAR",
     "blog": "BLOG",
-    "sanatories": "SANATORIYALAR",
+    "about_us": "BIZ HAQIMIZDA",
     "community": "JAMOA",
     "languageSwitcher": {
       "uz": "UZ",
@@ -180,6 +187,7 @@
     "NO_SINGLE_SUPPLEMENT": "Qo‘shimcha to‘lov yo‘q"
   },
   "tour_uzbekistan": {
+    "loading": "Yuklanmoqda...",
     "tabs": {
       "discover": "Kashf etish",
       "itinerary": "Marshrut",

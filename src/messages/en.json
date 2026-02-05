@@ -15,6 +15,11 @@
     "awarded": "Awarded",
     "global": "Global"
   },
+  "sanatorium": {
+    "medical_wellness": "Medical & Wellness",
+    "amenities_included": "Amenities Included",
+    "view_gallery": "View Gallery"
+  },
   "new_holidays": {
     "title": "Our New Holidays",
     "description": "Freshly handpicked destinations for your next unforgettable journey."
@@ -75,7 +80,9 @@
     "central_asia": "Central Asia Explorer",
     "max_group": "Max Group: 15",
     "individual_pricing": "Individual Pricing",
-    "book_now": "Book Now"
+    "book_now": "Book Now",
+    "gallery_subtitle": "Tour Experience Gallery",
+    "gallery_title": "Visual Journey"
   },
   "hotel": {
     "directions": "Directions",
@@ -154,7 +161,7 @@
     "search": "SEARCH",
     "tours": "TOURS",
     "blog": "BLOG",
-    "sanatories": "SANATORIUMS",
+    "about_us": "ABOUT US",
     "community": "COMMUNITY",
     "languageSwitcher": {
       "uz": "UZ",
@@ -215,6 +222,7 @@
     "NO_SINGLE_SUPPLEMENT": "No single supplement"
   },
   "tour_uzbekistan": {
+    "loading": "Loading amazing journey...",
     "videos": "Videos",
     "title": "UZBEKISTAN & THE SILK ROAD",
     "tabs": {

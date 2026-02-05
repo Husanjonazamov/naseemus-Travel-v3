@@ -75,168 +75,87 @@ export function TourReviews({ tourId }: { tourId: number }) {
     };
 
     return (
-        <section className="mt-16 w-full">
-            <Card className="border-0 shadow-2xl overflow-hidden bg-white/80 backdrop-blur-xl rounded-[40px] border-b-8 border-[#007654]">
-                <CardContent className="p-0">
-                    <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                        <div className="flex items-center justify-center p-8 border-b border-gray-100">
-                            <TabsList className="bg-gray-100/50 p-2 h-16 rounded-full w-full max-w-md">
-                                <TabsTrigger
-                                    value="view"
-                                    className="rounded-full h-full data-[state=active]:bg-[#007654] data-[state=active]:text-white font-bold text-lg flex gap-2 transition-all duration-300"
-                                >
-                                    <MessageSquare size={20} />
-                                    {t("view_reviews")}
-                                </TabsTrigger>
-                                <TabsTrigger
-                                    value="leave"
-                                    className="rounded-full h-full data-[state=active]:bg-[#007654] data-[state=active]:text-white font-bold text-lg flex gap-2 transition-all duration-300"
-                                >
-                                    <PenLine size={20} />
-                                    {t("leave_review")}
-                                </TabsTrigger>
-                            </TabsList>
+        <section className="mt-24 w-full max-w-[1400px] mx-auto px-4" id="reviews-section">
+            <div className="bg-white/60 backdrop-blur-2xl rounded-[60px] shadow-[0_40px_100px_-20px_rgba(0,118,84,0.1)] border border-white p-8 md:p-16">
+                <div className="flex flex-col lg:flex-row gap-16">
+
+                    {/* Left Column: Title & Overall Rating */}
+                    <div className="lg:w-1/3 space-y-8">
+                        <div>
+                            <span className="bg-[#E8F5E9] text-[#007654] px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-4 inline-block">
+                                {t("view_reviews")}
+                            </span>
+                            <h2 className="text-4xl md:text-6xl font-black text-[#1a1a1a] tracking-tight leading-[1.05]">
+                                Sayohatchilar <br /> nima deydi
+                            </h2>
                         </div>
 
-                        <div className="p-8 md:p-12">
-                            <AnimatePresence mode="wait">
-                                <TabsContent value="view" key="view">
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -20 }}
-                                        className="space-y-8"
-                                    >
-                                        {reviews.length > 0 ? (
-                                            <div className="grid gap-6">
-                                                {reviews.map((review) => (
-                                                    <div key={review.id} className="p-8 bg-gray-50/50 rounded-3xl border border-gray-100 transition-all hover:shadow-lg">
-                                                        <div className="flex items-center justify-between mb-4">
-                                                            <div className="flex items-center gap-4">
-                                                                <Avatar className="w-12 h-12 border-2 border-[#007654]/10">
-                                                                    <AvatarFallback className="bg-gradient-to-br from-[#007654] to-[#00a572] text-white">
-                                                                        <User size={20} />
-                                                                    </AvatarFallback>
-                                                                </Avatar>
-                                                                <div>
-                                                                    <h4 className="font-black text-[#1a1a1a] text-lg">{review.name}</h4>
-                                                                    <p className="text-sm text-gray-400 font-medium">{review.date}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="flex gap-1">
-                                                                {[...Array(5)].map((_, i) => (
-                                                                    <Star
-                                                                        key={i}
-                                                                        size={16}
-                                                                        className={`${i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"}`}
-                                                                    />
-                                                                ))}
-                                                            </div>
+                        <div className="flex items-center gap-6 p-6 bg-white rounded-[32px] border border-gray-100 shadow-sm w-fit">
+                            <div className="text-5xl font-black text-[#007654]">4.9</div>
+                            <div className="h-10 w-[1px] bg-gray-100"></div>
+                            <div>
+                                <div className="flex gap-1 mb-1">
+                                    {[...Array(5)].map((_, i) => (
+                                        <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+                                    ))}
+                                </div>
+                                <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                                    Average Rating
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Reviews List */}
+                    <div className="flex-1">
+                        <div className="space-y-6 max-h-[700px] overflow-y-auto pr-4 custom-scrollbar">
+                            <AnimatePresence>
+                                {reviews.length > 0 ? (
+                                    reviews.map((review) => (
+                                        <motion.div
+                                            key={review.id}
+                                            initial={{ opacity: 0, scale: 0.95 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            className="bg-white p-8 rounded-[40px] border border-gray-100/50 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.03)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                                        >
+                                            <div className="flex items-start justify-between mb-6">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-14 h-14 rounded-full bg-[#f0f9f4] flex items-center justify-center p-1.5 border border-green-50 shadow-inner">
+                                                        <div className="w-full h-full bg-[#007654] rounded-full flex items-center justify-center text-white font-black text-lg">
+                                                            {review.name.charAt(0)}
                                                         </div>
-                                                        <p className="text-gray-600 leading-relaxed font-medium">"{review.comment}"</p>
                                                     </div>
-                                                ))}
-                                            </div>
-                                        ) : (
-                                            <div className="text-center py-20">
-                                                <MessageSquare size={48} className="mx-auto text-gray-200 mb-4" />
-                                                <p className="text-gray-400 font-bold">{t("no_reviews")}</p>
-                                            </div>
-                                        )}
-                                    </motion.div>
-                                </TabsContent>
-
-                                <TabsContent value="leave" key="leave">
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -20 }}
-                                        className="max-w-2xl mx-auto"
-                                    >
-                                        {success ? (
-                                            <div className="text-center py-12">
-                                                <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-green-500/20">
-                                                    <Sparkles size={40} className="text-white" />
-                                                </div>
-                                                <h3 className="text-2xl font-black text-[#1a1a1a] mb-2">{t("thank_you")}</h3>
-                                                <p className="text-gray-500 font-medium">{t("review_submitted")}</p>
-                                            </div>
-                                        ) : (
-                                            <form onSubmit={handleSubmit} className="space-y-8">
-                                                <div className="text-center space-y-4">
-                                                    <h3 className="text-3xl font-black text-[#1a1a1a] tracking-tight">{t("how_was_it")}</h3>
-                                                    <p className="text-gray-500 font-medium">{t("share_experience")}</p>
-
-                                                    <div className="flex items-center justify-center gap-2 py-4">
-                                                        {[1, 2, 3, 4, 5].map((star) => (
-                                                            <button
-                                                                key={star}
-                                                                type="button"
-                                                                onClick={() => setRating(star)}
-                                                                onMouseEnter={() => setHoverRating(star)}
-                                                                onMouseLeave={() => setHoverRating(0)}
-                                                                className="transition-transform hover:scale-125 focus:outline-none"
-                                                            >
-                                                                <Star
-                                                                    size={40}
-                                                                    className={`${star <= (hoverRating || rating)
-                                                                            ? "text-yellow-400 fill-yellow-400"
-                                                                            : "text-gray-200"
-                                                                        } transition-colors duration-200`}
-                                                                />
-                                                            </button>
-                                                        ))}
+                                                    <div>
+                                                        <h4 className="font-black text-[#1a1a1a] text-xl leading-tight group-hover:text-[#007654] transition-colors">
+                                                            {review.name}
+                                                        </h4>
+                                                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">
+                                                            {review.date}
+                                                        </p>
                                                     </div>
                                                 </div>
-
-                                                <div className="space-y-6">
-                                                    <div className="space-y-2">
-                                                        <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("your_name")}</label>
-                                                        <input
-                                                            type="text"
-                                                            value={name}
-                                                            onChange={(e) => setName(e.target.value)}
-                                                            className="w-full h-16 px-6 bg-gray-50 border border-gray-100 rounded-2xl font-bold focus:bg-white focus:ring-4 focus:ring-[#007654]/5 transition-all outline-none"
-                                                            placeholder={t("name_placeholder")}
-                                                        />
-                                                    </div>
-
-                                                    <div className="space-y-2">
-                                                        <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("your_comment")}</label>
-                                                        <textarea
-                                                            value={comment}
-                                                            onChange={(e) => setComment(e.target.value)}
-                                                            required
-                                                            rows={5}
-                                                            className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl font-bold focus:bg-white focus:ring-4 focus:ring-[#007654]/5 transition-all outline-none resize-none"
-                                                            placeholder={t("comment_placeholder")}
-                                                        />
-                                                    </div>
+                                                <div className="bg-[#FFF8E1] px-3 py-1.5 rounded-full flex gap-1.5 items-center border border-[#FFE082]/30">
+                                                    <Star size={14} className="text-[#FFC107] fill-[#FFC107]" />
+                                                    <span className="font-black text-[#FFC107] text-sm">{review.rating}.0</span>
                                                 </div>
-
-                                                <Button
-                                                    type="submit"
-                                                    disabled={isSubmitting || !comment}
-                                                    className="w-full h-20 bg-[#007654] hover:bg-[#008c64] text-white rounded-[24px] text-xl font-black transition-all duration-300 shadow-xl shadow-[#007654]/20 hover:scale-[1.02] active:scale-[0.98]"
-                                                >
-                                                    {isSubmitting ? (
-                                                        <div className="w-6 h-6 border-4 border-white/20 border-t-white rounded-full animate-spin" />
-                                                    ) : (
-                                                        <>
-                                                            {t("submit_review")}
-                                                            <Send size={24} className="ml-3" />
-                                                        </>
-                                                    )}
-                                                </Button>
-                                            </form>
-                                        )}
-                                    </motion.div>
-                                </TabsContent>
+                                            </div>
+                                            <p className="text-gray-600 text-lg font-medium leading-relaxed italic pr-4">
+                                                "{review.comment}"
+                                            </p>
+                                        </motion.div>
+                                    ))
+                                ) : (
+                                    <div className="text-center py-20 bg-gray-50/50 rounded-[50px] border border-dashed border-gray-200">
+                                        <MessageSquare size={48} className="mx-auto text-gray-200 mb-6" />
+                                        <p className="text-gray-400 font-black text-xl">{t("no_reviews")}</p>
+                                    </div>
+                                )}
                             </AnimatePresence>
                         </div>
-                    </Tabs>
-                </CardContent>
-            </Card>
+                    </div>
+                </div>
+            </div>
         </section>
     );
 }

@@ -350,8 +350,8 @@ export function Header() {
                       setIsMenuOpen(false);
                     }}
                     className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl font-bold text-sm transition-all ${locale === lang.code
-                        ? 'bg-white text-[#007654] shadow-lg'
-                        : 'bg-white/10 hover:bg-white/20'
+                      ? 'bg-white text-[#007654] shadow-lg'
+                      : 'bg-white/10 hover:bg-white/20'
                       }`}
                   >
                     <span className="text-lg">{lang.flag}</span>
@@ -407,9 +407,9 @@ export function Header() {
           </div>
 
           {[
-            { href: "/sanatory", label: t("sanatories") },
             { href: "/blog", label: t("blog") },
             { href: "/contact", label: t("contact_us") },
+            { href: "/#about", label: t("about_us") },
           ].map((link) => (
             <Link
               key={link.href}

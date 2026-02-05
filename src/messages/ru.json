@@ -15,6 +15,11 @@
     "awarded": "Награждено",
     "global": "Глобально"
   },
+  "sanatorium": {
+    "medical_wellness": "Медицина и Оздоровление",
+    "amenities_included": "Пакет Услуг",
+    "view_gallery": "Смотреть Галерею"
+  },
   "new_holidays": {
     "title": "Наши новые туры",
     "description": "Свежие отобранные направления для вашего следующего незабываемого путешествия."
@@ -75,7 +80,9 @@
     "central_asia": "Исследователь Центральной Азии",
     "max_group": "Макс. группа: 15",
     "individual_pricing": "Индивидуальная цена",
-    "book_now": "Забронировать"
+    "book_now": "Забронировать",
+    "gallery_subtitle": "Галерея впечатлений от тура",
+    "gallery_title": "Визуальное путешествие"
   },
   "contact": {
     "contact_us": "Свяжитесь с нами",
@@ -213,7 +220,7 @@
     "search": "Поиск",
     "tours": "ТУРЫ",
     "blog": "БЛОГ",
-    "sanatories": "САНАТОРИИ",
+    "about_us": "О НАС",
     "community": "СООБЩЕСТВО",
     "languageSwitcher": {
       "uz": "UZ",
@@ -234,6 +241,7 @@
     "NO_SINGLE_SUPPLEMENT": "Без дополнительной платы"
   },
   "tour_uzbekistan": {
+    "loading": "Загрузка удивительного путешествия...",
     "videos": "Видео",
     "tabs": {
       "discover": "Открыть",
