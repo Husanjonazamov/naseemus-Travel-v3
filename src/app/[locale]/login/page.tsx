@@ -13,9 +13,13 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
+import { useAuth } from "@/src/context/AuthContext";
+import authService from "@/src/services/auth.service";
+
 export default function LoginPage() {
     const t = useTranslations("auth.login");
     const router = useRouter();
+    const { login: authContextLogin, isAuthenticated } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState("");
@@ -23,13 +27,12 @@ export default function LoginPage() {
 
     // Check if user is already logged in
     useEffect(() => {
-        const user = localStorage.getItem("user");
-        if (user) {
+        if (isAuthenticated) {
             router.push("/my-bookings");
         }
-    }, [router]);
+    }, [isAuthenticated, router]);
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
 
@@ -40,21 +43,21 @@ export default function LoginPage() {
             return;
         }
 
-        // Mock authentication
-        setTimeout(() => {
-            const mockUser = {
-                id: "1",
-                name: "Husanjon Azamov",
-                email: email,
-                role: "Premium Explorer",
-                likedTours: []
-            };
-            localStorage.setItem("user", JSON.stringify(mockUser));
+        try {
+            const response = await authService.login({ email, password });
+
+            // Store tokens and update context
+            authContextLogin(response.access, response.refresh, { email });
+
             toast.success("Welcome back!");
+            router.push("/my-bookings");
+        } catch (error: any) {
+            console.error("Login error:", error);
+            const errorMessage = error.response?.data?.detail || "Login failed. Please check your credentials.";
+            toast.error(errorMessage);
+        } finally {
             setIsLoading(false);
-            // We use window.location.href to force a full refresh so Header updates its state
-            window.location.href = "/my-bookings";
-        }, 1500);
+        }
     };
 
     return (

@@ -13,9 +13,13 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
+import { useAuth } from "@/src/context/AuthContext";
+import authService from "@/src/services/auth.service";
+
 export default function SignupPage() {
     const t = useTranslations("auth.signup");
     const router = useRouter();
+    const { login: authContextLogin, isAuthenticated } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -25,13 +29,12 @@ export default function SignupPage() {
 
     // Check if user is already logged in
     useEffect(() => {
-        const user = localStorage.getItem("user");
-        if (user) {
+        if (isAuthenticated) {
             router.push("/my-bookings");
         }
-    }, [router]);
+    }, [isAuthenticated, router]);
 
-    const handleSignup = (e: React.FormEvent) => {
+    const handleSignup = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
 
@@ -41,20 +44,31 @@ export default function SignupPage() {
             return;
         }
 
-        // Mock registration
-        setTimeout(() => {
-            const mockUser = {
-                id: Math.random().toString(36).substr(2, 9),
-                name: fullName,
-                email: email,
-                role: "Explorer",
-                likedTours: []
-            };
-            localStorage.setItem("user", JSON.stringify(mockUser));
-            toast.success("Account created successfully!");
+        try {
+            const response = await authService.register({
+                first_name: fullName,
+                email,
+                password
+            });
+
+            if (response.status) {
+                // Success - automatically log the user in
+                authContextLogin(response.data.token.access, response.data.token.refresh, {
+                    email,
+                    first_name: fullName
+                });
+                toast.success(response.data.detail || "Account created successfully!");
+                router.push("/my-bookings");
+            } else {
+                toast.error("Registration failed. Please try again.");
+            }
+        } catch (error: any) {
+            console.error("Signup error:", error);
+            const errorMessage = error.response?.data?.email?.[0] || error.response?.data?.detail || "Registration failed.";
+            toast.error(errorMessage);
+        } finally {
             setIsLoading(false);
-            window.location.href = "/my-bookings";
-        }, 1500);
+        }
     };
 
     return (

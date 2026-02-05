@@ -1,10 +1,7 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { CheckCircle2, Play, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-
+import { useState } from "react";
 
 interface Sanatorium {
     id: number;
@@ -21,6 +18,7 @@ interface SanatoriumSectionProps {
 
 export function SanatoriumSection({ sanatoriums }: SanatoriumSectionProps) {
     const t = useTranslations("sanatorium");
+    const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
     if (!sanatoriums || sanatoriums.length === 0) return null;
 
@@ -52,68 +50,112 @@ export function SanatoriumSection({ sanatoriums }: SanatoriumSectionProps) {
                         </p>
                     </div>
 
-                    {/* Images Section - Structured Symmetric Grid */}
-                    {item.images && item.images.length > 0 && (
-                        <div className="mb-24">
-                            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-[#007654] mb-8 px-4 flex items-center gap-3">
-                                <div className="h-px w-8 bg-[#007654]/30" />
-                                Gallery & Atmosphere
-                            </h4>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-0">
-                                {item.images.map((img, idx) => (
-                                    <motion.div
-                                        key={idx}
-                                        initial={{ opacity: 0, y: 30 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: idx * 0.1, duration: 0.6 }}
-                                        className="relative aspect-square rounded-[32px] overflow-hidden group bg-gray-50"
-                                    >
-                                        <img
-                                            src={img}
-                                            alt={`Gallery ${idx + 1}`}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                        />
-                                        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
-                                    </motion.div>
-                                ))}
+                    {/* Integrated Media Section */}
+                    <div className="px-4 md:px-0">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+                            {/* Large Feature Image */}
+                            <div className="lg:col-span-8 relative aspect-[16/10] md:aspect-[16/9] rounded-[48px] overflow-hidden group shadow-2xl">
+                                <img
+                                    src={item.images[0] || "/images/placeholder.jpg"}
+                                    alt={item.title}
+                                    className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                             </div>
-                        </div>
-                    )}
 
-                    {/* Videos Section - Balanced View */}
-                    {item.videos && item.videos.length > 0 && (
-                        <div className="">
-                            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-[#007654] mb-8 px-4 flex items-center gap-3">
-                                <div className="h-px w-8 bg-[#007654]/30" />
-                                Video Experience
-                            </h4>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 md:px-0">
-                                {item.videos.map((video, idx) => (
-                                    <motion.div
-                                        key={idx}
-                                        initial={{ opacity: 0, scale: 0.98 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: idx * 0.2, duration: 0.8 }}
-                                        className="relative aspect-[16/10] rounded-[40px] overflow-hidden bg-black group"
-                                    >
-                                        <video
-                                            src={video}
-                                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                                            autoPlay
-                                            muted
-                                            loop
-                                            playsInline
-                                        />
-                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
-                                    </motion.div>
-                                ))}
+                            {/* Side Media Column */}
+                            <div className="lg:col-span-4 flex flex-col gap-6 md:gap-8">
+                                {item.videos && item.videos.length > 0 ? (
+                                    item.videos.slice(0, 2).map((video, idx) => (
+                                        <div
+                                            key={idx}
+                                            onClick={() => setActiveVideo(video)}
+                                            className="relative flex-grow min-h-[240px] rounded-[40px] overflow-hidden bg-black group cursor-pointer shadow-xl"
+                                        >
+                                            <video
+                                                src={video}
+                                                className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
+                                                muted
+                                                loop
+                                                autoPlay
+                                                playsInline
+                                            />
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white transition-all duration-500 group-hover:scale-110 group-hover:bg-[#007654] group-hover:border-[#007654]">
+                                                    <Play size={24} fill="white" className="ml-1" />
+                                                </div>
+                                            </div>
+                                            <div className="absolute bottom-6 left-6 right-6">
+                                                <p className="text-white font-black text-xs uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                                                    Watch Video Tour
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))
+                                ) : item.images.length > 1 && (
+                                    item.images.slice(1, 3).map((img, idx) => (
+                                        <div key={idx} className="relative flex-grow min-h-[240px] rounded-[40px] overflow-hidden group shadow-xl">
+                                            <img
+                                                src={img}
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                alt=""
+                                            />
+                                        </div>
+                                    ))
+                                )}
                             </div>
                         </div>
-                    )}
+                    </div>
+
+                    {/* Facilities Tags */}
+                    <div className="mt-16 flex flex-wrap gap-3 px-4 md:px-0">
+                        {item.facilities.map((fac, idx) => (
+                            <div
+                                key={idx}
+                                className="bg-white border border-[#f0f0f0] px-6 py-3 rounded-2xl flex items-center gap-3 shadow-sm hover:shadow-md hover:border-[#007654]/20 transition-all"
+                            >
+                                <CheckCircle2 size={16} className="text-[#007654]" />
+                                <span className="text-sm font-bold text-gray-700">{fac}</span>
+                            </div>
+                        ))}
+                    </div>
                 </motion.div>
             ))}
+
+            {/* Video Modal Player */}
+            <AnimatePresence>
+                {activeVideo && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-3xl p-4 md:p-12"
+                    >
+                        <button
+                            onClick={() => setActiveVideo(null)}
+                            className="absolute top-8 right-8 text-white/60 hover:text-white transition-colors"
+                        >
+                            <X size={40} />
+                        </button>
+
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="w-full max-w-6xl aspect-video rounded-[40px] overflow-hidden shadow-2xl relative bg-black"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <video
+                                src={activeVideo}
+                                className="w-full h-full object-contain"
+                                controls
+                                autoPlay
+                                playsInline
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

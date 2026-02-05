@@ -22,6 +22,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SearchDropdown } from "./searchDrop";
 import { TourDrop } from "./Navbar/Navbar";
 import { Button } from "./ui/button";
+import { useAuth } from "@/src/context/AuthContext";
 
 export function Header() {
   const [isLangOpen, setIsLangOpen] = useState(false);
@@ -30,7 +31,7 @@ export function Header() {
   const [isTourOpen, setIsTourOpen] = useState(false);
   const [isUserOpen, setIsUserOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [user, setUser] = useState<any>(null);
+  const { user, logout, isAuthenticated } = useAuth();
   const [isMounted, setIsMounted] = useState(false);
 
   const languages = ["UZ", "RU", "EN"];
@@ -51,17 +52,11 @@ export function Header() {
   // Check auth state
   useEffect(() => {
     setIsMounted(true);
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
+    logout();
     setIsUserOpen(false);
-    window.location.href = "/";
   };
 
   const toggleLangDropdown = () => setIsLangOpen(!isLangOpen);
@@ -140,7 +135,7 @@ export function Header() {
                     className="flex items-center gap-2 bg-white text-[#007654] px-4 py-2 rounded-xl font-bold hover:bg-[#dcfae7] transition-all text-sm shadow-lg shadow-black/5 border border-[#dcfae7]"
                   >
                     <User className="h-4 w-4" />
-                    <span className="max-w-[120px] truncate">{user.name.split(' ')[0]}</span>
+                    <span className="max-w-[120px] truncate">{user.first_name || user.email.split('@')[0]}</span>
                     <ChevronDown size={14} className={`transition-transform duration-300 ${isUserOpen ? 'rotate-180' : ''}`} />
                   </button>
 
@@ -312,7 +307,7 @@ export function Header() {
                   <Link href="/my-bookings" className="col-span-2">
                     <Button className="w-full bg-white text-[#007654] h-12 rounded-xl font-bold flex items-center gap-2">
                       <User size={18} />
-                      {user.name}
+                      {user.first_name || user.email}
                     </Button>
                   </Link>
                 ) : (

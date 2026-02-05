@@ -4,8 +4,7 @@ import "keen-slider/keen-slider.min.css"
 import { useKeenSlider } from "keen-slider/react"
 import { useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
-import axios from "axios"
-import config from "../config"
+import tourService from "@/src/services/tour.service"
 import { TourCard } from "./TourCard"
 
 export default function NewHolidays() {
@@ -25,9 +24,9 @@ export default function NewHolidays() {
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
-        const res = await axios.get(`${config.BASE_URL}/api/tour/`)
-        if (res.data.status && res.data.data.results) {
-          setHolidays(res.data.data.results)
+        const data = await tourService.getTours()
+        if (data.status && data.data.results) {
+          setHolidays(data.data.results)
         }
       } catch (error) {
         console.error("Holidays API error:", error)

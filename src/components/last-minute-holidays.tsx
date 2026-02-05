@@ -8,8 +8,7 @@ import { useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
 import { TourCard } from "./TourCard"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import axios from "axios"
-import config from "../config"
+import tourService from "@/src/services/tour.service"
 
 export default function LastMinuteHolidays() {
   const t = useTranslations("last")
@@ -29,9 +28,9 @@ export default function LastMinuteHolidays() {
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
-        const res = await axios.get(`${config.BASE_URL}/api/tour/`)
-        if (res.data.status && res.data.data.results) {
-          setHolidays(res.data.data.results)
+        const data = await tourService.getTours()
+        if (data.status && data.data.results) {
+          setHolidays(data.data.results)
         }
       } catch (error) {
         console.error("Holidays API error:", error)

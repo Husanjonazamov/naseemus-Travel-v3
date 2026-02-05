@@ -27,26 +27,46 @@ import Image from "next/image";
 import Link from "next/link";
 import { TourCard } from "@/src/components/TourCard";
 
+import { useAuth } from "@/src/context/AuthContext";
+import tourService, { Tour } from "@/src/services/tour.service";
+
 export default function MyBookingsPage() {
     const [activeTab, setActiveTab] = useState("bookings");
-    const [user, setUser] = useState<any>(null);
+    const [likedTours, setLikedTours] = useState<Tour[]>([]);
+    const [isLikesLoading, setIsLikesLoading] = useState(false);
+    const { user, logout, loading: authLoading } = useAuth();
     const router = useRouter();
 
     useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        } else {
+        if (!authLoading && !user) {
             router.push("/login");
         }
-    }, [router]);
+    }, [user, authLoading, router]);
+
+    useEffect(() => {
+        if (user && activeTab === "tours") {
+            const fetchLikedTours = async () => {
+                setIsLikesLoading(true);
+                try {
+                    const data = await tourService.getLikedTours();
+                    if (data.status && data.data.results) {
+                        setLikedTours(data.data.results.map((item: any) => item.tour));
+                    }
+                } catch (error) {
+                    console.error("Failed to fetch liked tours:", error);
+                } finally {
+                    setIsLikesLoading(false);
+                }
+            };
+            fetchLikedTours();
+        }
+    }, [user, activeTab]);
 
     const handleLogout = () => {
-        localStorage.removeItem("user");
-        window.location.href = "/";
+        logout();
     };
 
-    if (!user) return null;
+    if (authLoading || !user) return null;
 
     return (
         <div className="min-h-screen bg-[#fbfbf9] flex flex-col">
@@ -71,10 +91,10 @@ export default function MyBookingsPage() {
                                         <div className="mx-auto bg-white/20 p-4 rounded-full w-24 h-24 mb-4 backdrop-blur-md border border-white/30 flex items-center justify-center">
                                             <User className="w-12 h-12" />
                                         </div>
-                                        <h2 className="font-black text-2xl tracking-tight mb-1">{user.name}</h2>
+                                        <h2 className="font-black text-2xl tracking-tight mb-1">{user.first_name || user.email.split('@')[0]}</h2>
                                         <div className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest backdrop-blur-sm border border-white/10">
                                             <ShieldCheck size={12} />
-                                            {user.role}
+                                            Member
                                         </div>
                                     </div>
                                 </div>
@@ -162,9 +182,13 @@ export default function MyBookingsPage() {
                                         <p className="text-gray-500 font-medium mt-1">Your personal collection of dream travels.</p>
                                     </div>
 
-                                    {user.likedTours && user.likedTours.length > 0 ? (
+                                    {isLikesLoading ? (
+                                        <div className="flex items-center justify-center py-20">
+                                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#007654]"></div>
+                                        </div>
+                                    ) : likedTours && likedTours.length > 0 ? (
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                            {user.likedTours.map((tour: any) => (
+                                            {likedTours.map((tour: any) => (
                                                 <TourCard key={tour.id} tour={tour} />
                                             ))}
                                         </div>

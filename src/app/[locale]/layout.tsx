@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { AuthProvider } from "@/src/context/AuthContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,21 +37,23 @@ export default function RootLayout({
       </head>
 
       <body>
-        <NextIntlClientProvider>
-          {children}
-          <ToastContainer
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-          />
-        </NextIntlClientProvider>
+        <AuthProvider>
+          <NextIntlClientProvider>
+            {children}
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
+          </NextIntlClientProvider>
+        </AuthProvider>
       </body>
     </html>
   );

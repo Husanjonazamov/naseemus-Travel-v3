@@ -3,15 +3,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import axios from "axios";
 import { useLocale, useTranslations } from "next-intl";
-import config from "@/src/config";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Header } from "@/src/components/header";
 import { TrustBadges } from "@/src/components/trust-badges";
-import { PopularDestinations } from "@/src/components/popular-destinations";
-import { NewTouring } from "@/src/components/new-touring-holidays";
 import { Footer } from "@/src/components/footer";
 import { Itinerary } from "@/src/components/itinerary";
 import { TourOverview } from "@/src/components/tour-overview";
@@ -24,11 +20,16 @@ import {
   MapPin,
   ArrowRight,
   TrendingUp,
-  Award
+  Award,
+  Heart
 } from "lucide-react";
 import { Button } from "@/src/components/ui/button";
 import { SanatoriumSection } from "@/src/components/SanatoriumSection";
 import { MediaMarquee } from "@/src/components/MediaMarquee";
+import apiClient from "@/src/lib/api-client";
+import { useAuth } from "@/src/context/AuthContext";
+import tourService, { Tour as TourType } from "@/src/services/tour.service";
+import { toast } from "react-toastify";
 
 interface Tour {
   id: number;
@@ -45,9 +46,10 @@ interface Tour {
   reviews_count: number;
   is_popular: boolean;
   is_new: boolean;
-  images: string[];
+  images: { id: number; image: string }[];
   itineraries: any[];
-  sanatoriums?: any[];
+  sanatories?: any[];
+  is_liked: boolean;
 }
 
 export default function TourDetail() {
@@ -57,46 +59,24 @@ export default function TourDetail() {
   const t = useTranslations("tour_uzbekistan");
   const silkT = useTranslations("silk");
   const detailT = useTranslations("tour_detail");
+  const cardT = useTranslations("tour_card");
 
-  const slug = params.slug;
+  const slug = params.slug as string;
   const [tour, setTour] = useState<Tour | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isLiked, setIsLiked] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const fetchTour = async () => {
       if (!slug) return;
       setLoading(true);
       try {
-        const res = await axios.get(
-          `${config.BASE_URL}/api/tour/${encodeURIComponent(slug as string)}/`,
-          {
-            headers: {
-              "Accept-Language": locale,
-            },
-          }
-        );
+        const res = await apiClient.get(`/api/tour/${encodeURIComponent(slug)}/`);
         if (res.data.data) {
           const tourData = res.data.data;
-          // EXTENSIVE MOCK DATA FOR THE INTEGRATED SANATORIUM
-          if (!tourData.sanatoriums || tourData.sanatoriums.length === 0) {
-            tourData.sanatoriums = [{
-              id: 1,
-              title: "Premium Wellness & Medical Spa",
-              description: "This world-class sanatorium specializes in iodine-bromine mineral water treatments. Located in a pristine natural environment, it provides a perfect blend of modern medicine and nature-based healing. Experience personalized health programs designed by elite medical specialists.",
-              facilities: ["Mineral Water Baths", "Medical Massage", "Indoor Swimming Pool", "Physiotherapy", "Healthy Dining", "Salt Rooms", "Ozone Therapy", "Iodine-Bromine Baths"],
-              images: [
-                "https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/chortoq-0-0-0-0-1589447171.jpg",
-                "https://r-travel.uz/wp-content/uploads/2022/10/Chortoq-sanatoriysi-1.jpg",
-                "https://advantour.com/img/uzbekistan/sanatoriums/humson/humson-sanatorium1.jpg",
-                "https://advantour.com/img/uzbekistan/sanatoriums/humson/humson-sanatorium2.jpg"
-              ],
-              videos: [
-                "https://videos.pexels.com/video-files/5309381/5309381-uhd_2560_1440_24fps.mp4",
-                "https://videos.pexels.com/video-files/5309385/5309385-uhd_2560_1440_24fps.mp4"
-              ]
-            }];
-          }
           setTour(tourData);
+          setIsLiked(tourData.is_liked || false);
         }
       } catch (err: any) {
         console.error("Tour fetch error:", err);
@@ -110,6 +90,31 @@ export default function TourDetail() {
 
     fetchTour();
   }, [slug, locale, router]);
+
+  const toggleLike = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!isAuthenticated) {
+      toast.info(cardT("login_to_save"));
+      router.push(`/${locale}/login`);
+      return;
+    }
+
+    try {
+      const prevState = isLiked;
+      setIsLiked(!prevState);
+      const response = await tourService.toggleLike(slug);
+      setIsLiked(response.data.liked);
+      if (response.data.liked) {
+        toast.success(cardT("added_to_saved"));
+      } else {
+        toast.info(cardT("removed_from_saved"));
+      }
+    } catch (error) {
+      console.error("Toggle like error:", error);
+      setIsLiked(isLiked);
+      toast.error("Something went wrong");
+    }
+  };
 
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center bg-[#fbfbf9]">
@@ -187,6 +192,12 @@ export default function TourDetail() {
                   <ShieldCheck size={12} className="text-white" />
                   <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-white">{detailT("guaranteed_departure")}</span>
                 </div>
+                <button
+                  onClick={toggleLike}
+                  className={`w-9 h-9 md:w-10 md:h-10 rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 border ${isLiked ? 'bg-[#ff4d4d] text-white border-[#ff4d4d]' : 'bg-white/20 text-white border-white/30 hover:bg-[#007654] hover:text-white'}`}
+                >
+                  <Heart size={18} fill={isLiked ? "currentColor" : "none"} strokeWidth={2.5} />
+                </button>
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 md:mb-8 tracking-tighter leading-[1.1] md:leading-[1] drop-shadow-2xl text-center lg:text-left">
@@ -284,13 +295,11 @@ export default function TourDetail() {
             <h2 className="text-3xl font-black text-[#1a1a1a] mt-2">{detailT("gallery_title")}</h2>
           </div>
           <MediaMarquee
-            images={[
-              tour.image,
-              ...tour.images,
-              "https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/chortoq-0-0-0-0-1589447171.jpg",
-              "https://r-travel.uz/wp-content/uploads/2022/10/Chortoq-sanatoriysi-1.jpg",
-              "https://advantour.com/img/uzbekistan/sanatoriums/humson/humson-sanatorium1.jpg"
-            ]}
+            images={
+              tour.images && tour.images.length > 0
+                ? tour.images.map((img: any) => img.image)
+                : [tour.image]
+            }
           />
         </div>
 
@@ -303,9 +312,14 @@ export default function TourDetail() {
               </div>
 
               {/* Sanatorium Section */}
-              {tour.sanatoriums && tour.sanatoriums.length > 0 && (
+              {tour.sanatories && tour.sanatories.length > 0 && (
                 <div id="sanatoriums">
-                  <SanatoriumSection sanatoriums={tour.sanatoriums} />
+                  <SanatoriumSection sanatoriums={tour.sanatories.map((s: any) => ({
+                    ...s,
+                    facilities: s.facilities || ["Treatment", "Wellness", "Relaxation", "Medical Care"],
+                    images: s.image ? [s.image] : [],
+                    videos: s.videos?.map((v: any) => v.video) || []
+                  }))} />
                 </div>
               )}
 
@@ -326,7 +340,6 @@ export default function TourDetail() {
           </div>
         </div>
 
-        <NewTouring />
         <Footer />
       </div>
     </div>

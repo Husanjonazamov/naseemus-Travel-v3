@@ -8,65 +8,52 @@ import { useLocale, useTranslations } from "next-intl";
 import { MapPin, Clock, Star, ArrowRight, Heart } from "lucide-react";
 import { Button } from "./ui/button";
 import { toast } from "react-toastify";
+import { useAuth } from "@/src/context/AuthContext";
+import tourService, { Tour } from "@/src/services/tour.service";
+import { useRouter } from "next/navigation";
 
 interface TourCardProps {
-    tour: {
-        id: number;
-        title: string;
-        description?: string;
-        image: string;
-        count_day?: number;
-        date?: number;
-        price: string;
-        category?: {
-            id: number;
-            title: string;
-        } | null;
-        slug: string;
-    };
+    tour: Partial<Tour> & { slug: string; title: string; image: string; price: string };
 }
 
 export function TourCard({ tour }: TourCardProps) {
-    const [isLiked, setIsLiked] = useState(false);
-    const [user, setUser] = useState<any>(null);
+    const [isLiked, setIsLiked] = useState(tour.is_liked || false);
+    const { isAuthenticated } = useAuth();
+    const router = useRouter();
     const locale = useLocale();
     const t = useTranslations("tour_card");
 
     useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-            const parsedUser = JSON.parse(storedUser);
-            setUser(parsedUser);
-            // Check if this tour is already liked
-            const likedTours = parsedUser.likedTours || [];
-            setIsLiked(likedTours.some((t: any) => t.id === tour.id));
-        }
-    }, [tour.id]);
+        setIsLiked(tour.is_liked || false);
+    }, [tour.is_liked]);
 
-    const toggleLike = (e: React.MouseEvent) => {
+    const toggleLike = async (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
 
-        if (!user) {
+        if (!isAuthenticated) {
             toast.info(t("login_to_save"));
+            router.push(`/${locale}/login`);
             return;
         }
 
-        const likedTours = user.likedTours || [];
-        let updatedTours;
+        try {
+            const prevState = isLiked;
+            setIsLiked(!prevState); // Optimistic update
 
-        if (isLiked) {
-            updatedTours = likedTours.filter((t: any) => t.id !== tour.id);
-            toast.info(t("removed_from_saved"));
-        } else {
-            updatedTours = [...likedTours, tour];
-            toast.success(t("added_to_saved"));
+            const response = await tourService.toggleLike(tour.slug);
+            setIsLiked(response.data.liked);
+
+            if (response.data.liked) {
+                toast.success(t("added_to_saved"));
+            } else {
+                toast.info(t("removed_from_saved"));
+            }
+        } catch (error: any) {
+            console.error("Toggle like error:", error);
+            setIsLiked(isLiked); // Rollback
+            toast.error("Something went wrong");
         }
-
-        const updatedUser = { ...user, likedTours: updatedTours };
-        setUser(updatedUser);
-        setIsLiked(!isLiked);
-        localStorage.setItem("user", JSON.stringify(updatedUser));
     };
 
     const formattedPrice = new Intl.NumberFormat("en-GB", {
@@ -86,7 +73,7 @@ export function TourCard({ tour }: TourCardProps) {
             className="group relative bg-[#ffffff] rounded-[32px] overflow-hidden hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] transition-all duration-700 border border-[#f0f0f0] h-full flex flex-col"
         >
             {/* Visual Header */}
-            <div className="relative aspect-[16/11] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                     src={tour.image}
                     alt={tour.title}

@@ -7,8 +7,7 @@ import { Button } from "./ui/button"
 import { useTranslations, useLocale } from "next-intl"
 import Link from "next/link"
 import { TourCard } from "./TourCard"
-import axios from "axios"
-import config from "../config"
+import tourService from "@/src/services/tour.service"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
 export function NewTouring() {
@@ -30,12 +29,11 @@ export function NewTouring() {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const lang = locale || "en"
-        const res = await axios.get(`${config.BASE_URL}/api/tour/`, {
-          headers: { "Accept-Language": lang },
-        })
-        // We take up to 9 new tours for a robust section
-        setDestinations(res.data.data.results.slice(0, 9))
+        const data = await tourService.getTours()
+        if (data.status && data.data.results) {
+          // We take up to 9 new tours for a robust section
+          setDestinations(data.data.results.slice(0, 9))
+        }
       } catch (error) {
         console.error("API error:", error)
       } finally {
@@ -43,7 +41,7 @@ export function NewTouring() {
       }
     }
     fetchTours()
-  }, [locale])
+  }, [])
 
   return (
     <section className="py-24 px-4 bg-transparent overflow-hidden" id="newTour">
