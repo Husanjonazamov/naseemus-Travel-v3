@@ -33,21 +33,25 @@ export function SanatoriumSection({ sanatoriums }: SanatoriumSectionProps) {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="relative"
                 >
-                    <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6 mb-16 px-4">
-                        <div className="inline-flex items-center gap-3 bg-[#007654]/5 px-5 py-2 rounded-full border border-[#007654]/10">
-                            <div className="h-2 w-2 rounded-full bg-[#007654] animate-pulse"></div>
-                            <span className="text-[#007654] font-black uppercase tracking-[0.2em] text-[10px]">
-                                {t("medical_wellness")}
-                            </span>
+                    <div className="flex flex-col gap-10 mb-16 px-4">
+                        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6">
+                            <div className="inline-flex items-center gap-3 bg-[#007654]/5 px-5 py-2 rounded-full border border-[#007654]/10">
+                                <div className="h-2 w-2 rounded-full bg-[#007654] animate-pulse"></div>
+                                <span className="text-[#007654] font-black uppercase tracking-[0.2em] text-[10px]">
+                                    {t("medical_wellness")}
+                                </span>
+                            </div>
+
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-[#1a1a1a] tracking-tight leading-[1.1]">
+                                {item.title}
+                            </h2>
                         </div>
 
-                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-[#1a1a1a] tracking-tight max-w-4xl leading-[1.1] md:leading-[1.1]">
-                            {item.title}
-                        </h2>
-
-                        <p className="text-base md:text-lg lg:text-xl text-gray-500 font-medium leading-relaxed max-w-3xl">
-                            {item.description}
-                        </p>
+                        <div className="text-center md:text-left">
+                            <p className="text-base md:text-lg text-gray-500 font-medium leading-[1.8] max-w-6xl italic border-l-4 border-[#007654]/20 pl-6 py-2">
+                                {item.description}
+                            </p>
+                        </div>
                     </div>
 
                     {/* Integrated Media Section */}

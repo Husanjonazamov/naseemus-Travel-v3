@@ -53,14 +53,14 @@ export function AboutSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-2xl"
+              className="absolute -bottom-12 -right-4 bg-white rounded-2xl p-4 shadow-2xl"
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#007654] to-[#00a572] rounded-xl flex items-center justify-center">
-                  <Play className="w-6 h-6 text-white fill-white" />
+                <div className="w-11 h-11 bg-gradient-to-br from-[#007654] to-[#00a572] rounded-xl flex items-center justify-center">
+                  <Play className="w-5 h-5 text-white fill-white" />
                 </div>
                 <div>
-                  <p className="text-2xl font-black text-[#1a1a1a]">25+</p>
+                  <p className="text-xl font-black text-[#1a1a1a]">25+</p>
                   <p className="text-gray-500 text-sm font-medium">Years Experience</p>
                 </div>
               </div>
