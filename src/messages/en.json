@@ -1,14 +1,14 @@
 {
   "content_section": {
-    "blog_title": "Read Our Articles",
-    "blog_subtitle": "Travel Insights",
-    "blog_badge": "Expert Insight",
-    "tour_title": "Explore Our Exclusive Tour Packages",
-    "tour_subtitle": "Curated Experiences",
-    "tour_badge": "Exclusive Tour",
+    "blog_title": "Read our articles",
+    "blog_subtitle": "Travel insights",
+    "blog_badge": "Expert insight",
+    "tour_title": "Explore our exclusive tour packages",
+    "tour_subtitle": "Curated experiences",
+    "tour_badge": "Exclusive tour",
     "explore_button": "Explore",
     "default_description": "Crafted for the discerning traveler looking for authentic experiences.",
-    "specialist": "Travel Specialist",
+    "specialist": "Travel specialist",
     "trusted_by": "Trusted by",
     "travelers": "solo travelers",
     "certified": "Certified",
@@ -17,19 +17,19 @@
   },
   "sanatorium": {
     "medical_wellness": "Medical & Wellness",
-    "amenities_included": "Amenities Included",
-    "view_gallery": "View Gallery"
+    "amenities_included": "Amenities included",
+    "view_gallery": "View gallery"
   },
   "new_holidays": {
-    "title": "Our New Holidays",
+    "title": "Our new holidays",
     "description": "Freshly handpicked destinations for your next unforgettable journey."
   },
   "tour_dropdown": {
     "discover_beauty": "Discover the beauty of",
-    "view_detail": "View Detail",
+    "view_detail": "View detail",
     "cant_find": "Can't find what you are looking for?",
     "explore_all": "Explore all our curated travel experiences across the Silk Road.",
-    "view_all_tours": "View All Tours"
+    "view_all_tours": "View all tours"
   },
   "tour_card": {
     "duration": "Duration",
@@ -474,32 +474,32 @@
     }
   },
   "newsletter": {
-    "title": "Get Inspired & Receive Exclusive Offers",
+    "title": "Get inspired & receive exclusive offers",
     "subtitle": "Join thousands of travelers receiving curated travel inspiration, exclusive deals, and insider tips.",
-    "button": "Subscribe Now",
-    "badge": "Exclusive Offers",
-    "trust": "Join 10,000+ travelers. Unsubscribe anytime."
+    "button": "Subscribe now",
+    "badge": "Exclusive offers",
+    "trust": "Join 10,000+ travelers. unsubscribe anytime."
   },
   "last": {
-    "last_minute_holidays": "LAST MINUTE HOLIDAYS",
+    "last_minute_holidays": "Last minute holidays",
     "description": "Spontaneous escapes at unbeatable prices. Book your next adventure today.",
     "explore": "SEE MORE →",
     "testimonial": "IT WAS MY FIRST TOUR WITH Naseem's travel. HIGHLY RECOMMENDED!",
     "author": "ANNE"
   },
   "about": {
-    "title": "HOLIDAYS THAT LET YOU BE Naseem's travel",
+    "title": "Holidays that let you be Naseem's travel",
     "paragraph1": "On a Naseem's travel holiday, you're free to enjoy the experience. We'll take care of everything else.",
     "paragraph2": "No worrying about tickets or schedules. Just enjoy your destination, relax and make friends with like-minded people.",
     "paragraph3": "With 25 years of experience and a Holiday Director by your side, you’ll be free to do whatever feels... Naseem's travel.",
-    "badge": "Our Story",
+    "badge": "Our story",
     "passion": "Passion",
     "expertise": "Expertise",
     "community": "Community",
     "quality": "Quality"
   },
   "blog": {
-    "title": "READ OUR BLOGS",
+    "title": "Read our blogs",
     "explore_button": "EXPLORE →",
     "balkan_explorer": {
       "title": "BALKAN EXPLORER",
@@ -575,7 +575,7 @@
     }
   },
   "service": {
-    "we_take_care_of": "We Take Care Of",
+    "we_take_care_of": "We take care of",
     "flights": "Flights",
     "return_flights": "Return flights included",
     "hotels": "Hotels",
@@ -671,35 +671,35 @@
     "paragraph1": "Naseem's Travel is a UK-registered travel company specializing exclusively in group tours across Central Asia. With deep expertise in Uzbekistan, Kazakhstan, Kyrgyzstan, and beyond, we craft journeys that bring travelers together to explore ancient cities, stunning landscapes, and rich cultural heritage.",
     "paragraph2": "Unlike traditional tour operators, we focus solely on group experiences. This allows us to offer competitive pricing, foster meaningful connections between travelers, and provide a level of local expertise that individual travel simply cannot match.",
     "highlight": {
-      "title": "Group Tours Only",
+      "title": "Group tours only",
       "description": "We specialize exclusively in group travel. This unique focus allows us to create deeply immersive experiences while offering the best value for your journey. Travel with like-minded adventurers and create memories together."
     },
     "features": {
       "groupTours": {
-        "title": "Group Experiences",
+        "title": "Group experiences",
         "description": "Curated group journeys with like-minded travelers from around the world."
       },
       "silkRoad": {
-        "title": "Silk Road Experts",
+        "title": "Silk road experts",
         "description": "Deep knowledge of Central Asian history, culture, and hidden gems."
       },
       "experience": {
-        "title": "Proven Excellence",
+        "title": "Proven excellence",
         "description": "Years of experience creating unforgettable travel memories."
       },
       "safety": {
-        "title": "Safe & Secure",
+        "title": "Safe & secure",
         "description": "UK-registered company with full travel protection and 24/7 support."
       }
     },
     "stats": {
       "tours": {
         "value": "50+",
-        "label": "Tours Annually"
+        "label": "Tours annually"
       },
       "travelers": {
         "value": "5000+",
-        "label": "Happy Travelers"
+        "label": "Happy travelers"
       },
       "countries": {
         "value": "12",
@@ -713,17 +713,17 @@
   },
   "tour_reviews": {
     "view_reviews": "Reviews",
-    "leave_review": "Leave a Review",
+    "leave_review": "Leave a review",
     "no_reviews": "No reviews yet. Be the first to share your experience!",
     "anonymous": "Anonymous",
-    "thank_you": "Thank You!",
+    "thank_you": "Thank you!",
     "review_submitted": "Your review has been submitted successfully.",
     "how_was_it": "How was your trip?",
     "share_experience": "Share your experience with other travelers.",
-    "your_name": "Your Name (Optional)",
+    "your_name": "Your name (Optional)",
     "name_placeholder": "Enter your name or leave blank for anonymous",
-    "your_comment": "Your Review",
+    "your_comment": "Your review",
     "comment_placeholder": "Tell us about your trip...",
-    "submit_review": "Submit Review"
+    "submit_review": "Submit review"
   }
 }

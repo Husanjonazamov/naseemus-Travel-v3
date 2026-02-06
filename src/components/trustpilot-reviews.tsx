@@ -36,7 +36,7 @@ const reviews = [
   {
     id: 4,
     rating: 5,
-    title: "More Than Once in a Lifetime!",
+    title: "More than once in a lifetime!",
     content: "The entire experience, from booking to picking my luggage at the end of the trip, was...",
     author: "Maggie",
     date: "August 8",
