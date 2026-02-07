@@ -305,7 +305,7 @@
     }
   },
   "contact": {
-    "contact_us": "Contact Us",
+    "contact_us": "Contact ss",
     "get_in_touch": "Get in Touch",
     "message_sent": "Your message has been sent successfully!",
     "full_name": "Full Name",
@@ -315,10 +315,10 @@
     "sending": "Sending...",
     "intro_text": "Fill out the form below to get in touch with us.",
     "badge": "Get in Touch",
-    "title": "Contact Us",
+    "title": "Contact us",
     "subtitle": "Have a question or need help planning your trip? We're here to assist you every step of the way.",
     "form_badge": "Send a Message",
-    "form_title": "Write to Us",
+    "form_title": "Write to us",
     "form_subtitle": "Fill out the form below and our team will get back to you within 24 hours.",
     "name_placeholder": "Enter your name",
     "phone_placeholder": "+998 90 123 45 67",
@@ -433,7 +433,7 @@
   ],
   "footer": {
     "customer_support": {
-      "contact_us": "Contact Us",
+      "contact_us": "Contact us",
       "follow_us": "Follow Us",
       "information": "Information",
       "corporate_title": "Corporate",
@@ -617,28 +617,28 @@
     "title": "Why Choose Naseem's Travel?",
     "subtitle": "We are committed to providing exceptional service and unforgettable experiences that exceed your expectations.",
     "trustedSecurity": {
-      "title": "Trusted Security",
+      "title": "Trusted security",
       "description": "Your safety and security are our top priorities. We use industry-leading standards to protect your data and bookings."
     },
     "support247": {
-      "title": "24/7 Support",
+      "title": "24/7 support",
       "description": "Our dedicated travel experts are available around the clock to assist you with any questions or emergencies."
     },
     "premiumQuality": {
-      "title": "Premium Quality",
+      "title": "Premium quality",
       "description": "We curate only the best tours and sanatoriums to ensure you have a truly premium and memorable experience."
     },
     "bestPrice": {
-      "title": "Best Price Guarantee",
+      "title": "Best price guarantee",
       "description": "Enjoy competitive pricing and exclusive deals without compromising on the quality of your travel experience."
     },
     "globalExpertise": {
-      "title": "Global Expertise",
+      "title": "Global expertise",
       "description": "With years of experience in the travel industry, we provide expert guidance and local insights for your destinations."
     }
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Frequently asked questions",
     "subtitle": "Everything you need to know about our services and booking process.",
     "items": {
       "booking": {
