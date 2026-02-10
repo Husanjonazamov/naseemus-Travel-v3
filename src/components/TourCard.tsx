@@ -56,9 +56,9 @@ export function TourCard({ tour }: TourCardProps) {
         }
     };
 
-    const formattedPrice = new Intl.NumberFormat("en-GB", {
+    const formattedPrice = new Intl.NumberFormat("en-US", {
         style: "currency",
-        currency: "GBP",
+        currency: "USD",
         maximumFractionDigits: 0,
     }).format(parseFloat(tour.price || "0"));
 

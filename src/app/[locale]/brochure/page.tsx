@@ -43,7 +43,7 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }) {
-  const messages = (await import(`../../locales/${params.locale}.json`))
+  const messages = (await import(`@/src/messages/${params.locale}.json`))
     .default;
   return { title: messages.content_section.tour_title };
 }

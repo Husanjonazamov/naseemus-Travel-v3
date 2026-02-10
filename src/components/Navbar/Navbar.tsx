@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import config from "@/src/config";
+import apiClient from "@/src/lib/api-client";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
@@ -20,8 +19,6 @@ interface Category {
   tours: Tour[];
 }
 
-
-
 export const TourDrop = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +28,7 @@ export const TourDrop = () => {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const res = await axios.get(`${config.BASE_URL}/api/tour/`);
+        const res = await apiClient.get("/api/tour/");
         const tours: Tour[] = res.data.data.results;
 
         // Group by category

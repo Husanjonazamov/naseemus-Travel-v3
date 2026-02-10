@@ -6,8 +6,7 @@ import Link from "next/link";
 import { Header } from "@/src/components/header";
 import { Footer } from "@/src/components/footer";
 import { useTranslations, useLocale } from "next-intl";
-import axios from "axios";
-import config from "@/src/config";
+import apiClient from "@/src/lib/api-client";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   HeartPulse,
@@ -44,9 +43,7 @@ export default function SanatoryPage() {
   useEffect(() => {
     const fetchSanatories = async () => {
       try {
-        const res = await axios.get(`${config.BASE_URL}/api/sanatory/`, {
-          headers: { "Accept-Language": locale }
-        });
+        const res = await apiClient.get("/api/sanatory/");
         setSanatories(res.data.data.results || []);
       } catch (error) {
         console.error("Error fetching sanatories:", error);

@@ -15,6 +15,19 @@ apiClient.interceptors.request.use(
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
+
+        // Add Accept-Language header based on NEXT_LOCALE cookie
+        if (typeof window !== 'undefined') {
+            const locale = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('NEXT_LOCALE='))
+                ?.split('=')[1];
+
+            if (locale) {
+                config.headers['Accept-Language'] = locale;
+            }
+        }
+
         return config;
     },
     (error) => {

@@ -48,9 +48,13 @@ export function SanatoriumSection({ sanatoriums }: SanatoriumSectionProps) {
                         </div>
 
                         <div className="text-center md:text-left">
-                            <p className="text-base md:text-lg text-gray-500 font-medium leading-[1.8] max-w-6xl italic border-l-4 border-[#007654]/20 pl-6 py-2">
-                                {item.description}
-                            </p>
+                            <div className="text-base md:text-lg text-gray-500 font-medium leading-[1.8] max-w-6xl italic border-l-4 border-[#007654]/20 pl-6 py-2 whitespace-pre-wrap">
+                                {item.description.split('\n').map((paragraph, index) => (
+                                    <p key={index} className={index > 0 ? "mt-4" : ""}>
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
