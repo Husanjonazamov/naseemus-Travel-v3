@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { DateRange } from 'react-day-picker';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import config from '../config';
 
 import Button from '@mui/material/Button';
@@ -32,6 +32,7 @@ interface Props {
 
 const TabsTourMobile = ({ active }: Props) => {
   const t = useTranslations('searchPage');
+  const locale = useLocale();
 
   const [openCityMobile, setOpenCityMobile] = useState(false);
   const [whereMobile, setWhereMobile] = useState(false);
@@ -188,7 +189,7 @@ const TabsTourMobile = ({ active }: Props) => {
           </div>
 
           {/* Qayerga */}
-          <div className="relative flex gap-2 h-full ">
+          <div className="relative flex gap-2 h-full">
             <div
               onClick={() => setWhereMobile(true)}
               className="cursor-pointer flex flex-col gap-2 w-full"
@@ -464,7 +465,7 @@ const TabsTourMobile = ({ active }: Props) => {
           {/* Search button */}
           <div className="flex flex-col gap-2">
             <Link
-              href={'#'}
+              href={`/${locale}/tour`}
               className="bg-[#007654] hover:bg-[#008c64] text-white h-[64px] flex items-center justify-center rounded-[20px] text-center transition-all duration-300 shadow-xl shadow-[#007654]/10"
             >
               <p className="text-white font-bold text-lg">{t('searchTours')}</p>

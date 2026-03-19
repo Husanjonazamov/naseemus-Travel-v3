@@ -56,7 +56,7 @@ export function CustomerTestimonial() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-[#dcfae7]/30 overflow-hidden">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-white to-[#dcfae7]/30 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -68,7 +68,7 @@ export function CustomerTestimonial() {
         >
           <div className="inline-flex items-center gap-2 bg-[#007654]/10 px-4 py-2 rounded-full mb-6 border border-[#007654]/20">
             <span className="w-2 h-2 bg-[#007654] rounded-full animate-pulse" />
-            <span className="text-[#007654] text-sm font-bold uppercase tracking-wider">
+            <span className="text-[#007654] text-sm font-bold tracking-wider">
               {t("badge")}
             </span>
           </div>
@@ -100,10 +100,7 @@ export function CustomerTestimonial() {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-5 h-5 ${i < testimonial.rating
-                            ? "text-amber-400 fill-amber-400"
-                            : "text-gray-200"
-                          }`}
+                        className={`w-5 h-5 ${i < testimonial.rating ? "text-amber-400 fill-amber-400" : "text-gray-200" }`}
                       />
                     ))}
                   </div>

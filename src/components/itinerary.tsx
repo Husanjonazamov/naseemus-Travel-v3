@@ -44,7 +44,7 @@ export function Itinerary({ days }: ItineraryProps) {
         <div>
           <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-3 py-1.5 rounded-full mb-3">
             <Compass size={14} className="text-[#007654]" />
-            <span className="text-[9px] font-bold uppercase tracking-widest text-[#007654]">Expedition Plan</span>
+            <span className="text-[9px] font-bold tracking-widest text-[#007654]">Expedition plan</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a1a] tracking-tight">
             {t("title")}
@@ -68,25 +68,17 @@ export function Itinerary({ days }: ItineraryProps) {
             <motion.div
               key={day.day}
               onClick={() => setActiveDay(day.day)}
-              className={`group relative p-4 rounded-xl cursor-pointer transition-all duration-300 border ${activeDay === day.day
-                ? "bg-white border-[#007654] shadow-md"
-                : "bg-transparent border-transparent hover:bg-white/50 hover:border-gray-100"
-                }`}
+              className={`group relative p-4 rounded-xl cursor-pointer transition-all duration-300 border ${activeDay === day.day ? "bg-white border-[#007654] shadow-md" : "bg-transparent border-transparent hover:bg-white/50 hover:border-gray-100" }`}
             >
               <div className="flex items-center gap-4">
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm transition-all ${activeDay === day.day
-                  ? "bg-[#007654] text-white"
-                  : "bg-gray-100 text-gray-400 group-hover:bg-[#dcfae7] group-hover:text-[#007654]"
-                  }`}>
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm transition-all ${activeDay === day.day ? "bg-[#007654] text-white" : "bg-gray-100 text-gray-400 group-hover:bg-[#dcfae7] group-hover:text-[#007654]" }`}>
                   {day.day}
                 </div>
                 <div className="flex-grow">
-                  <p className={`text-[9px] font-bold uppercase tracking-widest mb-0.5 transition-colors ${activeDay === day.day ? "text-[#007654]/60" : "text-gray-400"
-                    }`}>
+                  <p className={`text-[9px] font-bold tracking-widest mb-0.5 transition-colors ${activeDay === day.day ? "text-[#007654]/60" : "text-gray-400" }`}>
                     Day {day.day}
                   </p>
-                  <h4 className={`text-sm font-semibold transition-colors line-clamp-1 ${activeDay === day.day ? "text-[#1a1a1a]" : "text-gray-500"
-                    }`}>
+                  <h4 className={`text-sm font-semibold transition-colors line-clamp-1 ${activeDay === day.day ? "text-[#1a1a1a]" : "text-gray-500" }`}>
                     {day.title}
                   </h4>
                 </div>
@@ -116,7 +108,7 @@ export function Itinerary({ days }: ItineraryProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-4 left-4">
-                  <div className="bg-[#007654] px-4 py-1.5 rounded-full text-white text-[10px] font-bold uppercase tracking-wider">
+                  <div className="bg-[#007654] px-4 py-1.5 rounded-full text-white text-[10px] font-bold tracking-wider">
                     Day {activeDay}
                   </div>
                 </div>
@@ -133,7 +125,7 @@ export function Itinerary({ days }: ItineraryProps) {
                 <div className="flex items-center justify-between pt-4 border-t border-gray-50">
                   <div className="flex items-center gap-2 text-gray-400">
                     <MapPin size={14} className="text-[#007654]" />
-                    <span className="text-[10px] font-bold uppercase tracking-wider">Tour Stop</span>
+                    <span className="text-[10px] font-bold tracking-wider">Tour stop</span>
                   </div>
                   {activeDay < days.length && (
                     <Button

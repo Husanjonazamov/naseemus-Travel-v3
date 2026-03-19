@@ -15,7 +15,7 @@ export function AboutSection() {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#dcfae7]/30 to-white">
+    <section id="about" className="relative py-24 overflow-hidden bg-gradient-to-b from-[#dcfae7]/30 to-white">
       {/* Decorative gradients */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#007654]/10 rounded-full blur-[150px]" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#007654]/5 rounded-full blur-[120px]" />
@@ -38,7 +38,7 @@ export function AboutSection() {
               <div className="relative aspect-video rounded-3xl overflow-hidden border-2 border-[#007654]/20">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/Kb2y-m7EhXQ?si=hhz2YsZu2UThYaDC"
+                  src="https://www.youtube.com/embed/7i7miqyB8wY"
                   title="Travel Inspiration Video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -61,7 +61,7 @@ export function AboutSection() {
                 </div>
                 <div>
                   <p className="text-xl font-black text-[#1a1a1a]">25+</p>
-                  <p className="text-gray-500 text-sm font-medium">Years Experience</p>
+                  <p className="text-gray-500 text-sm font-medium">Years experience</p>
                 </div>
               </div>
             </motion.div>
@@ -78,7 +78,7 @@ export function AboutSection() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[#007654]/10 px-4 py-2 rounded-full mb-6 border border-[#007654]/20">
               <span className="w-2 h-2 bg-[#007654] rounded-full animate-pulse" />
-              <span className="text-[#007654] text-sm font-bold uppercase tracking-wider">{t("badge")}</span>
+              <span className="text-[#007654] text-sm font-bold tracking-wider">{t("badge")}</span>
             </div>
 
             {/* Title */}

@@ -31,7 +31,7 @@ export function TourOverview({ tour }: TourOverviewProps) {
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-4 py-2 rounded-full">
             <Compass size={16} className="text-[#007654]" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">{t("journey_overview")}</span>
+            <span className="text-[10px] font-black tracking-widest text-[#007654]">{t("journey_overview")}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight">
             {t("section_title")}
@@ -47,7 +47,7 @@ export function TourOverview({ tour }: TourOverviewProps) {
               <MapPin size={24} />
             </div>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-0.5">{t("focus")}</p>
+              <p className="text-[10px] font-black tracking-widest text-gray-400 mb-0.5">{t("focus")}</p>
               <p className="text-lg font-bold text-[#1a1a1a]">{t("classic_touring")}</p>
             </div>
           </div>
@@ -56,7 +56,7 @@ export function TourOverview({ tour }: TourOverviewProps) {
               <Plane size={24} />
             </div>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-0.5">{t("transport")}</p>
+              <p className="text-[10px] font-black tracking-widest text-gray-400 mb-0.5">{t("transport")}</p>
               <p className="text-lg font-bold text-[#1a1a1a]">{t("flight_choices")}</p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export function TourOverview({ tour }: TourOverviewProps) {
         <div className="absolute bottom-6 right-6 z-20">
           <button
             onClick={() => setIsMapOpen(true)}
-            className="bg-white/90 backdrop-blur-xl text-[#007654] px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl border border-white hover:bg-[#007654] hover:text-white transition-all duration-300"
+            className="bg-white/90 backdrop-blur-xl text-[#007654] px-8 py-4 rounded-2xl font-black text-xs tracking-widest shadow-2xl border border-white hover:bg-[#007654] hover:text-white transition-all duration-300"
           >
             {t("enlarge_map")}
           </button>
@@ -83,7 +83,7 @@ export function TourOverview({ tour }: TourOverviewProps) {
 
       {/* Highlights / Inclusions Mock */}
       <div className="bg-[#f0f9f4] p-10 rounded-[40px] border border-[#d1f2e1]">
-        <h3 className="text-xl font-black text-[#007654] mb-8 uppercase tracking-widest text-center">{t("standard_inclusions")}</h3>
+        <h3 className="text-xl font-black text-[#007654] mb-8 tracking-widest text-center">{t("standard_inclusions")}</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {inclusions.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center text-center gap-3">

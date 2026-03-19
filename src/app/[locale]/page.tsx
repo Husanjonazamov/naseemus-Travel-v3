@@ -1,27 +1,17 @@
 import { Header } from "@/src/components/header"
 import { TrustBadges } from "@/src/components/trust-badges"
 import { HeroSection } from "@/src/components/hero-section"
-import { ContentSection } from "@/src/components/content-section"
-import LastMinuteHolidays from "@/src/components/last-minute-holidays"
 import { ServicesSection } from "@/src/components/services-section"
 import { NewsletterSection } from "@/src/components/newsletter-section"
-import { AboutSection } from "@/src/components/about-section"
-import NewHolidays from "@/src/components/destinations-showcase"
-import { FloatingButtons } from "@/src/components/floating-buttons"
-import { TrustpilotReviews } from "@/src/components/trustpilot-reviews"
-import { CustomerTestimonial } from "@/src/components/customer-testimonial"
-import { BlogSection } from "@/src/components/blog-section"
-import { NewTouring } from "@/src/components/new-touring-holidays"
-import { PopularDestinations } from "@/src/components/popular-destinations"
-import { Footer } from "@/src/components/footer"
-import { TourOverview } from "@/src/components/tour-overview"
-import { Itinerary } from "@/src/components/itinerary"
-import TabsHotel from "@/src/components/TabsHotel"
+import { DestinationCitiesSection } from "@/src/components/destination-cities-section"
+import { UzbekistanVideosSection } from "@/src/components/uzbekistan-videos-section"
+import { HomepageToursSection } from "@/src/components/homepage-tours-section"
 import SearchTours from "@/src/components/SearchTours"
+import { FloatingButtons } from "@/src/components/floating-buttons"
+import { CustomerTestimonial } from "@/src/components/customer-testimonial"
+import { Footer } from "@/src/components/footer"
 import { CompanyInfo } from "@/src/components/company-info"
-
-
-import { WhyChooseUs } from "@/src/components/why-choose-us"
+import { HomepagePhotoGallery } from "@/src/components/homepage-photo-gallery"
 
 export default function HomePage() {
   return (
@@ -29,19 +19,15 @@ export default function HomePage() {
       <Header />
       <TrustBadges />
       <HeroSection />
-      <SearchTours />
       <CompanyInfo />
-      <ContentSection />
-      <LastMinuteHolidays />
+      <DestinationCitiesSection />
+      <UzbekistanVideosSection />
+      <HomepageToursSection />
+      <SearchTours />
       <ServicesSection />
       <NewsletterSection />
-      <AboutSection />
-      <NewHolidays />
-      {/* <TrustpilotReviews /> */}
       <CustomerTestimonial />
-      {/* <BlogSection /> */}
-      {/* <NewTouring /> */}
-      {/* <PopularDestinations /> */}
+      <HomepagePhotoGallery />
       <Footer />
       <FloatingButtons />
     </div>

@@ -1,7 +1,7 @@
 export default function TourBrochure() {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-[#dcfae7] rounded-lg shadow">
-      <h2 className="text-3xl font-semibold text-purple-700 mb-4">YOUR HOLIDAY INCLUDES</h2>
+      <h2 className="text-3xl font-semibold text-purple-700 mb-4">Your holiday includes</h2>
       <ul className="list-disc pl-5 space-y-2 mb-6">
         <li>Naseem's travel Holiday Director as your host & Specialist Local Guides</li>
         <li>A guaranteed twin or double room of your own</li>
@@ -10,7 +10,7 @@ export default function TourBrochure() {
         <li>9 nights in 3 star hotels plus 1 night in flight</li>
         <li>Overseas transfers, other transportation & porterage</li>
       </ul>
-      <h2 className="text-3xl font-semibold text-purple-700 mb-4">INCLUDED HOLIDAY HIGHLIGHTS</h2>
+      <h2 className="text-3xl font-semibold text-purple-700 mb-4">Included holiday highlights</h2>
       <ul className="list-disc pl-5 space-y-2">
         <li>Guided tour of the capital's city highlights</li>
         <li>Walking tour of Khiva's architectural complex</li>

@@ -40,7 +40,7 @@ export function HeroSection() {
   }, [bannerImages]);
 
   return (
-    <section className="relative w-full h-[280px] sm:h-[350px] md:h-[450px] lg:h-[560px] overflow-hidden">
+    <section className="relative h-[320px] w-full overflow-hidden sm:h-[380px] md:h-[460px] lg:h-[560px]">
       {/* Animated Background Images */}
       <AnimatePresence mode="wait">
         {bannerImages.length > 0 ? (
@@ -95,12 +95,12 @@ export function HeroSection() {
         transition={{ duration: 0.8, delay: 0.3 }}
         className="absolute inset-0 flex items-center justify-center z-10"
       >
-        <div className="text-center text-white px-4 max-w-4xl">
+        <div className="max-w-4xl px-4 text-center text-white sm:px-6">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 tracking-tight text-gray-200"
+           className="mb-3 text-3xl font-black tracking-tight text-gray-200 sm:mb-4 sm:text-4xl md:text-5xl lg:text-6xl"
 style={{
   textShadow: "0 3px 15px rgba(0,0,0,0.7)"
 }}
@@ -111,7 +111,7 @@ style={{
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-sm sm:text-base md:text-lg text-white font-medium max-w-2xl mx-auto"
+            className="mx-auto max-w-2xl text-sm font-medium text-white sm:text-base md:text-lg"
             style={{ textShadow: "0 2px 10px rgba(141, 140, 140, 0.7)" }}
           >
             {t("description")}
@@ -124,9 +124,9 @@ style={{
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-black/80 via-black/50 to-transparent py-5 px-4"
+        className="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-black/80 via-black/50 to-transparent px-4 py-4 sm:py-5"
       >
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8 max-w-5xl mx-auto">
+        <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-8">
           {[
             { key: "EXCLUSIVELY_FOR_SOLO_TRAVELLERS" },
             { key: "YOUR_MONEY_PROTECTED" },
@@ -138,7 +138,7 @@ style={{
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 + idx * 0.1 }}
-              className="text-[10px] sm:text-xs text-white/80 font-semibold uppercase tracking-wider"
+              className="text-[10px] font-semibold tracking-wide text-white/80 sm:text-xs"
             >
               {t(item.key)}
             </motion.span>
@@ -148,15 +148,12 @@ style={{
 
       {/* Dots Indicator */}
       {bannerImages.length > 1 && (
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+        <div className="absolute bottom-16 left-1/2 z-30 flex -translate-x-1/2 gap-2 sm:bottom-20">
           {bannerImages.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
-              className={`transition-all duration-300 rounded-full ${idx === currentIndex
-                ? "w-8 h-2 bg-[#007654]"
-                : "w-2 h-2 bg-white/50 hover:bg-white/80"
-                }`}
+              className={`transition-all duration-300 rounded-full ${idx === currentIndex ? "w-8 h-2 bg-[#007654]" : "w-2 h-2 bg-white/50 hover:bg-white/80" }`}
               aria-label={`Slide ${idx + 1}`}
             />
           ))}

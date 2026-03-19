@@ -86,7 +86,7 @@ export default function SanatoryPage() {
           >
             <div className="inline-flex items-center gap-2 bg-[#007654] px-4 py-1.5 rounded-full">
               <HeartPulse size={14} className="text-white" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white">Wellness Retreats</span>
+              <span className="text-[10px] font-bold tracking-widest text-white">Wellness retreats</span>
             </div>
             <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight">
               Sanatoriums
@@ -145,7 +145,7 @@ export default function SanatoryPage() {
                     </p>
                     <div className="flex items-center justify-between pt-3 border-t border-gray-50">
                       <div>
-                        <p className="text-[9px] font-bold uppercase text-gray-400">From</p>
+                        <p className="text-[9px] font-bold text-gray-400">From</p>
                         <p className="text-xl font-black text-[#007654]">${resort.price}</p>
                       </div>
                       <div className="flex items-center gap-1 text-[#007654] text-xs font-bold">
@@ -165,7 +165,7 @@ export default function SanatoryPage() {
       {sanatories.some(s => s.videos && s.videos.length > 0) && (
         <section className="bg-[#1a1a1a] py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <h2 className="text-2xl font-bold text-white mb-8 text-center">Video Gallery</h2>
+            <h2 className="text-2xl font-bold text-white mb-8 text-center">Video gallery</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {sanatories.flatMap(s => s.videos?.map(v => ({ ...v, title: s.title })) || []).slice(0, 4).map((video, idx) => (
                 <motion.div

@@ -52,8 +52,8 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
                                     <MessageCircle className="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <CardTitle className="text-lg">Naseem Support</CardTitle>
-                                    <p className="text-xs text-white/80">Online • Typically responds in minutes</p>
+                                    <CardTitle className="text-lg">Naseem support</CardTitle>
+                                    <p className="text-xs text-white/80">Online • typically responds in minutes</p>
                                 </div>
                             </div>
                             <Button variant="ghost" size="icon" onClick={onClose} className="text-white hover:bg-white/10">
@@ -63,10 +63,7 @@ export function ChatBot({ isOpen, onClose }: ChatBotProps) {
                         <CardContent className="h-80 overflow-y-auto p-4 space-y-4 bg-gray-50/50">
                             {messages.map((msg, i) => (
                                 <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                                    <div className={`max-w-[80%] p-3 rounded-2xl text-sm shadow-sm ${msg.role === "user"
-                                        ? "bg-[#007654] text-white rounded-tr-none"
-                                        : "bg-white text-gray-800 rounded-tl-none"
-                                        }`}>
+                                    <div className={`max-w-[80%] p-3 rounded-2xl text-sm shadow-sm ${msg.role === "user" ? "bg-[#007654] text-white rounded-tr-none" : "bg-white text-gray-800 rounded-tl-none" }`}>
                                         {msg.content}
                                     </div>
                                 </div>

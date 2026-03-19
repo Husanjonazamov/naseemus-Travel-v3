@@ -38,15 +38,15 @@ export const BrochureDrop = ({ onClose }: { onClose: () => void }) => {
         <div className="p-6 w-[400px]">
             <div className="flex items-center justify-between mb-6">
                 <div className="flex flex-col">
-                    <h3 className="text-lg font-bold text-gray-900 leading-none">Quick Download</h3>
+                    <h3 className="text-lg font-bold text-gray-900 leading-none">Quick download</h3>
                     <p className="text-xs text-gray-500 mt-1 font-medium">Select a brochure to download</p>
                 </div>
                 <Link
                     href={`/${locale}/brochure`}
                     onClick={onClose}
-                    className="text-[10px] font-black uppercase tracking-widest text-[#007654] hover:underline flex items-center gap-1"
+                    className="text-[10px] font-black tracking-widest text-[#007654] hover:underline flex items-center gap-1"
                 >
-                    View All <ChevronRight size={12} />
+                    View all <ChevronRight size={12} />
                 </Link>
             </div>
 
@@ -67,7 +67,7 @@ export const BrochureDrop = ({ onClose }: { onClose: () => void }) => {
                                 {brochure.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-[#007654]/60 transition-colors">
+                                <p className="text-[10px] font-black tracking-widest text-gray-400 group-hover:text-[#007654]/60 transition-colors">
                                     {brochure.category}
                                 </p>
                                 <p className="text-sm font-bold text-gray-900 truncate">
@@ -87,7 +87,7 @@ export const BrochureDrop = ({ onClose }: { onClose: () => void }) => {
             <div className="mt-6 pt-4 border-t border-gray-100 flex justify-center">
                 <Link href={`/${locale}/brochure`} onClick={onClose} className="w-full">
                     <Button className="w-full bg-[#dcfae7] hover:bg-[#c7f4d7] text-[#007654] font-bold rounded-xl shadow-none border-none">
-                        All Brochures
+                        All brochures
                     </Button>
                 </Link>
             </div>

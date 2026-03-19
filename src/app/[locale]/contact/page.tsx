@@ -37,9 +37,12 @@ export default function ContactPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      // Mock API call
-      console.log(formData);
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const subject = encodeURIComponent(`Website enquiry from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+      );
+
+      window.location.href = `mailto:naseemstravel@gmail.com?subject=${subject}&body=${body}`;
       setSuccess(true);
       setFormData({ name: "", phone: "", message: "" });
     } catch (err) {
@@ -69,10 +72,10 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-[#007654] via-[#00a572] to-[#007654] overflow-hidden">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#007654] via-[#00a572] to-[#007654] py-16 sm:py-20 md:py-24">
         {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[120px]" />
+        <div className="absolute right-0 top-0 h-[320px] w-[320px] rounded-full bg-white/5 blur-[120px] sm:h-[600px] sm:w-[600px] sm:blur-[150px]" />
+        <div className="absolute bottom-0 left-0 h-[240px] w-[240px] rounded-full bg-white/5 blur-[90px] sm:h-[400px] sm:w-[400px] sm:blur-[120px]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -80,14 +83,14 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6 border border-white/20">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 sm:mb-6">
               <MessageCircle size={16} className="text-white" />
-              <span className="text-white text-sm font-bold uppercase tracking-wider">{t("badge")}</span>
+              <span className="text-xs font-bold tracking-wider text-white sm:text-sm">{t("badge")}</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight">
+            <h1 className="mb-5 text-3xl font-black tracking-tight text-white sm:text-4xl md:mb-6 md:text-6xl lg:text-7xl">
               {t("title")}
             </h1>
-            <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-base text-white/80 sm:text-lg md:text-xl">
               {t("subtitle")}
             </p>
           </motion.div>
@@ -95,22 +98,22 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 -mt-12 relative z-20">
+      <section className="relative z-20 -mt-8 py-12 sm:-mt-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-8">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={info.labelKey}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all group flex flex-col items-center text-center"
+                className="group flex flex-col items-center rounded-3xl border border-gray-100 bg-white p-6 text-center shadow-lg transition-all hover:shadow-xl sm:p-8"
               >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${info.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                <div className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${info.color} shadow-lg transition-transform group-hover:scale-110 sm:mb-6 sm:h-16 sm:w-16`}>
                   <info.icon className="w-8 h-8 text-white" />
                 </div>
-                <p className="text-sm text-gray-500 font-bold uppercase tracking-widest mb-2">{t(info.labelKey)}</p>
-                <p className="text-xl md:text-2xl font-black text-[#1a1a1a]">{t(info.valueKey)}</p>
+                <p className="text-sm text-gray-500 font-bold tracking-widest mb-2">{t(info.labelKey)}</p>
+                <p className="text-lg font-black text-[#1a1a1a] sm:text-xl md:text-2xl">{t(info.valueKey)}</p>
               </motion.div>
             ))}
           </div>
@@ -118,41 +121,41 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-[#dcfae7]/30">
+      <section className="bg-gradient-to-b from-white to-[#dcfae7]/30 py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="mb-10 text-center sm:mb-12"
           >
             <div className="inline-flex items-center gap-2 bg-[#007654]/10 px-4 py-2 rounded-full mb-6 border border-[#007654]/20">
               <span className="w-2 h-2 bg-[#007654] rounded-full animate-pulse" />
-              <span className="text-[#007654] text-sm font-bold uppercase tracking-wider">{t("form_badge")}</span>
+              <span className="text-xs font-bold tracking-wider text-[#007654] sm:text-sm">{t("form_badge")}</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] mb-4">
+            <h2 className="mb-4 text-3xl font-black text-[#1a1a1a] sm:text-4xl md:text-5xl">
               {t("form_title")}
             </h2>
-            <p className="text-gray-600 mb-10">{t("form_subtitle")}</p>
+            <p className="mb-8 text-gray-600 sm:mb-10">{t("form_subtitle")}</p>
           </motion.div>
 
           {success && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mb-8 p-6 bg-green-50 border border-green-200 rounded-3xl flex items-center gap-4"
+              className="mb-8 flex items-center gap-4 rounded-3xl border border-green-200 bg-green-50 p-5 sm:p-6"
             >
               <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
-              <p className="text-green-700 font-bold text-lg">{t("message_sent")}</p>
+              <p className="text-base font-bold text-green-700 sm:text-lg">{t("message_sent")}</p>
             </motion.div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 md:p-12 rounded-[40px] shadow-sm border border-gray-100">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <form onSubmit={handleSubmit} className="space-y-6 rounded-[28px] border border-gray-100 bg-white p-6 shadow-sm sm:space-y-8 sm:rounded-[40px] sm:p-8 md:p-12">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
               <div className="space-y-3">
-                <label className="block text-sm font-black text-gray-900 uppercase tracking-widest">
+                <label className="block text-sm font-black text-gray-900 tracking-widest">
                   {t("full_name")}
                 </label>
                 <input
@@ -161,12 +164,12 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 bg-[#fbfbf9] border-2 border-transparent focus:border-[#007654] rounded-2xl outline-none transition-all text-gray-900 font-bold placeholder:text-gray-300 placeholder:font-medium"
+                  className="w-full rounded-2xl border-2 border-transparent bg-[#fbfbf9] px-5 py-4 font-bold text-gray-900 outline-none transition-all placeholder:font-medium placeholder:text-gray-300 focus:border-[#007654] sm:px-6"
                   placeholder={t("name_placeholder")}
                 />
               </div>
               <div className="space-y-3">
-                <label className="block text-sm font-black text-gray-900 uppercase tracking-widest">
+                <label className="block text-sm font-black text-gray-900 tracking-widest">
                   {t("phone")}
                 </label>
                 <input
@@ -175,14 +178,14 @@ export default function ContactPage() {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 bg-[#fbfbf9] border-2 border-transparent focus:border-[#007654] rounded-2xl outline-none transition-all text-gray-900 font-bold placeholder:text-gray-300 placeholder:font-medium"
+                  className="w-full rounded-2xl border-2 border-transparent bg-[#fbfbf9] px-5 py-4 font-bold text-gray-900 outline-none transition-all placeholder:font-medium placeholder:text-gray-300 focus:border-[#007654] sm:px-6"
                   placeholder={t("phone_placeholder")}
                 />
               </div>
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-black text-gray-900 uppercase tracking-widest">
+              <label className="block text-sm font-black text-gray-900 tracking-widest">
                 {t("message")}
               </label>
               <textarea
@@ -191,7 +194,7 @@ export default function ContactPage() {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-6 py-4 bg-[#fbfbf9] border-2 border-transparent focus:border-[#007654] rounded-2xl outline-none transition-all text-gray-900 font-bold placeholder:text-gray-300 placeholder:font-medium resize-none"
+                className="w-full resize-none rounded-2xl border-2 border-transparent bg-[#fbfbf9] px-5 py-4 font-bold text-gray-900 outline-none transition-all placeholder:font-medium placeholder:text-gray-300 focus:border-[#007654] sm:px-6"
                 placeholder={t("message_placeholder")}
               />
             </div>
@@ -201,7 +204,7 @@ export default function ContactPage() {
               disabled={loading}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-gradient-to-r from-[#007654] to-[#00a572] hover:bg-green-700 disabled:opacity-70 disabled:cursor-not-allowed text-white font-black py-5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-3 text-lg uppercase tracking-widest"
+              className="flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#007654] to-[#00a572] py-4 text-base font-black tracking-widest text-white shadow-xl transition-all disabled:cursor-not-allowed disabled:opacity-70 hover:bg-green-700 sm:py-5 sm:text-lg"
             >
               <Send className="w-6 h-6" />
               {loading ? t("sending") : t("send_message")}
@@ -211,19 +214,19 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-24 bg-white">
+      <section id="faq" className="bg-white py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-12 text-center sm:mb-16"
           >
             <div className="inline-flex items-center gap-2 bg-[#007654]/10 px-4 py-2 rounded-full mb-6 border border-[#007654]/20">
               <span className="w-2 h-2 bg-[#007654] rounded-full animate-pulse" />
-              <span className="text-[#007654] text-sm font-bold uppercase tracking-wider">{tFaq("badge")}</span>
+              <span className="text-xs font-bold tracking-wider text-[#007654] sm:text-sm">{tFaq("badge")}</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] mb-4">
+            <h2 className="mb-4 text-3xl font-black text-[#1a1a1a] sm:text-4xl md:text-5xl">
               {tFaq("title")}
             </h2>
             <p className="text-gray-600 font-medium max-w-2xl mx-auto">
@@ -259,18 +262,18 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-[#007654]/30 transition-all shadow-sm">
+    <div className="overflow-hidden rounded-[24px] border-2 border-gray-100 bg-white shadow-sm transition-all hover:border-[#007654]/30 sm:rounded-3xl">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-8 text-left"
+        className="flex w-full items-center justify-between p-5 text-left sm:p-8"
       >
-        <span className="font-bold text-[#1a1a1a] pr-4 text-lg md:text-xl">{question}</span>
+        <span className="pr-4 text-base font-bold text-[#1a1a1a] sm:text-lg md:text-xl">{question}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
-          className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all shadow-md ${isOpen ? 'bg-[#007654] text-white' : 'bg-[#fbfbf9] text-gray-500'}`}
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl shadow-md transition-all sm:h-12 sm:w-12 ${isOpen ? 'bg-[#007654] text-white' : 'bg-[#fbfbf9] text-gray-500'}`}
         >
-          <ChevronDown size={24} />
+          <ChevronDown size={20} className="sm:h-6 sm:w-6" />
         </motion.div>
       </button>
       <motion.div
@@ -279,7 +282,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="overflow-hidden"
       >
-        <div className="px-8 pb-8 text-gray-600 leading-relaxed text-lg">
+        <div className="px-5 pb-5 text-base leading-relaxed text-gray-600 sm:px-8 sm:pb-8 sm:text-lg">
           {answer}
         </div>
       </motion.div>

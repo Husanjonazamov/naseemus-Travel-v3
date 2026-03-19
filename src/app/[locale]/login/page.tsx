@@ -9,7 +9,7 @@ import { Input } from "@/src/components/ui/input";
 import { Card, CardContent } from "@/src/components/ui/card";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
@@ -18,6 +18,7 @@ import authService from "@/src/services/auth.service";
 
 export default function LoginPage() {
     const t = useTranslations("auth.login");
+    const locale = useLocale();
     const router = useRouter();
     const { login: authContextLogin, isAuthenticated } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
@@ -28,9 +29,9 @@ export default function LoginPage() {
     // Check if user is already logged in
     useEffect(() => {
         if (isAuthenticated) {
-            router.push("/my-bookings");
+            router.push(`/${locale}/my-bookings`);
         }
-    }, [isAuthenticated, router]);
+    }, [isAuthenticated, locale, router]);
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -50,7 +51,7 @@ export default function LoginPage() {
             authContextLogin(response.access, response.refresh, { email });
 
             toast.success("Welcome back!");
-            router.push("/my-bookings");
+            router.push(`/${locale}/my-bookings`);
         } catch (error: any) {
             console.error("Login error:", error);
             const errorMessage = error.response?.data?.detail || "Login failed. Please check your credentials.";
@@ -78,7 +79,7 @@ export default function LoginPage() {
                     <div className="text-center mb-10">
                         <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-4 py-2 rounded-full mb-6">
                             <ShieldCheck size={16} className="text-[#007654]" />
-                            <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">Secure Access</span>
+                            <span className="text-[10px] font-black tracking-widest text-[#007654]">Secure access</span>
                         </div>
                         <h1 className="text-4xl md:text-5xl font-black text-[#1a1a1a] mb-4 tracking-tight">
                             {t("title")}
@@ -92,7 +93,7 @@ export default function LoginPage() {
                         <CardContent className="p-8 md:p-12">
                             <form onSubmit={handleLogin} className="space-y-6">
                                 <div className="space-y-2">
-                                    <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("email")}</label>
+                                    <label className="text-[11px] font-black tracking-widest text-gray-400 ml-1">{t("email")}</label>
                                     <div className="relative group">
                                         <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300 group-focus-within:text-[#007654] transition-colors" />
                                         <Input
@@ -108,8 +109,8 @@ export default function LoginPage() {
 
                                 <div className="space-y-2">
                                     <div className="flex justify-between items-center ml-1">
-                                        <label className="text-[11px] font-black uppercase tracking-widest text-gray-400">{t("password")}</label>
-                                        <Link href="#" className="text-[11px] font-bold text-[#007654] hover:underline uppercase tracking-wider">
+                                        <label className="text-[11px] font-black tracking-widest text-gray-400">{t("password")}</label>
+                                        <Link href={`/${locale}/contact`} className="text-[11px] font-bold text-[#007654] hover:underline tracking-wider">
                                             {t("forgot_password")}
                                         </Link>
                                     </div>
@@ -155,7 +156,7 @@ export default function LoginPage() {
                             <div className="mt-12 text-center">
                                 <p className="text-gray-500 font-medium text-sm">
                                     {t("no_account")}{" "}
-                                    <Link href="/signup" className="text-[#007654] font-black hover:underline ml-1">
+                                    <Link href={`/${locale}/signup`} className="text-[#007654] font-black hover:underline ml-1">
                                         {t("signup_link")}
                                     </Link>
                                 </p>
@@ -165,7 +166,7 @@ export default function LoginPage() {
 
                     <div className="mt-8 text-center flex items-center justify-center gap-8 grayscale opacity-40">
                         {/* Mock Social Trust logos could go here */}
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Trusted by 5K+ Travelers</span>
+                        <span className="text-[10px] font-black tracking-[0.2em] text-gray-400">Trusted by 5K+ travelers</span>
                     </div>
                 </motion.div>
             </main>

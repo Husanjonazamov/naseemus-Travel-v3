@@ -46,30 +46,30 @@ export function ServicesSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-white to-[#dcfae7]/30 py-24 px-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="overflow-hidden bg-gradient-to-b from-white to-[#dcfae7]/30 px-4 py-16 md:py-20">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="mb-12 text-center sm:mb-16 md:mb-20"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-[1px] w-12 bg-[#007654]" />
-            <span className="text-[#007654] font-black uppercase tracking-[0.2em] text-[10px]">
+          <div className="mb-5 flex items-center justify-center gap-3 sm:mb-6">
+            <div className="h-[1px] w-8 bg-[#007654] sm:w-12" />
+            <span className="text-[#007654] font-black tracking-[0.2em] text-[10px]">
               {t("we_take_care_of")}
             </span>
-            <div className="h-[1px] w-12 bg-[#007654]" />
+            <div className="h-[1px] w-8 bg-[#007654] sm:w-12" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1a1a1a] tracking-tight">
+          <h2 className="text-3xl font-black tracking-tight text-[#1a1a1a] sm:text-4xl md:text-5xl lg:text-6xl">
             {t("we_take_care_of")}
           </h2>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-5">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
@@ -81,19 +81,19 @@ export function ServicesSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white rounded-3xl p-8 h-full shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#007654]/20 relative overflow-hidden">
+                <div className="relative h-full overflow-hidden rounded-3xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:border-[#007654]/20 hover:shadow-2xl sm:p-8">
                   {/* Decorative background gradient */}
-                  <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.gradient} rounded-full opacity-0 group-hover:opacity-10 blur-3xl transition-all duration-500`} />
+                  <div className={`absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br ${service.gradient} opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-10`} />
 
                   {/* Icon */}
-                  <div className={`w-16 h-16 ${service.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center`}>
-                      <IconComponent className="w-5 h-5 text-white" strokeWidth={2} />
+                  <div className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl ${service.bgColor} transition-transform duration-300 group-hover:scale-110 sm:mb-6 sm:h-16 sm:w-16`}>
+                    <div className={`flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${service.gradient} sm:h-10 sm:w-10`}>
+                      <IconComponent className="h-5 w-5 text-white" strokeWidth={2} />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-lg font-black text-[#1a1a1a] mb-3 group-hover:text-[#007654] transition-colors">
+                  <h3 className="mb-3 text-base font-black text-[#1a1a1a] transition-colors group-hover:text-[#007654] sm:text-lg">
                     {t(service.titleKey)}
                   </h3>
                   <p className="text-gray-500 text-sm leading-relaxed">
@@ -114,7 +114,7 @@ export function ServicesSection() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="mt-20 h-[2px] bg-gradient-to-r from-transparent via-[#007654]/20 to-transparent"
+          className="mt-16 h-[2px] bg-gradient-to-r from-transparent via-[#007654]/20 to-transparent sm:mt-20"
         />
       </div>
     </section>

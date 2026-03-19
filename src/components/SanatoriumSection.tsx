@@ -37,7 +37,7 @@ export function SanatoriumSection({ sanatoriums }: SanatoriumSectionProps) {
                         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6">
                             <div className="inline-flex items-center gap-3 bg-[#007654]/5 px-5 py-2 rounded-full border border-[#007654]/10">
                                 <div className="h-2 w-2 rounded-full bg-[#007654] animate-pulse"></div>
-                                <span className="text-[#007654] font-black uppercase tracking-[0.2em] text-[10px]">
+                                <span className="text-[#007654] font-black tracking-[0.2em] text-[10px]">
                                     {t("medical_wellness")}
                                 </span>
                             </div>
@@ -94,7 +94,7 @@ export function SanatoriumSection({ sanatoriums }: SanatoriumSectionProps) {
                                                 </div>
                                             </div>
                                             <div className="absolute bottom-6 left-6 right-6">
-                                                <p className="text-white font-black text-xs uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                                                <p className="text-white font-black text-xs tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
                                                     Watch Video Tour
                                                 </p>
                                             </div>

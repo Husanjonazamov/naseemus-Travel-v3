@@ -125,7 +125,18 @@
   }
 
   body {
-    @apply bg-background text-foreground font-plus-jakarta antialiased;
+    @apply bg-background text-foreground font-plus-jakarta antialiased overflow-x-hidden;
+  }
+
+  html {
+    @apply overflow-x-hidden;
+  }
+
+  img,
+  video,
+  iframe,
+  svg {
+    @apply max-w-full;
   }
 
   h1,
@@ -138,15 +149,15 @@
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-7xl;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-7xl;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
   }
 
   p {
-    @apply leading-relaxed text-[#4a4a4a] text-base md:text-lg;
+    @apply leading-relaxed text-[#4a4a4a] text-sm sm:text-base md:text-lg;
   }
 
   a,

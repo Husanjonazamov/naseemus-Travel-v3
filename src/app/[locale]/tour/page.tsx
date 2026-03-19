@@ -76,7 +76,7 @@ export default function TourListPage() {
       <Header />
 
       {/* --- HERO SECTION --- */}
-      <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
+      <section className="relative h-[56vh] min-h-[420px] w-full overflow-hidden sm:min-h-[460px] md:min-h-[500px]">
         <AnimatePresence mode="wait">
           {bannerImages.length > 0 ? (
             <motion.div
@@ -104,12 +104,12 @@ export default function TourListPage() {
         <div className="absolute inset-0 bg-black/50" />
 
         {/* Hero Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center sm:px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-2xl"
+            className="mb-4 text-4xl font-black tracking-tight text-white drop-shadow-2xl sm:mb-6 md:text-6xl lg:text-7xl"
           >
             {t("tours")}
           </motion.h1>
@@ -117,7 +117,7 @@ export default function TourListPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-2xl text-white/90 font-medium max-w-2xl drop-shadow-lg mb-10"
+            className="mb-8 max-w-2xl text-base font-medium text-white/90 drop-shadow-lg sm:text-lg md:mb-10 md:text-2xl"
           >
             {t("bestDirections")}
           </motion.p>
@@ -127,7 +127,7 @@ export default function TourListPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             onClick={scrollToTours}
-            className="group flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-bold transition-all duration-300 hover:scale-105"
+            className="group flex items-center gap-3 rounded-full border border-white/30 bg-white/10 px-6 py-3 font-bold text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white/20 sm:px-8 sm:py-4"
           >
             {t("seePrices")}
             <ArrowDown className="group-hover:translate-y-1 transition-transform" />
@@ -136,7 +136,7 @@ export default function TourListPage() {
       </section>
 
       {/* --- TOURS GRID SECTION --- */}
-      <main id="tours-grid" className="flex-grow py-20 px-4 md:px-8 max-w-[1400px] mx-auto w-full">
+      <main id="tours-grid" className="mx-auto w-full max-w-[1400px] flex-grow px-4 py-16 md:px-8 md:py-20">
         {loading ? (
           <div className="flex flex-col items-center justify-center h-64 gap-4">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#007654]"></div>
@@ -154,7 +154,7 @@ export default function TourListPage() {
                 transition: { staggerChildren: 0.1 }
               }
             }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8"
           >
             {tours.map((tour) => (
               <motion.div
@@ -163,7 +163,7 @@ export default function TourListPage() {
                   hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
                 }}
-                className="h-[520px]"
+                className="h-[480px] sm:h-[520px]"
               >
                 <TourCard tour={tour} />
               </motion.div>

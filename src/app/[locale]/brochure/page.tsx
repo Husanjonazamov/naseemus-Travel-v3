@@ -5,10 +5,11 @@ import { useTranslations } from "next-intl";
 export const dynamic = "force-dynamic";
 
 type BrochurePageProps = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export default function BrochurePage({ params }: BrochurePageProps) {
+export default async function BrochurePage({ params }: BrochurePageProps) {
+  await params;
   const t = useTranslations("content_section");
 
   return (
@@ -41,9 +42,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const messages = (await import(`@/src/messages/${params.locale}.json`))
+  const { locale } = await params;
+  const messages = (await import(`@/src/messages/${locale}.json`))
     .default;
   return { title: messages.content_section.tour_title };
 }

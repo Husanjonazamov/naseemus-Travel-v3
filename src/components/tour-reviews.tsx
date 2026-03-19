@@ -82,7 +82,7 @@ export function TourReviews({ tourId }: { tourId: number }) {
                     {/* Left Column: Title & Overall Rating */}
                     <div className="lg:w-1/3 space-y-8">
                         <div>
-                            <span className="bg-[#E8F5E9] text-[#007654] px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-4 inline-block">
+                            <span className="bg-[#E8F5E9] text-[#007654] px-5 py-2 rounded-full text-xs font-black tracking-widest mb-4 inline-block">
                                 {t("view_reviews")}
                             </span>
                             <h2 className="text-4xl md:text-6xl font-black text-[#1a1a1a] tracking-tight leading-[1.05]">
@@ -99,7 +99,7 @@ export function TourReviews({ tourId }: { tourId: number }) {
                                         <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
                                     ))}
                                 </div>
-                                <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                                <p className="text-[10px] font-black text-gray-400 tracking-widest">
                                     Average Rating
                                 </p>
                             </div>
@@ -130,7 +130,7 @@ export function TourReviews({ tourId }: { tourId: number }) {
                                                         <h4 className="font-black text-[#1a1a1a] text-xl leading-tight group-hover:text-[#007654] transition-colors">
                                                             {review.name}
                                                         </h4>
-                                                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">
+                                                        <p className="text-[10px] font-bold text-gray-400 tracking-widest mt-1">
                                                             {review.date}
                                                         </p>
                                                     </div>

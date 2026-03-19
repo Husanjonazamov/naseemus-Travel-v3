@@ -111,7 +111,7 @@ export function ContentSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/40 to-transparent" />
               <div className="absolute top-6 left-6">
-                <span className="bg-[#007654] text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full">
+                <span className="bg-[#007654] text-white text-[10px] font-black tracking-widest px-4 py-2 rounded-full">
                   {type === "tour" ? t("tour_badge") : t("blog_badge")}
                 </span>
               </div>
@@ -127,10 +127,10 @@ export function ContentSection() {
 
               <div className="mt-auto flex items-center justify-between">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-9 h-9 flex-shrink-0 rounded-full bg-[#dcfae7] flex items-center justify-center text-[#007654] font-black text-xs uppercase">
+                  <div className="w-9 h-9 flex-shrink-0 rounded-full bg-[#dcfae7] flex items-center justify-center text-[#007654] font-black text-xs">
                     {type === "tour" ? "TR" : "BL"}
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 truncate">
+                  <span className="text-[10px] font-black tracking-widest text-gray-400 truncate">
                     {card.author || t("specialist")}
                   </span>
                 </div>
@@ -174,7 +174,7 @@ export function ContentSection() {
           <div className="mb-14">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-[1px] w-10 bg-[#007654]" />
-              <span className="text-[#007654] font-black uppercase tracking-[0.2em] text-[10px]">{t("blog_subtitle")}</span>
+              <span className="text-[#007654] font-black tracking-[0.2em] text-[10px]">{t("blog_subtitle")}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight">
               {t("blog_title")}
@@ -193,7 +193,7 @@ export function ContentSection() {
           <div className="mb-14">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-[1px] w-10 bg-[#007654]" />
-              <span className="text-[#007654] font-black uppercase tracking-[0.2em] text-[10px]">{t("tour_subtitle")}</span>
+              <span className="text-[#007654] font-black tracking-[0.2em] text-[10px]">{t("tour_subtitle")}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight">
               {t("tour_title")}
@@ -223,15 +223,15 @@ export function ContentSection() {
             <div className="flex gap-10">
               <div className="flex flex-col items-center">
                 <ShieldCheck size={28} className="text-[#007654] mb-2" />
-                <span className="text-[10px] font-black uppercase text-gray-400 tracking-widest">{t("certified")}</span>
+                <span className="text-[10px] font-black text-gray-400 tracking-widest">{t("certified")}</span>
               </div>
               <div className="flex flex-col items-center">
                 <Award size={28} className="text-[#007654] mb-2" />
-                <span className="text-[10px] font-black uppercase text-gray-400 tracking-widest">{t("awarded")}</span>
+                <span className="text-[10px] font-black text-gray-400 tracking-widest">{t("awarded")}</span>
               </div>
               <div className="flex flex-col items-center">
                 <Users size={28} className="text-[#007654] mb-2" />
-                <span className="text-[10px] font-black uppercase text-gray-400 tracking-widest">{t("global")}</span>
+                <span className="text-[10px] font-black text-gray-400 tracking-widest">{t("global")}</span>
               </div>
             </div>
           </div>

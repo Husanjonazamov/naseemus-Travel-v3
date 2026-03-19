@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, User } from "lucide-react";
 import { Button } from "./ui/button";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 interface BlogCardProps {
     post: {
@@ -14,6 +14,7 @@ interface BlogCardProps {
         title: string;
         description: string;
         image: string;
+        slug?: string;
         created_at?: string;
         author?: string;
     };
@@ -27,6 +28,7 @@ const slugify = (text: string) =>
 
 export function BlogCard({ post }: BlogCardProps) {
     const t = useTranslations("blog");
+    const locale = useLocale();
 
     return (
         <motion.div
@@ -47,14 +49,14 @@ export function BlogCard({ post }: BlogCardProps) {
             </div>
 
             <div className="p-6 flex flex-col flex-grow">
-                <div className="flex items-center gap-4 mb-3 text-[10px] font-bold uppercase tracking-widest text-[#007654]">
+                <div className="flex items-center gap-4 mb-3 text-[10px] font-bold tracking-widest text-[#007654]">
                     <span className="flex items-center gap-1">
                         <Calendar size={12} />
-                        {post.created_at || "Jan 20, 2026"}
+                        {post.created_at || t("date")}
                     </span>
                     <span className="flex items-center gap-1">
                         <User size={12} />
-                        {post.author || "Admin"}
+                        {post.author || t("author")}
                     </span>
                 </div>
 
@@ -67,7 +69,7 @@ export function BlogCard({ post }: BlogCardProps) {
                 </p>
 
                 <div className="mt-auto pt-4 border-t border-gray-50">
-                    <Link href={`/blog/${slugify(post.title)}`}>
+                    <Link href={`/${locale}/blog/${post.slug || slugify(post.title)}`}>
                         <Button
                             variant="ghost"
                             className="p-0 h-auto text-[#007654] font-bold text-sm hover:bg-transparent group/btn whitespace-nowrap"

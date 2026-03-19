@@ -17,8 +17,8 @@
   },
   "sanatorium": {
     "medical_wellness": "Tibbiyot va Sog'lomlashtirish",
-    "amenities_included": "Xizmatlar To'plami",
-    "view_gallery": "Galereyani Ko'rish"
+    "amenities_included": "Xizmatlar to'plami",
+    "view_gallery": "Galereyani ko'rish"
   },
   "new_holidays": {
     "title": "Yangi sayohatlarimiz",
@@ -81,7 +81,7 @@
     "max_group": "Maksimal guruh: 15",
     "individual_pricing": "Individual narxlash",
     "book_now": "Hozir bron qiling",
-    "gallery_subtitle": "Sayohat Taassurotlari Gallereyasi",
+    "gallery_subtitle": "Sayohat taassurotlari gallereyasi",
     "gallery_title": "Video va Suratlar"
   },
   "hotel": {
@@ -144,25 +144,25 @@
   },
   "working_hours": {
     "working_hours_title": "Ish vaqti",
-    "monday_to_friday": "Dushanba - Juma: 09:00 - 18:00",
+    "monday_to_friday": "Dushanba - juma: 09:00 - 18:00",
     "saturday": "Shanba: 10:00 - 16:00",
-    "sunday": "Yakshanba: Yopiq"
+    "sunday": "Yakshanba: yopiq"
   },
   "header": {
     "holiday_types": "Bay",
     "offers": "Takliflar",
     "inspire_me": "Ilhom ber",
     "our_services": "Xizmatlarimiz",
-    "contact_us": "BOG'LANISH",
+    "contact_us": "Bog'lanish",
     "phone": "+998-94-001-47-41",
     "address": "Toshkent, Asosiy ko'cha 123",
     "company_name": "Naseem's Travel",
     "brochureRequest": "Broshyura so‘rovi",
     "search": "Qidirish",
-    "tours": "TURLAR",
-    "blog": "BLOG",
-    "about_us": "BIZ HAQIMIZDA",
-    "community": "JAMOA",
+    "tours": "Turlar",
+    "blog": "Blog",
+    "about_us": "Biz haqimizda",
+    "community": "Jamoa",
     "languageSwitcher": {
       "uz": "UZ",
       "ru": "RU",
@@ -180,7 +180,7 @@
     "description": "Orzuingizdagi ta'tilni bugun bron qiling va parvozlar, mehmonxonalar hamda paketlar uchun 40% gacha tejang.",
     "cta": "Hozir bron qiling",
     "placeholder": "Qayerga bormoqchisiz?",
-    "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Faqat yolg‘iz sayohatchilar uchun",
+    "EXCLUSIVELY_FOR_SOLO_TRAVELLERS": "Puxta ishlab chiqilgan guruh sayohat tajribalari",
     "OVER_25_YEARS_EXPERTISE": "25 yildan ortiq tajriba",
     "YOUR_MONEY_PROTECTED": "Pul mablag‘ingiz 100% himoyalangan",
     "HOLIDAY_ASSURANCE_GUARANTEE": "Dam olish kafolati",
@@ -194,7 +194,7 @@
       "accommodation": "Joylashuv",
       "reviews": "Sharhlar",
       "optional_excursions": "Qo‘shimcha sayohatlar",
-      "dates": "Sanalar"  
+      "dates": "Sanalar"
     },
     "title": "O‘zbekiston va Ipak yo‘li",
     "price": "$2399 kishi boshiga",
@@ -202,7 +202,7 @@
     "videos": "Videolar",
     "popular_tour": "Mashhur sayohat",
     "new_tour": "Yangi sayohat",
-    "departure_dates": "Sentabr 2025 - Oktyabr 2026",
+    "departure_dates": "Sentabr 2025 - oktyabr 2026",
     "cta_book": "Bron qilish",
     "overview": "Markaziy Osiyoning yuragida unutilmas safar. Toshkent, Xiva, Buxoro va Samarqandning go‘zalligini kashf eting.",
     "type": "Klassik tur",
@@ -283,7 +283,7 @@
       "cta": "Bron qiling"
     },
     "india": {
-      "title": "Ilhomlantiruvchi Hindiston",
+      "title": "Ilhomlantiruvchi hindiston",
       "description": "Hindistonning sehrli go‘zalligini his eting.",
       "cta": "Bron qiling"
     },
@@ -416,34 +416,34 @@
     "author": "Anne"
   },
   "newsletter": {
-    "title": "Ilhomlantirilgan Takliflarni Oling",
+    "title": "Ilhomlantirilgan takliflarni oling",
     "subtitle": "Minglab sayohatchilar bilan birga sayohat ilhomlari, eksklyuziv takliflar va ichki sirlarni oling.",
-    "button": "Hozir Obuna Bo'ling",
-    "badge": "Maxsus Takliflar",
+    "button": "Hozir obuna bo'ling",
+    "badge": "Maxsus takliflar",
     "trust": "10,000+ sayohatchi bilan qo'shiling. Istalgan vaqtda obunani bekor qiling."
   },
   "about": {
-    "title": "Faqat Siz Uchun Tatillar",
+    "title": "Faqat siz uchun tatillar",
     "paragraph1": "Biz yakka sayohatlar bo‘yicha mutaxassislar bo‘lib, siz faqat dam olishdan zavqlanasiz.",
     "paragraph2": "Qaysi manzilni tanlashingizdan qat'i nazar, hammasini biz tashkil qilamiz.",
     "paragraph3": "25 yillik tajribamiz va yo‘lboshchilarimiz yordamida o‘zingizni erkin his qilasiz.",
-    "our_story": "Bizning Hikoyamiz",
-    "years_experience": "Yillik Tajriba",
+    "our_story": "Bizning hikoyamiz",
+    "years_experience": "Yillik tajriba",
     "highlights": {
       "passion": "Mehr",
       "expertise": "Mahorat",
       "community": "Jamoa",
       "quality": "Sifat"
     },
-    "badge": "Bizning Hikoyamiz",
+    "badge": "Bizning hikoyamiz",
     "passion": "Mehr",
     "expertise": "Mahorat",
     "community": "Jamoa",
     "quality": "Sifat"
   },
   "blog": {
-    "title": "BLOGLARIMIZNI O'QING",
-    "explore_button": "KO'RISH →",
+    "title": "Bloglarimizni o'qing",
+    "explore_button": "Ko'rish →",
     "balkan_explorer": {
       "title": "Balkan sayohati",
       "description": "Yevropaning kam o‘rganilgan joylarini kashf eting."
@@ -616,10 +616,10 @@
     "account": "Mening hisobim"
   },
   "whyChooseUs": {
-    "title": "Nega Naseem Travel?",
+    "title": "Nega naseem travel?",
     "subtitle": "Biz sizning kutganingizdan oshib ketadigan ajoyib xizmat va unutilmas tajribalarni taqdim etishga intildik.",
     "trustedSecurity": {
-      "title": "Ishonchli Xavfsizlik",
+      "title": "Ishonchli xavfsizlik",
       "description": "Sizning xavfsizligingiz va himoyangiz bizning asosiy ustuvorliklarimizdir. Ma'lumotlaringiz va bronlaringizni himoya qilish uchun sanoat standartlaridan foydalanamiz."
     },
     "support247": {
@@ -627,15 +627,15 @@
       "description": "Bizning sayohat mutaxassislarimiz har qanday savol yoki favqulodda holatlar uchun kechayu kunduz yordam berishga tayyor."
     },
     "premiumQuality": {
-      "title": "Premium Sifat",
+      "title": "Premium sifat",
       "description": "Sizga haqiqiy premium va esda qoladigan tajriba berish uchun faqat eng yaxshi turlar va sanatoriyalarni tanlaymiz."
     },
     "bestPrice": {
-      "title": "Eng Yaxshi Narx Kafolati",
+      "title": "Eng yaxshi narx kafolati",
       "description": "Sayohat tajribangiz sifatini pasaytirmasdan raqobatbardosh narxlar va eksklyuziv takliflardan bahramand bo'ling."
     },
     "globalExpertise": {
-      "title": "Global Tajriba",
+      "title": "Global tajriba",
       "description": "Sayohat sohasidagi ko'p yillik tajribamiz bilan sizning manzillaringiz uchun ekspert ko'rsatmalar va mahalliy tushunchalarni taqdim etamiz."
     }
   },
@@ -667,27 +667,27 @@
     "badge": "FAQ"
   },
   "companyInfo": {
-    "subtitle": "Biz Haqimizda",
+    "subtitle": "Biz haqimizda",
     "title": "Naseem's Travel",
-    "slogan": "Care. Comfort. Confidence.",
+    "slogan": "Care. comfort. confidence.",
     "description": "Buyuk Ipak Yo'li bo'ylab unutilmas guruhli sayohatlar uchun ishonchli hamkoringiz.",
     "paragraph1": "Naseem's Travel — Buyuk Britaniyada ro'yxatdan o'tgan sayohat kompaniyasi bo'lib, faqat Markaziy Osiyo bo'ylab guruhli turlarga ixtisoslashgan. O'zbekiston, Qozog'iston, Qirg'iziston va boshqa mamlakatlar bo'yicha chuqur bilimga ega holda, biz sayohatchilarni qadimiy shaharlar, ajoyib manzaralar va boy madaniy merosni o'rganish uchun birlashtiruvchi sayohatlar yaratamiz.",
     "paragraph2": "An'anaviy tur operatorlaridan farqli o'laroq, biz faqat guruhli tajribalarga e'tibor qaratamiz. Bu bizga raqobatbardosh narxlarni taklif qilish, sayohatchilar o'rtasida mazmunli aloqalarni o'rnatish va individual sayohat taqdim eta olmaydigan darajadagi mahalliy ekspertizani ta'minlash imkonini beradi.",
     "highlight": {
-      "title": "Faqat Guruhli Turlar",
+      "title": "Faqat guruhli turlar",
       "description": "Biz faqat guruhli sayohatlarga ixtisoslashamiz. Bu noyob yondashuv bizga chuqur ta'sirli tajribalar yaratish va sayohatingiz uchun eng yaxshi qiymatni taklif qilish imkonini beradi. O'xshash fikrli sarguzashtchilar bilan sayohat qiling va birga xotiralar yarating."
     },
     "features": {
       "groupTours": {
-        "title": "Guruhli Tajribalar",
+        "title": "Guruhli tajribalar",
         "description": "Dunyo bo'ylab o'xshash fikrli sayohatchilar bilan tanlangan guruhli sayohatlar."
       },
       "silkRoad": {
-        "title": "Ipak Yo'li Mutaxassislari",
+        "title": "Ipak yo'li mutaxassislari",
         "description": "Markaziy Osiyo tarixi, madaniyati va yashirin durdonalari bo'yicha chuqur bilim."
       },
       "experience": {
-        "title": "Tasdiqlangan Sifat",
+        "title": "Tasdiqlangan sifat",
         "description": "Unutilmas sayohat xotiralarini yaratishda ko'p yillik tajriba."
       },
       "safety": {
@@ -698,11 +698,11 @@
     "stats": {
       "tours": {
         "value": "50+",
-        "label": "Yillik Turlar"
+        "label": "Yillik turlar"
       },
       "travelers": {
         "value": "5000+",
-        "label": "Mamnun Sayohatchilar"
+        "label": "Mamnun sayohatchilar"
       },
       "countries": {
         "value": "12",
@@ -710,7 +710,7 @@
       },
       "years": {
         "value": "10+",
-        "label": "Yillik Tajriba"
+        "label": "Yillik tajriba"
       }
     }
   },

@@ -48,7 +48,7 @@ export function NewTouring() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-3xl">
-            <h4 className="text-[#007654] font-black uppercase tracking-[0.3em] text-[10px] mb-4">{t("subtitle")}</h4>
+            <h4 className="text-[#007654] font-black tracking-[0.3em] text-[10px] mb-4">{t("subtitle")}</h4>
             <h2 className="text-5xl md:text-6xl font-black text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
               {t("newHoliday")}
             </h2>

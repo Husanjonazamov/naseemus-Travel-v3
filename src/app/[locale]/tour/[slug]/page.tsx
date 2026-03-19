@@ -148,7 +148,7 @@ export default function TourDetail() {
       <div className="relative z-10 w-full">
 
         {/* Premium Hero Section */}
-        <section className="relative w-full lg:h-[85vh] min-h-[500px] md:min-h-[600px] overflow-hidden">
+        <section className="relative min-h-[460px] w-full overflow-hidden md:min-h-[560px] lg:h-[85vh] lg:min-h-[600px]">
           {/* Background Image with Parallax-ready effect */}
           <motion.div
             initial={{ scale: 1.1 }}
@@ -167,7 +167,7 @@ export default function TourDetail() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-[#fbfbf9]" />
           </motion.div>
 
-          <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center lg:items-start lg:justify-end pb-12 md:pb-24 lg:pb-32">
+          <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-4 pb-10 sm:px-6 sm:pb-16 md:pb-24 lg:items-start lg:justify-end lg:pb-32">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -175,7 +175,7 @@ export default function TourDetail() {
               className="max-w-3xl text-center lg:text-left flex flex-col items-center lg:items-start"
             >
               {/* Badges */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6 md:mb-8">
+              <div className="mb-5 flex flex-wrap items-center justify-center gap-3 lg:justify-start md:mb-8">
                 {(tour.is_popular || tour.is_new) && (
                   <div className="bg-white/20 backdrop-blur-xl border border-white/30 px-3 md:px-4 py-1.5 rounded-full flex items-center gap-2">
                     {tour.is_popular ? (
@@ -183,14 +183,14 @@ export default function TourDetail() {
                     ) : (
                       <Award size={12} className="text-blue-400" strokeWidth={3} />
                     )}
-                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-white">
+                    <span className="text-[9px] md:text-[10px] font-black tracking-widest text-white">
                       {tour.is_popular ? t("popular_tour") : t("new_tour")}
                     </span>
                   </div>
                 )}
                 <div className="bg-[#007654] px-3 md:px-4 py-1.5 rounded-full flex items-center gap-2 shadow-xl shadow-black/20">
                   <ShieldCheck size={12} className="text-white" />
-                  <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-white">{detailT("guaranteed_departure")}</span>
+                  <span className="text-[9px] md:text-[10px] font-black tracking-widest text-white">{detailT("guaranteed_departure")}</span>
                 </div>
                 <button
                   onClick={toggleLike}
@@ -200,23 +200,23 @@ export default function TourDetail() {
                 </button>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 md:mb-8 tracking-tighter leading-[1.1] md:leading-[1] drop-shadow-2xl text-center lg:text-left">
+              <h1 className="mb-5 text-center text-4xl font-black leading-[1.08] tracking-tighter text-white drop-shadow-2xl sm:text-5xl md:mb-8 md:text-6xl md:leading-[1] lg:text-left lg:text-8xl">
                 {tour.title}
               </h1>
 
               {/* Mobile Price Display (Visible on mobile/tablet) */}
-              <div className="lg:hidden mb-8 text-center bg-white/10 backdrop-blur-lg border border-white/20 p-4 rounded-2xl">
-                <p className="text-[10px] font-black uppercase tracking-widest text-white/60 mb-1">{detailT("starting_from")}</p>
-                <p className="text-4xl font-black text-white">${tour.price}</p>
+              <div className="mb-6 rounded-2xl border border-white/20 bg-white/10 p-4 text-center backdrop-blur-lg lg:hidden md:mb-8">
+                <p className="text-[10px] font-black tracking-widest text-white/60 mb-1">{detailT("starting_from")}</p>
+                <p className="text-3xl font-black text-white sm:text-4xl">${tour.price}</p>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-8">
+              <div className="flex flex-wrap items-center justify-center gap-5 lg:justify-start md:gap-8">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl md:rounded-2xl flex items-center justify-center text-white">
                     <Clock size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div className="text-left">
-                    <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-white/60 mb-0.5">{detailT("duration")}</p>
+                    <p className="text-[9px] md:text-[10px] font-black tracking-[0.2em] text-white/60 mb-0.5">{detailT("duration")}</p>
                     <p className="text-lg md:text-xl font-bold text-white leading-none">{tour.date} {t("duration")}</p>
                   </div>
                 </div>
@@ -225,14 +225,14 @@ export default function TourDetail() {
                     <Star size={20} className="md:w-6 md:h-6 fill-yellow-400 text-yellow-400" />
                   </div>
                   <div className="text-left">
-                    <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-white/60 mb-0.5">{detailT("rating")}</p>
+                    <p className="text-[9px] md:text-[10px] font-black tracking-[0.2em] text-white/60 mb-0.5">{detailT("rating")}</p>
                     <p className="text-lg md:text-xl font-bold text-white leading-none">4.9/5.0</p>
                   </div>
                 </div>
               </div>
 
               {/* Mobile CTA */}
-              <div className="lg:hidden mt-10 w-full max-w-xs">
+              <div className="mt-8 w-full max-w-xs lg:hidden md:mt-10">
                 <Button
                   onClick={() => {
                     const element = document.getElementById('booking-section');
@@ -256,7 +256,7 @@ export default function TourDetail() {
           >
             <div className="bg-white/90 backdrop-blur-2xl p-8 rounded-[40px] shadow-[0_32px_128px_-16px_rgba(0,0,0,0.3)] border border-white/40 w-80">
               <div className="mb-6">
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-1">{detailT("starting_from")}</p>
+                <p className="text-[10px] font-black tracking-[0.2em] text-gray-400 mb-1">{detailT("starting_from")}</p>
                 <div className="flex items-baseline gap-1">
                   <span className="text-5xl font-black text-[#1a1a1a]">${tour.price}</span>
                   <span className="text-gray-400 font-bold ml-1">/pp</span>
@@ -289,10 +289,10 @@ export default function TourDetail() {
         </section>
 
         {/* Media Marquee Section */}
-        <div className="bg-[#fbfbf9] py-12">
-          <div className="max-w-7xl mx-auto px-4 mb-8">
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#007654]/60">{detailT("gallery_subtitle")}</span>
-            <h2 className="text-3xl font-black text-[#1a1a1a] mt-2">{detailT("gallery_title")}</h2>
+        <div className="bg-[#fbfbf9] py-10 sm:py-12">
+          <div className="mx-auto mb-8 max-w-7xl px-4 sm:px-6">
+            <span className="text-[10px] font-black tracking-[0.4em] text-[#007654]/60">{detailT("gallery_subtitle")}</span>
+            <h2 className="mt-2 text-2xl font-black text-[#1a1a1a] sm:text-3xl">{detailT("gallery_title")}</h2>
           </div>
           <MediaMarquee
             images={
@@ -303,10 +303,10 @@ export default function TourDetail() {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto py-20 px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-16">
             {/* Left Column: Overview & Itinerary */}
-            <div className="lg:col-span-2 space-y-24">
+            <div className="space-y-16 lg:col-span-2 lg:space-y-24">
               <div id="overview">
                 <TourOverview tour={tour as any} />
               </div>
@@ -331,7 +331,7 @@ export default function TourDetail() {
             </div>
 
             {/* Right Column: Details & Booking Form */}
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12">
               <div id="booking-section">
                 <TourDetails tour={tour as any} />
               </div>

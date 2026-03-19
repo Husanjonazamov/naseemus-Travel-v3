@@ -75,7 +75,7 @@ export function MediaSlider({ images, videos = [] }: MediaSliderProps) {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
                             <div className="absolute top-12 left-12 bg-white/10 backdrop-blur-xl px-6 py-3 rounded-full flex items-center gap-3 border border-white/20">
                                 <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                                <span className="text-white text-[10px] font-black uppercase tracking-[0.3em]">Cinematic Tour</span>
+                                <span className="text-white text-[10px] font-black tracking-[0.3em]">Cinematic tour</span>
                             </div>
                         </div>
                     ) : (
@@ -108,8 +108,7 @@ export function MediaSlider({ images, videos = [] }: MediaSliderProps) {
                             <button
                                 key={idx}
                                 onClick={() => setCurrentIndex(idx)}
-                                className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentIndex ? "w-10 bg-white" : "w-1.5 bg-white/30"
-                                    }`}
+                                className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentIndex ? "w-10 bg-white" : "w-1.5 bg-white/30" }`}
                             />
                         ))}
                     </div>
@@ -124,7 +123,7 @@ export function MediaSlider({ images, videos = [] }: MediaSliderProps) {
 
                 <div className="hidden md:flex items-center gap-3 bg-white px-6 py-4 rounded-full shadow-2xl">
                     <Maximize2 size={16} className="text-[#007654]" />
-                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-500">
+                    <span className="text-[10px] font-black tracking-widest text-gray-500">
                         {currentIndex + 1} / {allMedia.length} Media Assets
                     </span>
                 </div>

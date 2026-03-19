@@ -2,11 +2,18 @@ import { TrustBadges } from "@/src/components/trust-badges"
 
 import { FloatingButtons } from "@/src/components/floating-buttons"
 
-import { Footer } from "react-day-picker"
+import { Footer } from "@/src/components/footer"
 import { Button } from "@/src/components/ui/button"
 import { Header } from "@/src/components/header"
+import Link from "next/link"
 
-export default function BookNowPage() {
+type BookNowPageProps = {
+  params: { locale: string };
+}
+
+export default function BookNowPage({ params }: BookNowPageProps) {
+  const locale = params.locale;
+
   return (
     <div className="min-h-screen bg-[#dcfae7]">
       <Header />
@@ -16,7 +23,7 @@ export default function BookNowPage() {
       <main className="py-16">
         {/* Hero Section */}
         <section className="container mx-auto px-4 text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-purple-700 mb-8">LAST MINUTE SOLO HOLIDAYS</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-purple-700 mb-8">Last minute solo holidays</h1>
 
           <div className="max-w-4xl mx-auto space-y-6 text-gray-700 text-lg leading-relaxed">
             <p>
@@ -33,7 +40,7 @@ export default function BookNowPage() {
 
         {/* Holidays by Month Section */}
         <section className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-700 text-center mb-12">HOLIDAYS BY MONTH</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-purple-700 text-center mb-12">Holidays by month</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* August Card */}
@@ -45,13 +52,15 @@ export default function BookNowPage() {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                  <h3 className="text-white text-3xl font-bold">AUGUST</h3>
+                  <h3 className="text-white text-3xl font-bold">August</h3>
                 </div>
               </div>
               <div className="p-6">
-                <Button className="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 text-lg font-semibold">
-                  Book Now
-                </Button>
+                <Link href={`/${locale}/tour`} className="block">
+                  <Button className="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 text-lg font-semibold">
+                    View Tours
+                  </Button>
+                </Link>
               </div>
             </div>
 
@@ -64,13 +73,15 @@ export default function BookNowPage() {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                  <h3 className="text-white text-3xl font-bold">SEPTEMBER</h3>
+                  <h3 className="text-white text-3xl font-bold">September</h3>
                 </div>
               </div>
               <div className="p-6">
-                <Button className="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 text-lg font-semibold">
-                  Book Now
-                </Button>
+                <Link href={`/${locale}/tour`} className="block">
+                  <Button className="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 text-lg font-semibold">
+                    View Tours
+                  </Button>
+                </Link>
               </div>
             </div>
 
@@ -83,13 +94,15 @@ export default function BookNowPage() {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                  <h3 className="text-white text-3xl font-bold">OCTOBER</h3>
+                  <h3 className="text-white text-3xl font-bold">October</h3>
                 </div>
               </div>
               <div className="p-6">
-                <Button className="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 text-lg font-semibold">
-                  Book Now
-                </Button>
+                <Link href={`/${locale}/tour`} className="block">
+                  <Button className="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 text-lg font-semibold">
+                    View Tours
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

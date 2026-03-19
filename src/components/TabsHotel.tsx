@@ -13,7 +13,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DoneIcon from '@mui/icons-material/Done';
 import RemoveIcon from '@mui/icons-material/Remove';
 import SearchIcon from '@mui/icons-material/Search';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 
 
@@ -33,6 +33,7 @@ interface City {
 
 const TabsHotel = ({ active }: Props) => {
   const t = useTranslations("hotel");
+  const locale = useLocale();
   const [openCity, setOpenCity] = useState(false);
   const [ageOpen, setAgeOpen] = useState(false);
   const [dataOpen, setDataOpen] = useState(false);
@@ -91,12 +92,12 @@ const TabsHotel = ({ active }: Props) => {
         <div className="mt-12 bg-white/95 backdrop-blur-xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-white/20 p-2 rounded-[32px] w-full max-w-[1240px] grid grid-cols-4 items-center max-lg:hidden font-medium">
 
           {/* City Selection */}
-          <div className="relative gap-2 h-full ">
+          <div className="relative gap-2 h-full">
             <div
               onClick={() => { setOpenCity(!openCity); setSearch(''); }}
               className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors"
             >
-              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t('directions')}</Label>
+              <Label className="font-bold text-xs tracking-widest text-gray-400 pl-1">{t('directions')}</Label>
               <div className="relative">
                 <Input
                   className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
@@ -165,12 +166,12 @@ const TabsHotel = ({ active }: Props) => {
           </div>
 
           {/* Date Selection */}
-          <div className="relative gap-2 h-full ">
+          <div className="relative gap-2 h-full">
             <div
               onClick={() => setDataOpen(!dataOpen)}
               className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors border-l border-gray-100"
             >
-              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t('start_date')}</Label>
+              <Label className="font-bold text-xs tracking-widest text-gray-400 pl-1">{t('start_date')}</Label>
               <div className="relative">
                 <Input
                   className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
@@ -205,14 +206,14 @@ const TabsHotel = ({ active }: Props) => {
                 >
                   <div className="flex gap-4 items-center mb-6">
                     <div className="flex-1 bg-gray-50 p-3 rounded-2xl border-none">
-                      <Label className="text-[10px] uppercase font-bold text-gray-400 mb-1 block">{t('start_date')}</Label>
+                      <Label className="text-[10px] font-bold text-gray-400 mb-1 block">{t('start_date')}</Label>
                       <span className="text-base font-bold text-gray-700">
                         {fromDate ? formatDateString(fromDate) : t('when')}
                       </span>
                     </div>
                     <ArrowRightAltIcon color="action" />
                     <div className="flex-1 bg-gray-50 p-3 rounded-2xl border-none">
-                      <Label className="text-[10px] uppercase font-bold text-gray-400 mb-1 block">{t('departure')}</Label>
+                      <Label className="text-[10px] font-bold text-gray-400 mb-1 block">{t('departure')}</Label>
                       <span className="text-base font-bold text-gray-700">
                         {toDate ? formatDateString(toDate) : t('departure')}
                       </span>
@@ -259,12 +260,12 @@ const TabsHotel = ({ active }: Props) => {
           </div>
 
           {/* Tourists Selection */}
-          <div className="relative gap-2 h-full ">
+          <div className="relative gap-2 h-full">
             <div
               onClick={() => setAgeOpen(!ageOpen)}
               className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors border-l border-gray-100"
             >
-              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t('tourists')}</Label>
+              <Label className="font-bold text-xs tracking-widest text-gray-400 pl-1">{t('tourists')}</Label>
               <div className="relative">
                 <Input
                   className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
@@ -345,10 +346,10 @@ const TabsHotel = ({ active }: Props) => {
           {/* Search Button */}
           <div className="p-2">
             <Link
-              href={'#'}
+              href={`/${locale}/sanatory`}
               className="bg-[#007654] hover:bg-[#008c64] text-white h-[72px] flex items-center justify-center rounded-[24px] text-center transition-all duration-300 shadow-xl shadow-[#007654]/20 hover:scale-[1.02] active:scale-[0.98]"
             >
-              <p className="text-white font-bold text-lg uppercase tracking-wider">{t('search_tours')}</p>
+              <p className="text-white font-bold text-lg tracking-wider">{t('search_tours')}</p>
             </Link>
           </div>
         </div>

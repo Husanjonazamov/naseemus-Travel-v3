@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import authService from '@/src/services/auth.service';
+import { getBrowserLocale, localizeHref } from '@/src/lib/localize-href';
 
 interface User {
     email: string;
@@ -27,7 +28,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const logout = useCallback(() => {
         authService.logout();
         setUser(null);
-        router.push('/login');
+        router.push(localizeHref(getBrowserLocale(), '/login'));
     }, [router]);
 
     useEffect(() => {
@@ -85,7 +86,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             setUser(userData);
             localStorage.setItem('user', JSON.stringify(userData));
         }
-        router.push('/');
+        router.push(localizeHref(getBrowserLocale(), '/'));
     };
 
     return (

@@ -98,9 +98,7 @@ export function DepartureTable() {
               {/* Availability */}
               <div className="flex items-center justify-between">
                 <span
-                  className={`font-medium ${
-                    departure.availability === "Available" ? "text-foreground" : "text-muted-foreground"
-                  }`}
+                  className={`font-medium ${ departure.availability === "Available" ? "text-foreground" : "text-muted-foreground" }`}
                 >
                   {departure.availability}
                 </span>

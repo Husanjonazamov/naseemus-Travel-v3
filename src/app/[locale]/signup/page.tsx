@@ -9,7 +9,7 @@ import { Input } from "@/src/components/ui/input";
 import { Card, CardContent } from "@/src/components/ui/card";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
@@ -18,6 +18,7 @@ import authService from "@/src/services/auth.service";
 
 export default function SignupPage() {
     const t = useTranslations("auth.signup");
+    const locale = useLocale();
     const router = useRouter();
     const { login: authContextLogin, isAuthenticated } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
@@ -30,9 +31,9 @@ export default function SignupPage() {
     // Check if user is already logged in
     useEffect(() => {
         if (isAuthenticated) {
-            router.push("/my-bookings");
+            router.push(`/${locale}/my-bookings`);
         }
-    }, [isAuthenticated, router]);
+    }, [isAuthenticated, locale, router]);
 
     const handleSignup = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -58,7 +59,7 @@ export default function SignupPage() {
                     first_name: fullName
                 });
                 toast.success(response.data.detail || "Account created successfully!");
-                router.push("/my-bookings");
+                router.push(`/${locale}/my-bookings`);
             } else {
                 toast.error("Registration failed. Please try again.");
             }
@@ -89,7 +90,7 @@ export default function SignupPage() {
                     <div className="text-center mb-10">
                         <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-4 py-2 rounded-full mb-6">
                             <UserPlus size={16} className="text-[#007654]" />
-                            <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">Start Journey</span>
+                            <span className="text-[10px] font-black tracking-widest text-[#007654]">Start journey</span>
                         </div>
                         <h1 className="text-4xl md:text-5xl font-black text-[#1a1a1a] mb-4 tracking-tight">
                             {t("title")}
@@ -103,7 +104,7 @@ export default function SignupPage() {
                         <CardContent className="p-8 md:p-12">
                             <form onSubmit={handleSignup} className="space-y-6">
                                 <div className="space-y-2">
-                                    <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("full_name")}</label>
+                                    <label className="text-[11px] font-black tracking-widest text-gray-400 ml-1">{t("full_name")}</label>
                                     <div className="relative group">
                                         <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300 group-focus-within:text-[#007654] transition-colors" />
                                         <Input
@@ -118,7 +119,7 @@ export default function SignupPage() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("email")}</label>
+                                    <label className="text-[11px] font-black tracking-widest text-gray-400 ml-1">{t("email")}</label>
                                     <div className="relative group">
                                         <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300 group-focus-within:text-[#007654] transition-colors" />
                                         <Input
@@ -133,7 +134,7 @@ export default function SignupPage() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("password")}</label>
+                                    <label className="text-[11px] font-black tracking-widest text-gray-400 ml-1">{t("password")}</label>
                                     <div className="relative group">
                                         <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300 group-focus-within:text-[#007654] transition-colors" />
                                         <Input
@@ -176,7 +177,7 @@ export default function SignupPage() {
                             <div className="mt-12 text-center">
                                 <p className="text-gray-500 font-medium text-sm">
                                     {t("have_account")}{" "}
-                                    <Link href="/login" className="text-[#007654] font-black hover:underline ml-1">
+                                    <Link href={`/${locale}/login`} className="text-[#007654] font-black hover:underline ml-1">
                                         {t("login_link")}
                                     </Link>
                                 </p>

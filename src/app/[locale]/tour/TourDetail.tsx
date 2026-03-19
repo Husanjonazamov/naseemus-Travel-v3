@@ -81,7 +81,7 @@ export default function TourPage() {
       {/* Dates Section */}
       <section className="py-8 mt-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-green-700 mb-4 text-center">DATES</h2>
+          <h2 className="text-3xl font-bold text-green-700 mb-4 text-center">Dates</h2>
           <p className="text-center text-black mb-6">All our departures are guaranteed</p>
 
           {/* Responsive Table */}
@@ -133,7 +133,7 @@ export default function TourPage() {
       {/* Optional Excursions Section */}
       <section className="py-8 mt-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">OPTIONAL EXCURSIONS</h2>
+          <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">Optional excursions</h2>
           <p className="text-black leading-relaxed mb-8 text-center">
             Experience even more of your destination by adding one or more optional excursions to your holiday before
             you set off.

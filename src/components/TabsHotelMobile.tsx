@@ -15,7 +15,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import SearchIcon from '@mui/icons-material/Search';
 import Drawer from '@mui/material/Drawer';
 import clsx from 'clsx';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 import { useState, useEffect } from 'react';
 import { DateRange } from 'react-day-picker';
@@ -33,6 +33,7 @@ interface Props {
 
 const TabsHotelMobile = ({ active }: Props) => {
   const t = useTranslations('hotel');
+  const locale = useLocale();
 
   const [openCityMobile, setOpenCityMobile] = useState(false);
   const [ageOpen, setAgeOpen] = useState(false);
@@ -403,7 +404,7 @@ const TabsHotelMobile = ({ active }: Props) => {
           {/* Search Button */}
           <div className="flex flex-col gap-2">
             <Link
-              href={'#'}
+              href={`/${locale}/sanatory`}
               className="bg-[#007654] hover:bg-[#008c64] text-white h-[64px] flex items-center justify-center rounded-[20px] text-center transition-all duration-300 shadow-xl shadow-[#007654]/10"
             >
               <p className="text-white font-bold text-lg">{t('search_tours')}</p>

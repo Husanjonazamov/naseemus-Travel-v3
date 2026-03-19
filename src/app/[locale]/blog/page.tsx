@@ -108,7 +108,7 @@ export default function BlogsPage() {
       <Header />
 
       {/* Premium Blog Hero */}
-      <section className="relative w-full lg:h-[60vh] min-h-[400px] overflow-hidden">
+      <section className="relative min-h-[360px] w-full overflow-hidden lg:h-[60vh] sm:min-h-[400px]">
         {banner ? (
           <motion.div
             initial={{ scale: 1.1 }}
@@ -130,20 +130,20 @@ export default function BlogsPage() {
           <div className="absolute inset-0 bg-[#007654]" />
         )}
 
-        <div className="relative z-10 h-full max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center">
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-2 rounded-full">
               <Sparkles size={16} className="text-yellow-400" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-white">Naseem's Travel Journal</span>
+              <span className="text-[10px] font-black tracking-widest text-white">Naseem's Travel Journal</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter drop-shadow-2xl">
+            <h1 className="text-4xl font-black tracking-tighter text-white drop-shadow-2xl sm:text-5xl md:text-6xl lg:text-7xl">
               {banner ? banner.title : "Stories & Guides"}
             </h1>
-            <p className="text-white/80 font-medium max-w-2xl mx-auto text-lg">
+            <p className="mx-auto max-w-2xl text-base font-medium text-white/80 sm:text-lg">
               Discover hidden gems, cultural insights, and expert travel tips from our specialists in Central Asia.
             </p>
           </motion.div>
@@ -151,7 +151,7 @@ export default function BlogsPage() {
       </section>
 
       {/* Blog Grid */}
-      <section className="max-w-7xl mx-auto py-24 px-4 sm:px-6">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
         <AnimatePresence mode="wait">
           {loading ? (
             <motion.div
@@ -159,23 +159,23 @@ export default function BlogsPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+              className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:gap-10"
             >
               {[1, 2, 3, 4, 5, 6].map(i => (
-                <div key={i} className="bg-white rounded-[32px] aspect-[4/5] animate-pulse border border-gray-100" />
+                <div key={i} className="aspect-[4/5] animate-pulse rounded-[24px] border border-gray-100 bg-white sm:rounded-[32px]" />
               ))}
             </motion.div>
           ) : blogs.length === 0 ? (
-            <div className="text-center py-20 space-y-4">
+            <div className="space-y-4 py-16 text-center sm:py-20">
               <BookOpen size={64} className="mx-auto text-gray-200" />
-              <p className="text-2xl font-black text-gray-300 uppercase tracking-widest">{t("no_blogs")}</p>
+              <p className="text-2xl font-black text-gray-300 tracking-widest">{t("no_blogs")}</p>
             </div>
           ) : (
             <motion.div
               key="grid"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+              className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:gap-10"
             >
               {blogs.map((blog, idx) => (
                 <motion.div
@@ -183,9 +183,9 @@ export default function BlogsPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
-                  className="group bg-white rounded-[40px] overflow-hidden border border-gray-100 hover:border-[#007654]/20 hover:shadow-[0_32px_80px_-16px_rgba(0,118,84,0.08)] transition-all duration-500"
+                  className="group overflow-hidden rounded-[28px] border border-gray-100 bg-white transition-all duration-500 hover:border-[#007654]/20 hover:shadow-[0_32px_80px_-16px_rgba(0,118,84,0.08)] sm:rounded-[40px]"
                 >
-                  <Link href={`/blog/${blog.slug}`}>
+                  <Link href={`/${locale}/blog/${blog.slug}`}>
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <Image
                         src={blog.image}
@@ -193,23 +193,23 @@ export default function BlogsPage() {
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute top-6 left-6">
-                        <div className="bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl flex items-center gap-2 shadow-sm">
+                      <div className="absolute left-4 top-4 sm:left-6 sm:top-6">
+                        <div className="flex items-center gap-2 rounded-2xl bg-white/80 px-3 py-2 shadow-sm backdrop-blur-md sm:px-4">
                           <Calendar size={14} className="text-[#007654]" />
-                          <span className="text-[10px] font-black uppercase text-gray-600">March 2026</span>
+                          <span className="text-[10px] font-black text-gray-600">March 2026</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="p-8">
-                      <h2 className="text-2xl font-black text-[#1a1a1a] mb-4 group-hover:text-[#007654] transition-colors line-clamp-2 leading-tight">
+                    <div className="p-6 sm:p-8">
+                      <h2 className="mb-4 line-clamp-2 text-xl font-black leading-tight text-[#1a1a1a] transition-colors group-hover:text-[#007654] sm:text-2xl">
                         {blog.title}
                       </h2>
-                      <p className="text-gray-400 font-medium mb-8 line-clamp-3 leading-relaxed">
+                      <p className="mb-6 line-clamp-3 font-medium leading-relaxed text-gray-400 sm:mb-8">
                         {truncateDescription(blog.description)}
                       </p>
 
-                      <div className="flex items-center justify-between pt-6 border-t border-gray-50 text-[10px] font-black uppercase tracking-widest">
+                      <div className="flex items-center justify-between pt-6 border-t border-gray-50 text-[10px] font-black tracking-widest">
                         <div className="flex items-center gap-2 text-gray-400">
                           <User size={14} className="text-[#007654]" />
                           <span>Expert Journal</span>
@@ -229,7 +229,7 @@ export default function BlogsPage() {
 
         {/* Premium Pagination */}
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-4 pt-20">
+          <div className="flex items-center justify-center gap-3 pt-12 sm:gap-4 sm:pt-20">
             <Button
               variant="outline"
               className="w-14 h-14 rounded-2xl border-gray-100 text-gray-400 hover:text-[#007654] hover:border-[#007654] transition-all p-0"

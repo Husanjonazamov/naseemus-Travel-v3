@@ -57,7 +57,7 @@ export function BlogSection() {
               Insights, stories, and guides from the heart of the Silk Road.
             </p>
           </div>
-          <Link href="/blog">
+          <Link href={`/${locale}/blog`}>
             <Button variant="outline" className="border-[#007654] text-[#007654] hover:bg-[#dcfae7] rounded-full px-8">
               View All Stories
             </Button>

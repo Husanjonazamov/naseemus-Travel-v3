@@ -15,19 +15,23 @@ interface SubscribeModalProps {
 export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
     const [isLoading, setIsLoading] = useState(false);
     const [isSubscribed, setIsSubscribed] = useState(false);
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
-        // Mock subscription
-        setTimeout(() => {
-            setIsLoading(false);
+
+        try {
+            const subject = encodeURIComponent("Newsletter subscription request");
+            const body = encodeURIComponent(`Name: ${fullName}\nEmail: ${email}`);
+            window.location.href = `mailto:naseemstravel@gmail.com?subject=${subject}&body=${body}`;
             setIsSubscribed(true);
-            setTimeout(() => {
-                onClose();
-                setIsSubscribed(false);
-            }, 2000);
-        }, 1500);
+            setFullName("");
+            setEmail("");
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -37,7 +41,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                     <div className="mx-auto bg-white/20 p-4 rounded-full w-fit mb-4">
                         <Mail className="w-8 h-8" />
                     </div>
-                    <DialogTitle className="text-2xl font-bold mb-2">Join Our Newsletter</DialogTitle>
+                    <DialogTitle className="text-2xl font-bold mb-2">Join our newsletter</DialogTitle>
                     <DialogDescription className="text-white/80">
                         Subscribe to get exclusive travel deals and updates.
                     </DialogDescription>
@@ -57,6 +61,8 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                                 <div className="relative">
                                     <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                     <Input
+                                        value={fullName}
+                                        onChange={(e) => setFullName(e.target.value)}
                                         placeholder="Full Name"
                                         className="pl-10 py-6 border-gray-200 rounded-xl focus:ring-[#007654] focus:border-[#007654]"
                                         required
@@ -66,6 +72,8 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                     <Input
                                         type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                         placeholder="Email Address"
                                         className="pl-10 py-6 border-gray-200 rounded-xl focus:ring-[#007654] focus:border-[#007654]"
                                         required
@@ -96,8 +104,8 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                                 <div className="mx-auto bg-green-100 p-4 rounded-full w-fit">
                                     <CheckCircle2 className="w-12 h-12 text-[#007654]" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900">Successfully Subscribed!</h3>
-                                <p className="text-gray-600">You're on the list. Check your email soon.</p>
+                                <h3 className="text-2xl font-bold text-gray-900">Successfully subscribed!</h3>
+                                <p className="text-gray-600">Your email app opened with a pre-filled subscription request.</p>
                             </motion.div>
                         )}
                     </AnimatePresence>

@@ -83,7 +83,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 bg-[#dcfae7] px-4 py-2 rounded-full">
                 <Sparkles size={16} className="text-[#007654]" />
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#007654]">{t("premium_booking")}</span>
+                <span className="text-[10px] font-black tracking-widest text-[#007654]">{t("premium_booking")}</span>
               </div>
               <h3 className="text-3xl font-black text-[#1a1a1a] tracking-tight">{t("reserve_spot")}</h3>
               <p className="text-gray-500 font-medium leading-relaxed">{t("reserve_description")}</p>
@@ -92,12 +92,12 @@ export function TourDetails({ tour }: TourDetailsProps) {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gray-50/80 p-6 rounded-3xl border border-gray-100 flex flex-col items-center text-center">
                 <DollarSign size={24} className="text-[#007654] mb-2" />
-                <p className="text-[9px] font-black uppercase text-gray-400 mb-1">{t("fixed_price")}</p>
+                <p className="text-[9px] font-black text-gray-400 mb-1">{t("fixed_price")}</p>
                 <p className="text-xl font-black text-[#1a1a1a]">${tour.price}</p>
               </div>
               <div className="bg-gray-50/80 p-6 rounded-3xl border border-gray-100 flex flex-col items-center text-center">
                 <Calendar size={24} className="text-[#007654] mb-2" />
-                <p className="text-[9px] font-black uppercase text-gray-400 mb-1">{t("duration")}</p>
+                <p className="text-[9px] font-black text-gray-400 mb-1">{t("duration")}</p>
                 <p className="text-xl font-black text-[#1a1a1a]">{tour.date} {t("days")}</p>
               </div>
             </div>
@@ -111,7 +111,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
             </Button>
 
             <div className="flex items-center justify-center gap-4 py-2 text-gray-400">
-              <span className="text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5">
+              <span className="text-[10px] font-black tracking-widest flex items-center gap-1.5">
                 <Sparkles size={12} className="text-[#007654]" />
                 {t("best_price_guarantee")}
               </span>
@@ -144,7 +144,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
 
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{silkT("booking_form.name")}</label>
+                    <label className="text-[10px] font-black tracking-widest text-gray-400 ml-1">{silkT("booking_form.name")}</label>
                     <input
                       type="text"
                       name="name"
@@ -158,7 +158,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{silkT("booking_form.phone")}</label>
+                      <label className="text-[10px] font-black tracking-widest text-gray-400 ml-1">{silkT("booking_form.phone")}</label>
                       <input
                         type="tel"
                         name="phone"
@@ -170,7 +170,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("travelers")}</label>
+                      <label className="text-[10px] font-black tracking-widest text-gray-400 ml-1">{t("travelers")}</label>
                       <input
                         type="number"
                         name="quantity"
@@ -184,7 +184,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">{t("preferred_date")}</label>
+                    <label className="text-[10px] font-black tracking-widest text-gray-400 ml-1">{t("preferred_date")}</label>
                     <DatePicker
                       selected={formData.date ? new Date(formData.date) : null}
                       onChange={(date: Date | null) => setFormData(prev => ({ ...prev, date: date ? date.toISOString().split("T")[0] : "" }))}
@@ -206,7 +206,7 @@ export function TourDetails({ tour }: TourDetailsProps) {
                     <button
                       type="button"
                       onClick={() => setIsOpen(false)}
-                      className="w-full mt-4 text-xs font-black text-gray-300 uppercase tracking-widest hover:text-gray-600 transition-colors"
+                      className="w-full mt-4 text-xs font-black text-gray-300 tracking-widest hover:text-gray-600 transition-colors"
                     >
                       {t("dismiss")}
                     </button>

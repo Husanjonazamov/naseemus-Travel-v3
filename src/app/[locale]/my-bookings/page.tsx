@@ -22,7 +22,7 @@ import { Button } from "@/src/components/ui/button";
 import { Card, CardContent } from "@/src/components/ui/card";
 import { Tabs, TabsContent } from "@/src/components/ui/tabs";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { TourCard } from "@/src/components/TourCard";
@@ -36,12 +36,14 @@ export default function MyBookingsPage() {
     const [isLikesLoading, setIsLikesLoading] = useState(false);
     const { user, logout, loading: authLoading } = useAuth();
     const router = useRouter();
+    const params = useParams();
+    const locale = typeof params.locale === "string" ? params.locale : "en";
 
     useEffect(() => {
         if (!authLoading && !user) {
-            router.push("/login");
+            router.push(`/${locale}/login`);
         }
-    }, [user, authLoading, router]);
+    }, [user, authLoading, locale, router]);
 
     useEffect(() => {
         if (user && activeTab === "tours") {
@@ -92,7 +94,7 @@ export default function MyBookingsPage() {
                                             <User className="w-12 h-12" />
                                         </div>
                                         <h2 className="font-black text-2xl tracking-tight mb-1">{user.first_name || user.email.split('@')[0]}</h2>
-                                        <div className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest backdrop-blur-sm border border-white/10">
+                                        <div className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-[10px] font-black tracking-widest backdrop-blur-sm border border-white/10">
                                             <ShieldCheck size={12} />
                                             Member
                                         </div>
@@ -109,10 +111,7 @@ export default function MyBookingsPage() {
                                             <button
                                                 key={item.id}
                                                 onClick={() => setActiveTab(item.id)}
-                                                className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl text-sm font-bold transition-all duration-300 ${activeTab === item.id
-                                                    ? "bg-[#007654] text-white shadow-lg shadow-[#007654]/20"
-                                                    : "text-gray-500 hover:bg-gray-50 hover:text-[#1a1a1a]"
-                                                    }`}
+                                                className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl text-sm font-bold transition-all duration-300 ${activeTab === item.id ? "bg-[#007654] text-white shadow-lg shadow-[#007654]/20" : "text-gray-500 hover:bg-gray-50 hover:text-[#1a1a1a]" }`}
                                             >
                                                 <div className="flex items-center gap-4">
                                                     {item.icon}
@@ -143,10 +142,10 @@ export default function MyBookingsPage() {
                                 <TabsContent value="bookings" className="m-0 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
                                         <div>
-                                            <h1 className="text-4xl font-black text-[#1a1a1a] tracking-tight">Adventure History</h1>
+                                            <h1 className="text-4xl font-black text-[#1a1a1a] tracking-tight">Adventure history</h1>
                                             <p className="text-gray-500 font-medium mt-1">Manage your upcoming and past journeys.</p>
                                         </div>
-                                        <div className="bg-[#dcfae7] text-[#007654] px-5 py-2 rounded-2xl text-xs font-black uppercase tracking-widest border border-[#c8f7da]">
+                                        <div className="bg-[#dcfae7] text-[#007654] px-5 py-2 rounded-2xl text-xs font-black tracking-widest border border-[#c8f7da]">
                                             2 Active Bookings
                                         </div>
                                     </div>
@@ -178,7 +177,7 @@ export default function MyBookingsPage() {
 
                                 <TabsContent value="tours" className="m-0 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                                     <div>
-                                        <h1 className="text-4xl font-black text-[#1a1a1a] tracking-tight">Saved Destinations</h1>
+                                            <h1 className="text-4xl font-black text-[#1a1a1a] tracking-tight">Saved destinations</h1>
                                         <p className="text-gray-500 font-medium mt-1">Your personal collection of dream travels.</p>
                                     </div>
 
@@ -199,7 +198,7 @@ export default function MyBookingsPage() {
                                             </div>
                                             <h3 className="text-xl font-bold text-gray-900 mb-2">No saved tours yet</h3>
                                             <p className="text-gray-500 max-w-xs mx-auto mb-8">Start exploring and tap the heart icon to save itineraries here.</p>
-                                            <Link href="/tour">
+                                            <Link href={`/${locale}/tour`}>
                                                 <Button className="bg-[#007654] text-white px-8 rounded-2xl h-14 font-bold shadow-lg shadow-[#007654]/10">
                                                     Browse All Tours
                                                 </Button>
@@ -213,7 +212,7 @@ export default function MyBookingsPage() {
                                     <Card className="border border-[#f0f0f0] shadow-sm overflow-hidden bg-white rounded-[32px]">
                                         <div className="overflow-x-auto">
                                             <table className="w-full text-left">
-                                                <thead className="bg-[#fbfbf9] text-[#007654] text-[10px] font-black uppercase tracking-widest border-b border-gray-100">
+                                                <thead className="bg-[#fbfbf9] text-[#007654] text-[10px] font-black tracking-widest border-b border-gray-100">
                                                     <tr>
                                                         <th className="px-8 py-6">Transaction</th>
                                                         <th className="px-8 py-6">Date</th>
@@ -229,7 +228,7 @@ export default function MyBookingsPage() {
                                                         <td className="px-8 py-6 font-bold text-[#007654]">NT-8821</td>
                                                         <td className="px-8 py-6 font-black text-[#1a1a1a]">£2,450</td>
                                                         <td className="px-8 py-6 text-right">
-                                                            <span className="bg-[#dcfae7] text-[#007654] px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-[#c8f7da]">Success</span>
+                                                            <span className="bg-[#dcfae7] text-[#007654] px-3 py-1.5 rounded-full text-[10px] font-black tracking-widest border border-[#c8f7da]">Success</span>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -266,10 +265,10 @@ function BookingDashboardCard({ title, status, date, location, price, id, image,
                                 <h3 className="text-2xl font-black text-[#1a1a1a] tracking-tight group-hover:text-[#007654] transition-colors">{title}</h3>
                                 <div className="flex items-center gap-2 mt-1">
                                     <div className="w-1.5 h-1.5 rounded-full bg-[#007654]" />
-                                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Ref: {id}</p>
+                                    <p className="text-[10px] font-black tracking-[0.2em] text-gray-400">Ref: {id}</p>
                                 </div>
                             </div>
-                            <span className={`${statusColor} px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-widest border`}>
+                            <span className={`${statusColor} px-4 py-2 rounded-2xl text-[10px] font-black tracking-widest border`}>
                                 {status}
                             </span>
                         </div>
@@ -280,7 +279,7 @@ function BookingDashboardCard({ title, status, date, location, price, id, image,
                                     <Calendar size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-0.5">Departure</p>
+                                    <p className="text-[9px] font-black tracking-widest text-gray-400 mb-0.5">Departure</p>
                                     <p className="text-sm font-bold text-[#1a1a1a]">{date}</p>
                                 </div>
                             </div>
@@ -289,7 +288,7 @@ function BookingDashboardCard({ title, status, date, location, price, id, image,
                                     <MapPin size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-0.5">Destination</p>
+                                    <p className="text-[9px] font-black tracking-widest text-gray-400 mb-0.5">Destination</p>
                                     <p className="text-sm font-bold text-[#1a1a1a]">{location}</p>
                                 </div>
                             </div>
@@ -298,7 +297,7 @@ function BookingDashboardCard({ title, status, date, location, price, id, image,
                         <div className="mt-auto pt-6 flex flex-col md:flex-row justify-between items-center border-t border-gray-50 gap-4">
                             <div className="flex items-center gap-4">
                                 <div>
-                                    <p className="text-[9px] font-black uppercase tracking-widest text-gray-400">Total Price</p>
+                                    <p className="text-[9px] font-black tracking-widest text-gray-400">Total price</p>
                                     <p className="text-2xl font-black text-[#1a1a1a]">{price}</p>
                                 </div>
                             </div>

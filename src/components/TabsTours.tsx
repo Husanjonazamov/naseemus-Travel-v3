@@ -15,7 +15,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import RemoveIcon from '@mui/icons-material/Remove';
 import SearchIcon from '@mui/icons-material/Search';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { DateRange } from 'react-day-picker';
@@ -32,6 +32,7 @@ interface Props {
 
 const TabsTours = ({ active }: Props) => {
   const t = useTranslations("searchPage");
+  const locale = useLocale();
   const [openCity, setOpenCity] = useState(false);
   const [ageOpen, setAgeOpen] = useState(false);
   const [where, setWhere] = useState(false);
@@ -89,7 +90,7 @@ const TabsTours = ({ active }: Props) => {
         <div className="mt-12 bg-white/95 backdrop-blur-xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-white/20 p-2 rounded-[32px] w-full max-w-[1240px] grid grid-cols-5 items-center max-lg:hidden font-medium">
 
           {/* FROM CITY */}
-          <div className="relative gap-2 h-full ">
+          <div className="relative gap-2 h-full">
             <div
               onClick={() => {
                 setOpenCity(!openCity);
@@ -97,7 +98,7 @@ const TabsTours = ({ active }: Props) => {
               }}
               className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors"
             >
-              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t("from")}</Label>
+              <Label className="font-bold text-xs tracking-widest text-gray-400 pl-1">{t("from")}</Label>
               <div className="relative">
                 <Input
                   className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
@@ -176,7 +177,7 @@ const TabsTours = ({ active }: Props) => {
           </div>
 
           {/* TO CITY */}
-          <div className="relative gap-2 h-full ">
+          <div className="relative gap-2 h-full">
             <div
               onClick={() => {
                 setWhere(!where);
@@ -184,7 +185,7 @@ const TabsTours = ({ active }: Props) => {
               }}
               className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors border-l border-gray-100"
             >
-              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t("to")}</Label>
+              <Label className="font-bold text-xs tracking-widest text-gray-400 pl-1">{t("to")}</Label>
               <div className="relative">
                 <Input
                   className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
@@ -205,7 +206,7 @@ const TabsTours = ({ active }: Props) => {
               </div>
             </div>
 
-            {where && <div className="fixed inset-0 z-40 " onClick={() => setWhere(false)} />}
+            {where && <div className="fixed inset-0 z-40" onClick={() => setWhere(false)} />}
 
             <AnimatePresence>
               {where && (
@@ -259,14 +260,14 @@ const TabsTours = ({ active }: Props) => {
               )}
             </AnimatePresence>
           </div>
-          <div className="relative gap-2 h-full ">
+          <div className="relative gap-2 h-full">
             <div
               onClick={() => {
                 setDataOpen(!dataOpen);
               }}
               className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors border-l border-gray-100"
             >
-              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t("departureDate")}</Label>
+              <Label className="font-bold text-xs tracking-widest text-gray-400 pl-1">{t("departureDate")}</Label>
               <div className="relative">
                 <Input
                   className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
@@ -289,7 +290,7 @@ const TabsTours = ({ active }: Props) => {
 
             {dataOpen && (
               <div
-                className="fixed inset-0 z-40 "
+                className="fixed inset-0 z-40"
                 onClick={() => setDataOpen(false)}
               />
             )}
@@ -306,14 +307,14 @@ const TabsTours = ({ active }: Props) => {
                 >
                   <div className="flex gap-4 items-center mb-6">
                     <div className="flex-1 bg-gray-50 p-3 rounded-2xl border-none">
-                      <Label className="text-[10px] uppercase font-bold text-gray-400 mb-1 block">{t("from")}</Label>
+                      <Label className="text-[10px] font-bold text-gray-400 mb-1 block">{t("from")}</Label>
                       <span className="text-base font-bold text-gray-700">
                         {fromDate ? formatDate(fromDate, 'dd/MM/yyyy') : t("when")}
                       </span>
                     </div>
                     <ArrowRightAltIcon color="action" />
                     <div className="flex-1 bg-gray-50 p-3 rounded-2xl border-none">
-                      <Label className="text-[10px] uppercase font-bold text-gray-400 mb-1 block">{t("to")}</Label>
+                      <Label className="text-[10px] font-bold text-gray-400 mb-1 block">{t("to")}</Label>
                       <span className="text-base font-bold text-gray-700">
                         {toDate ? formatDate(toDate, 'dd/MM/yyyy') : t("to")}
                       </span>
@@ -367,14 +368,14 @@ const TabsTours = ({ active }: Props) => {
             </AnimatePresence>
           </div>
 
-          <div className="relative gap-2 h-full ">
+          <div className="relative gap-2 h-full">
             <div
               onClick={() => {
                 setAgeOpen(!where);
               }}
               className="cursor-pointer flex flex-col gap-2 p-4 rounded-3xl hover:bg-gray-50 transition-colors border-l border-gray-100"
             >
-              <Label className="font-bold text-xs uppercase tracking-widest text-gray-400 pl-1">{t("tourists")}</Label>
+              <Label className="font-bold text-xs tracking-widest text-gray-400 pl-1">{t("tourists")}</Label>
               <div className="relative">
                 <Input
                   className="h-10 border-none shadow-none text-lg font-bold placeholder:text-gray-300 focus-visible:ring-0 p-1"
@@ -387,7 +388,7 @@ const TabsTours = ({ active }: Props) => {
 
             {ageOpen && (
               <div
-                className="fixed inset-0 z-40 "
+                className="fixed inset-0 z-40"
                 onClick={() => setAgeOpen(false)}
               />
             )}
@@ -459,10 +460,10 @@ const TabsTours = ({ active }: Props) => {
 
           <div className="p-2">
             <Link
-              href={'#'}
+              href={`/${locale}/tour`}
               className="bg-[#007654] hover:bg-[#008c64] text-white h-[72px] flex items-center justify-center rounded-[24px] text-center transition-all duration-300 shadow-xl shadow-[#007654]/20 hover:scale-[1.02] active:scale-[0.98]"
             >
-              <p className="text-white font-bold text-lg uppercase tracking-wider">{t("searchTours")}</p>
+              <p className="text-white font-bold text-lg tracking-wider">{t("searchTours")}</p>
             </Link>
           </div>
         </div>
